@@ -45,6 +45,7 @@ namespace diplwinform_v1_1.Views
         }
 
 
+
         private void SetupSerialport(object sender, EventArgs e)
         {
             string message = "";
@@ -89,9 +90,11 @@ namespace diplwinform_v1_1.Views
 
             BeginInvoke((Action)delegate
             {
-                MessageBox.Show($"{message}", "SerialPort Status", MessageBoxButtons.OK);
+                MessageBox.Show($"{message}", "SerialPort Status", MessageBoxButtons.OK, MessageBoxIcon.Information);
             });
         }
+
+
 
         private void CheckForConnections_VisibleChanged(object sender, EventArgs e)
         {
@@ -108,6 +111,7 @@ namespace diplwinform_v1_1.Views
                 }
             }
         }
+
 
 
         //used to refresh the port box to get newly mounted devices

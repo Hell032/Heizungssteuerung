@@ -15,6 +15,8 @@ namespace diplwinform_v1_1.Views
         public Temperatures()
         {
             InitializeComponent();
+
+
         }
     }
 }

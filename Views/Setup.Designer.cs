@@ -166,8 +166,6 @@
             // 
             // PortBox
             // 
-            this.PortBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
             this.PortBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 24.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PortBox.Location = new System.Drawing.Point(395, 55);
             this.PortBox.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
@@ -191,28 +189,28 @@
             // 
             // transparentLabel3
             // 
+            this.transparentLabel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.transparentLabel3.AutoSize = true;
-            this.transparentLabel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.transparentLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.transparentLabel3.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.transparentLabel3.Location = new System.Drawing.Point(395, 110);
+            this.transparentLabel3.Location = new System.Drawing.Point(395, 119);
             this.transparentLabel3.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.transparentLabel3.Name = "transparentLabel3";
-            this.transparentLabel3.Size = new System.Drawing.Size(390, 55);
+            this.transparentLabel3.Size = new System.Drawing.Size(192, 46);
             this.transparentLabel3.TabIndex = 26;
             this.transparentLabel3.Text = "Baudrate:";
             this.transparentLabel3.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
             // transparentLabel2
             // 
+            this.transparentLabel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.transparentLabel2.AutoSize = true;
-            this.transparentLabel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.transparentLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.transparentLabel2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.transparentLabel2.Location = new System.Drawing.Point(395, 0);
+            this.transparentLabel2.Location = new System.Drawing.Point(395, 9);
             this.transparentLabel2.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.transparentLabel2.Name = "transparentLabel2";
-            this.transparentLabel2.Size = new System.Drawing.Size(390, 55);
+            this.transparentLabel2.Size = new System.Drawing.Size(211, 46);
             this.transparentLabel2.TabIndex = 21;
             this.transparentLabel2.Text = "Enter Port:";
             this.transparentLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -280,9 +278,11 @@
             this.ClientSize = new System.Drawing.Size(785, 404);
             this.Controls.Add(this.tableLayoutPanel1);
             this.ForeColor = System.Drawing.Color.White;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Setup";
             this.Opacity = 0D;
             this.Text = "Setup";
+            this.VisibleChanged += new System.EventHandler(this.CheckForConnections_VisibleChanged);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
