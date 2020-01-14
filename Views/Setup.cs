@@ -17,20 +17,20 @@ namespace diplwinform_v1_1.Views
             InitializeComponent();
 
 
-            SetStyle(ControlStyles.SupportsTransparentBackColor, true);
+            //SetStyle(ControlStyles.SupportsTransparentBackColor, true);
             SetStyle(ControlStyles.Opaque, true);
-            this.BackColor = Color.Transparent;
+            //this.BackColor = Color.Transparent;
 
             //this.BackColor = Color.LimeGreen;
-            this.TransparencyKey = Color.Transparent;
+            //this.TransparencyKey = Color.Transparent;
 
-            this.label1.BackColor = Color.Transparent;
+            //this.label1.BackColor = Color.Transparent;
         }
 
-        protected override void OnPaintBackground(PaintEventArgs e)
-        {
-            e.Graphics.FillRectangle(Brushes.Transparent , e.ClipRectangle);
-        }
+        //protected override void OnPaintBackground(PaintEventArgs e)
+        //{
+        //    e.Graphics.FillRectangle(Brushes.Transparent , e.ClipRectangle);
+        //}
 
     }
 
