@@ -24,7 +24,7 @@ namespace diplwinform_v1_1.Views
             SetStyle(ControlStyles.SupportsTransparentBackColor, true);
             SetStyle(ControlStyles.Opaque, true);
             this.BackColor = Color.Transparent;
-
+            this.FormBorderStyle = FormBorderStyle.None;
 
             GetAvailablePorts();
 
@@ -133,10 +133,6 @@ namespace diplwinform_v1_1.Views
             }
         }
 
-        private void tableLayoutPanel5_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
     }
 
 }

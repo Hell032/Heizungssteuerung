@@ -1,6 +1,6 @@
 ﻿namespace diplwinform_v1_1.Views
 {
-    partial class Setup
+    partial class Temperatures
     {
         /// <summary>
         /// Required designer variable.
@@ -30,12 +30,12 @@
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.PortBox = new System.Windows.Forms.TextBox();
+            this.BaudrateBox = new System.Windows.Forms.ComboBox();
+            this.PortListBox = new System.Windows.Forms.ListBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.PortStatusLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.BaudrateBox = new System.Windows.Forms.ComboBox();
-            this.PortBox = new System.Windows.Forms.TextBox();
-            this.PortListBox = new System.Windows.Forms.ListBox();
             this.transparentLabel3 = new diplwinform_v1_1.TransparentLabel();
             this.transparentLabel2 = new diplwinform_v1_1.TransparentLabel();
             this.transparentLabel1 = new diplwinform_v1_1.TransparentLabel();
@@ -64,7 +64,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(785, 404);
-            this.tableLayoutPanel1.TabIndex = 1;
+            this.tableLayoutPanel1.TabIndex = 2;
             // 
             // tableLayoutPanel2
             // 
@@ -90,6 +90,56 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(785, 232);
             this.tableLayoutPanel2.TabIndex = 3;
             // 
+            // PortBox
+            // 
+            this.PortBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.PortBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 24.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PortBox.Location = new System.Drawing.Point(395, 55);
+            this.PortBox.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.PortBox.Name = "PortBox";
+            this.PortBox.Size = new System.Drawing.Size(390, 45);
+            this.PortBox.TabIndex = 25;
+            // 
+            // BaudrateBox
+            // 
+            this.BaudrateBox.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.BaudrateBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BaudrateBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 24.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BaudrateBox.FormattingEnabled = true;
+            this.BaudrateBox.Items.AddRange(new object[] {
+            "300",
+            "600",
+            "1200",
+            "2400",
+            "4800",
+            "9600",
+            "14400",
+            "19200",
+            "28800",
+            "31250",
+            "38400",
+            "57600",
+            "115200"});
+            this.BaudrateBox.Location = new System.Drawing.Point(395, 174);
+            this.BaudrateBox.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.BaudrateBox.Name = "BaudrateBox";
+            this.BaudrateBox.Size = new System.Drawing.Size(390, 46);
+            this.BaudrateBox.TabIndex = 23;
+            // 
+            // PortListBox
+            // 
+            this.PortListBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PortListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 24.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PortListBox.FormattingEnabled = true;
+            this.PortListBox.ItemHeight = 38;
+            this.PortListBox.Location = new System.Drawing.Point(0, 55);
+            this.PortListBox.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
+            this.PortListBox.Name = "PortListBox";
+            this.tableLayoutPanel2.SetRowSpan(this.PortListBox, 3);
+            this.PortListBox.Size = new System.Drawing.Size(389, 165);
+            this.PortListBox.TabIndex = 8;
+            // 
             // tableLayoutPanel3
             // 
             this.tableLayoutPanel3.ColumnCount = 2;
@@ -103,7 +153,7 @@
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 74F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(785, 80);
             this.tableLayoutPanel3.TabIndex = 4;
             // 
@@ -137,57 +187,6 @@
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 82F));
             this.tableLayoutPanel4.Size = new System.Drawing.Size(785, 82);
             this.tableLayoutPanel4.TabIndex = 5;
-            // 
-            // BaudrateBox
-            // 
-            this.BaudrateBox.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.BaudrateBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BaudrateBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 24.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BaudrateBox.FormattingEnabled = true;
-            this.BaudrateBox.Items.AddRange(new object[] {
-            "300",
-            "600",
-            "1200",
-            "2400",
-            "4800",
-            "9600",
-            "14400",
-            "19200",
-            "28800",
-            "31250",
-            "38400",
-            "57600",
-            "115200"});
-            this.BaudrateBox.Location = new System.Drawing.Point(395, 174);
-            this.BaudrateBox.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.BaudrateBox.Name = "BaudrateBox";
-            this.BaudrateBox.Size = new System.Drawing.Size(390, 46);
-            this.BaudrateBox.TabIndex = 23;
-            // 
-            // PortBox
-            // 
-            this.PortBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.PortBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 24.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PortBox.Location = new System.Drawing.Point(395, 55);
-            this.PortBox.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.PortBox.Name = "PortBox";
-            this.PortBox.Size = new System.Drawing.Size(390, 45);
-            this.PortBox.TabIndex = 25;
-            // 
-            // PortListBox
-            // 
-            this.PortListBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PortListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 24.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PortListBox.FormattingEnabled = true;
-            this.PortListBox.ItemHeight = 38;
-            this.PortListBox.Location = new System.Drawing.Point(0, 55);
-            this.PortListBox.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
-            this.PortListBox.Name = "PortListBox";
-            this.tableLayoutPanel2.SetRowSpan(this.PortListBox, 3);
-            this.PortListBox.Size = new System.Drawing.Size(389, 165);
-            this.PortListBox.TabIndex = 8;
-            this.PortListBox.SelectedIndexChanged += new System.EventHandler(this.SelectedValueChanged);
             // 
             // transparentLabel3
             // 
@@ -256,7 +255,6 @@
             this.transparentButton1.TabIndex = 15;
             this.transparentButton1.Text = "Refresh";
             this.transparentButton1.UseVisualStyleBackColor = true;
-            this.transparentButton1.Click += new System.EventHandler(this.Refresh_Click);
             // 
             // transparentButton2
             // 
@@ -270,19 +268,15 @@
             this.transparentButton2.TabIndex = 14;
             this.transparentButton2.Text = "Open";
             this.transparentButton2.UseVisualStyleBackColor = true;
-            this.transparentButton2.Click += new System.EventHandler(this.SetupSerialport);
             // 
-            // Setup
+            // Temperatures
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ControlDark;
             this.ClientSize = new System.Drawing.Size(785, 404);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.ForeColor = System.Drawing.Color.White;
-            this.Name = "Setup";
-            this.Opacity = 0D;
-            this.Text = "Setup";
+            this.Name = "Temperatures";
+            this.Text = "Temperatures";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
@@ -297,15 +291,15 @@
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private TransparentLabel SetupLabel;
-        private System.Windows.Forms.Label PortStatusLabel;
         private TransparentLabel transparentLabel3;
         private System.Windows.Forms.TextBox PortBox;
         private System.Windows.Forms.ComboBox BaudrateBox;
         private TransparentLabel transparentLabel2;
         private TransparentLabel transparentLabel1;
         private System.Windows.Forms.ListBox PortListBox;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.Label PortStatusLabel;
+        private TransparentLabel SetupLabel;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private TransparentButton transparentButton1;
         private TransparentButton transparentButton2;

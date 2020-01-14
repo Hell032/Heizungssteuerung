@@ -18,10 +18,23 @@ namespace diplwinform_v1_1
             InitializeComponent();
 
             this.MenuPanel.Controls.Add(Program.SetupForm);
+
+            // Define the border style of the form to a dialog box.
+            this.FormBorderStyle = FormBorderStyle.FixedDialog;
+
+            // Set the MaximizeBox to false to remove the maximize box.
+            this.MaximizeBox = false;
+
+            // Set the MinimizeBox to false to remove the minimize box.
+            this.MinimizeBox = false;
+
+            // Set the start position of the form to the center of the screen.
+            this.StartPosition = FormStartPosition.CenterScreen;
+
+            // Display the form as a modal dialog box.
+            //this.ShowDialog();
         }
-
-
-
+                       
         //---------------------------------------------click events--------------------------------------
        
 
