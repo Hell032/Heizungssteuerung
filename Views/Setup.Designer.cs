@@ -67,11 +67,12 @@
             // 
             this.myLabel1.AutoSize = true;
             this.myLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.myLabel1.Location = new System.Drawing.Point(164, 149);
+            this.myLabel1.ForeColor = System.Drawing.Color.White;
+            this.myLabel1.Location = new System.Drawing.Point(27, 152);
             this.myLabel1.Name = "myLabel1";
-            this.myLabel1.Size = new System.Drawing.Size(459, 108);
+            this.myLabel1.Size = new System.Drawing.Size(730, 108);
             this.myLabel1.TabIndex = 2;
-            this.myLabel1.Text = "myLabel1";
+            this.myLabel1.Text = "myLabel1söldkfj";
             // 
             // Setup
             // 
