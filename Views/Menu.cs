@@ -21,5 +21,10 @@ namespace diplwinform_v1_1
         {
 
         }
+
+        private void Menu_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
