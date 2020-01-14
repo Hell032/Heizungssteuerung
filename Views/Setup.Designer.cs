@@ -140,7 +140,7 @@
             // 
             // BaudrateBox
             // 
-            this.BaudrateBox.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.BaudrateBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.BaudrateBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BaudrateBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 24.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BaudrateBox.FormattingEnabled = true;
@@ -161,7 +161,7 @@
             this.BaudrateBox.Location = new System.Drawing.Point(395, 174);
             this.BaudrateBox.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.BaudrateBox.Name = "BaudrateBox";
-            this.BaudrateBox.Size = new System.Drawing.Size(390, 46);
+            this.BaudrateBox.Size = new System.Drawing.Size(387, 46);
             this.BaudrateBox.TabIndex = 23;
             // 
             // PortBox
@@ -200,7 +200,7 @@
             this.transparentLabel3.Name = "transparentLabel3";
             this.transparentLabel3.Size = new System.Drawing.Size(390, 55);
             this.transparentLabel3.TabIndex = 26;
-            this.transparentLabel3.Text = "         ";
+            this.transparentLabel3.Text = "Baudrate:";
             this.transparentLabel3.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
             // transparentLabel2
