@@ -18,10 +18,13 @@ namespace diplwinform_v1_1.Views
 
 
             SetStyle(ControlStyles.SupportsTransparentBackColor, true);
+            SetStyle(ControlStyles.Opaque, true);
             this.BackColor = Color.Transparent;
 
             //this.BackColor = Color.LimeGreen;
             this.TransparencyKey = Color.Transparent;
+
+            this.label1.BackColor = Color.Transparent;
         }
 
         protected override void OnPaintBackground(PaintEventArgs e)
@@ -30,4 +33,23 @@ namespace diplwinform_v1_1.Views
         }
 
     }
+
+
+    class MyLabel : Label
+    {
+        public MyLabel()
+    {
+        this.SetStyle(ControlStyles.Opaque, true);
+        this.SetStyle(ControlStyles.OptimizedDoubleBuffer, false);
+    }
+    protected override CreateParams CreateParams
+    {
+        get
+        {
+            CreateParams parms = base.CreateParams;
+            parms.ExStyle |= 0x20;  // Turn on WS_EX_TRANSPARENT
+            return parms;
+        }
+    }
+}
 }

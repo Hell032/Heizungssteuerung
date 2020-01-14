@@ -17,7 +17,6 @@ namespace diplwinform_v1_1
 
             InitializeComponent();
 
-
             this.MenuPanel.Controls.Add(Program.SetupForm);
         }
 

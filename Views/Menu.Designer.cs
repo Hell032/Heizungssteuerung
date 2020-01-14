@@ -159,6 +159,7 @@
             // 
             // MenuPanel
             // 
+            this.MenuPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.MenuPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MenuPanel.Location = new System.Drawing.Point(204, 115);
             this.MenuPanel.Name = "MenuPanel";
