@@ -61,6 +61,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.MenuLabel.AutoSize = true;
             this.MenuLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MenuLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.MenuLabel.Location = new System.Drawing.Point(3, 0);
             this.MenuLabel.Name = "MenuLabel";
             this.MenuLabel.Size = new System.Drawing.Size(149, 85);
@@ -91,12 +92,13 @@
             this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.button1.Location = new System.Drawing.Point(3, 3);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(147, 73);
             this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
+            this.button1.Text = "Temperatures";
             this.button1.UseVisualStyleBackColor = true;
             // 
             // Menu
