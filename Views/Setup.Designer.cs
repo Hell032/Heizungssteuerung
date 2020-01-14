@@ -28,37 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.myLabel1 = new diplwinform_v1_1.Views.MyLabel();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.transparentLabel1 = new diplwinform_v1_1.TransparentLabel();
+            this.transparentButton1 = new diplwinform_v1_1.TransparentButton();
             this.SuspendLayout();
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.Transparent;
-            this.button1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(0, 314);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(800, 136);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Temperatures";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // myLabel1
-            // 
-            this.myLabel1.AutoSize = true;
-            this.myLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.myLabel1.ForeColor = System.Drawing.Color.White;
-            this.myLabel1.Location = new System.Drawing.Point(27, 152);
-            this.myLabel1.Name = "myLabel1";
-            this.myLabel1.Size = new System.Drawing.Size(730, 108);
-            this.myLabel1.TabIndex = 2;
-            this.myLabel1.Text = "myLabel1söldkfj";
             // 
             // linkLabel1
             // 
@@ -73,15 +46,38 @@
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "linkLabel1";
             // 
+            // transparentLabel1
+            // 
+            this.transparentLabel1.AutoSize = true;
+            this.transparentLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.transparentLabel1.ForeColor = System.Drawing.Color.White;
+            this.transparentLabel1.Location = new System.Drawing.Point(53, 162);
+            this.transparentLabel1.Name = "transparentLabel1";
+            this.transparentLabel1.Size = new System.Drawing.Size(688, 108);
+            this.transparentLabel1.TabIndex = 4;
+            this.transparentLabel1.Text = "transparentLab";
+            // 
+            // transparentButton1
+            // 
+            this.transparentButton1.BackColor = System.Drawing.Color.Transparent;
+            this.transparentButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.transparentButton1.ForeColor = System.Drawing.Color.White;
+            this.transparentButton1.Location = new System.Drawing.Point(209, 311);
+            this.transparentButton1.Name = "transparentButton1";
+            this.transparentButton1.Size = new System.Drawing.Size(340, 117);
+            this.transparentButton1.TabIndex = 5;
+            this.transparentButton1.Text = "transparentButton1";
+            this.transparentButton1.UseVisualStyleBackColor = false;
+            // 
             // Setup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.transparentButton1);
+            this.Controls.Add(this.transparentLabel1);
             this.Controls.Add(this.linkLabel1);
-            this.Controls.Add(this.myLabel1);
-            this.Controls.Add(this.button1);
             this.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.Name = "Setup";
             this.Opacity = 0D;
@@ -92,8 +88,8 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button button1;
-        private MyLabel myLabel1;
         private System.Windows.Forms.LinkLabel linkLabel1;
+        private TransparentLabel transparentLabel1;
+        private TransparentButton transparentButton1;
     }
 }
