@@ -78,8 +78,8 @@
             this.tableLayoutPanel2.Controls.Add(this.transparentLabel1, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.PortListBox, 0, 1);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 80);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 90);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0, 10, 0, 0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 5;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 23.80952F));
@@ -87,7 +87,7 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 23.80952F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 23.80952F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.761905F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(785, 242);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(785, 232);
             this.tableLayoutPanel2.TabIndex = 3;
             // 
             // tableLayoutPanel3
@@ -98,12 +98,13 @@
             this.tableLayoutPanel3.Controls.Add(this.PortStatusLabel, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.SetupLabel, 0, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 74F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(779, 74);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(785, 80);
             this.tableLayoutPanel3.TabIndex = 4;
             // 
             // PortStatusLabel
@@ -112,9 +113,10 @@
             this.PortStatusLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PortStatusLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.PortStatusLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PortStatusLabel.Location = new System.Drawing.Point(626, 0);
+            this.PortStatusLabel.Location = new System.Drawing.Point(628, 0);
+            this.PortStatusLabel.Margin = new System.Windows.Forms.Padding(0);
             this.PortStatusLabel.Name = "PortStatusLabel";
-            this.PortStatusLabel.Size = new System.Drawing.Size(150, 74);
+            this.PortStatusLabel.Size = new System.Drawing.Size(157, 80);
             this.PortStatusLabel.TabIndex = 12;
             this.PortStatusLabel.Text = "Port Status:\r\nport status not available";
             this.PortStatusLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -138,7 +140,8 @@
             // 
             // BaudrateBox
             // 
-            this.BaudrateBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BaudrateBox.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.BaudrateBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BaudrateBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 24.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BaudrateBox.FormattingEnabled = true;
             this.BaudrateBox.Items.AddRange(new object[] {
@@ -155,7 +158,7 @@
             "38400",
             "57600",
             "115200"});
-            this.BaudrateBox.Location = new System.Drawing.Point(395, 171);
+            this.BaudrateBox.Location = new System.Drawing.Point(395, 174);
             this.BaudrateBox.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.BaudrateBox.Name = "BaudrateBox";
             this.BaudrateBox.Size = new System.Drawing.Size(390, 46);
@@ -166,7 +169,7 @@
             this.PortBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.PortBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 24.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PortBox.Location = new System.Drawing.Point(395, 57);
+            this.PortBox.Location = new System.Drawing.Point(395, 55);
             this.PortBox.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.PortBox.Name = "PortBox";
             this.PortBox.Size = new System.Drawing.Size(390, 45);
@@ -178,11 +181,11 @@
             this.PortListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 24.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PortListBox.FormattingEnabled = true;
             this.PortListBox.ItemHeight = 38;
-            this.PortListBox.Location = new System.Drawing.Point(0, 57);
+            this.PortListBox.Location = new System.Drawing.Point(0, 55);
             this.PortListBox.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
             this.PortListBox.Name = "PortListBox";
             this.tableLayoutPanel2.SetRowSpan(this.PortListBox, 3);
-            this.PortListBox.Size = new System.Drawing.Size(389, 171);
+            this.PortListBox.Size = new System.Drawing.Size(389, 165);
             this.PortListBox.TabIndex = 8;
             this.PortListBox.SelectedIndexChanged += new System.EventHandler(this.SelectedValueChanged);
             // 
@@ -192,10 +195,10 @@
             this.transparentLabel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.transparentLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.transparentLabel3.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.transparentLabel3.Location = new System.Drawing.Point(395, 114);
+            this.transparentLabel3.Location = new System.Drawing.Point(395, 110);
             this.transparentLabel3.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.transparentLabel3.Name = "transparentLabel3";
-            this.transparentLabel3.Size = new System.Drawing.Size(390, 57);
+            this.transparentLabel3.Size = new System.Drawing.Size(390, 55);
             this.transparentLabel3.TabIndex = 26;
             this.transparentLabel3.Text = "Baudrate:";
             this.transparentLabel3.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -209,7 +212,7 @@
             this.transparentLabel2.Location = new System.Drawing.Point(395, 0);
             this.transparentLabel2.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.transparentLabel2.Name = "transparentLabel2";
-            this.transparentLabel2.Size = new System.Drawing.Size(390, 57);
+            this.transparentLabel2.Size = new System.Drawing.Size(390, 55);
             this.transparentLabel2.TabIndex = 21;
             this.transparentLabel2.Text = "Enter Port:";
             this.transparentLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -218,12 +221,12 @@
             // 
             this.transparentLabel1.AutoSize = true;
             this.transparentLabel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.transparentLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.transparentLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.transparentLabel1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.transparentLabel1.Location = new System.Drawing.Point(0, 0);
             this.transparentLabel1.Margin = new System.Windows.Forms.Padding(0);
             this.transparentLabel1.Name = "transparentLabel1";
-            this.transparentLabel1.Size = new System.Drawing.Size(392, 57);
+            this.transparentLabel1.Size = new System.Drawing.Size(392, 55);
             this.transparentLabel1.TabIndex = 20;
             this.transparentLabel1.Text = "Available Ports:";
             this.transparentLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -232,10 +235,11 @@
             // 
             this.SetupLabel.AutoSize = true;
             this.SetupLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SetupLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SetupLabel.Location = new System.Drawing.Point(3, 0);
+            this.SetupLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 54.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SetupLabel.Location = new System.Drawing.Point(0, 0);
+            this.SetupLabel.Margin = new System.Windows.Forms.Padding(0);
             this.SetupLabel.Name = "SetupLabel";
-            this.SetupLabel.Size = new System.Drawing.Size(617, 74);
+            this.SetupLabel.Size = new System.Drawing.Size(628, 80);
             this.SetupLabel.TabIndex = 3;
             this.SetupLabel.Text = "Setup";
             this.SetupLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
