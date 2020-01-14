@@ -18,7 +18,7 @@ namespace diplwinform_v1_1.Views
 
 
             SetStyle(ControlStyles.SupportsTransparentBackColor, true);
-            this.BackColor = 
+            this.BackColor = Color.Transparent;
 
             //this.BackColor = Color.LimeGreen;
             this.TransparencyKey = Color.Transparent;
@@ -26,7 +26,7 @@ namespace diplwinform_v1_1.Views
 
         protected override void OnPaintBackground(PaintEventArgs e)
         {
-            //e.Graphics.FillRectangle(Brushes.Transparent , e.ClipRectangle);
+            e.Graphics.FillRectangle(Brushes.Transparent , e.ClipRectangle);
         }
 
     }
