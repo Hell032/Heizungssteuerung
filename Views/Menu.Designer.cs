@@ -86,14 +86,15 @@
             this.tableLayoutPanel3.Controls.Add(this.button1, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.SetupButton, 0, 2);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 115);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 112);
+            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 4;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(195, 443);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(195, 449);
             this.tableLayoutPanel3.TabIndex = 3;
             // 
             // ExitButton
@@ -104,7 +105,7 @@
             this.ExitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ExitButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ExitButton.ForeColor = System.Drawing.Color.White;
-            this.ExitButton.Location = new System.Drawing.Point(3, 333);
+            this.ExitButton.Location = new System.Drawing.Point(3, 339);
             this.ExitButton.Name = "ExitButton";
             this.ExitButton.Size = new System.Drawing.Size(189, 107);
             this.ExitButton.TabIndex = 4;
@@ -120,9 +121,9 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(3, 113);
+            this.button2.Location = new System.Drawing.Point(3, 115);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(189, 104);
+            this.button2.Size = new System.Drawing.Size(189, 106);
             this.button2.TabIndex = 1;
             this.button2.Text = "Functions";
             this.button2.UseVisualStyleBackColor = true;
@@ -137,7 +138,7 @@
             this.button1.ForeColor = System.Drawing.Color.White;
             this.button1.Location = new System.Drawing.Point(3, 3);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(189, 104);
+            this.button1.Size = new System.Drawing.Size(189, 106);
             this.button1.TabIndex = 0;
             this.button1.Text = "Temperatures";
             this.button1.UseVisualStyleBackColor = true;
@@ -150,9 +151,9 @@
             this.SetupButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SetupButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SetupButton.ForeColor = System.Drawing.Color.White;
-            this.SetupButton.Location = new System.Drawing.Point(3, 223);
+            this.SetupButton.Location = new System.Drawing.Point(3, 227);
             this.SetupButton.Name = "SetupButton";
-            this.SetupButton.Size = new System.Drawing.Size(189, 104);
+            this.SetupButton.Size = new System.Drawing.Size(189, 106);
             this.SetupButton.TabIndex = 3;
             this.SetupButton.Text = "Setup";
             this.SetupButton.UseVisualStyleBackColor = true;
