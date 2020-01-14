@@ -174,7 +174,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(3, 100);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(381, 46);
+            this.panel1.Size = new System.Drawing.Size(381, 42);
             this.panel1.TabIndex = 3;
             // 
             // transparentLabel3
@@ -184,7 +184,7 @@
             this.flowLayoutPanel2.SetFlowBreak(this.transparentLabel3, true);
             this.transparentLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.transparentLabel3.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.transparentLabel3.Location = new System.Drawing.Point(3, 149);
+            this.transparentLabel3.Location = new System.Drawing.Point(3, 145);
             this.transparentLabel3.Name = "transparentLabel3";
             this.transparentLabel3.Size = new System.Drawing.Size(192, 46);
             this.transparentLabel3.TabIndex = 5;
@@ -210,7 +210,7 @@
             "38400",
             "57600",
             "115200"});
-            this.BaudrateBox.Location = new System.Drawing.Point(3, 198);
+            this.BaudrateBox.Location = new System.Drawing.Point(3, 194);
             this.BaudrateBox.Name = "BaudrateBox";
             this.BaudrateBox.Size = new System.Drawing.Size(381, 46);
             this.BaudrateBox.TabIndex = 18;
@@ -220,7 +220,7 @@
             this.transparentButton2.Dock = System.Windows.Forms.DockStyle.Top;
             this.transparentButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.transparentButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.transparentButton2.Location = new System.Drawing.Point(3, 250);
+            this.transparentButton2.Location = new System.Drawing.Point(3, 246);
             this.transparentButton2.Name = "transparentButton2";
             this.transparentButton2.Size = new System.Drawing.Size(380, 63);
             this.transparentButton2.TabIndex = 10;
