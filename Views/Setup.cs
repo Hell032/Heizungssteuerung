@@ -74,7 +74,7 @@ namespace diplwinform_v1_1.Views
                 Program.mySerialPort.Open();
                 Debug.WriteLine($"serialport on {Program.mySerialPort.PortName} Open: {Program.mySerialPort.IsOpen}");
 
-                PortStatusLabel.Text = "Connection established";
+                //PortStatusLabel.Text = "Connection established";
 
                 message += $"\nSerialPort on {Program.mySerialPort.PortName} Open";
 
@@ -83,7 +83,7 @@ namespace diplwinform_v1_1.Views
             {
                 Debug.WriteLine("Unable to open SerialPort");
 
-                PortStatusLabel.Text = "Connection refused";
+                //PortStatusLabel.Text = "Connection refused";
                 message += $"\nUnable to Open SerialPort on {Program.mySerialPort.PortName}";
             }
 
