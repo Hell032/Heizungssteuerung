@@ -14,17 +14,27 @@ namespace diplwinform_v1_1
     {
         public Menu()
         {
+
             InitializeComponent();
+
+
+            this.MenuPanel.Controls.Add(Program.SetupForm);
         }
 
-        private void MenuLabel_Click(object sender, EventArgs e)
+
+
+        //---------------------------------------------click events--------------------------------------
+       
+
+        private void ExitButton_Click(object sender, EventArgs e)
         {
-
+            Application.Exit();
         }
 
-        private void Menu_Load(object sender, EventArgs e)
+        private void SetupButton_Click(object sender, EventArgs e)
         {
-
+            Program.SetupForm.Visible = true;
         }
+
     }
 }
