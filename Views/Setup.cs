@@ -20,6 +20,7 @@ namespace diplwinform_v1_1.Views
 
             InitializeComponent();
 
+
             //needed for transparent form
             SetStyle(ControlStyles.SupportsTransparentBackColor, true);
             SetStyle(ControlStyles.Opaque, true);
@@ -29,6 +30,8 @@ namespace diplwinform_v1_1.Views
             GetAvailablePorts();
 
             this.BaudrateBox.SelectedIndex = 5;
+
+
 
         }
 

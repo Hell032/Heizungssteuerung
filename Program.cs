@@ -33,7 +33,6 @@ namespace diplwinform_v1_1
 
 
             SetupForm = new Setup();
-
             SetupForm.ControlBox = false;
             SetupForm.FormBorderStyle = FormBorderStyle.None;
             SetupForm.StartPosition = FormStartPosition.CenterScreen;
