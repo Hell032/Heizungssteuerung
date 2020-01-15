@@ -46,6 +46,8 @@ namespace diplwinform_v1_1
             MenuForm.ControlBox = false;
             MenuForm.FormBorderStyle = FormBorderStyle.None;
             MenuForm.StartPosition = FormStartPosition.CenterScreen;
+            MenuForm.Size = new System.Drawing.Size(600, 300);
+
             MenuForm.TopLevel = true;
             MenuForm.AutoScroll = true;
 
