@@ -15,6 +15,7 @@ namespace diplwinform_v1_1
         public Menu()
         {
 
+
             InitializeComponent();
 
             this.MenuPanel.Controls.Add(Program.SetupForm);
@@ -33,6 +34,8 @@ namespace diplwinform_v1_1
 
             // Display the form as a modal dialog box.
             //this.ShowDialog();
+
+
         }
                        
         //---------------------------------------------click events--------------------------------------
