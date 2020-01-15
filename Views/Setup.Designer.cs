@@ -92,18 +92,18 @@
             // 
             // PortBox
             // 
-            this.PortBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 24.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PortBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PortBox.Location = new System.Drawing.Point(281, 46);
             this.PortBox.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.PortBox.Name = "PortBox";
-            this.PortBox.Size = new System.Drawing.Size(277, 45);
+            this.PortBox.Size = new System.Drawing.Size(277, 35);
             this.PortBox.TabIndex = 25;
             // 
             // BaudrateBox
             // 
             this.BaudrateBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.BaudrateBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BaudrateBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 24.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BaudrateBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BaudrateBox.FormattingEnabled = true;
             this.BaudrateBox.Items.AddRange(new object[] {
             "300",
@@ -122,7 +122,7 @@
             this.BaudrateBox.Location = new System.Drawing.Point(281, 138);
             this.BaudrateBox.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.BaudrateBox.Name = "BaudrateBox";
-            this.BaudrateBox.Size = new System.Drawing.Size(277, 46);
+            this.BaudrateBox.Size = new System.Drawing.Size(277, 37);
             this.BaudrateBox.TabIndex = 23;
             // 
             // PortListBox
@@ -233,7 +233,7 @@
             // 
             this.SetupLabel.AutoSize = true;
             this.SetupLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SetupLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SetupLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SetupLabel.Location = new System.Drawing.Point(0, 0);
             this.SetupLabel.Margin = new System.Windows.Forms.Padding(0);
             this.SetupLabel.Name = "SetupLabel";
