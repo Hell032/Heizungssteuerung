@@ -137,8 +137,13 @@ namespace diplwinform_v1_1.Views
             {
                 if (port.Contains("ttyS"))
                 {
+                    Debug.WriteLine("some ports are not displayed");
+                }
+                else
+                {
                     PortListBox.Items.Add(port);
                 }
+
             }
         }
     }
