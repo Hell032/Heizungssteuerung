@@ -116,13 +116,12 @@ namespace diplwinform_v1_1.Views
         }
 
 
-
         //used to refresh the port box to get newly mounted devices
         private void Refresh_Click(object sender, EventArgs e)
         {
             GetAvailablePorts();
         }
-
+        
 
 
         //---------------------------------------------helper methods----------------------------------
@@ -133,13 +132,14 @@ namespace diplwinform_v1_1.Views
             PortListBox.Items.Clear();
 
             string[] ports = SerialPort.GetPortNames();
-
+            
             foreach (string port in ports)
             {
-                PortListBox.Items.Add(port);
+                if (port.Contains("ttyS"))
+                {
+                    PortListBox.Items.Add(port);
+                }
             }
         }
-
     }
-
 }
