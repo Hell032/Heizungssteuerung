@@ -35,6 +35,11 @@ namespace diplwinform_v1_1
             // Display the form as a modal dialog box.
             //this.ShowDialog();
 
+            //set window size to maximum
+            this.WindowState = FormWindowState.Maximized;
+            this.MinimumSize = this.Size;
+            this.MaximumSize = this.Size;
+
 
         }
                        
@@ -50,6 +55,5 @@ namespace diplwinform_v1_1
         {
             Program.SetupForm.Visible = true;
         }
-
     }
 }
