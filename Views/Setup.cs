@@ -91,10 +91,10 @@ namespace diplwinform_v1_1.Views
                 message += $"\nUnable to Open SerialPort on {Program.mySerialPort.PortName}";
             }
 
-            BeginInvoke((Action)delegate
-            {
-                MessageBox.Show($"{message}", "SerialPort Status", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            });
+           //BeginInvoke((Action)delegate
+            //{
+            //    MessageBox.Show($"{message}", "SerialPort Status", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //});
         }
 
 

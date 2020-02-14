@@ -108,7 +108,7 @@
             this.FunctionButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.FunctionButton.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.FunctionButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.FunctionButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FunctionButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FunctionButton.ForeColor = System.Drawing.Color.White;
             this.FunctionButton.Location = new System.Drawing.Point(3, 74);
             this.FunctionButton.Name = "FunctionButton";
@@ -125,13 +125,13 @@
             this.TempButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.TempButton.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.TempButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.TempButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TempButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TempButton.ForeColor = System.Drawing.Color.White;
             this.TempButton.Location = new System.Drawing.Point(3, 3);
             this.TempButton.Name = "TempButton";
             this.TempButton.Size = new System.Drawing.Size(104, 65);
             this.TempButton.TabIndex = 0;
-            this.TempButton.Text = "Temperatures";
+            this.TempButton.Text = "Temps";
             this.TempButton.UseVisualStyleBackColor = true;
             // 
             // SetupButton
