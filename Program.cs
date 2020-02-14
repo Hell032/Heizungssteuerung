@@ -1,6 +1,7 @@
 ﻿using diplwinform_v1_1.Views;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO.Ports;
 using System.Linq;
 using System.Threading.Tasks;
@@ -43,13 +44,14 @@ namespace diplwinform_v1_1
             SetupForm.Visible = false;
 
             MenuForm = new Menu();
-            MenuForm.ControlBox = false;
-            MenuForm.FormBorderStyle = FormBorderStyle.None;
-            MenuForm.StartPosition = FormStartPosition.CenterScreen;
-            MenuForm.Size = new System.Drawing.Size(600, 300);
+            //MenuForm.StartPosition = FormStartPosition.CenterScreen;
 
-            MenuForm.TopLevel = true;
-            MenuForm.AutoScroll = true;
+
+
+
+            //-----------------TODO -------------------------------------set size to fit display 
+            //check for system value and set size 
+
 
 
 

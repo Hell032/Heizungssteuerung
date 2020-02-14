@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace diplwinform_v1_1
@@ -20,26 +14,27 @@ namespace diplwinform_v1_1
 
             this.MenuPanel.Controls.Add(Program.SetupForm);
 
-            // Define the border style of the form to a dialog box.
-            this.FormBorderStyle = FormBorderStyle.FixedDialog;
 
-            // Set the MaximizeBox to false to remove the maximize box.
-            this.MaximizeBox = false;
+            this.ControlBox = false;
+            this.FormBorderStyle = FormBorderStyle.None;
 
-            // Set the MinimizeBox to false to remove the minimize box.
-            this.MinimizeBox = false;
+            this.TopLevel = true;
+
+            //--------------------dont delete--------------------
+            //somwhow needed to load the background
+            this.AutoScroll = true;
+
+            //get the size of the display and set the form to it
+            Screen myScreen = Screen.FromControl(this);
+            Rectangle area = myScreen.WorkingArea;
+            this.Size = new Size(area.Width, area.Height);
+
 
             // Set the start position of the form to the center of the screen.
             this.StartPosition = FormStartPosition.CenterScreen;
 
-            // Display the form as a modal dialog box.
-            //this.ShowDialog();
-
             //set window size to maximum
             this.WindowState = FormWindowState.Maximized;
-            this.MinimumSize = this.Size;
-            this.MaximumSize = this.Size;
-
 
         }
                        
