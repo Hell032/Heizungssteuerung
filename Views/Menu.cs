@@ -26,7 +26,7 @@ namespace diplwinform_v1_1
 
             //get the size of the display and set the form to it
             Screen myScreen = Screen.FromControl(this);
-            Rectangle area = myScreen.WorkingArea;
+            Rectangle area = myScreen.Bounds;
             this.Size = new Size(area.Width, area.Height);
 
 
@@ -49,6 +49,11 @@ namespace diplwinform_v1_1
         private void SetupButton_Click(object sender, EventArgs e)
         {
             Program.SetupForm.Visible = true;
+        }
+
+        private void TempButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

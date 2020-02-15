@@ -27,6 +27,15 @@ namespace diplwinform_v1_1.Views
             this.BackColor = Color.Transparent;
             this.FormBorderStyle = FormBorderStyle.None;
 
+
+            this.ControlBox = false;
+            this.FormBorderStyle = FormBorderStyle.None;
+            this.TopLevel = false;
+            this.AutoScroll = true;
+            this.Dock = DockStyle.Fill;
+            this.Visible = false;
+
+
             GetAvailablePorts();
 
             this.BaudrateBox.SelectedIndex = 5;

@@ -133,6 +133,7 @@
             this.TempButton.TabIndex = 0;
             this.TempButton.Text = "Temps";
             this.TempButton.UseVisualStyleBackColor = true;
+            this.TempButton.Click += new System.EventHandler(this.TempButton_Click);
             // 
             // SetupButton
             // 
