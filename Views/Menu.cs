@@ -15,8 +15,8 @@ namespace diplwinform_v1_1
             this.MenuPanel.Controls.Add(Program.SetupForm);
 
 
-            this.ControlBox = false;
-            this.FormBorderStyle = FormBorderStyle.None;
+            //this.ControlBox = false;
+            //this.FormBorderStyle = FormBorderStyle.None;
 
             this.TopLevel = true;
 
