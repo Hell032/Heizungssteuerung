@@ -22,6 +22,7 @@ namespace diplwinform_v1_1
 
         public static Menu MenuForm;
         public static Setup SetupForm;
+        
 
 
         public static SerialPort mySerialPort = new SerialPort();

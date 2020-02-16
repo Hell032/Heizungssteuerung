@@ -16,8 +16,6 @@ namespace diplwinform_v1_1.Views
     {
         public Setup()
         {
-
-
             InitializeComponent();
 
 
@@ -40,10 +38,7 @@ namespace diplwinform_v1_1.Views
 
             this.BaudrateBox.SelectedIndex = 5;
 
-
-
         }
-
 
         //---------------------------------------------events--------------------------------------
 
@@ -55,7 +50,6 @@ namespace diplwinform_v1_1.Views
                 PortBox.Text = PortListBox.SelectedItem.ToString();
             }
         }
-
 
 
         private void SetupSerialport(object sender, EventArgs e)
@@ -81,29 +75,34 @@ namespace diplwinform_v1_1.Views
             string port = PortBox.Text;
             int baudrate = int.Parse(BaudrateBox.Text);
 
-            Program.mySerialPort = new SerialPort(port, baudrate, Parity.None);
             try
             {
+                Program.mySerialPort = new SerialPort(port, baudrate, Parity.None);
                 Program.mySerialPort.Open();
                 Debug.WriteLine($"serialport on {Program.mySerialPort.PortName} Open: {Program.mySerialPort.IsOpen}");
 
                 PortStatusLabel.Text = "Port Status:\nConnection\nestablished";
 
                 message += $"\nSerialPort on {Program.mySerialPort.PortName} Open";
-
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                Debug.WriteLine("Unable to open SerialPort");
+                Debug.WriteLine($"Unable to open SerialPort\n{ex}");
 
                 PortStatusLabel.Text = "Port Status:\nConnection\nrefused";
                 message += $"\nUnable to Open SerialPort on {Program.mySerialPort.PortName}";
             }
 
-           //BeginInvoke((Action)delegate
-            //{
-            //    MessageBox.Show($"{message}", "SerialPort Status", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //});
+
+            //------------------------------------output message 
+            //Debug.WriteLine(message);
+
+            BeginInvoke((Action)delegate
+            {
+                MessageBox.Show($"{message}", "SerialPort Status", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            });
+
+            this.Refresh();
         }
 
 

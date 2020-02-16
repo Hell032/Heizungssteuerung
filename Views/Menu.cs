@@ -12,11 +12,13 @@ namespace diplwinform_v1_1
 
             InitializeComponent();
 
-            this.MenuPanel.Controls.Add(Program.SetupForm);
+
+            //add forms to panel in meu form
+            this.FormPanel.Controls.Add(Program.SetupForm);
 
 
-            //this.ControlBox = false;
-            //this.FormBorderStyle = FormBorderStyle.None;
+            this.ControlBox = false;
+            this.FormBorderStyle = FormBorderStyle.None;
 
             this.TopLevel = true;
 
@@ -49,11 +51,30 @@ namespace diplwinform_v1_1
         private void SetupButton_Click(object sender, EventArgs e)
         {
             Program.SetupForm.Visible = true;
+
         }
 
         private void TempButton_Click(object sender, EventArgs e)
         {
+            Program.SetupForm.Visible = false;
 
+
+            #region Debugging get size of various panels 
+
+            Screen menuform = Screen.FromControl(this);
+            Rectangle gesamt = menuform.Bounds;
+            gesamtheight.Text = gesamt.Height.ToString();
+            gesamtwidth.Text = gesamt.Width.ToString();
+
+            Formpanelheight.Text = FormPanel.Size.Height.ToString();
+            Formpanelwidth.Text = FormPanel.Size.Width.ToString();
+            FormPanel.BorderStyle = BorderStyle.Fixed3D;
+
+            MenuPanelHeight.Text = MenuPanel.Size.Height.ToString();
+            MenuPanelWidth.Text = MenuPanel.Size.Width.ToString();
+            MenuPanel.BorderStyle = BorderStyle.Fixed3D;
+
+            #endregion
         }
     }
 }
