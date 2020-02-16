@@ -68,6 +68,12 @@
     <Compile Include="TransparentLabel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Views\Functions.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Functions.Designer.cs">
+      <DependentUpon>Functions.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Menu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,10 +83,16 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\Setup.cs">
-      <SubType>Form</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Views\Setup.Designer.cs">
       <DependentUpon>Setup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Setup1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Setup1.Designer.cs">
+      <DependentUpon>Setup1.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Temperatures.cs">
       <SubType>Form</SubType>
@@ -88,6 +100,9 @@
     <Compile Include="Views\Temperatures.Designer.cs">
       <DependentUpon>Temperatures.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Views\Functions.resx">
+      <DependentUpon>Functions.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
     </EmbeddedResource>
@@ -103,6 +118,9 @@
     </Compile>
     <EmbeddedResource Include="Views\Setup.resx">
       <DependentUpon>Setup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Setup1.resx">
+      <DependentUpon>Setup1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Temperatures.resx">
       <DependentUpon>Temperatures.cs</DependentUpon>

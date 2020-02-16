@@ -1,17 +1,34 @@
 ﻿using System;
-using System.Windows.Forms;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
 using System.Diagnostics;
+using System.Drawing;
 using System.IO.Ports;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace diplwinform_v1_1.Views
 {
-    public partial class Setup : UserControl
+    public partial class Setup1 : Form
     {
-        public Setup()
+        public Setup1()
         {
             InitializeComponent();
 
 
+            //needed for transparent form
+            SetStyle(ControlStyles.SupportsTransparentBackColor, true);
+            SetStyle(ControlStyles.Opaque, true);
+            this.BackColor = Color.Transparent;
+            this.FormBorderStyle = FormBorderStyle.None;
+
+
+            this.ControlBox = false;
+            this.FormBorderStyle = FormBorderStyle.None;
+            this.TopLevel = false;
             this.AutoScroll = true;
             this.Dock = DockStyle.Fill;
             this.Visible = false;
@@ -22,7 +39,6 @@ namespace diplwinform_v1_1.Views
             this.BaudrateBox.SelectedIndex = 5;
 
         }
-
 
         //---------------------------------------------events--------------------------------------
 
@@ -40,7 +56,7 @@ namespace diplwinform_v1_1.Views
         {
             string message = "";
             try
-            {
+            {   
                 //check if serialport is open and display a message 
                 if (Program.mySerialPort.IsOpen)
                 {
@@ -100,7 +116,7 @@ namespace diplwinform_v1_1.Views
                 try
                 {
                     //if (Program.mySerialPort.IsOpen)
-                    //PortStatus.Text = ($"{Program.mySerialPort.PortName}, {Program.mySerialPort.BaudRate}, {Program.mySerialPort.IsOpen}");
+                        //PortStatus.Text = ($"{Program.mySerialPort.PortName}, {Program.mySerialPort.BaudRate}, {Program.mySerialPort.IsOpen}");
                 }
                 catch (Exception)
                 {
@@ -115,7 +131,7 @@ namespace diplwinform_v1_1.Views
         {
             GetAvailablePorts();
         }
-
+        
 
 
         //---------------------------------------------helper methods----------------------------------
@@ -126,7 +142,7 @@ namespace diplwinform_v1_1.Views
             PortListBox.Items.Clear();
 
             string[] ports = SerialPort.GetPortNames();
-
+            
             foreach (string port in ports)
             {
                 if (port.Contains("ttyS"))

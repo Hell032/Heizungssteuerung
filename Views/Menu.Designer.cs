@@ -32,21 +32,21 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.ButtonPanel = new System.Windows.Forms.TableLayoutPanel();
             this.ExitButton = new System.Windows.Forms.Button();
-            this.FunctionButton = new System.Windows.Forms.Button();
+            this.FunctionsButton = new System.Windows.Forms.Button();
             this.TempButton = new System.Windows.Forms.Button();
             this.SetupButton = new System.Windows.Forms.Button();
             this.FormPanel = new System.Windows.Forms.Panel();
-            this.MenuLabel = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.gesamtheight = new System.Windows.Forms.Label();
-            this.gesamtwidth = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.Formpanelheight = new System.Windows.Forms.Label();
-            this.Formpanelwidth = new System.Windows.Forms.Label();
-            this.MenuPanel = new System.Windows.Forms.Panel();
             this.MenuPanelWidth = new System.Windows.Forms.Label();
             this.MenuPanelHeight = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.Formpanelwidth = new System.Windows.Forms.Label();
+            this.Formpanelheight = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.gesamtwidth = new System.Windows.Forms.Label();
+            this.gesamtheight = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.MenuLabel = new System.Windows.Forms.Label();
+            this.MenuPanel = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1.SuspendLayout();
             this.ButtonPanel.SuspendLayout();
             this.FormPanel.SuspendLayout();
@@ -81,7 +81,7 @@
             this.ButtonPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.ButtonPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.ButtonPanel.Controls.Add(this.ExitButton, 0, 3);
-            this.ButtonPanel.Controls.Add(this.FunctionButton, 0, 1);
+            this.ButtonPanel.Controls.Add(this.FunctionsButton, 0, 1);
             this.ButtonPanel.Controls.Add(this.TempButton, 0, 0);
             this.ButtonPanel.Controls.Add(this.SetupButton, 0, 2);
             this.ButtonPanel.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -114,22 +114,23 @@
             this.ExitButton.UseVisualStyleBackColor = true;
             this.ExitButton.Click += new System.EventHandler(this.ExitButton_Click);
             // 
-            // FunctionButton
+            // FunctionsButton
             // 
-            this.FunctionButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.FunctionsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.FunctionButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.FunctionButton.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.FunctionButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.FunctionButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FunctionButton.ForeColor = System.Drawing.Color.White;
-            this.FunctionButton.Location = new System.Drawing.Point(3, 92);
-            this.FunctionButton.Name = "FunctionButton";
-            this.FunctionButton.Size = new System.Drawing.Size(117, 83);
-            this.FunctionButton.TabIndex = 1;
-            this.FunctionButton.Text = "Functions";
-            this.FunctionButton.UseVisualStyleBackColor = true;
+            this.FunctionsButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.FunctionsButton.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.FunctionsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.FunctionsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FunctionsButton.ForeColor = System.Drawing.Color.White;
+            this.FunctionsButton.Location = new System.Drawing.Point(3, 92);
+            this.FunctionsButton.Name = "FunctionsButton";
+            this.FunctionsButton.Size = new System.Drawing.Size(117, 83);
+            this.FunctionsButton.TabIndex = 1;
+            this.FunctionsButton.Text = "Functions";
+            this.FunctionsButton.UseVisualStyleBackColor = true;
+            this.FunctionsButton.Click += new System.EventHandler(this.FunctionsButton_Click);
             // 
             // TempButton
             // 
@@ -185,85 +186,6 @@
             this.FormPanel.Size = new System.Drawing.Size(517, 360);
             this.FormPanel.TabIndex = 4;
             // 
-            // MenuLabel
-            // 
-            this.MenuLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.MenuLabel.AutoSize = true;
-            this.MenuLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MenuLabel.ForeColor = System.Drawing.Color.White;
-            this.MenuLabel.Location = new System.Drawing.Point(3, 0);
-            this.MenuLabel.Name = "MenuLabel";
-            this.MenuLabel.Size = new System.Drawing.Size(123, 90);
-            this.MenuLabel.TabIndex = 1;
-            this.MenuLabel.Text = "Menu";
-            this.MenuLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(74, 42);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(70, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Gesamtgröße";
-            // 
-            // gesamtheight
-            // 
-            this.gesamtheight.AutoSize = true;
-            this.gesamtheight.Location = new System.Drawing.Point(74, 55);
-            this.gesamtheight.Name = "gesamtheight";
-            this.gesamtheight.Size = new System.Drawing.Size(35, 13);
-            this.gesamtheight.TabIndex = 1;
-            this.gesamtheight.Text = "label2";
-            // 
-            // gesamtwidth
-            // 
-            this.gesamtwidth.AutoSize = true;
-            this.gesamtwidth.Location = new System.Drawing.Point(74, 68);
-            this.gesamtwidth.Name = "gesamtwidth";
-            this.gesamtwidth.Size = new System.Drawing.Size(35, 13);
-            this.gesamtwidth.TabIndex = 2;
-            this.gesamtwidth.Text = "label3";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(177, 42);
-            this.label4.Margin = new System.Windows.Forms.Padding(0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(80, 13);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "FormPanel Size";
-            // 
-            // Formpanelheight
-            // 
-            this.Formpanelheight.AutoSize = true;
-            this.Formpanelheight.Location = new System.Drawing.Point(177, 55);
-            this.Formpanelheight.Name = "Formpanelheight";
-            this.Formpanelheight.Size = new System.Drawing.Size(35, 13);
-            this.Formpanelheight.TabIndex = 4;
-            this.Formpanelheight.Text = "label5";
-            // 
-            // Formpanelwidth
-            // 
-            this.Formpanelwidth.AutoSize = true;
-            this.Formpanelwidth.Location = new System.Drawing.Point(177, 68);
-            this.Formpanelwidth.Name = "Formpanelwidth";
-            this.Formpanelwidth.Size = new System.Drawing.Size(35, 13);
-            this.Formpanelwidth.TabIndex = 5;
-            this.Formpanelwidth.Text = "label6";
-            // 
-            // MenuPanel
-            // 
-            this.MenuPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MenuPanel.Location = new System.Drawing.Point(179, 0);
-            this.MenuPanel.Margin = new System.Windows.Forms.Padding(50, 0, 0, 0);
-            this.MenuPanel.Name = "MenuPanel";
-            this.MenuPanel.Size = new System.Drawing.Size(467, 90);
-            this.MenuPanel.TabIndex = 5;
-            // 
             // MenuPanelWidth
             // 
             this.MenuPanelWidth.AutoSize = true;
@@ -292,6 +214,85 @@
             this.label5.TabIndex = 6;
             this.label5.Text = "MenuPanel Size";
             // 
+            // Formpanelwidth
+            // 
+            this.Formpanelwidth.AutoSize = true;
+            this.Formpanelwidth.Location = new System.Drawing.Point(177, 68);
+            this.Formpanelwidth.Name = "Formpanelwidth";
+            this.Formpanelwidth.Size = new System.Drawing.Size(35, 13);
+            this.Formpanelwidth.TabIndex = 5;
+            this.Formpanelwidth.Text = "label6";
+            // 
+            // Formpanelheight
+            // 
+            this.Formpanelheight.AutoSize = true;
+            this.Formpanelheight.Location = new System.Drawing.Point(177, 55);
+            this.Formpanelheight.Name = "Formpanelheight";
+            this.Formpanelheight.Size = new System.Drawing.Size(35, 13);
+            this.Formpanelheight.TabIndex = 4;
+            this.Formpanelheight.Text = "label5";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(177, 42);
+            this.label4.Margin = new System.Windows.Forms.Padding(0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(80, 13);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "FormPanel Size";
+            // 
+            // gesamtwidth
+            // 
+            this.gesamtwidth.AutoSize = true;
+            this.gesamtwidth.Location = new System.Drawing.Point(74, 68);
+            this.gesamtwidth.Name = "gesamtwidth";
+            this.gesamtwidth.Size = new System.Drawing.Size(35, 13);
+            this.gesamtwidth.TabIndex = 2;
+            this.gesamtwidth.Text = "label3";
+            // 
+            // gesamtheight
+            // 
+            this.gesamtheight.AutoSize = true;
+            this.gesamtheight.Location = new System.Drawing.Point(74, 55);
+            this.gesamtheight.Name = "gesamtheight";
+            this.gesamtheight.Size = new System.Drawing.Size(35, 13);
+            this.gesamtheight.TabIndex = 1;
+            this.gesamtheight.Text = "label2";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(74, 42);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(70, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Gesamtgröße";
+            // 
+            // MenuLabel
+            // 
+            this.MenuLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.MenuLabel.AutoSize = true;
+            this.MenuLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MenuLabel.ForeColor = System.Drawing.Color.White;
+            this.MenuLabel.Location = new System.Drawing.Point(3, 0);
+            this.MenuLabel.Name = "MenuLabel";
+            this.MenuLabel.Size = new System.Drawing.Size(123, 90);
+            this.MenuLabel.TabIndex = 1;
+            this.MenuLabel.Text = "Menu";
+            this.MenuLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // MenuPanel
+            // 
+            this.MenuPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.MenuPanel.Location = new System.Drawing.Point(179, 0);
+            this.MenuPanel.Margin = new System.Windows.Forms.Padding(50, 0, 0, 0);
+            this.MenuPanel.Name = "MenuPanel";
+            this.MenuPanel.Size = new System.Drawing.Size(467, 90);
+            this.MenuPanel.TabIndex = 5;
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -308,7 +309,7 @@
             this.Name = "Menu";
             this.ShowIcon = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Menu";
             this.TopMost = true;
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -327,7 +328,7 @@
         private System.Windows.Forms.Button TempButton;
         private System.Windows.Forms.TableLayoutPanel ButtonPanel;
         private System.Windows.Forms.Button ExitButton;
-        private System.Windows.Forms.Button FunctionButton;
+        private System.Windows.Forms.Button FunctionsButton;
         private System.Windows.Forms.Button SetupButton;
         private System.Windows.Forms.Panel FormPanel;
         private System.Windows.Forms.Label Formpanelwidth;

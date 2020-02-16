@@ -14,6 +14,7 @@ namespace diplwinform_v1_1
 
             //add forms to panel in meu form
             this.FormPanel.Controls.Add(Program.SetupForm);
+            this.FormPanel.Controls.Add(Program.FunctionsForm);
 
 
             this.ControlBox = false;
@@ -57,12 +58,14 @@ namespace diplwinform_v1_1
         private void SetupButton_Click(object sender, EventArgs e)
         {
             Program.SetupForm.Visible = true;
+            Program.FunctionsForm.Visible = false;
 
         }
 
         private void TempButton_Click(object sender, EventArgs e)
         {
             Program.SetupForm.Visible = false;
+            Program.FunctionsForm.Visible = false;
 
 
             #region Debugging get size of various panels 
@@ -79,6 +82,13 @@ namespace diplwinform_v1_1
             MenuPanel.BorderStyle = BorderStyle.Fixed3D;
 
             #endregion
+        }
+
+        private void FunctionsButton_Click(object sender, EventArgs e)
+        {
+            Program.SetupForm.Visible = false;
+            //Program.TemperaturForm.Visible = false;
+            Program.FunctionsForm.Visible = true;
         }
     }
 }

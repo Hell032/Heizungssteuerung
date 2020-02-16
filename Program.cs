@@ -22,6 +22,7 @@ namespace diplwinform_v1_1
 
         public static Menu MenuForm;
         public static Setup SetupForm;
+        public static Functions FunctionsForm;
         
 
 
@@ -35,6 +36,7 @@ namespace diplwinform_v1_1
 
 
             SetupForm = new Setup();
+            FunctionsForm = new Functions();
 
             MenuForm = new Menu();
 

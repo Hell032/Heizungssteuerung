@@ -66,7 +66,7 @@
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 101F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 89F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(512, 89);
             this.tableLayoutPanel3.TabIndex = 4;
             // 
@@ -88,7 +88,7 @@
             // 
             this.TempLabel.AutoSize = true;
             this.TempLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TempLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 54.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TempLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TempLabel.Location = new System.Drawing.Point(0, 0);
             this.TempLabel.Margin = new System.Windows.Forms.Padding(0);
             this.TempLabel.Name = "TempLabel";
