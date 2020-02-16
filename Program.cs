@@ -37,18 +37,6 @@ namespace diplwinform_v1_1
             SetupForm = new Setup();
 
             MenuForm = new Menu();
-            //MenuForm.StartPosition = FormStartPosition.CenterScreen;
-
-
-
-
-            //-----------------TODO -------------------------------------set size to fit display 
-            //check for system value and set size 
-
-
-
-
-
 
 
             Application.Run(MenuForm);

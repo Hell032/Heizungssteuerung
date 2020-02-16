@@ -305,7 +305,11 @@
             this.ForeColor = System.Drawing.Color.White;
             this.IsMdiContainer = true;
             this.Name = "Menu";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu";
+            this.TopMost = true;
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.ButtonPanel.ResumeLayout(false);

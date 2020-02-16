@@ -9,7 +9,6 @@ namespace diplwinform_v1_1
         public Menu()
         {
 
-
             InitializeComponent();
 
 
@@ -18,9 +17,6 @@ namespace diplwinform_v1_1
 
 
             this.ControlBox = false;
-            this.FormBorderStyle = FormBorderStyle.None;
-
-            this.TopLevel = true;
 
             //--------------------dont delete--------------------
             //somwhow needed to load the background
@@ -31,16 +27,22 @@ namespace diplwinform_v1_1
             //----------------------------------    MenuPanel Size: 88, 512
 
 
-            Screen myScreen = Screen.FromControl(this);
-            Rectangle area = myScreen.Bounds;
-            //this.Size = new Size(area.Width, area.Height);
+            //Screen myScreen = Screen.PrimaryScreen.Bounds.Width;
+            //Rectangle area = myScreen.Bounds;
+            this.Size = new Size(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
 
 
             // Set the start position of the form to the center of the screen.
-            this.StartPosition = FormStartPosition.CenterScreen;
+            //this.StartPosition = FormStartPosition.CenterScreen;
 
             //set window size to maximum
             //this.WindowState = FormWindowState.Maximized;
+
+            this.StartPosition = FormStartPosition.CenterScreen;
+            //this.FormBorderStyle = FormBorderStyle.None;
+            //this.TopLevel = true;
+
+
 
         }
                        
@@ -65,10 +67,8 @@ namespace diplwinform_v1_1
 
             #region Debugging get size of various panels 
 
-            Screen menuform = Screen.FromControl(this);
-            Rectangle gesamt = menuform.Bounds;
-            gesamtheight.Text = gesamt.Height.ToString();
-            gesamtwidth.Text = gesamt.Width.ToString();
+            gesamtheight.Text = this.Size.Height.ToString();
+            gesamtwidth.Text = this.Size.Width.ToString();
 
             Formpanelheight.Text = FormPanel.Size.Height.ToString();
             Formpanelwidth.Text = FormPanel.Size.Width.ToString();
