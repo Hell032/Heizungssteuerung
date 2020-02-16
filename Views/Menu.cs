@@ -26,17 +26,21 @@ namespace diplwinform_v1_1
             //somwhow needed to load the background
             this.AutoScroll = true;
 
-            //get the size of the display and set the form to it
+            //get the size of the display and set the form to it----------raspberry sets the size to 480, 640
+            //----------------------------------    FormPanel Size: 356, 512
+            //----------------------------------    MenuPanel Size: 88, 512
+
+
             Screen myScreen = Screen.FromControl(this);
             Rectangle area = myScreen.Bounds;
-            this.Size = new Size(area.Width, area.Height);
+            //this.Size = new Size(area.Width, area.Height);
 
 
             // Set the start position of the form to the center of the screen.
             this.StartPosition = FormStartPosition.CenterScreen;
 
             //set window size to maximum
-            this.WindowState = FormWindowState.Maximized;
+            //this.WindowState = FormWindowState.Maximized;
 
         }
                        

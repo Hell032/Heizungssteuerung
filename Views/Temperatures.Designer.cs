@@ -50,7 +50,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(785, 404);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(512, 356);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
             // tableLayoutPanel3
@@ -66,8 +66,8 @@
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(785, 101);
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 101F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(512, 89);
             this.tableLayoutPanel3.TabIndex = 4;
             // 
             // PortStatusLabel
@@ -76,10 +76,10 @@
             this.PortStatusLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PortStatusLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.PortStatusLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PortStatusLabel.Location = new System.Drawing.Point(628, 0);
+            this.PortStatusLabel.Location = new System.Drawing.Point(409, 0);
             this.PortStatusLabel.Margin = new System.Windows.Forms.Padding(0);
             this.PortStatusLabel.Name = "PortStatusLabel";
-            this.PortStatusLabel.Size = new System.Drawing.Size(157, 101);
+            this.PortStatusLabel.Size = new System.Drawing.Size(103, 89);
             this.PortStatusLabel.TabIndex = 12;
             this.PortStatusLabel.Text = "Port Status:\r\nport status not available";
             this.PortStatusLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -92,7 +92,7 @@
             this.TempLabel.Location = new System.Drawing.Point(0, 0);
             this.TempLabel.Margin = new System.Windows.Forms.Padding(0);
             this.TempLabel.Name = "TempLabel";
-            this.TempLabel.Size = new System.Drawing.Size(628, 101);
+            this.TempLabel.Size = new System.Drawing.Size(409, 89);
             this.TempLabel.TabIndex = 3;
             this.TempLabel.Text = "Temperatures";
             this.TempLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -103,13 +103,13 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 101);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 89);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(779, 300);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(506, 264);
             this.tableLayoutPanel2.TabIndex = 5;
             // 
             // Temperatures
@@ -117,7 +117,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.ClientSize = new System.Drawing.Size(785, 404);
+            this.ClientSize = new System.Drawing.Size(512, 356);
             this.Controls.Add(this.tableLayoutPanel1);
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

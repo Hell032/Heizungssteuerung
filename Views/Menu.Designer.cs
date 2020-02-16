@@ -72,7 +72,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(584, 361);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(624, 441);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // ButtonPanel
@@ -85,7 +85,7 @@
             this.ButtonPanel.Controls.Add(this.TempButton, 0, 0);
             this.ButtonPanel.Controls.Add(this.SetupButton, 0, 2);
             this.ButtonPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ButtonPanel.Location = new System.Drawing.Point(3, 72);
+            this.ButtonPanel.Location = new System.Drawing.Point(3, 88);
             this.ButtonPanel.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
             this.ButtonPanel.Name = "ButtonPanel";
             this.ButtonPanel.RowCount = 4;
@@ -93,7 +93,7 @@
             this.ButtonPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.ButtonPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.ButtonPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.ButtonPanel.Size = new System.Drawing.Size(110, 286);
+            this.ButtonPanel.Size = new System.Drawing.Size(118, 350);
             this.ButtonPanel.TabIndex = 3;
             // 
             // ExitButton
@@ -106,9 +106,9 @@
             this.ExitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ExitButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ExitButton.ForeColor = System.Drawing.Color.White;
-            this.ExitButton.Location = new System.Drawing.Point(3, 216);
+            this.ExitButton.Location = new System.Drawing.Point(3, 264);
             this.ExitButton.Name = "ExitButton";
-            this.ExitButton.Size = new System.Drawing.Size(104, 67);
+            this.ExitButton.Size = new System.Drawing.Size(112, 83);
             this.ExitButton.TabIndex = 4;
             this.ExitButton.Text = "Exit";
             this.ExitButton.UseVisualStyleBackColor = true;
@@ -124,9 +124,9 @@
             this.FunctionButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.FunctionButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FunctionButton.ForeColor = System.Drawing.Color.White;
-            this.FunctionButton.Location = new System.Drawing.Point(3, 74);
+            this.FunctionButton.Location = new System.Drawing.Point(3, 90);
             this.FunctionButton.Name = "FunctionButton";
-            this.FunctionButton.Size = new System.Drawing.Size(104, 65);
+            this.FunctionButton.Size = new System.Drawing.Size(112, 81);
             this.FunctionButton.TabIndex = 1;
             this.FunctionButton.Text = "Functions";
             this.FunctionButton.UseVisualStyleBackColor = true;
@@ -143,7 +143,7 @@
             this.TempButton.ForeColor = System.Drawing.Color.White;
             this.TempButton.Location = new System.Drawing.Point(3, 3);
             this.TempButton.Name = "TempButton";
-            this.TempButton.Size = new System.Drawing.Size(104, 65);
+            this.TempButton.Size = new System.Drawing.Size(112, 81);
             this.TempButton.TabIndex = 0;
             this.TempButton.Text = "Temps";
             this.TempButton.UseVisualStyleBackColor = true;
@@ -159,9 +159,9 @@
             this.SetupButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SetupButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SetupButton.ForeColor = System.Drawing.Color.White;
-            this.SetupButton.Location = new System.Drawing.Point(3, 145);
+            this.SetupButton.Location = new System.Drawing.Point(3, 177);
             this.SetupButton.Name = "SetupButton";
-            this.SetupButton.Size = new System.Drawing.Size(104, 65);
+            this.SetupButton.Size = new System.Drawing.Size(112, 81);
             this.SetupButton.TabIndex = 3;
             this.SetupButton.Text = "Setup";
             this.SetupButton.UseVisualStyleBackColor = true;
@@ -179,10 +179,10 @@
             this.FormPanel.Controls.Add(this.gesamtheight);
             this.FormPanel.Controls.Add(this.label1);
             this.FormPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.FormPanel.Location = new System.Drawing.Point(116, 72);
+            this.FormPanel.Location = new System.Drawing.Point(124, 88);
             this.FormPanel.Margin = new System.Windows.Forms.Padding(0);
             this.FormPanel.Name = "FormPanel";
-            this.FormPanel.Size = new System.Drawing.Size(468, 289);
+            this.FormPanel.Size = new System.Drawing.Size(500, 353);
             this.FormPanel.TabIndex = 4;
             // 
             // MenuLabel
@@ -195,7 +195,7 @@
             this.MenuLabel.ForeColor = System.Drawing.Color.White;
             this.MenuLabel.Location = new System.Drawing.Point(3, 0);
             this.MenuLabel.Name = "MenuLabel";
-            this.MenuLabel.Size = new System.Drawing.Size(110, 72);
+            this.MenuLabel.Size = new System.Drawing.Size(118, 88);
             this.MenuLabel.TabIndex = 1;
             this.MenuLabel.Text = "Menu";
             this.MenuLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -258,10 +258,10 @@
             // MenuPanel
             // 
             this.MenuPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MenuPanel.Location = new System.Drawing.Point(116, 0);
+            this.MenuPanel.Location = new System.Drawing.Point(124, 0);
             this.MenuPanel.Margin = new System.Windows.Forms.Padding(0);
             this.MenuPanel.Name = "MenuPanel";
-            this.MenuPanel.Size = new System.Drawing.Size(468, 72);
+            this.MenuPanel.Size = new System.Drawing.Size(500, 88);
             this.MenuPanel.TabIndex = 5;
             // 
             // MenuPanelWidth
@@ -299,7 +299,7 @@
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(584, 361);
+            this.ClientSize = new System.Drawing.Size(624, 441);
             this.Controls.Add(this.tableLayoutPanel1);
             this.DoubleBuffered = true;
             this.ForeColor = System.Drawing.Color.White;

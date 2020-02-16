@@ -102,7 +102,9 @@ namespace diplwinform_v1_1.Views
                 MessageBox.Show($"{message}", "SerialPort Status", MessageBoxButtons.OK, MessageBoxIcon.Information);
             });
 
-            this.Refresh();
+            //this.Refresh();
+
+            Program.MenuForm.Refresh();
         }
 
 
