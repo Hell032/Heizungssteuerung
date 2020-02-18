@@ -95,6 +95,7 @@
             this.transparentLabel3.AutoSize = true;
             this.transparentLabel3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.transparentLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.transparentLabel3.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.transparentLabel3.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.transparentLabel3.Location = new System.Drawing.Point(258, 107);
             this.transparentLabel3.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
@@ -144,6 +145,7 @@
             this.transparentLabel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.transparentLabel2.AutoSize = true;
             this.transparentLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.transparentLabel2.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.transparentLabel2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.transparentLabel2.Location = new System.Drawing.Point(258, 11);
             this.transparentLabel2.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
@@ -158,6 +160,7 @@
             this.transparentLabel1.AutoSize = true;
             this.transparentLabel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.transparentLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.transparentLabel1.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.transparentLabel1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.transparentLabel1.Location = new System.Drawing.Point(0, 11);
             this.transparentLabel1.Margin = new System.Windows.Forms.Padding(0);
@@ -171,7 +174,7 @@
             // 
             this.PortListBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PortListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PortListBox.ForeColor = System.Drawing.Color.Black;
+            this.PortListBox.ForeColor = System.Drawing.SystemColors.WindowText;
             this.PortListBox.FormattingEnabled = true;
             this.PortListBox.ItemHeight = 37;
             this.PortListBox.Location = new System.Drawing.Point(0, 48);
@@ -205,6 +208,7 @@
             this.PortStatusLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PortStatusLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.PortStatusLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PortStatusLabel.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.PortStatusLabel.Location = new System.Drawing.Point(409, 0);
             this.PortStatusLabel.Margin = new System.Windows.Forms.Padding(0);
             this.PortStatusLabel.Name = "PortStatusLabel";
@@ -218,6 +222,7 @@
             this.SetupLabel.AutoSize = true;
             this.SetupLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.SetupLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SetupLabel.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.SetupLabel.Location = new System.Drawing.Point(0, 0);
             this.SetupLabel.Margin = new System.Windows.Forms.Padding(0);
             this.SetupLabel.Name = "SetupLabel";
@@ -248,6 +253,7 @@
             this.transparentButton1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.transparentButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.transparentButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.transparentButton1.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.transparentButton1.Location = new System.Drawing.Point(0, 0);
             this.transparentButton1.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
             this.transparentButton1.Name = "transparentButton1";
@@ -262,6 +268,7 @@
             this.transparentButton2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.transparentButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.transparentButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.transparentButton2.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.transparentButton2.Location = new System.Drawing.Point(259, 0);
             this.transparentButton2.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.transparentButton2.Name = "transparentButton2";
@@ -276,7 +283,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.BackColor = System.Drawing.Color.Transparent;
+            this.BackColor = System.Drawing.Color.DimGray;
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "Setup";
             this.Size = new System.Drawing.Size(512, 356);

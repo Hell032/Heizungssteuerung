@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using System.Diagnostics;
 using System.IO.Ports;
+using System.Drawing;
 
 namespace diplwinform_v1_1.Views
 {
@@ -15,6 +16,7 @@ namespace diplwinform_v1_1.Views
             this.AutoScroll = true;
             this.Dock = DockStyle.Fill;
             this.Visible = false;
+            this.BackColor = Color.Transparent;
 
 
             GetAvailablePorts();

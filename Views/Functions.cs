@@ -19,6 +19,8 @@ namespace diplwinform_v1_1.Views
             //this.AutoScroll = true;
             this.Dock = DockStyle.Fill;
             this.Visible = false;
+            this.BackColor = Color.Transparent;
+
         }
 
     }
