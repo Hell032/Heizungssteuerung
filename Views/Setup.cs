@@ -8,6 +8,10 @@ namespace diplwinform_v1_1.Views
 {
     public partial class Setup : UserControl
     {
+        public static SerialPort mySerialPort = new SerialPort();
+        //flag for starting the hleper threads in different classes
+        public bool StatusFlag_Connected = false;
+
         public Setup()
         {
             InitializeComponent();
@@ -22,6 +26,8 @@ namespace diplwinform_v1_1.Views
             GetAvailablePorts();
 
             this.BaudrateBox.SelectedIndex = 5;
+
+            this.PortBox.ReadOnly = true;
 
         }
 
@@ -44,11 +50,12 @@ namespace diplwinform_v1_1.Views
             try
             {
                 //check if serialport is open and display a message 
-                if (Program.mySerialPort.IsOpen)
+                if (mySerialPort.IsOpen)
                 {
-                    Program.mySerialPort.Close();
+                    mySerialPort.Close();
                     //Debug.WriteLine($"serialport on {Program.mySerialPort.PortName} is closed: {!Program.mySerialPort.IsOpen}");
-                    message += $"\nSerialPort on {Program.mySerialPort.PortName} Closed";
+                    message += $"\nSerialPort on {mySerialPort.PortName} Closed";
+                    StatusFlag_Connected = false;
                 }
             }
             catch (Exception)
@@ -63,34 +70,37 @@ namespace diplwinform_v1_1.Views
 
             try
             {
-                Program.mySerialPort = new SerialPort(port, baudrate, Parity.None);
-                Program.mySerialPort.Open();
-                Debug.WriteLine($"serialport on {Program.mySerialPort.PortName} Open: {Program.mySerialPort.IsOpen}");
+                mySerialPort = new SerialPort(port, baudrate, Parity.None);
+                mySerialPort.Open();
 
+                Debug.WriteLine($"serialport on {mySerialPort.PortName} Open: {mySerialPort.IsOpen}");
                 PortStatusLabel.Text = "Port Status:\nConnection\nestablished";
+                message += $"\nSerialPort on {mySerialPort.PortName} Open";
 
-                message += $"\nSerialPort on {Program.mySerialPort.PortName} Open";
+                //set flag to true to start helper-threads
+                StatusFlag_Connected = true;
+
             }
             catch (Exception ex)
             {
                 Debug.WriteLine($"Unable to open SerialPort\n{ex}");
 
                 PortStatusLabel.Text = "Port Status:\nConnection\nrefused";
-                message += $"\nUnable to Open SerialPort on {Program.mySerialPort.PortName}";
+                message += $"\nUnable to Open SerialPort on {mySerialPort.PortName}";
+
+                //set flag to false
+                StatusFlag_Connected = false;
             }
 
 
             //------------------------------------output message 
-            //Debug.WriteLine(message);
-
             BeginInvoke((Action)delegate
             {
-                MessageBox.Show($"{message}", "SerialPort Status", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show($"{message}", "Status", MessageBoxButtons.OK, MessageBoxIcon.Information);
             });
 
-            //this.Refresh();
-
             Program.MenuForm.Refresh();
+            Program.SetupForm.Refresh();
         }
 
 
@@ -117,7 +127,6 @@ namespace diplwinform_v1_1.Views
         {
             GetAvailablePorts();
         }
-
 
 
         //---------------------------------------------helper methods----------------------------------

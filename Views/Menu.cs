@@ -12,6 +12,8 @@ namespace diplwinform_v1_1
             InitializeComponent();
 
 
+            //this.BackgroundImage.Dispose();
+
             //add forms to panel in menu form
             this.FormPanel.Controls.Add(Program.SetupForm);
             this.FormPanel.Controls.Add(Program.FunctionsForm);
@@ -40,6 +42,7 @@ namespace diplwinform_v1_1
             //set window size to maximum
             this.WindowState = FormWindowState.Maximized;
 
+
         }
 
         //---------------------------------------------click events--------------------------------------
@@ -55,9 +58,10 @@ namespace diplwinform_v1_1
             SetSimulationLabels(false);
 
             Program.SetupForm.Visible = false;
-            Program.TemperaturesForm.Visible = true;
             Program.FunctionsForm.Visible = false;
             Program.SimulationForm.Visible = false;
+            //-------------------------------------set visible form last to avoid rendering errors on raspberry 
+            Program.TemperaturesForm.Visible = true;
 
         }
 
@@ -71,10 +75,11 @@ namespace diplwinform_v1_1
         {
             SetSimulationLabels(false);
 
-            Program.SetupForm.Visible = true;
-            Program.TemperaturesForm.Visible = true;
+            Program.TemperaturesForm.Visible = false;
             Program.FunctionsForm.Visible = false;
             Program.SimulationForm.Visible = false;
+            //-------------------------------------set visible form last to avoid rendering errors on raspberry 
+            Program.SetupForm.Visible = true;
         }
 
 
@@ -89,8 +94,10 @@ namespace diplwinform_v1_1
 
             Program.SetupForm.Visible = false;
             Program.TemperaturesForm.Visible = false;
-            Program.FunctionsForm.Visible = true;
             Program.SimulationForm.Visible = false;
+
+            //-------------------------------------set visible form last to avoid rendering errors on raspberry 
+            Program.FunctionsForm.Visible = true;
         }
 
 
@@ -99,13 +106,14 @@ namespace diplwinform_v1_1
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void EnterSimulation_DoubleClick(object sender, EventArgs e)
+        private void EnterSimulation_Click(object sender, EventArgs e)
         {
             SetSimulationLabels(true);
             
             Program.SetupForm.Visible = false;
             Program.TemperaturesForm.Visible = false;
             Program.FunctionsForm.Visible = false;
+
             Program.SimulationForm.Visible = true;
             Program.SimulationForm.Enabled = true;
             Program.SimulationForm.Dock = DockStyle.Fill;
@@ -144,6 +152,8 @@ namespace diplwinform_v1_1
             MenuPanelHeight.Visible = status;
             MenuPanelWidth.Visible = status;
 
+            OS_label.Visible = status;
+
             if (status)
             {
                 gesamtheight.Text = this.Size.Height.ToString();
@@ -154,6 +164,10 @@ namespace diplwinform_v1_1
 
                 MenuPanelHeight.Text = MenuPanel.Size.Height.ToString();
                 MenuPanelWidth.Text = MenuPanel.Size.Width.ToString();
+
+
+                this.OS_label.Text = Environment.OSVersion.Platform.ToString();
+
             }
 
         }

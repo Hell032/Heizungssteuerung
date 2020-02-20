@@ -1,4 +1,5 @@
 ﻿using diplwinform_v1_1.Views;
+using System;
 using System.IO.Ports;
 using System.Windows.Forms;
 
@@ -21,7 +22,7 @@ namespace diplwinform_v1_1
 
 
 
-        public static SerialPort mySerialPort = new SerialPort();
+        //public static SerialPort mySerialPort = new SerialPort();
 
         static void Main()
         {
@@ -39,7 +40,16 @@ namespace diplwinform_v1_1
             MenuForm = new Menu();
 
 
+
             Application.Run(MenuForm);
+        }
+
+
+        public static void CheckOS()
+        {
+            
+            
+        
         }
     }
 }

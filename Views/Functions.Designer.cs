@@ -106,6 +106,7 @@
             this.Tag_Nacht.TabIndex = 19;
             this.Tag_Nacht.Text = "Tag\r\nNacht";
             this.Tag_Nacht.UseVisualStyleBackColor = true;
+            this.Tag_Nacht.Click += new System.EventHandler(this.Tag_Nacht_Click);
             // 
             // AntiFreeze
             // 
@@ -122,6 +123,7 @@
             this.AntiFreeze.TabIndex = 18;
             this.AntiFreeze.Text = "Anti-\r\nFreeze";
             this.AntiFreeze.UseVisualStyleBackColor = true;
+            this.AntiFreeze.Click += new System.EventHandler(this.AntiFreeze_Click);
             // 
             // Sommer_Winter
             // 
@@ -138,6 +140,7 @@
             this.Sommer_Winter.TabIndex = 17;
             this.Sommer_Winter.Text = "Sommer\r\nWinter";
             this.Sommer_Winter.UseVisualStyleBackColor = true;
+            this.Sommer_Winter.Click += new System.EventHandler(this.Sommer_Winter_Click);
             // 
             // Boiler
             // 

@@ -28,5 +28,20 @@ namespace diplwinform_v1_1.Views
         {
 
         }
+
+        private void Sommer_Winter_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AntiFreeze_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Tag_Nacht_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
