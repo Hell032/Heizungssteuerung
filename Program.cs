@@ -5,8 +5,6 @@ using System.Windows.Forms;
 namespace diplwinform_v1_1
 {
 
-
-
     static class Program
     {
         /// <summary>
@@ -19,6 +17,7 @@ namespace diplwinform_v1_1
         public static Setup SetupForm;
         public static Functions FunctionsForm;
         public static Temperatures TemperaturesForm;
+        public static Simulation SimulationForm;
 
 
 
@@ -34,6 +33,9 @@ namespace diplwinform_v1_1
             SetupForm = new Setup();
             FunctionsForm = new Functions();
             TemperaturesForm = new Temperatures();
+            SimulationForm = new Simulation();
+
+            //---------- initialize last to avoid errors -------------------------
             MenuForm = new Menu();
 
 

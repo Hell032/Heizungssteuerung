@@ -38,18 +38,18 @@
             this.FormPanel = new System.Windows.Forms.Panel();
             this.MenuPanelWidth = new System.Windows.Forms.Label();
             this.MenuPanelHeight = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.MenuPanellabel = new System.Windows.Forms.Label();
             this.Formpanelwidth = new System.Windows.Forms.Label();
             this.Formpanelheight = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.Formpanellabel = new System.Windows.Forms.Label();
             this.gesamtwidth = new System.Windows.Forms.Label();
             this.gesamtheight = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.gesamtlabel = new System.Windows.Forms.Label();
             this.MenuLabel = new System.Windows.Forms.Label();
             this.MenuPanel = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1.SuspendLayout();
             this.ButtonPanel.SuspendLayout();
-            this.FormPanel.SuspendLayout();
+            this.MenuPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -170,15 +170,7 @@
             // 
             // FormPanel
             // 
-            this.FormPanel.Controls.Add(this.MenuPanelWidth);
-            this.FormPanel.Controls.Add(this.MenuPanelHeight);
-            this.FormPanel.Controls.Add(this.label5);
-            this.FormPanel.Controls.Add(this.Formpanelwidth);
-            this.FormPanel.Controls.Add(this.Formpanelheight);
-            this.FormPanel.Controls.Add(this.label4);
-            this.FormPanel.Controls.Add(this.gesamtwidth);
-            this.FormPanel.Controls.Add(this.gesamtheight);
-            this.FormPanel.Controls.Add(this.label1);
+            this.FormPanel.AutoSize = true;
             this.FormPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.FormPanel.Location = new System.Drawing.Point(129, 90);
             this.FormPanel.Margin = new System.Windows.Forms.Padding(0);
@@ -189,7 +181,7 @@
             // MenuPanelWidth
             // 
             this.MenuPanelWidth.AutoSize = true;
-            this.MenuPanelWidth.Location = new System.Drawing.Point(288, 68);
+            this.MenuPanelWidth.Location = new System.Drawing.Point(217, 28);
             this.MenuPanelWidth.Name = "MenuPanelWidth";
             this.MenuPanelWidth.Size = new System.Drawing.Size(35, 13);
             this.MenuPanelWidth.TabIndex = 8;
@@ -198,26 +190,26 @@
             // MenuPanelHeight
             // 
             this.MenuPanelHeight.AutoSize = true;
-            this.MenuPanelHeight.Location = new System.Drawing.Point(288, 55);
+            this.MenuPanelHeight.Location = new System.Drawing.Point(217, 15);
             this.MenuPanelHeight.Name = "MenuPanelHeight";
             this.MenuPanelHeight.Size = new System.Drawing.Size(35, 13);
             this.MenuPanelHeight.TabIndex = 7;
             this.MenuPanelHeight.Text = "label5";
             // 
-            // label5
+            // MenuPanellabel
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(288, 42);
-            this.label5.Margin = new System.Windows.Forms.Padding(0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(84, 13);
-            this.label5.TabIndex = 6;
-            this.label5.Text = "MenuPanel Size";
+            this.MenuPanellabel.AutoSize = true;
+            this.MenuPanellabel.Location = new System.Drawing.Point(217, 2);
+            this.MenuPanellabel.Margin = new System.Windows.Forms.Padding(0);
+            this.MenuPanellabel.Name = "MenuPanellabel";
+            this.MenuPanellabel.Size = new System.Drawing.Size(84, 13);
+            this.MenuPanellabel.TabIndex = 6;
+            this.MenuPanellabel.Text = "MenuPanel Size";
             // 
             // Formpanelwidth
             // 
             this.Formpanelwidth.AutoSize = true;
-            this.Formpanelwidth.Location = new System.Drawing.Point(177, 68);
+            this.Formpanelwidth.Location = new System.Drawing.Point(106, 28);
             this.Formpanelwidth.Name = "Formpanelwidth";
             this.Formpanelwidth.Size = new System.Drawing.Size(35, 13);
             this.Formpanelwidth.TabIndex = 5;
@@ -226,26 +218,26 @@
             // Formpanelheight
             // 
             this.Formpanelheight.AutoSize = true;
-            this.Formpanelheight.Location = new System.Drawing.Point(177, 55);
+            this.Formpanelheight.Location = new System.Drawing.Point(106, 15);
             this.Formpanelheight.Name = "Formpanelheight";
             this.Formpanelheight.Size = new System.Drawing.Size(35, 13);
             this.Formpanelheight.TabIndex = 4;
             this.Formpanelheight.Text = "label5";
             // 
-            // label4
+            // Formpanellabel
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(177, 42);
-            this.label4.Margin = new System.Windows.Forms.Padding(0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(80, 13);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "FormPanel Size";
+            this.Formpanellabel.AutoSize = true;
+            this.Formpanellabel.Location = new System.Drawing.Point(106, 2);
+            this.Formpanellabel.Margin = new System.Windows.Forms.Padding(0);
+            this.Formpanellabel.Name = "Formpanellabel";
+            this.Formpanellabel.Size = new System.Drawing.Size(80, 13);
+            this.Formpanellabel.TabIndex = 3;
+            this.Formpanellabel.Text = "FormPanel Size";
             // 
             // gesamtwidth
             // 
             this.gesamtwidth.AutoSize = true;
-            this.gesamtwidth.Location = new System.Drawing.Point(74, 68);
+            this.gesamtwidth.Location = new System.Drawing.Point(3, 28);
             this.gesamtwidth.Name = "gesamtwidth";
             this.gesamtwidth.Size = new System.Drawing.Size(35, 13);
             this.gesamtwidth.TabIndex = 2;
@@ -254,20 +246,20 @@
             // gesamtheight
             // 
             this.gesamtheight.AutoSize = true;
-            this.gesamtheight.Location = new System.Drawing.Point(74, 55);
+            this.gesamtheight.Location = new System.Drawing.Point(3, 15);
             this.gesamtheight.Name = "gesamtheight";
             this.gesamtheight.Size = new System.Drawing.Size(35, 13);
             this.gesamtheight.TabIndex = 1;
             this.gesamtheight.Text = "label2";
             // 
-            // label1
+            // gesamtlabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(74, 42);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(70, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Gesamtgröße";
+            this.gesamtlabel.AutoSize = true;
+            this.gesamtlabel.Location = new System.Drawing.Point(3, 2);
+            this.gesamtlabel.Name = "gesamtlabel";
+            this.gesamtlabel.Size = new System.Drawing.Size(70, 13);
+            this.gesamtlabel.TabIndex = 0;
+            this.gesamtlabel.Text = "Gesamtgröße";
             // 
             // MenuLabel
             // 
@@ -283,14 +275,24 @@
             this.MenuLabel.TabIndex = 1;
             this.MenuLabel.Text = "Menu";
             this.MenuLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.MenuLabel.DoubleClick += new System.EventHandler(this.EnterSimulation_DoubleClick);
             // 
             // MenuPanel
             // 
+            this.MenuPanel.Controls.Add(this.MenuPanelWidth);
+            this.MenuPanel.Controls.Add(this.MenuPanellabel);
+            this.MenuPanel.Controls.Add(this.MenuPanelHeight);
+            this.MenuPanel.Controls.Add(this.gesamtlabel);
+            this.MenuPanel.Controls.Add(this.gesamtheight);
+            this.MenuPanel.Controls.Add(this.Formpanelwidth);
+            this.MenuPanel.Controls.Add(this.gesamtwidth);
+            this.MenuPanel.Controls.Add(this.Formpanelheight);
+            this.MenuPanel.Controls.Add(this.Formpanellabel);
             this.MenuPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MenuPanel.Location = new System.Drawing.Point(179, 0);
-            this.MenuPanel.Margin = new System.Windows.Forms.Padding(50, 0, 0, 0);
+            this.MenuPanel.Location = new System.Drawing.Point(129, 0);
+            this.MenuPanel.Margin = new System.Windows.Forms.Padding(0);
             this.MenuPanel.Name = "MenuPanel";
-            this.MenuPanel.Size = new System.Drawing.Size(467, 90);
+            this.MenuPanel.Size = new System.Drawing.Size(517, 90);
             this.MenuPanel.TabIndex = 5;
             // 
             // Menu
@@ -315,8 +317,8 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.ButtonPanel.ResumeLayout(false);
-            this.FormPanel.ResumeLayout(false);
-            this.FormPanel.PerformLayout();
+            this.MenuPanel.ResumeLayout(false);
+            this.MenuPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -333,13 +335,13 @@
         private System.Windows.Forms.Panel FormPanel;
         private System.Windows.Forms.Label Formpanelwidth;
         private System.Windows.Forms.Label Formpanelheight;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label Formpanellabel;
         private System.Windows.Forms.Label gesamtwidth;
         private System.Windows.Forms.Label gesamtheight;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label gesamtlabel;
         private System.Windows.Forms.Panel MenuPanel;
         private System.Windows.Forms.Label MenuPanelWidth;
         private System.Windows.Forms.Label MenuPanelHeight;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label MenuPanellabel;
     }
 }

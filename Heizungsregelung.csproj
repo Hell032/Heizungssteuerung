@@ -88,17 +88,17 @@
     <Compile Include="Views\Setup.Designer.cs">
       <DependentUpon>Setup.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Temperatures.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Views\Temperatures.Designer.cs">
-      <DependentUpon>Temperatures.cs</DependentUpon>
-    </Compile>
     <Compile Include="Views\Simulation.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Views\Simulation.Designer.cs">
       <DependentUpon>Simulation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Temperatures.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Temperatures.Designer.cs">
+      <DependentUpon>Temperatures.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Views\Functions.resx">
       <DependentUpon>Functions.cs</DependentUpon>
@@ -119,11 +119,11 @@
     <EmbeddedResource Include="Views\Setup.resx">
       <DependentUpon>Setup.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Temperatures.resx">
-      <DependentUpon>Temperatures.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Views\Simulation.resx">
       <DependentUpon>Simulation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Temperatures.resx">
+      <DependentUpon>Temperatures.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -152,6 +152,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SimulationBackgroundPic.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

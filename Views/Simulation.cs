@@ -15,6 +15,16 @@ namespace diplwinform_v1_1.Views
         public Simulation()
         {
             InitializeComponent();
+
+            this.AutoScroll = true;
+            this.Dock = DockStyle.Fill;
+            this.Visible = false;
+            this.BackColor = Color.Transparent;
+
+            Image image = Image.FromFile(@"Pictures/SimulationBackgroundPic.png");
+
+            pictureBox1.Image = image;
+            //pictureBox1.SizeMode = PictureBoxSizeMode.AutoSize;
         }
     }
 }

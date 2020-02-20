@@ -163,7 +163,6 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Enabled = false;
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "Functions";
             this.Size = new System.Drawing.Size(514, 358);

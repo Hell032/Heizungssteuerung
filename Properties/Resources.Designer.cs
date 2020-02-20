@@ -59,5 +59,15 @@ namespace diplwinform_v1_1.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SimulationBackgroundPic {
+            get {
+                object obj = ResourceManager.GetObject("SimulationBackgroundPic", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }
