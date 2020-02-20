@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace diplwinform_v1_1.Views
 {
-    public partial class Temperatures : UserControl
+    public partial class Simulation : UserControl
     {
-        public Temperatures()
+        public Simulation()
         {
             InitializeComponent();
-
-            this.AutoScroll = true;
-            this.Dock = DockStyle.Fill;
-            this.Visible = false;
-            this.BackColor = Color.Transparent;
         }
     }
 }

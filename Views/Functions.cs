@@ -16,12 +16,17 @@ namespace diplwinform_v1_1.Views
         {
             InitializeComponent();
 
-            //this.AutoScroll = true;
+
+            this.AutoScroll = true;
             this.Dock = DockStyle.Fill;
             this.Visible = false;
             this.BackColor = Color.Transparent;
 
         }
 
+        private void Boiler_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -1,10 +1,5 @@
 ﻿using diplwinform_v1_1.Views;
-using System;
-using System.Collections.Generic;
-using System.Drawing;
 using System.IO.Ports;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace diplwinform_v1_1
@@ -23,7 +18,8 @@ namespace diplwinform_v1_1
         public static Menu MenuForm;
         public static Setup SetupForm;
         public static Functions FunctionsForm;
-        
+        public static Temperatures TemperaturesForm;
+
 
 
         public static SerialPort mySerialPort = new SerialPort();
@@ -37,7 +33,7 @@ namespace diplwinform_v1_1
 
             SetupForm = new Setup();
             FunctionsForm = new Functions();
-
+            TemperaturesForm = new Temperatures();
             MenuForm = new Menu();
 
 
