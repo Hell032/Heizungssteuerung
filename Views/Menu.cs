@@ -9,6 +9,21 @@ namespace diplwinform_v1_1
         public Menu()
         {
 
+            switch (Environment.OSVersion.Platform.ToString())
+            {
+                case "Win32NT":
+                    this.Size = new Size(640, 480);
+                    MessageBox.Show("Win32NT");
+                    break;
+                case "Unix":
+                    //this.Size = new Size(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
+                    this.WindowState = FormWindowState.Maximized;
+                    MessageBox.Show("Unix");
+                    break;
+                default:
+                    break;
+            }
+
             InitializeComponent();
 
 
@@ -20,7 +35,6 @@ namespace diplwinform_v1_1
             this.FormPanel.Controls.Add(Program.TemperaturesForm);
             this.FormPanel.Controls.Add(Program.SimulationForm);
 
-            SetSimulationLabels(false);
 
             //show no window bar
             this.ControlBox = false;
@@ -29,9 +43,6 @@ namespace diplwinform_v1_1
             //somwhow needed to load the background
             this.AutoScroll = true;
 
-            //Screen myScreen = Screen.PrimaryScreen.Bounds.Width;
-            //Rectangle area = myScreen.Bounds;
-            this.Size = new Size(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
 
 
             // Set the start position of the form to the center of the screen.
@@ -40,8 +51,10 @@ namespace diplwinform_v1_1
             //this.TopLevel = true;
 
             //set window size to maximum
-            this.WindowState = FormWindowState.Maximized;
+            //this.WindowState = FormWindowState.Maximized;
 
+
+            SetDebugLabels(true);
 
         }
 
@@ -55,7 +68,7 @@ namespace diplwinform_v1_1
         /// <param name="e"></param>
         private void TempButton_Click(object sender, EventArgs e)
         {
-            SetSimulationLabels(false);
+            SetDebugLabels(false);
 
             Program.SetupForm.Visible = false;
             Program.FunctionsForm.Visible = false;
@@ -73,7 +86,7 @@ namespace diplwinform_v1_1
         /// <param name="e"></param>
         private void SetupButton_Click(object sender, EventArgs e)
         {
-            SetSimulationLabels(false);
+            SetDebugLabels(false);
 
             Program.TemperaturesForm.Visible = false;
             Program.FunctionsForm.Visible = false;
@@ -90,7 +103,7 @@ namespace diplwinform_v1_1
         /// <param name="e"></param>
         private void FunctionsButton_Click(object sender, EventArgs e)
         {
-            SetSimulationLabels(false);
+            SetDebugLabels(false);
 
             Program.SetupForm.Visible = false;
             Program.TemperaturesForm.Visible = false;
@@ -108,7 +121,7 @@ namespace diplwinform_v1_1
         /// <param name="e"></param>
         private void EnterSimulation_Click(object sender, EventArgs e)
         {
-            SetSimulationLabels(true);
+            SetDebugLabels(true);
             
             Program.SetupForm.Visible = false;
             Program.TemperaturesForm.Visible = false;
@@ -138,7 +151,7 @@ namespace diplwinform_v1_1
         /// set labels for Simulation and ger site of various control elements
         /// </summary>
         /// <param name="status"></param>
-        private void SetSimulationLabels(bool status)
+        private void SetDebugLabels(bool status)
         {
             gesamtlabel.Visible = status;
             gesamtheight.Visible = status;

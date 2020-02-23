@@ -20,28 +20,33 @@ namespace diplwinform_v1_1
 
         //---------------------------------------------public-----------------------------------------
 
+        public int RaumTemp_Soll
+        {
+            get;
+            set;
+        }
         public int AußenTemp_Mittelwert
         {
-            get { return m_außen_Mittel; }
-            set { m_außentemp_Ist = value; }
+            get => m_außen_Mittel;
+            set => m_außentemp_Ist = value;
         }
 
         public int QuellenTemp_Soll
         {
-            get { return m_quelle_Ist; }
-            set { m_quelle_Ist = value; }
+            get => m_quelle_Ist;
+            set => m_quelle_Ist = value;
         }
 
         public int HKTemp_Soll
         {
-            get { return m_hk_Ist; }
-            set { m_hk_Ist = value; }
+            get => m_hk_Ist;
+            set => m_hk_Ist = value;
         }
 
         public int BoilerTemp_Soll
         {
-            get { return m_boiler_Ist; }
-            set { m_boiler_Ist = value; }
+            get => m_boiler_Ist;
+            set => m_boiler_Ist = value;
         }
 
         /// <summary>

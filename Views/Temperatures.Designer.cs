@@ -60,11 +60,13 @@
             this.Außentemptablelayout = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
-            this.Außentemp_Mittel_Label = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.Außentemp_Ist_Label = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.Außentemp_Mittel_Label = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -80,6 +82,8 @@
             this.Außentemptablelayout.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.tableLayoutPanel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // TempLabel
@@ -205,7 +209,7 @@
             this.Quellentemp_Soll_Label.Size = new System.Drawing.Size(121, 44);
             this.Quellentemp_Soll_Label.TabIndex = 3;
             this.Quellentemp_Soll_Label.Text = "X °C";
-            this.Quellentemp_Soll_Label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Quellentemp_Soll_Label.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label15
             // 
@@ -218,7 +222,7 @@
             this.label15.Size = new System.Drawing.Size(121, 44);
             this.label15.TabIndex = 1;
             this.label15.Text = "Sollwert";
-            this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label15.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label16
             // 
@@ -260,7 +264,7 @@
             this.Quellentemp_Ist_Label.Size = new System.Drawing.Size(121, 44);
             this.Quellentemp_Ist_Label.TabIndex = 2;
             this.Quellentemp_Ist_Label.Text = "X °C";
-            this.Quellentemp_Ist_Label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Quellentemp_Ist_Label.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label18
             // 
@@ -273,7 +277,7 @@
             this.label18.Size = new System.Drawing.Size(121, 44);
             this.label18.TabIndex = 1;
             this.label18.Text = "Istwert";
-            this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label18.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // tableLayoutPanel10
             // 
@@ -320,7 +324,7 @@
             this.HKtemp_Soll_Label.Size = new System.Drawing.Size(121, 44);
             this.HKtemp_Soll_Label.TabIndex = 3;
             this.HKtemp_Soll_Label.Text = "X °C";
-            this.HKtemp_Soll_Label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.HKtemp_Soll_Label.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label10
             // 
@@ -333,7 +337,7 @@
             this.label10.Size = new System.Drawing.Size(121, 44);
             this.label10.TabIndex = 1;
             this.label10.Text = "Sollwert";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label10.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label11
             // 
@@ -375,7 +379,7 @@
             this.HKtemp_Ist_Label.Size = new System.Drawing.Size(121, 44);
             this.HKtemp_Ist_Label.TabIndex = 2;
             this.HKtemp_Ist_Label.Text = "X °C";
-            this.HKtemp_Ist_Label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.HKtemp_Ist_Label.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label13
             // 
@@ -388,7 +392,7 @@
             this.label13.Size = new System.Drawing.Size(121, 44);
             this.label13.TabIndex = 1;
             this.label13.Text = "Istwert";
-            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label13.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // tableLayoutPanel7
             // 
@@ -435,7 +439,7 @@
             this.Boilertemp_Soll_Label.Size = new System.Drawing.Size(121, 45);
             this.Boilertemp_Soll_Label.TabIndex = 3;
             this.Boilertemp_Soll_Label.Text = "X °C";
-            this.Boilertemp_Soll_Label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Boilertemp_Soll_Label.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label5
             // 
@@ -448,7 +452,7 @@
             this.label5.Size = new System.Drawing.Size(121, 45);
             this.label5.TabIndex = 1;
             this.label5.Text = "Sollwert";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label5.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label6
             // 
@@ -490,7 +494,7 @@
             this.Boilertemp_Ist_Label.Size = new System.Drawing.Size(121, 43);
             this.Boilertemp_Ist_Label.TabIndex = 2;
             this.Boilertemp_Ist_Label.Text = "X °C";
-            this.Boilertemp_Ist_Label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Boilertemp_Ist_Label.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label8
             // 
@@ -503,7 +507,7 @@
             this.label8.Size = new System.Drawing.Size(121, 43);
             this.label8.TabIndex = 1;
             this.label8.Text = "Istwert";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label8.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // Außentemptablelayout
             // 
@@ -541,8 +545,8 @@
             this.tableLayoutPanel6.ColumnCount = 2;
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel6.Controls.Add(this.Außentemp_Mittel_Label, 0, 0);
-            this.tableLayoutPanel6.Controls.Add(this.label3, 0, 0);
+            this.tableLayoutPanel6.Controls.Add(this.panel1, 0, 0);
+            this.tableLayoutPanel6.Controls.Add(this.tableLayoutPanel4, 1, 0);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel6.Location = new System.Drawing.Point(0, 86);
             this.tableLayoutPanel6.Margin = new System.Windows.Forms.Padding(0);
@@ -551,32 +555,6 @@
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel6.Size = new System.Drawing.Size(254, 45);
             this.tableLayoutPanel6.TabIndex = 2;
-            // 
-            // Außentemp_Mittel_Label
-            // 
-            this.Außentemp_Mittel_Label.AutoSize = true;
-            this.Außentemp_Mittel_Label.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Außentemp_Mittel_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Außentemp_Mittel_Label.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.Außentemp_Mittel_Label.Location = new System.Drawing.Point(130, 0);
-            this.Außentemp_Mittel_Label.Name = "Außentemp_Mittel_Label";
-            this.Außentemp_Mittel_Label.Size = new System.Drawing.Size(121, 45);
-            this.Außentemp_Mittel_Label.TabIndex = 3;
-            this.Außentemp_Mittel_Label.Text = "X °C";
-            this.Außentemp_Mittel_Label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.label3.Location = new System.Drawing.Point(3, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(121, 45);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Mittelwert\r\n(last 30 seconds)";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel5
             // 
@@ -605,7 +583,7 @@
             this.Außentemp_Ist_Label.Size = new System.Drawing.Size(121, 43);
             this.Außentemp_Ist_Label.TabIndex = 2;
             this.Außentemp_Ist_Label.Text = "X °C";
-            this.Außentemp_Ist_Label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Außentemp_Ist_Label.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label2
             // 
@@ -618,7 +596,55 @@
             this.label2.Size = new System.Drawing.Size(121, 43);
             this.label2.TabIndex = 1;
             this.label2.Text = "Ist";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(121, 39);
+            this.panel1.TabIndex = 2;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.label3.Location = new System.Drawing.Point(0, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(97, 24);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "last 30 sec";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // tableLayoutPanel4
+            // 
+            this.tableLayoutPanel4.ColumnCount = 1;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.Controls.Add(this.Außentemp_Mittel_Label, 0, 0);
+            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(130, 3);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            this.tableLayoutPanel4.RowCount = 1;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(121, 39);
+            this.tableLayoutPanel4.TabIndex = 3;
+            // 
+            // Außentemp_Mittel_Label
+            // 
+            this.Außentemp_Mittel_Label.AutoSize = true;
+            this.Außentemp_Mittel_Label.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Außentemp_Mittel_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Außentemp_Mittel_Label.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.Außentemp_Mittel_Label.Location = new System.Drawing.Point(3, 0);
+            this.Außentemp_Mittel_Label.Name = "Außentemp_Mittel_Label";
+            this.Außentemp_Mittel_Label.Size = new System.Drawing.Size(115, 39);
+            this.Außentemp_Mittel_Label.TabIndex = 8;
+            this.Außentemp_Mittel_Label.Text = "X °C";
+            this.Außentemp_Mittel_Label.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // Temperatures
             // 
@@ -655,9 +681,12 @@
             this.Außentemptablelayout.ResumeLayout(false);
             this.Außentemptablelayout.PerformLayout();
             this.tableLayoutPanel6.ResumeLayout(false);
-            this.tableLayoutPanel6.PerformLayout();
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel5.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.tableLayoutPanel4.ResumeLayout(false);
+            this.tableLayoutPanel4.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -672,7 +701,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.TableLayoutPanel Außentemptablelayout;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.Label Außentemp_Ist_Label;
         private System.Windows.Forms.Label label2;
@@ -684,7 +712,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel9;
         private System.Windows.Forms.Label Boilertemp_Ist_Label;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label Außentemp_Mittel_Label;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel13;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel14;
         private System.Windows.Forms.Label Quellentemp_Soll_Label;
@@ -702,5 +729,9 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
+        private System.Windows.Forms.Label Außentemp_Mittel_Label;
     }
 }

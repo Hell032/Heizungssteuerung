@@ -51,7 +51,7 @@ namespace diplwinform_v1_1.Views
         //---------------------------------------------variables--------------------------------------
 
         //---------------------------------------------private----------------------------------------
-        private string m_außenTemp, m_quelleTemp, m_hkTemp, m_boilerTemp;
+        private string m_außenTemp, m_quelleTemp, m_hkTemp, m_boilerTemp, m_raumTemp;
 
         private Thread tempthread;
 
@@ -60,26 +60,26 @@ namespace diplwinform_v1_1.Views
 
         public string AußenTemp_Mittel
         {
-            get { return myCalculations.AußenTemp_Mittelwert.ToString(); }
-            set { myCalculations.AußenTemp_Mittelwert = int.Parse(value); }
+            get => myCalculations.AußenTemp_Mittelwert.ToString();
+            set => myCalculations.AußenTemp_Mittelwert = int.Parse(value);
         }
 
         public string QuellenTemp_Soll
         {
-            get { return myCalculations.QuellenTemp_Soll.ToString(); }
-            set { myCalculations.QuellenTemp_Soll = int.Parse(value); }
+            get => myCalculations.QuellenTemp_Soll.ToString();
+            set => myCalculations.QuellenTemp_Soll = int.Parse(value);
         }
 
         public string HKTemp_Soll
         {
-            get { return myCalculations.HKTemp_Soll.ToString(); }
-            set { myCalculations.HKTemp_Soll = int.Parse(value); }
+            get => myCalculations.HKTemp_Soll.ToString();
+            set => myCalculations.HKTemp_Soll = int.Parse(value);
         }
 
         public string BoilerTemp_Soll
         {
-            get { return myCalculations.BoilerTemp_Soll.ToString(); }
-            set { myCalculations.BoilerTemp_Soll = int.Parse(value); }
+            get => myCalculations.BoilerTemp_Soll.ToString();
+            set => myCalculations.BoilerTemp_Soll = int.Parse(value);
         }
 
 
@@ -94,7 +94,8 @@ namespace diplwinform_v1_1.Views
         {
             string data;
             string[] pieces;
-            Setup.mySerialPort.ReadTimeout = 500;
+            System.IO.Ports.SerialPort mySerialPort = Setup.mySerialPort;
+            mySerialPort.ReadTimeout = 500;
 
             while (true)
             {

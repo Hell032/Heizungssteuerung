@@ -23,7 +23,7 @@ namespace diplwinform_v1_1.Views
 
             Image image = Image.FromFile(@"Pictures/SimulationBackgroundPic.png");
 
-            pictureBox1.Image = image;
+            SimulationPicture.BackgroundImage = image;
             //pictureBox1.SizeMode = PictureBoxSizeMode.AutoSize;
         }
     }
