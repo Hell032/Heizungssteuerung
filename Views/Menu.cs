@@ -13,14 +13,16 @@ namespace diplwinform_v1_1
             {
                 case "Win32NT":
                     this.Size = new Size(640, 480);
-                    MessageBox.Show("Win32NT");
+                    //MessageBox.Show("Win32NT");
                     break;
                 case "Unix":
                     //this.Size = new Size(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
                     this.WindowState = FormWindowState.Maximized;
-                    MessageBox.Show("Unix");
+                    //MessageBox.Show("Unix");
                     break;
                 default:
+                    this.Size = new Size(640, 480);
+                    MessageBox.Show($"{Environment.OSVersion.Platform.ToString()} is not recogniced\nWindowsize is set to default");
                     break;
             }
 

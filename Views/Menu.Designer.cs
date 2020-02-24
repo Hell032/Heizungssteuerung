@@ -36,22 +36,22 @@
             this.TempButton = new System.Windows.Forms.Button();
             this.SetupButton = new System.Windows.Forms.Button();
             this.FormPanel = new System.Windows.Forms.Panel();
-            this.MenuLabel = new System.Windows.Forms.Label();
             this.OS_label = new System.Windows.Forms.Label();
+            this.gesamtwidth = new System.Windows.Forms.Label();
             this.MenuPanelWidth = new System.Windows.Forms.Label();
+            this.Formpanellabel = new System.Windows.Forms.Label();
             this.MenuPanellabel = new System.Windows.Forms.Label();
+            this.Formpanelheight = new System.Windows.Forms.Label();
             this.MenuPanelHeight = new System.Windows.Forms.Label();
+            this.Formpanelwidth = new System.Windows.Forms.Label();
             this.gesamtlabel = new System.Windows.Forms.Label();
             this.gesamtheight = new System.Windows.Forms.Label();
-            this.Formpanelwidth = new System.Windows.Forms.Label();
-            this.gesamtwidth = new System.Windows.Forms.Label();
-            this.Formpanelheight = new System.Windows.Forms.Label();
-            this.Formpanellabel = new System.Windows.Forms.Label();
+            this.MenuLabel = new System.Windows.Forms.Label();
             this.MenuPanel = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.label1 = new System.Windows.Forms.Label();
             this.RaumTemp_DOWN_Button = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.ButtonPanel.SuspendLayout();
             this.FormPanel.SuspendLayout();
@@ -195,22 +195,6 @@
             this.FormPanel.Size = new System.Drawing.Size(506, 378);
             this.FormPanel.TabIndex = 4;
             // 
-            // MenuLabel
-            // 
-            this.MenuLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.MenuLabel.AutoSize = true;
-            this.MenuLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MenuLabel.ForeColor = System.Drawing.Color.White;
-            this.MenuLabel.Location = new System.Drawing.Point(3, 0);
-            this.MenuLabel.Name = "MenuLabel";
-            this.MenuLabel.Size = new System.Drawing.Size(122, 96);
-            this.MenuLabel.TabIndex = 1;
-            this.MenuLabel.Text = "Menu";
-            this.MenuLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.MenuLabel.Click += new System.EventHandler(this.EnterSimulation_Click);
-            // 
             // OS_label
             // 
             this.OS_label.AutoSize = true;
@@ -221,6 +205,15 @@
             this.OS_label.TabIndex = 19;
             this.OS_label.Text = "OS: ";
             // 
+            // gesamtwidth
+            // 
+            this.gesamtwidth.AutoSize = true;
+            this.gesamtwidth.Location = new System.Drawing.Point(27, 42);
+            this.gesamtwidth.Name = "gesamtwidth";
+            this.gesamtwidth.Size = new System.Drawing.Size(35, 13);
+            this.gesamtwidth.TabIndex = 12;
+            this.gesamtwidth.Text = "label3";
+            // 
             // MenuPanelWidth
             // 
             this.MenuPanelWidth.AutoSize = true;
@@ -229,6 +222,16 @@
             this.MenuPanelWidth.Size = new System.Drawing.Size(35, 13);
             this.MenuPanelWidth.TabIndex = 18;
             this.MenuPanelWidth.Text = "label6";
+            // 
+            // Formpanellabel
+            // 
+            this.Formpanellabel.AutoSize = true;
+            this.Formpanellabel.Location = new System.Drawing.Point(96, 16);
+            this.Formpanellabel.Margin = new System.Windows.Forms.Padding(0);
+            this.Formpanellabel.Name = "Formpanellabel";
+            this.Formpanellabel.Size = new System.Drawing.Size(80, 13);
+            this.Formpanellabel.TabIndex = 13;
+            this.Formpanellabel.Text = "FormPanel Size";
             // 
             // MenuPanellabel
             // 
@@ -240,6 +243,15 @@
             this.MenuPanellabel.TabIndex = 16;
             this.MenuPanellabel.Text = "MenuPanel Size";
             // 
+            // Formpanelheight
+            // 
+            this.Formpanelheight.AutoSize = true;
+            this.Formpanelheight.Location = new System.Drawing.Point(96, 29);
+            this.Formpanelheight.Name = "Formpanelheight";
+            this.Formpanelheight.Size = new System.Drawing.Size(35, 13);
+            this.Formpanelheight.TabIndex = 14;
+            this.Formpanelheight.Text = "label5";
+            // 
             // MenuPanelHeight
             // 
             this.MenuPanelHeight.AutoSize = true;
@@ -248,6 +260,15 @@
             this.MenuPanelHeight.Size = new System.Drawing.Size(35, 13);
             this.MenuPanelHeight.TabIndex = 17;
             this.MenuPanelHeight.Text = "label5";
+            // 
+            // Formpanelwidth
+            // 
+            this.Formpanelwidth.AutoSize = true;
+            this.Formpanelwidth.Location = new System.Drawing.Point(96, 42);
+            this.Formpanelwidth.Name = "Formpanelwidth";
+            this.Formpanelwidth.Size = new System.Drawing.Size(35, 13);
+            this.Formpanelwidth.TabIndex = 15;
+            this.Formpanelwidth.Text = "label6";
             // 
             // gesamtlabel
             // 
@@ -267,42 +288,21 @@
             this.gesamtheight.TabIndex = 11;
             this.gesamtheight.Text = "label2";
             // 
-            // Formpanelwidth
+            // MenuLabel
             // 
-            this.Formpanelwidth.AutoSize = true;
-            this.Formpanelwidth.Location = new System.Drawing.Point(96, 42);
-            this.Formpanelwidth.Name = "Formpanelwidth";
-            this.Formpanelwidth.Size = new System.Drawing.Size(35, 13);
-            this.Formpanelwidth.TabIndex = 15;
-            this.Formpanelwidth.Text = "label6";
-            // 
-            // gesamtwidth
-            // 
-            this.gesamtwidth.AutoSize = true;
-            this.gesamtwidth.Location = new System.Drawing.Point(27, 42);
-            this.gesamtwidth.Name = "gesamtwidth";
-            this.gesamtwidth.Size = new System.Drawing.Size(35, 13);
-            this.gesamtwidth.TabIndex = 12;
-            this.gesamtwidth.Text = "label3";
-            // 
-            // Formpanelheight
-            // 
-            this.Formpanelheight.AutoSize = true;
-            this.Formpanelheight.Location = new System.Drawing.Point(96, 29);
-            this.Formpanelheight.Name = "Formpanelheight";
-            this.Formpanelheight.Size = new System.Drawing.Size(35, 13);
-            this.Formpanelheight.TabIndex = 14;
-            this.Formpanelheight.Text = "label5";
-            // 
-            // Formpanellabel
-            // 
-            this.Formpanellabel.AutoSize = true;
-            this.Formpanellabel.Location = new System.Drawing.Point(96, 16);
-            this.Formpanellabel.Margin = new System.Windows.Forms.Padding(0);
-            this.Formpanellabel.Name = "Formpanellabel";
-            this.Formpanellabel.Size = new System.Drawing.Size(80, 13);
-            this.Formpanellabel.TabIndex = 13;
-            this.Formpanellabel.Text = "FormPanel Size";
+            this.MenuLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.MenuLabel.AutoSize = true;
+            this.MenuLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MenuLabel.ForeColor = System.Drawing.Color.White;
+            this.MenuLabel.Location = new System.Drawing.Point(3, 0);
+            this.MenuLabel.Name = "MenuLabel";
+            this.MenuLabel.Size = new System.Drawing.Size(122, 96);
+            this.MenuLabel.TabIndex = 1;
+            this.MenuLabel.Text = "Menu";
+            this.MenuLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.MenuLabel.Click += new System.EventHandler(this.EnterSimulation_Click);
             // 
             // MenuPanel
             // 
@@ -332,42 +332,6 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(512, 96);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
-            // RaumTemp_DOWN_Button
-            // 
-            this.RaumTemp_DOWN_Button.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.RaumTemp_DOWN_Button.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.RaumTemp_DOWN_Button.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.RaumTemp_DOWN_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RaumTemp_DOWN_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 65.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RaumTemp_DOWN_Button.ForeColor = System.Drawing.Color.White;
-            this.RaumTemp_DOWN_Button.Location = new System.Drawing.Point(3, 3);
-            this.RaumTemp_DOWN_Button.Name = "RaumTemp_DOWN_Button";
-            this.RaumTemp_DOWN_Button.Size = new System.Drawing.Size(164, 90);
-            this.RaumTemp_DOWN_Button.TabIndex = 1;
-            this.RaumTemp_DOWN_Button.Text = "-";
-            this.RaumTemp_DOWN_Button.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 65.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(343, 3);
-            this.button1.Name = "button1";
-            this.button1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.button1.Size = new System.Drawing.Size(166, 90);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "+";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -380,6 +344,42 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "20 °C";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // RaumTemp_DOWN_Button
+            // 
+            this.RaumTemp_DOWN_Button.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("RaumTemp_DOWN_Button.BackgroundImage")));
+            this.RaumTemp_DOWN_Button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.RaumTemp_DOWN_Button.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.RaumTemp_DOWN_Button.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.RaumTemp_DOWN_Button.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.RaumTemp_DOWN_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RaumTemp_DOWN_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 80F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World, ((byte)(0)));
+            this.RaumTemp_DOWN_Button.ForeColor = System.Drawing.Color.White;
+            this.RaumTemp_DOWN_Button.Location = new System.Drawing.Point(0, 0);
+            this.RaumTemp_DOWN_Button.Margin = new System.Windows.Forms.Padding(0);
+            this.RaumTemp_DOWN_Button.Name = "RaumTemp_DOWN_Button";
+            this.RaumTemp_DOWN_Button.Size = new System.Drawing.Size(170, 96);
+            this.RaumTemp_DOWN_Button.TabIndex = 1;
+            this.RaumTemp_DOWN_Button.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.RaumTemp_DOWN_Button.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 80F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(340, 0);
+            this.button1.Margin = new System.Windows.Forms.Padding(0);
+            this.button1.Name = "button1";
+            this.button1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.button1.Size = new System.Drawing.Size(172, 96);
+            this.button1.TabIndex = 2;
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // Menu
             // 
