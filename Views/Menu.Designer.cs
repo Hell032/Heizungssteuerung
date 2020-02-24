@@ -51,7 +51,7 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.RaumTemp_DOWN_Button = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.RaumTemp_UP_Button = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.ButtonPanel.SuspendLayout();
             this.FormPanel.SuspendLayout();
@@ -105,11 +105,9 @@
             // 
             // ExitButton
             // 
-            this.ExitButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.ExitButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.ExitButton.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.ExitButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ExitButton.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.ExitButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.ExitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ExitButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ExitButton.ForeColor = System.Drawing.Color.White;
@@ -123,11 +121,9 @@
             // 
             // FunctionsButton
             // 
-            this.FunctionsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.FunctionsButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.FunctionsButton.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.FunctionsButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.FunctionsButton.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.FunctionsButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.FunctionsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.FunctionsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FunctionsButton.ForeColor = System.Drawing.Color.White;
@@ -141,11 +137,9 @@
             // 
             // TempButton
             // 
-            this.TempButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.TempButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.TempButton.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.TempButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TempButton.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.TempButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.TempButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.TempButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TempButton.ForeColor = System.Drawing.Color.White;
@@ -159,11 +153,9 @@
             // 
             // SetupButton
             // 
-            this.SetupButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.SetupButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.SetupButton.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.SetupButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SetupButton.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.SetupButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.SetupButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SetupButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SetupButton.ForeColor = System.Drawing.Color.White;
@@ -178,6 +170,7 @@
             // FormPanel
             // 
             this.FormPanel.AutoSize = true;
+            this.FormPanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.FormPanel.Controls.Add(this.OS_label);
             this.FormPanel.Controls.Add(this.gesamtwidth);
             this.FormPanel.Controls.Add(this.MenuPanelWidth);
@@ -189,10 +182,10 @@
             this.FormPanel.Controls.Add(this.gesamtlabel);
             this.FormPanel.Controls.Add(this.gesamtheight);
             this.FormPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.FormPanel.Location = new System.Drawing.Point(128, 96);
-            this.FormPanel.Margin = new System.Windows.Forms.Padding(0, 0, 6, 6);
+            this.FormPanel.Location = new System.Drawing.Point(128, 99);
+            this.FormPanel.Margin = new System.Windows.Forms.Padding(0, 3, 6, 6);
             this.FormPanel.Name = "FormPanel";
-            this.FormPanel.Size = new System.Drawing.Size(506, 378);
+            this.FormPanel.Size = new System.Drawing.Size(506, 375);
             this.FormPanel.TabIndex = 4;
             // 
             // OS_label
@@ -322,7 +315,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel2.Controls.Add(this.label1, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.RaumTemp_DOWN_Button, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.button1, 2, 0);
+            this.tableLayoutPanel2.Controls.Add(this.RaumTemp_UP_Button, 2, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
@@ -336,7 +329,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 38.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(173, 0);
             this.label1.Name = "label1";
@@ -347,39 +340,43 @@
             // 
             // RaumTemp_DOWN_Button
             // 
-            this.RaumTemp_DOWN_Button.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("RaumTemp_DOWN_Button.BackgroundImage")));
             this.RaumTemp_DOWN_Button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.RaumTemp_DOWN_Button.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.RaumTemp_DOWN_Button.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.RaumTemp_DOWN_Button.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.RaumTemp_DOWN_Button.FlatAppearance.BorderSize = 0;
+            this.RaumTemp_DOWN_Button.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.RaumTemp_DOWN_Button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.RaumTemp_DOWN_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RaumTemp_DOWN_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 80F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World, ((byte)(0)));
+            this.RaumTemp_DOWN_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RaumTemp_DOWN_Button.ForeColor = System.Drawing.Color.White;
             this.RaumTemp_DOWN_Button.Location = new System.Drawing.Point(0, 0);
             this.RaumTemp_DOWN_Button.Margin = new System.Windows.Forms.Padding(0);
             this.RaumTemp_DOWN_Button.Name = "RaumTemp_DOWN_Button";
+            this.RaumTemp_DOWN_Button.Padding = new System.Windows.Forms.Padding(5);
             this.RaumTemp_DOWN_Button.Size = new System.Drawing.Size(170, 96);
             this.RaumTemp_DOWN_Button.TabIndex = 1;
-            this.RaumTemp_DOWN_Button.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.RaumTemp_DOWN_Button.Text = "-";
             this.RaumTemp_DOWN_Button.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // RaumTemp_UP_Button
             // 
-            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 80F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(340, 0);
-            this.button1.Margin = new System.Windows.Forms.Padding(0);
-            this.button1.Name = "button1";
-            this.button1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.button1.Size = new System.Drawing.Size(172, 96);
-            this.button1.TabIndex = 2;
-            this.button1.UseVisualStyleBackColor = true;
+            this.RaumTemp_UP_Button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.RaumTemp_UP_Button.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.RaumTemp_UP_Button.FlatAppearance.BorderSize = 0;
+            this.RaumTemp_UP_Button.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.RaumTemp_UP_Button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.RaumTemp_UP_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RaumTemp_UP_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RaumTemp_UP_Button.ForeColor = System.Drawing.Color.White;
+            this.RaumTemp_UP_Button.Location = new System.Drawing.Point(340, 0);
+            this.RaumTemp_UP_Button.Margin = new System.Windows.Forms.Padding(0);
+            this.RaumTemp_UP_Button.Name = "RaumTemp_UP_Button";
+            this.RaumTemp_UP_Button.Padding = new System.Windows.Forms.Padding(5);
+            this.RaumTemp_UP_Button.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.RaumTemp_UP_Button.Size = new System.Drawing.Size(172, 96);
+            this.RaumTemp_UP_Button.TabIndex = 2;
+            this.RaumTemp_UP_Button.Text = "+";
+            this.RaumTemp_UP_Button.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.RaumTemp_UP_Button.UseVisualStyleBackColor = true;
             // 
             // Menu
             // 
@@ -436,6 +433,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button RaumTemp_DOWN_Button;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button RaumTemp_UP_Button;
     }
 }

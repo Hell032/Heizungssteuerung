@@ -163,7 +163,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(297, 11);
+            this.label2.Location = new System.Drawing.Point(68, 56);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(44, 24);
             this.label2.TabIndex = 14;
@@ -174,7 +174,7 @@
             this.Soll_HK_Label.AutoSize = true;
             this.Soll_HK_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Soll_HK_Label.ForeColor = System.Drawing.Color.Black;
-            this.Soll_HK_Label.Location = new System.Drawing.Point(446, 35);
+            this.Soll_HK_Label.Location = new System.Drawing.Point(373, 37);
             this.Soll_HK_Label.Name = "Soll_HK_Label";
             this.Soll_HK_Label.Size = new System.Drawing.Size(44, 24);
             this.Soll_HK_Label.TabIndex = 13;
@@ -185,7 +185,7 @@
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.Black;
-            this.label13.Location = new System.Drawing.Point(394, 35);
+            this.label13.Location = new System.Drawing.Point(321, 37);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(46, 24);
             this.label13.TabIndex = 12;
@@ -196,7 +196,7 @@
             this.Soll_Boiler_Label.AutoSize = true;
             this.Soll_Boiler_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Soll_Boiler_Label.ForeColor = System.Drawing.Color.Black;
-            this.Soll_Boiler_Label.Location = new System.Drawing.Point(261, 83);
+            this.Soll_Boiler_Label.Location = new System.Drawing.Point(212, 80);
             this.Soll_Boiler_Label.Name = "Soll_Boiler_Label";
             this.Soll_Boiler_Label.Size = new System.Drawing.Size(44, 24);
             this.Soll_Boiler_Label.TabIndex = 11;
@@ -207,7 +207,7 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.Black;
-            this.label11.Location = new System.Drawing.Point(209, 83);
+            this.label11.Location = new System.Drawing.Point(160, 80);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(46, 24);
             this.label11.TabIndex = 10;
@@ -251,7 +251,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(209, 59);
+            this.label7.Location = new System.Drawing.Point(160, 56);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(32, 24);
             this.label7.TabIndex = 6;
@@ -262,7 +262,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(394, 11);
+            this.label6.Location = new System.Drawing.Point(321, 13);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(32, 24);
             this.label6.TabIndex = 5;
@@ -284,7 +284,7 @@
             this.Ist_HK_Label.AutoSize = true;
             this.Ist_HK_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Ist_HK_Label.ForeColor = System.Drawing.Color.Black;
-            this.Ist_HK_Label.Location = new System.Drawing.Point(446, 11);
+            this.Ist_HK_Label.Location = new System.Drawing.Point(373, 13);
             this.Ist_HK_Label.Name = "Ist_HK_Label";
             this.Ist_HK_Label.Size = new System.Drawing.Size(44, 24);
             this.Ist_HK_Label.TabIndex = 3;
@@ -295,7 +295,7 @@
             this.Ist_Boiler_Label.AutoSize = true;
             this.Ist_Boiler_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Ist_Boiler_Label.ForeColor = System.Drawing.Color.Black;
-            this.Ist_Boiler_Label.Location = new System.Drawing.Point(261, 59);
+            this.Ist_Boiler_Label.Location = new System.Drawing.Point(212, 56);
             this.Ist_Boiler_Label.Name = "Ist_Boiler_Label";
             this.Ist_Boiler_Label.Size = new System.Drawing.Size(44, 24);
             this.Ist_Boiler_Label.TabIndex = 2;

@@ -1,7 +1,9 @@
 ﻿using diplwinform_v1_1.Views;
 using System;
+using System.Drawing;
 using System.IO.Ports;
 using System.Windows.Forms;
+using System.IO;
 
 namespace diplwinform_v1_1
 {
@@ -20,8 +22,8 @@ namespace diplwinform_v1_1
         public static Temperatures TemperaturesForm;
         public static Simulation SimulationForm;
 
-
-
+        public static Image MinusIm;
+        public static Image PlusIm;
         //public static SerialPort mySerialPort = new SerialPort();
 
         static void Main()
@@ -30,6 +32,30 @@ namespace diplwinform_v1_1
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
+            if (Environment.OSVersion.Platform.ToString() == "Unix")
+            {
+                try
+                {
+
+                    MinusIm = Image.FromFile($"../Regler/Pictures/Minus_white.png");
+
+                    PlusIm = Image.FromFile($"../Regler/Pictures/Plus_white.png");
+
+                    Cursor.Hide();
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"{ex}\n{Path.AltDirectorySeparatorChar} and {Path.DirectorySeparatorChar}");
+                }
+
+            }
+            else 
+            {
+                MinusIm = Image.FromFile($"../Debug{Path.AltDirectorySeparatorChar}Pictures{Path.AltDirectorySeparatorChar}Minus_white.png");
+
+                PlusIm = Image.FromFile($"../Debug{Path.AltDirectorySeparatorChar}Pictures{Path.AltDirectorySeparatorChar}Plus_white.png");
+            }
 
             SetupForm = new Setup();
             FunctionsForm = new Functions();
@@ -42,14 +68,8 @@ namespace diplwinform_v1_1
 
 
             Application.Run(MenuForm);
+
         }
 
-
-        public static void CheckOS()
-        {
-            
-            
-        
-        }
     }
 }

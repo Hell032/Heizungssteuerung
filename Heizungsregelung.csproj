@@ -75,6 +75,12 @@
     <Compile Include="Views\Functions.Designer.cs">
       <DependentUpon>Functions.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Function_Views\Boiler.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Function_Views\Boiler.Designer.cs">
+      <DependentUpon>Boiler.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Menu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -103,6 +109,9 @@
     </Compile>
     <EmbeddedResource Include="Views\Functions.resx">
       <DependentUpon>Functions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Function_Views\Boiler.resx">
+      <DependentUpon>Boiler.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>

@@ -8,7 +8,7 @@ namespace diplwinform_v1_1
     {
         public Menu()
         {
-
+            //set size of program to fit the running operation system
             switch (Environment.OSVersion.Platform.ToString())
             {
                 case "Win32NT":
@@ -46,7 +46,6 @@ namespace diplwinform_v1_1
             this.AutoScroll = true;
 
 
-
             // Set the start position of the form to the center of the screen.
             this.StartPosition = FormStartPosition.CenterScreen;
             //this.FormBorderStyle = FormBorderStyle.None;
@@ -55,9 +54,17 @@ namespace diplwinform_v1_1
             //set window size to maximum
             //this.WindowState = FormWindowState.Maximized;
 
+            //set labels for debugging
+            SetDebugLabels(false);
 
-            SetDebugLabels(true);
+            RaumTemp_DOWN_Button.Text = "";
+            RaumTemp_DOWN_Button.Image = new Bitmap(Program.MinusIm, new Size(RaumTemp_DOWN_Button.Bounds.Height, RaumTemp_DOWN_Button.Bounds.Height));
 
+            RaumTemp_UP_Button.Text = "";
+            RaumTemp_UP_Button.Image = new Bitmap(Program.PlusIm, new Size(RaumTemp_UP_Button.Bounds.Height, RaumTemp_UP_Button.Bounds.Height));
+
+            //Program.SetupForm.Visible = true;
+            //Program.SetupForm.Refresh();
         }
 
         //---------------------------------------------click events--------------------------------------
@@ -123,7 +130,7 @@ namespace diplwinform_v1_1
         /// <param name="e"></param>
         private void EnterSimulation_Click(object sender, EventArgs e)
         {
-            SetDebugLabels(true);
+            SetDebugLabels(false);
             
             Program.SetupForm.Visible = false;
             Program.TemperaturesForm.Visible = false;
@@ -144,7 +151,6 @@ namespace diplwinform_v1_1
         {
             Application.Exit();
         }
-
 
 
         //-------------------------------------- helper methodes ---------------------------------------
