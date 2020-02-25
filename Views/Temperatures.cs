@@ -15,8 +15,6 @@ namespace diplwinform_v1_1.Views
     public partial class Temperatures : UserControl
     {
 
-        Calculations myCalculations;
-
         //---------------------------------------------ctor--------------------------------------
         /// <summary>
         /// ctor
@@ -38,12 +36,11 @@ namespace diplwinform_v1_1.Views
             tempthread.Priority = ThreadPriority.Lowest;
             tempthread.Start();
 
-           // myCalculations = new Calculations();
-
             //AusentempLabel.Text = "0";
             //VLQuelleLabel.Text = "0";
             //VLHKLabel.Text = "0";
             //BoilertempLabel.Text = "0";
+
         }
 
 
@@ -51,7 +48,7 @@ namespace diplwinform_v1_1.Views
         //---------------------------------------------variables--------------------------------------
 
         //---------------------------------------------private----------------------------------------
-        private string m_außenTemp, m_quelleTemp, m_hkTemp, m_boilerTemp;
+        private string m_außenTemp = "X", m_quelleTemp = "X", m_hkTemp = "X", m_boilerTemp = "X";
 
         private Thread tempthread;
 
@@ -77,37 +74,44 @@ namespace diplwinform_v1_1.Views
                 {
                     try
                     {
+                        //gets the simulated values from the serialport
                         Setup.mySerialPort.DiscardOutBuffer();
                         data = Setup.mySerialPort.ReadLine();
-                        //data = "34\t65\t21\t48";
+
+                        //splits the data via a delimiter string into a data array
                         string[] delimiter = { "\t" };
                         pieces = data.Split(delimiter, StringSplitOptions.None);
 
-
+                        //writes the splited data array to the 
                         m_außenTemp = pieces[0];
                         m_quelleTemp = pieces[1];
                         m_hkTemp = pieces[2];
                         m_boilerTemp = pieces[3];
 
-                        myCalculations.AußenTemp_Mittelwert = int.Parse(m_außenTemp);
-                        myCalculations.QuellenTemp_Soll = int.Parse(m_quelleTemp);
-                        myCalculations.HKTemp_Soll = int.Parse(m_hkTemp);
-
-                        WriteToLabels();  
+                        //writes the simulated values to the variables used to perform the calculations
+                        Program.myCalculations.AußenTemp_Mittelwert = int.Parse(m_außenTemp);
+                        Program.myCalculations.QuellenTemp_Soll = int.Parse(m_quelleTemp);
+                        //---------------------------------------------------------------must change back to the correct variables
+                        //---------------------------------------------------------------only for debugging
+                        
+                        Program.myCalculations.HKTemp_Soll = int.Parse(m_quelleTemp);
+                        Program.myCalculations.BoilerTemp_Ist = int.Parse(m_quelleTemp);
 
                         //Thread.Sleep(100);
-                        Debug.WriteLine("Working The Thread");
+                        //Debug.WriteLine("Working The Thread");
                     }
                     catch (Exception)
                     {
                         Debug.WriteLine("Unable To Read From SerialPort");
                     }
+
+                    WriteToLabels();
+ 
                 }
                 else
                 {
                     Debug.WriteLine("SerialPort not open");
                 }
-
 
                 ///-----------------------------------------for debuging
                 #region debuging
@@ -152,10 +156,26 @@ namespace diplwinform_v1_1.Views
                 Boilertemp_Ist_Label.Text = m_boilerTemp + " °C";
 
                 //set soll werte labels
-                Außentemp_Mittel_Label.Text = myCalculations.AußenTemp_Mittelwert + " °C";
-                Quellentemp_Soll_Label.Text = myCalculations.QuellenTemp_Soll + " °C";
-                HKtemp_Soll_Label.Text = myCalculations.HKTemp_Soll + " °C";
-                Boilertemp_Soll_Label.Text = myCalculations.BoilerTemp_Soll + " °C";
+                Außentemp_Mittel_Label.Text = Program.myCalculations.AußenTemp_Mittelwert + " °C";
+                Quellentemp_Soll_Label.Text = Program.myCalculations.QuellenTemp_Soll + " °C";
+                HKtemp_Soll_Label.Text = Program.myCalculations.HKTemp_Soll + " °C";
+                Boilertemp_Soll_Label.Text = Program.myCalculations.BoilerTemp_Soll + " °C";
+
+
+
+                //Write ist werte To Simulation form labels
+                Program.SimulationForm.Außentemp_Label.Text = m_außenTemp + " °C";
+                Program.SimulationForm.Ist_Quelle_Label.Text = m_quelleTemp + " °C";
+                Program.SimulationForm.Ist_HK_Label.Text = m_hkTemp + " °C";
+                Program.SimulationForm.Ist_Boiler_Label.Text = m_boilerTemp + " °C";
+
+                //write soll werte to simulation form labels
+                Program.SimulationForm.Soll_Quelle_Label.Text = Program.myCalculations.QuellenTemp_Soll + " °C";
+                Program.SimulationForm.Soll_HK_Label.Text = Program.myCalculations.HKTemp_Soll + " °C";
+                Program.SimulationForm.Soll_Boiler_Label.Text = Program.myCalculations.BoilerTemp_Soll+ " °C";
+                Program.SimulationForm.Raumtemp_Label.Text = Program.myCalculations.RaumTemp_Soll + " °C";
+                Program.SimulationForm
+
 
             });
 

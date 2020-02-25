@@ -8,7 +8,6 @@ namespace diplwinform_v1_1
     {
         public Menu()
         {
-            //this.Cursor = new Cursor(Application.StartupPath + "\\Pictures\\Minus_white.png");
 
             //set size of program to fit the running operation system
             switch (Environment.OSVersion.Platform.ToString())

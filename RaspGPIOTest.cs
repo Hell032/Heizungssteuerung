@@ -56,6 +56,12 @@ namespace RaspGPIOTest
                 GPIO.pinMode(pin2, (int)GPIO.GPIOpinmode.Output);
                 GPIO.pinMode(pin3, (int)GPIO.GPIOpinmode.Output);
                 GPIO.pinMode(pin4, (int)GPIO.GPIOpinmode.Output);
+
+                GPIO.digitalWrite(pin0, (int)GPIO.GPIOpinvalue.High);
+                GPIO.digitalWrite(pin1, (int)GPIO.GPIOpinvalue.High);
+                GPIO.digitalWrite(pin2, (int)GPIO.GPIOpinvalue.High);
+                GPIO.digitalWrite(pin3, (int)GPIO.GPIOpinvalue.High);
+                GPIO.digitalWrite(pin4, (int)GPIO.GPIOpinvalue.High);
             }
 
             this.StartPosition = FormStartPosition.CenterScreen;

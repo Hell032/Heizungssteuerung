@@ -7,13 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace diplwinform_v1_1.Views.Function_Views
 {
     public partial class Boiler : UserControl
     {
-        private string BoilerSoll;
-        private string[] BoilerSoll_Splited;
+
         public Boiler()
         {
             InitializeComponent();
@@ -40,33 +40,39 @@ namespace diplwinform_v1_1.Views.Function_Views
                new Size(Hyterese_Boiler_UP.Bounds.Height, Hyterese_Boiler_UP.Bounds.Height)
                );
 
-            BoilerSoll_Label.Text = "70 °C";
-            BoilerHysterese_Label.Text = "5 °C";
+            BoilerSoll_Label.Text = Program.myCalculations.BoilerTemp_Soll + " °C";
+            BoilerHysterese_Label.Text = Program.myCalculations.Boiler_Hysterese + " °C";
         }
 
+        //BoilerSoll Button Events
         private void BoilerSoll_DOWN_Button_Click(object sender, EventArgs e)
         {
-            
-            Program.myCalculations.BoilerTemp_Soll++;
+            Program.myCalculations.BoilerTemp_Soll--;
             this.BoilerSoll_Label.Text = Program.myCalculations.BoilerTemp_Soll + " °C";
+            Debug.WriteLine("BoilerSoll_DOWN_Button_Click");
         }
 
         private void BoilerSoll_UP_Button_Click(object sender, EventArgs e)
         {
-            Program.myCalculations.BoilerTemp_Soll--;
+            Program.myCalculations.BoilerTemp_Soll++;
             this.BoilerSoll_Label.Text = Program.myCalculations.BoilerTemp_Soll + " °C";
+            Debug.WriteLine("BoilerSoll_UP_Button_Click");
         }
 
-        private void Hyterese_Boiler_DOWN_Click(object sender, EventArgs e)
+
+        //Boiler Hysterese Click Events
+        private void Boiler_Hyterese_DOWN_Click(object sender, EventArgs e)
         {
             Program.myCalculations.Boiler_Hysterese--;
             this.BoilerHysterese_Label.Text = Program.myCalculations.Boiler_Hysterese + " °C";
+            Debug.WriteLine("Hyterese_Boiler_DOWN_Click");
         }
 
-        private void Hyterese_Boiler_UP_Click(object sender, EventArgs e)
+        private void Boiler_Hyterese_UP_Click(object sender, EventArgs e)
         {
             Program.myCalculations.Boiler_Hysterese++;
             this.BoilerHysterese_Label.Text = Program.myCalculations.Boiler_Hysterese + " °C";
+            Debug.WriteLine("Hyterese_Boiler_UP_Click");
         }
     }
 }

@@ -32,7 +32,7 @@ namespace diplwinform_v1_1
 
         static void Main()
         {
-            Cursor.Hide();
+            //Cursor.Hide();
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

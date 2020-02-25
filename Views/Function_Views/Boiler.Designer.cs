@@ -113,7 +113,7 @@
             this.Hyterese_Boiler_UP.Size = new System.Drawing.Size(162, 58);
             this.Hyterese_Boiler_UP.TabIndex = 4;
             this.Hyterese_Boiler_UP.UseVisualStyleBackColor = true;
-            this.Hyterese_Boiler_UP.Click += new System.EventHandler(this.Hyterese_Boiler_UP_Click);
+            this.Hyterese_Boiler_UP.Click += new System.EventHandler(this.Boiler_Hyterese_UP_Click);
             // 
             // Hyterese_Boiler_DOWN
             // 
@@ -132,7 +132,7 @@
             this.Hyterese_Boiler_DOWN.TabIndex = 2;
             this.Hyterese_Boiler_DOWN.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.Hyterese_Boiler_DOWN.UseVisualStyleBackColor = true;
-            this.Hyterese_Boiler_DOWN.Click += new System.EventHandler(this.Hyterese_Boiler_DOWN_Click);
+            this.Hyterese_Boiler_DOWN.Click += new System.EventHandler(this.Boiler_Hyterese_DOWN_Click);
             // 
             // label3
             // 

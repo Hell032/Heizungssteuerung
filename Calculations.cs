@@ -11,8 +11,8 @@ namespace diplwinform_v1_1
         //---------------------------------------------variables--------------------------------------
         //---------------------------------------------private----------------------------------------
 
-        private static int m_außen_Mittel, m_quelle_Soll, m_hk_Soll, m_boiler_Soll;
-        private static int m_außentemp_Ist, m_quelle_Ist, m_hk_Ist, m_boiler_Ist, m_raum_ist, m_boiler_hysterese;
+        private static int m_außen_Mittel, m_quelle_Soll = 80, m_hk_Soll = 60, m_boiler_Soll = 75, m_raum_Soll = 20;
+        private static int m_außentemp_Ist, m_quelle_Ist, m_hk_Ist, m_boiler_Ist,  m_boiler_hysterese = 10;
 
         private Thread averageThread;
         private Thread SollCalcThread;
@@ -21,46 +21,70 @@ namespace diplwinform_v1_1
 
         public int RaumTemp_Soll
         {
-            get => m_raum_ist;
+            get => m_raum_Soll;
             set
             {
-                if (value >= 1)
-                    m_raum_ist = value;
-                else
-                    m_raum_ist = 1;
+                if (value >= 1 && value < 100)
+                    m_raum_Soll = value;
             }
         }
 
+        /// <summary>
+        /// takes the IST wert and gets the average of the last 30 seconds
+        /// </summary>
         public int AußenTemp_Mittelwert
         {
             get => m_außen_Mittel;
             set => m_außentemp_Ist = value;
         }
 
+        /// <summary>
+        /// takes the IST value and calculates the SOLL value
+        /// </summary>
         public int QuellenTemp_Soll
         {
             get => m_quelle_Soll;
             set => m_quelle_Ist = value;
         }
 
+
+        /// <summary>
+        /// takes the IST value and calculates the SOLL value
+        /// </summary>
         public int HKTemp_Soll
         {
             get => m_hk_Soll;
             set => m_hk_Ist = value;
         }
 
+
+        /// <summary>
+        /// takes the Soll value
+        /// </summary>
         public int BoilerTemp_Soll
         {
             get => m_boiler_Soll;
+            set
+            {
+                if (value >= 1 && value < 100)
+                    m_boiler_Soll = value;
+            }
+        }
+
+        public int BoilerTemp_Ist
+        {
             set => m_boiler_Ist = value;
         }
 
+        /// <summary>
+        /// sets the hysterese (tolerance for boiler temperature)
+        /// </summary>
         public int Boiler_Hysterese
         {
             get => m_boiler_hysterese;
             set
             {
-                if (value >= 0 && value <= 50)
+                if (value >= 1 && value <= 50)
                     m_boiler_hysterese = value;
                 else
                     m_boiler_hysterese = 1;
@@ -84,7 +108,6 @@ namespace diplwinform_v1_1
             SollCalcThread.Priority = ThreadPriority.Lowest;
             SollCalcThread.Start();
 
-            RaumTemp_Soll = 20;
         }
 
         /// <summary>
@@ -122,9 +145,10 @@ namespace diplwinform_v1_1
             {
                 //TODO
                 //for debugging
-                m_quelle_Soll = m_quelle_Ist;
-                m_hk_Soll = m_hk_Ist;
-                m_boiler_Soll = 70;
+                m_quelle_Soll = m_quelle_Ist + 10;
+                m_hk_Soll = m_hk_Ist + 10;
+
+                //m_boiler_Soll = m_boiler_Ist + 10;
             }
             
         }
