@@ -49,7 +49,7 @@
             this.MenuLabel = new System.Windows.Forms.Label();
             this.MenuPanel = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.RaumTemp_Soll_Label = new System.Windows.Forms.Label();
             this.RaumTemp_DOWN_Button = new System.Windows.Forms.Button();
             this.RaumTemp_UP_Button = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
@@ -313,7 +313,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel2.Controls.Add(this.label1, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.RaumTemp_Soll_Label, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.RaumTemp_DOWN_Button, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.RaumTemp_UP_Button, 2, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -325,18 +325,19 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(512, 96);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
-            // label1
+            // RaumTemp_Soll_Label
             // 
-            this.label1.AutoSize = true;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 38.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(173, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(164, 96);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "20 °C";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.RaumTemp_Soll_Label.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.RaumTemp_Soll_Label.AutoSize = true;
+            this.RaumTemp_Soll_Label.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.RaumTemp_Soll_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 38.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RaumTemp_Soll_Label.ForeColor = System.Drawing.Color.White;
+            this.RaumTemp_Soll_Label.Location = new System.Drawing.Point(173, 0);
+            this.RaumTemp_Soll_Label.Name = "RaumTemp_Soll_Label";
+            this.RaumTemp_Soll_Label.Size = new System.Drawing.Size(164, 96);
+            this.RaumTemp_Soll_Label.TabIndex = 4;
+            this.RaumTemp_Soll_Label.Text = "20 °C";
+            this.RaumTemp_Soll_Label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // RaumTemp_DOWN_Button
             // 
@@ -356,6 +357,7 @@
             this.RaumTemp_DOWN_Button.TabIndex = 1;
             this.RaumTemp_DOWN_Button.Text = "-";
             this.RaumTemp_DOWN_Button.UseVisualStyleBackColor = true;
+            this.RaumTemp_DOWN_Button.Click += new System.EventHandler(this.RaumTemp_DOWN_Button_Click);
             // 
             // RaumTemp_UP_Button
             // 
@@ -377,6 +379,7 @@
             this.RaumTemp_UP_Button.Text = "+";
             this.RaumTemp_UP_Button.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.RaumTemp_UP_Button.UseVisualStyleBackColor = true;
+            this.RaumTemp_UP_Button.Click += new System.EventHandler(this.RaumTemp_UP_Button_Click);
             // 
             // Menu
             // 
@@ -396,7 +399,6 @@
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Menu";
-            this.TopMost = true;
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.ButtonPanel.ResumeLayout(false);
@@ -431,8 +433,8 @@
         private System.Windows.Forms.Label Formpanellabel;
         private System.Windows.Forms.Panel MenuPanel;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button RaumTemp_DOWN_Button;
         private System.Windows.Forms.Button RaumTemp_UP_Button;
+        public System.Windows.Forms.Label RaumTemp_Soll_Label;
     }
 }

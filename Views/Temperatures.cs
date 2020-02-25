@@ -38,7 +38,7 @@ namespace diplwinform_v1_1.Views
             tempthread.Priority = ThreadPriority.Lowest;
             tempthread.Start();
 
-            myCalculations = new Calculations();
+           // myCalculations = new Calculations();
 
             //AusentempLabel.Text = "0";
             //VLQuelleLabel.Text = "0";
@@ -51,38 +51,12 @@ namespace diplwinform_v1_1.Views
         //---------------------------------------------variables--------------------------------------
 
         //---------------------------------------------private----------------------------------------
-        private string m_außenTemp, m_quelleTemp, m_hkTemp, m_boilerTemp, m_raumTemp;
+        private string m_außenTemp, m_quelleTemp, m_hkTemp, m_boilerTemp;
 
         private Thread tempthread;
 
 
         //---------------------------------------------public-----------------------------------------
-
-        public string AußenTemp_Mittel
-        {
-            get => myCalculations.AußenTemp_Mittelwert.ToString();
-            set => myCalculations.AußenTemp_Mittelwert = int.Parse(value);
-        }
-
-        public string QuellenTemp_Soll
-        {
-            get => myCalculations.QuellenTemp_Soll.ToString();
-            set => myCalculations.QuellenTemp_Soll = int.Parse(value);
-        }
-
-        public string HKTemp_Soll
-        {
-            get => myCalculations.HKTemp_Soll.ToString();
-            set => myCalculations.HKTemp_Soll = int.Parse(value);
-        }
-
-        public string BoilerTemp_Soll
-        {
-            get => myCalculations.BoilerTemp_Soll.ToString();
-            set => myCalculations.BoilerTemp_Soll = int.Parse(value);
-        }
-
-
 
 
 
@@ -115,10 +89,9 @@ namespace diplwinform_v1_1.Views
                         m_hkTemp = pieces[2];
                         m_boilerTemp = pieces[3];
 
-                        AußenTemp_Mittel = m_außenTemp;
-                        QuellenTemp_Soll = m_quelleTemp;
-                        HKTemp_Soll = m_hkTemp;
-                        BoilerTemp_Soll = m_boilerTemp;
+                        myCalculations.AußenTemp_Mittelwert = int.Parse(m_außenTemp);
+                        myCalculations.QuellenTemp_Soll = int.Parse(m_quelleTemp);
+                        myCalculations.HKTemp_Soll = int.Parse(m_hkTemp);
 
                         WriteToLabels();  
 
@@ -179,10 +152,10 @@ namespace diplwinform_v1_1.Views
                 Boilertemp_Ist_Label.Text = m_boilerTemp + " °C";
 
                 //set soll werte labels
-                Außentemp_Mittel_Label.Text = AußenTemp_Mittel + " °C";
-                Quellentemp_Soll_Label.Text = QuellenTemp_Soll + " °C";
-                HKtemp_Soll_Label.Text = HKTemp_Soll + " °C";
-                Boilertemp_Soll_Label.Text = BoilerTemp_Soll + " °C";
+                Außentemp_Mittel_Label.Text = myCalculations.AußenTemp_Mittelwert + " °C";
+                Quellentemp_Soll_Label.Text = myCalculations.QuellenTemp_Soll + " °C";
+                HKtemp_Soll_Label.Text = myCalculations.HKTemp_Soll + " °C";
+                Boilertemp_Soll_Label.Text = myCalculations.BoilerTemp_Soll + " °C";
 
             });
 

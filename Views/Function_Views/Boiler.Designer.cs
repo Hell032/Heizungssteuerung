@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Boiler));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.BoilerHysterese_Label = new System.Windows.Forms.Label();
@@ -114,6 +113,7 @@
             this.Hyterese_Boiler_UP.Size = new System.Drawing.Size(162, 58);
             this.Hyterese_Boiler_UP.TabIndex = 4;
             this.Hyterese_Boiler_UP.UseVisualStyleBackColor = true;
+            this.Hyterese_Boiler_UP.Click += new System.EventHandler(this.Hyterese_Boiler_UP_Click);
             // 
             // Hyterese_Boiler_DOWN
             // 
@@ -132,6 +132,7 @@
             this.Hyterese_Boiler_DOWN.TabIndex = 2;
             this.Hyterese_Boiler_DOWN.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.Hyterese_Boiler_DOWN.UseVisualStyleBackColor = true;
+            this.Hyterese_Boiler_DOWN.Click += new System.EventHandler(this.Hyterese_Boiler_DOWN_Click);
             // 
             // label3
             // 
@@ -193,7 +194,6 @@
             // 
             // BoilerSoll_UP_Button
             // 
-            this.BoilerSoll_UP_Button.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BoilerSoll_UP_Button.BackgroundImage")));
             this.BoilerSoll_UP_Button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.BoilerSoll_UP_Button.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BoilerSoll_UP_Button.FlatAppearance.BorderSize = 0;
@@ -210,6 +210,7 @@
             this.BoilerSoll_UP_Button.TabIndex = 4;
             this.BoilerSoll_UP_Button.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.BoilerSoll_UP_Button.UseVisualStyleBackColor = true;
+            this.BoilerSoll_UP_Button.Click += new System.EventHandler(this.BoilerSoll_UP_Button_Click);
             // 
             // BoilerSoll_DOWN_Button
             // 
@@ -228,6 +229,7 @@
             this.BoilerSoll_DOWN_Button.TabIndex = 2;
             this.BoilerSoll_DOWN_Button.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.BoilerSoll_DOWN_Button.UseVisualStyleBackColor = true;
+            this.BoilerSoll_DOWN_Button.Click += new System.EventHandler(this.BoilerSoll_DOWN_Button_Click);
             // 
             // Boiler
             // 

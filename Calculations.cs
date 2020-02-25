@@ -9,11 +9,10 @@ namespace diplwinform_v1_1
     {
 
         //---------------------------------------------variables--------------------------------------
-
         //---------------------------------------------private----------------------------------------
 
         private static int m_außen_Mittel, m_quelle_Soll, m_hk_Soll, m_boiler_Soll;
-        private static int m_außentemp_Ist, m_quelle_Ist, m_hk_Ist, m_boiler_Ist;
+        private static int m_außentemp_Ist, m_quelle_Ist, m_hk_Ist, m_boiler_Ist, m_raum_ist, m_boiler_hysterese;
 
         private Thread averageThread;
         private Thread SollCalcThread;
@@ -22,9 +21,16 @@ namespace diplwinform_v1_1
 
         public int RaumTemp_Soll
         {
-            get;
-            set;
+            get => m_raum_ist;
+            set
+            {
+                if (value >= 1)
+                    m_raum_ist = value;
+                else
+                    m_raum_ist = 1;
+            }
         }
+
         public int AußenTemp_Mittelwert
         {
             get => m_außen_Mittel;
@@ -33,21 +39,34 @@ namespace diplwinform_v1_1
 
         public int QuellenTemp_Soll
         {
-            get => m_quelle_Ist;
+            get => m_quelle_Soll;
             set => m_quelle_Ist = value;
         }
 
         public int HKTemp_Soll
         {
-            get => m_hk_Ist;
+            get => m_hk_Soll;
             set => m_hk_Ist = value;
         }
 
         public int BoilerTemp_Soll
         {
-            get => m_boiler_Ist;
+            get => m_boiler_Soll;
             set => m_boiler_Ist = value;
         }
+
+        public int Boiler_Hysterese
+        {
+            get => m_boiler_hysterese;
+            set
+            {
+                if (value >= 0 && value <= 50)
+                    m_boiler_hysterese = value;
+                else
+                    m_boiler_hysterese = 1;
+            }
+        }
+
 
         /// <summary>
         /// ctor
@@ -64,6 +83,8 @@ namespace diplwinform_v1_1
             SollCalcThread.IsBackground = true;
             SollCalcThread.Priority = ThreadPriority.Lowest;
             SollCalcThread.Start();
+
+            RaumTemp_Soll = 20;
         }
 
         /// <summary>
@@ -103,7 +124,7 @@ namespace diplwinform_v1_1
                 //for debugging
                 m_quelle_Soll = m_quelle_Ist;
                 m_hk_Soll = m_hk_Ist;
-                m_boiler_Soll = m_boiler_Ist;
+                m_boiler_Soll = 70;
             }
             
         }

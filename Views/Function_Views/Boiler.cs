@@ -12,6 +12,8 @@ namespace diplwinform_v1_1.Views.Function_Views
 {
     public partial class Boiler : UserControl
     {
+        private string BoilerSoll;
+        private string[] BoilerSoll_Splited;
         public Boiler()
         {
             InitializeComponent();
@@ -38,8 +40,33 @@ namespace diplwinform_v1_1.Views.Function_Views
                new Size(Hyterese_Boiler_UP.Bounds.Height, Hyterese_Boiler_UP.Bounds.Height)
                );
 
+            BoilerSoll_Label.Text = "70 °C";
+            BoilerHysterese_Label.Text = "5 °C";
+        }
 
+        private void BoilerSoll_DOWN_Button_Click(object sender, EventArgs e)
+        {
+            
+            Program.myCalculations.BoilerTemp_Soll++;
+            this.BoilerSoll_Label.Text = Program.myCalculations.BoilerTemp_Soll + " °C";
+        }
 
+        private void BoilerSoll_UP_Button_Click(object sender, EventArgs e)
+        {
+            Program.myCalculations.BoilerTemp_Soll--;
+            this.BoilerSoll_Label.Text = Program.myCalculations.BoilerTemp_Soll + " °C";
+        }
+
+        private void Hyterese_Boiler_DOWN_Click(object sender, EventArgs e)
+        {
+            Program.myCalculations.Boiler_Hysterese--;
+            this.BoilerHysterese_Label.Text = Program.myCalculations.Boiler_Hysterese + " °C";
+        }
+
+        private void Hyterese_Boiler_UP_Click(object sender, EventArgs e)
+        {
+            Program.myCalculations.Boiler_Hysterese++;
+            this.BoilerHysterese_Label.Text = Program.myCalculations.Boiler_Hysterese + " °C";
         }
     }
 }

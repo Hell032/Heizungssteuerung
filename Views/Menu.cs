@@ -8,6 +8,8 @@ namespace diplwinform_v1_1
     {
         public Menu()
         {
+            //this.Cursor = new Cursor(Application.StartupPath + "\\Pictures\\Minus_white.png");
+
             //set size of program to fit the running operation system
             switch (Environment.OSVersion.Platform.ToString())
             {
@@ -65,6 +67,10 @@ namespace diplwinform_v1_1
 
             //Program.SetupForm.Visible = true;
             //Program.SetupForm.Refresh();
+
+
+            //set 
+            RaumTemp_Soll_Label.Text = "20 °C";
         }
 
         //---------------------------------------------click events--------------------------------------
@@ -82,6 +88,7 @@ namespace diplwinform_v1_1
             Program.SetupForm.Visible = false;
             Program.FunctionsForm.Visible = false;
             Program.SimulationForm.Visible = false;
+            Program.GPIOTestForm.Visible = false;
             //-------------------------------------set visible form last to avoid rendering errors on raspberry 
             Program.TemperaturesForm.Visible = true;
 
@@ -100,6 +107,7 @@ namespace diplwinform_v1_1
             Program.TemperaturesForm.Visible = false;
             Program.FunctionsForm.Visible = false;
             Program.SimulationForm.Visible = false;
+            Program.GPIOTestForm.Visible = false;
             //-------------------------------------set visible form last to avoid rendering errors on raspberry 
             Program.SetupForm.Visible = true;
         }
@@ -117,6 +125,7 @@ namespace diplwinform_v1_1
             Program.SetupForm.Visible = false;
             Program.TemperaturesForm.Visible = false;
             Program.SimulationForm.Visible = false;
+            Program.GPIOTestForm.Visible = false;
 
             //-------------------------------------set visible form last to avoid rendering errors on raspberry 
             Program.FunctionsForm.Visible = true;
@@ -139,6 +148,8 @@ namespace diplwinform_v1_1
             Program.SimulationForm.Visible = true;
             Program.SimulationForm.Enabled = true;
             Program.SimulationForm.Dock = DockStyle.Fill;
+
+            Program.GPIOTestForm.Visible = true;
         }
 
 
@@ -150,8 +161,30 @@ namespace diplwinform_v1_1
         private void ExitButton_Click(object sender, EventArgs e)
         {
             Application.Exit();
+            Cursor.Show();
         }
 
+        /// <summary>
+        /// lowers the room temperature
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void RaumTemp_DOWN_Button_Click(object sender, EventArgs e)
+        {
+            Program.myCalculations.RaumTemp_Soll--;
+            this.RaumTemp_Soll_Label.Text = Program.myCalculations.RaumTemp_Soll + " °C";
+        }
+
+        /// <summary>
+        /// sets the room temp higher
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void RaumTemp_UP_Button_Click(object sender, EventArgs e)
+        {
+            Program.myCalculations.RaumTemp_Soll++;
+            this.RaumTemp_Soll_Label.Text = Program.myCalculations.RaumTemp_Soll + " °C";
+        }
 
         //-------------------------------------- helper methodes ---------------------------------------
 
@@ -192,6 +225,9 @@ namespace diplwinform_v1_1
             }
 
         }
+
+
+        //-------------------------------------
 
     }
 }

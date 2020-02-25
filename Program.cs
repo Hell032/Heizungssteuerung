@@ -4,6 +4,7 @@ using System.Drawing;
 using System.IO.Ports;
 using System.Windows.Forms;
 using System.IO;
+using RaspGPIOTest;
 
 namespace diplwinform_v1_1
 {
@@ -21,13 +22,17 @@ namespace diplwinform_v1_1
         public static Functions FunctionsForm;
         public static Temperatures TemperaturesForm;
         public static Simulation SimulationForm;
+        public static Form1 GPIOTestForm;
 
         public static Image MinusIm;
         public static Image PlusIm;
         //public static SerialPort mySerialPort = new SerialPort();
 
+        public static Calculations myCalculations = new Calculations();
+
         static void Main()
         {
+            Cursor.Hide();
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
@@ -61,10 +66,11 @@ namespace diplwinform_v1_1
             FunctionsForm = new Functions();
             TemperaturesForm = new Temperatures();
             SimulationForm = new Simulation();
+            GPIOTestForm = new Form1();
+
 
             //---------- initialize last to avoid errors -------------------------
             MenuForm = new Menu();
-
 
 
             Application.Run(MenuForm);

@@ -65,13 +65,13 @@
             this.Außentemptablelayout = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
+            this.label3 = new System.Windows.Forms.Label();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.Außentemp_Mittel_Label = new System.Windows.Forms.Label();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.Außentemp_Ist_Label = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.TempLabel = new diplwinform_v1_1.TransparentLabel();
-            this.label3 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -634,6 +634,19 @@
             this.tableLayoutPanel6.Size = new System.Drawing.Size(254, 45);
             this.tableLayoutPanel6.TabIndex = 2;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.label3.Location = new System.Drawing.Point(3, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(146, 45);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "last 30 sec";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // tableLayoutPanel4
             // 
             this.tableLayoutPanel4.ColumnCount = 1;
@@ -714,19 +727,6 @@
             this.TempLabel.TabIndex = 4;
             this.TempLabel.Text = "Temperatures";
             this.TempLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.label3.Location = new System.Drawing.Point(3, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(146, 45);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "last 30 sec";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // Temperatures
             // 
