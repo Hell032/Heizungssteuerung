@@ -17,10 +17,23 @@ namespace Heizungsregelung.Views.Function_Views
 
         private void Anti_Freeze_ON_OFF_Switch_CheckedChanged(object sender, EventArgs e)
         {
-            if (Anti_Freeze_ON_OFF_Switch.Checked)
-                Program.TemperaturesForm.AntiFreezeON = false;
-            else
-                Program.TemperaturesForm.AntiFreezeON = true;
+            this.BeginInvoke((Action)delegate
+            {
+                if (Anti_Freeze_ON_OFF_Switch.Checked)
+                {
+                    Program.TemperaturesForm.AntiFreezeON = false;
+                    if (Program.MenuForm.Active_Function_Label.Text.Contains("A-F"))
+                        Program.MenuForm.Active_Function_Label.Text.Replace("A-F", " ");
+                }
+                else
+                {
+                    Program.TemperaturesForm.AntiFreezeON = true;
+                    if (Program.MenuForm.Active_Function_Label.Text != " " || !Program.MenuForm.Active_Function_Label.Text.Contains("A-F"))
+                        Program.MenuForm.Active_Function_Label.Text += " | A-F";
+                }
+
+            });
+            
         }
     }
 }

@@ -73,7 +73,7 @@ namespace RaspGPIOTest
         private void GPIO_0_Click(object sender, EventArgs e)
         {
             //Place the LED on GPIO 5 (Physical Pin 29)
-            const int redLedPin = 29;
+            //const int redLedPin = 29;
 
             if (!gpio0)
             {

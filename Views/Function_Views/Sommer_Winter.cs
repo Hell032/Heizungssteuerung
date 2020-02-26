@@ -16,10 +16,23 @@ namespace Heizungsregelung.Views.Function_Views
 
         private void Sommer_Winter_ON_OFF_Switch_CheckedChanged(object sender, EventArgs e)
         {
-            if (Sommer_Winter_ON_OFF_Switch.Checked)
-                Program.TemperaturesForm.SommerON = false;
-            else
-                Program.TemperaturesForm.SommerON = true;
+
+            this.BeginInvoke((Action)delegate
+            {
+                if (Sommer_Winter_ON_OFF_Switch.Checked)
+                {
+                    Program.TemperaturesForm.SommerON = false;
+                    if (Program.MenuForm.Active_Function_Label.Text.Contains("S/W"))
+                        Program.MenuForm.Active_Function_Label.Text.Replace("S/W", " ");
+                }
+                else
+                {
+                    Program.TemperaturesForm.SommerON = true;
+                    if (Program.MenuForm.Active_Function_Label.Text != " " || !Program.MenuForm.Active_Function_Label.Text.Contains("S/W"))
+                        Program.MenuForm.Active_Function_Label.Text += " | S/W";
+                }
+
+            });
         }
     }
 }

@@ -56,8 +56,9 @@ namespace Heizungsregelung.Views
         //---------------------------------------------public-----------------------------------------
 
         //variables to display which function is on and display on menu form 
-        public bool AntiFreezeON;
-        public bool SommerON;
+        public bool AntiFreezeON = false;
+        public bool SommerON = false;
+        public bool TagON = false;
 
         //---------------------------------------------methodes--------------------------------------
         /// <summary>
@@ -248,30 +249,18 @@ namespace Heizungsregelung.Views
 
                 #region Menu active function label
 
-                if (AntiFreezeON)
-                {
-                      if (Program.MenuForm.Active_Function_Label.Text != "")
-                          Program.MenuForm.Active_Function_Label.Text += "Anti-Freeze ";
-                      else
-                          Program.MenuForm.Active_Function_Label.Text = "Anti-Freeze ";
-                  }
-                else
-                {
-                    Program.MenuForm.Active_Function_Label.Text = "";
-                }
-
-                  if (SommerON)
-                  {
-                      if (Program.MenuForm.Active_Function_Label.Text != "")
-                          Program.MenuForm.Active_Function_Label.Text += "Sommer/Winter ";
-                      else
-                          Program.MenuForm.Active_Function_Label.Text = "Sommer/Winter ";
-                  }
-                  else
-                  {
-                      Program.MenuForm.Active_Function_Label.Text = "";
-                  }
-
+                
+                //if (TagON)
+                //{
+                //    if (Program.MenuForm.Active_Function_Label.Text != "" || !Program.MenuForm.Active_Function_Label.Text.Contains("Tag/Nacht"))
+                //        Program.MenuForm.Active_Function_Label.Text += "Tag/Nacht ";
+                //}
+                //else
+                //{
+                //      if (Program.MenuForm.Active_Function_Label.Text.Contains("Tag/Nacht"))
+                //          Program.MenuForm.Active_Function_Label.Text.Replace("Tag/Nacht", "");
+                //  }
+                //
                   #endregion menu active function label
               });
 
