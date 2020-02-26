@@ -258,8 +258,12 @@ namespace Heizungsregelung
         {
             while (true)
             {
+                #region generell precautions 
 
+               
+                #endregion precautions
                 #region Berechnung Quelle
+
 
                 if (hk_anforderung > boiler_anforderung)
                     m_quelle_Soll = hk_anforderung;
@@ -350,6 +354,48 @@ namespace Heizungsregelung
 
                 #endregion Berechnungen Boiler 
 
+                #region take selected function into consideration
+                //check if a function is active
+                if (Program.MenuForm != null && Program.MenuForm.Active_Function_Label.Text != "" && Program.MenuForm.Active_Function_Label.Text != null)
+                {
+                    if (Program.TemperaturesForm.AntiFreezeON)
+                    {
+                        if (m_außentemp_Ist > 5)
+                        {
+                            //set boiler soll und hk soll auf 0
+                            m_boiler_Soll = 0;
+                            m_hk_Soll = 0;
+                            //set mischer von hk auf zu das kein wasser zirkulieren kann 
+                            m_mischer_auf_hk = false;
+                            m_mischer_zu_hk = true;
+                        }
+
+                    }
+
+                    if (Program.TemperaturesForm.SommerON)
+                    {
+                        //heizung ist aus, boiler unverändert bzw. auf normalem sollwert
+                        m_hk_Soll = 0;
+                        //set mischer von hk auf zu das kein wasser zirkulieren kann und pumpe auschalten
+                        m_mischer_auf_hk = false;
+                        m_mischer_zu_hk = true;
+                        m_pumpe_hk = false;
+                    }
+                }
+                #endregion handle selected functions
+
+                //standard antifreeze to protect the whole heatingsystem when lower outside temps are detected
+                if (m_außentemp_Ist < 5)
+                {
+                    //set variables to fixed values so dass die Heizanlage keine Schäden durch frost nimmt
+                    if(m_boiler_Soll < 20)
+                        m_boiler_Soll = 20;
+                    if(boiler_anforderung < 25)
+                        boiler_anforderung = 25;
+                    if(m_hk_Soll < 20)
+                        m_hk_Soll = 20;
+
+                }
 
             }
 

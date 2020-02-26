@@ -57,6 +57,7 @@ namespace Heizungsregelung.Views
 
         //variables to display which function is on and display on menu form 
         public bool AntiFreezeON;
+        public bool SommerON;
 
         //---------------------------------------------methodes--------------------------------------
         /// <summary>
@@ -148,7 +149,7 @@ namespace Heizungsregelung.Views
         private void WriteToLabels()
         {
             //change the labels asynchronously of the TemperatureForm UI Thread
-            _ = this.BeginInvoke((Action)delegate
+            this.BeginInvoke((Action)delegate
               {
                 #region write to labels on temperature form
                 //set ist werte labels
@@ -234,33 +235,45 @@ namespace Heizungsregelung.Views
 
                 #region Pumpe Boiler
                 if (Program.myCalculations.Pumpe_Boiler)
-                  {
-                      Program.SimulationForm.Pumpe_Boiler_Label.BackColor = Color.Green;
-                      Program.SimulationForm.Pumpe_Boiler_Label.ForeColor = Color.Green;
-                  }
-                  else
-                  {
-                      Program.SimulationForm.Pumpe_Boiler_Label.BackColor = Color.Red;
-                      Program.SimulationForm.Pumpe_Boiler_Label.ForeColor = Color.Red;
-                  }
+                {
+                    Program.SimulationForm.Pumpe_Boiler_Label.BackColor = Color.Green;
+                    Program.SimulationForm.Pumpe_Boiler_Label.ForeColor = Color.Green;
+                }
+                else
+                {
+                    Program.SimulationForm.Pumpe_Boiler_Label.BackColor = Color.Red;
+                    Program.SimulationForm.Pumpe_Boiler_Label.ForeColor = Color.Red;
+                }
                 #endregion Pumpe HK
 
                 #region Menu active function label
 
                 if (AntiFreezeON)
+                {
+                      if (Program.MenuForm.Active_Function_Label.Text != "")
+                          Program.MenuForm.Active_Function_Label.Text += "Anti-Freeze ";
+                      else
+                          Program.MenuForm.Active_Function_Label.Text = "Anti-Freeze ";
+                  }
+                else
+                {
+                    Program.MenuForm.Active_Function_Label.Text = "";
+                }
+
+                  if (SommerON)
                   {
-                      Program.MenuForm.Active_Function_Label.Text = "Anti-Freeze ";
-                      Debug.WriteLine("AntiFreeze ON");
+                      if (Program.MenuForm.Active_Function_Label.Text != "")
+                          Program.MenuForm.Active_Function_Label.Text += "Sommer/Winter ";
+                      else
+                          Program.MenuForm.Active_Function_Label.Text = "Sommer/Winter ";
                   }
                   else
                   {
                       Program.MenuForm.Active_Function_Label.Text = "";
-                      Debug.WriteLine("AntiFreeze OFF");
                   }
 
-
-                #endregion menu active function label
-            });
+                  #endregion menu active function label
+              });
 
         }
 
