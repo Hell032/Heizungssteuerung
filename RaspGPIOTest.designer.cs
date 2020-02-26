@@ -33,7 +33,7 @@
             this.GPIO_2 = new System.Windows.Forms.Button();
             this.GPIO_3 = new System.Windows.Forms.Button();
             this.GPIO_4 = new System.Windows.Forms.Button();
-            this.transparentLabel1 = new diplwinform_v1_1.TransparentLabel();
+            this.transparentLabel1 = new Heizungsregelung.TransparentLabel();
             this.SuspendLayout();
             // 
             // GPIO_0
@@ -123,7 +123,7 @@
         private System.Windows.Forms.Button GPIO_2;
         private System.Windows.Forms.Button GPIO_3;
         private System.Windows.Forms.Button GPIO_4;
-        private diplwinform_v1_1.TransparentLabel transparentLabel1;
+        private Heizungsregelung.TransparentLabel transparentLabel1;
     }
 }
 

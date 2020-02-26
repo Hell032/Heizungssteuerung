@@ -2,13 +2,12 @@
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace diplwinform_v1_1
+namespace Heizungsregelung
 {
     public partial class Menu : Form
     {
         public Menu()
         {
-
             //set size of program to fit the running operation system
             switch (Environment.OSVersion.Platform.ToString())
             {
@@ -29,8 +28,6 @@ namespace diplwinform_v1_1
 
             InitializeComponent();
 
-
-            //this.BackgroundImage.Dispose();
 
             //add forms to panel in menu form
             this.FormPanel.Controls.Add(Program.SetupForm);
@@ -59,17 +56,17 @@ namespace diplwinform_v1_1
             SetDebugLabels(false);
 
             RaumTemp_DOWN_Button.Text = "";
-            RaumTemp_DOWN_Button.Image = new Bitmap(Program.MinusIm, new Size(RaumTemp_DOWN_Button.Bounds.Height, RaumTemp_DOWN_Button.Bounds.Height));
+            RaumTemp_DOWN_Button.Image = new Bitmap(Program.MinusIm, new Size(RaumTemp_DOWN_Button.Bounds.Height, RaumTemp_DOWN_Button.Bounds.Height - 5));
 
             RaumTemp_UP_Button.Text = "";
-            RaumTemp_UP_Button.Image = new Bitmap(Program.PlusIm, new Size(RaumTemp_UP_Button.Bounds.Height, RaumTemp_UP_Button.Bounds.Height));
+            RaumTemp_UP_Button.Image = new Bitmap(Program.PlusIm, new Size(RaumTemp_UP_Button.Bounds.Height, RaumTemp_UP_Button.Bounds.Height - 5));
 
             //Program.SetupForm.Visible = true;
             //Program.SetupForm.Refresh();
 
 
             //set 
-            RaumTemp_Soll_Label.Text = "20 °C";
+            //RaumTemp_Soll_Label.Text = "20 °C";
         }
 
         //---------------------------------------------click events--------------------------------------

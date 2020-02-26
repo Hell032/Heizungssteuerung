@@ -1,4 +1,4 @@
-﻿namespace diplwinform_v1_1.Views
+﻿namespace Heizungsregelung.Views
 {
     partial class Functions
     {
@@ -30,22 +30,24 @@
         {
             this.Function_Panel = new System.Windows.Forms.Panel();
             this.Function_ButtonPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.Tag_Nacht = new diplwinform_v1_1.TransparentButton();
-            this.Boiler = new diplwinform_v1_1.TransparentButton();
-            this.Sommer_Winter = new diplwinform_v1_1.TransparentButton();
-            this.AntiFreeze = new diplwinform_v1_1.TransparentButton();
+            this.Tag_Nacht = new Heizungsregelung.TransparentButton();
+            this.Sommer_Winter = new Heizungsregelung.TransparentButton();
+            this.AntiFreeze = new Heizungsregelung.TransparentButton();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.Functions_Back_Button = new System.Windows.Forms.Button();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.SelectedFunctionLabel = new System.Windows.Forms.Label();
+            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.Boiler = new Heizungsregelung.TransparentButton();
             this.Function_Panel.SuspendLayout();
             this.Function_ButtonPanel.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
+            this.tableLayoutPanel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // Function_Panel
@@ -64,9 +66,9 @@
             this.Function_ButtonPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.Function_ButtonPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.Function_ButtonPanel.Controls.Add(this.Tag_Nacht, 1, 1);
-            this.Function_ButtonPanel.Controls.Add(this.Boiler, 0, 0);
             this.Function_ButtonPanel.Controls.Add(this.Sommer_Winter, 1, 0);
             this.Function_ButtonPanel.Controls.Add(this.AntiFreeze, 0, 1);
+            this.Function_ButtonPanel.Controls.Add(this.tableLayoutPanel5, 0, 0);
             this.Function_ButtonPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Function_ButtonPanel.Location = new System.Drawing.Point(0, 0);
             this.Function_ButtonPanel.Name = "Function_ButtonPanel";
@@ -92,23 +94,6 @@
             this.Tag_Nacht.Text = "Tag\r\nNacht";
             this.Tag_Nacht.UseVisualStyleBackColor = true;
             this.Tag_Nacht.Click += new System.EventHandler(this.Tag_Nacht_Click);
-            // 
-            // Boiler
-            // 
-            this.Boiler.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Boiler.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.Boiler.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.Boiler.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Boiler.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Boiler.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.Boiler.Location = new System.Drawing.Point(0, 0);
-            this.Boiler.Margin = new System.Windows.Forms.Padding(0, 0, 3, 3);
-            this.Boiler.Name = "Boiler";
-            this.Boiler.Size = new System.Drawing.Size(254, 131);
-            this.Boiler.TabIndex = 21;
-            this.Boiler.Text = "Boiler";
-            this.Boiler.UseVisualStyleBackColor = true;
-            this.Boiler.Click += new System.EventHandler(this.Boiler_Click);
             // 
             // Sommer_Winter
             // 
@@ -241,6 +226,37 @@
             this.SelectedFunctionLabel.TabIndex = 3;
             this.SelectedFunctionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // tableLayoutPanel5
+            // 
+            this.tableLayoutPanel5.ColumnCount = 1;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel5.Controls.Add(this.Boiler, 0, 0);
+            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+            this.tableLayoutPanel5.RowCount = 1;
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(257, 134);
+            this.tableLayoutPanel5.TabIndex = 24;
+            // 
+            // Boiler
+            // 
+            this.Boiler.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Boiler.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.Boiler.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.Boiler.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Boiler.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Boiler.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.Boiler.Location = new System.Drawing.Point(0, 0);
+            this.Boiler.Margin = new System.Windows.Forms.Padding(0, 0, 3, 3);
+            this.Boiler.Name = "Boiler";
+            this.Boiler.Size = new System.Drawing.Size(254, 131);
+            this.Boiler.TabIndex = 22;
+            this.Boiler.Text = "Boiler";
+            this.Boiler.UseVisualStyleBackColor = true;
+            this.Boiler.Click += new System.EventHandler(this.Boiler_Click);
+            // 
             // Functions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -258,6 +274,7 @@
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
+            this.tableLayoutPanel5.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -267,7 +284,6 @@
         private System.Windows.Forms.Panel Function_Panel;
         private System.Windows.Forms.TableLayoutPanel Function_ButtonPanel;
         private TransparentButton Tag_Nacht;
-        private TransparentButton Boiler;
         private TransparentButton Sommer_Winter;
         private TransparentButton AntiFreeze;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
@@ -276,5 +292,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Label SelectedFunctionLabel;
         private System.Windows.Forms.Button Functions_Back_Button;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
+        private TransparentButton Boiler;
     }
 }

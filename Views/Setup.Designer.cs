@@ -1,4 +1,4 @@
-﻿namespace diplwinform_v1_1.Views
+﻿namespace Heizungsregelung.Views
 {
     partial class Setup
     {
@@ -30,18 +30,18 @@
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.transparentLabel3 = new diplwinform_v1_1.TransparentLabel();
+            this.transparentLabel3 = new Heizungsregelung.TransparentLabel();
             this.PortBox = new System.Windows.Forms.TextBox();
             this.BaudrateBox = new System.Windows.Forms.ComboBox();
-            this.transparentLabel2 = new diplwinform_v1_1.TransparentLabel();
-            this.transparentLabel1 = new diplwinform_v1_1.TransparentLabel();
+            this.transparentLabel2 = new Heizungsregelung.TransparentLabel();
+            this.transparentLabel1 = new Heizungsregelung.TransparentLabel();
             this.PortListBox = new System.Windows.Forms.ListBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.PortStatusLabel = new System.Windows.Forms.Label();
-            this.SetupLabel = new diplwinform_v1_1.TransparentLabel();
+            this.SetupLabel = new Heizungsregelung.TransparentLabel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.transparentButton1 = new diplwinform_v1_1.TransparentButton();
-            this.transparentButton2 = new diplwinform_v1_1.TransparentButton();
+            this.transparentButton1 = new Heizungsregelung.TransparentButton();
+            this.transparentButton2 = new Heizungsregelung.TransparentButton();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();

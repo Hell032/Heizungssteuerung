@@ -13,6 +13,7 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
     <TargetFrameworkProfile />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -25,7 +26,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -60,6 +60,10 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="ToggleSwitch, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Desktop\Dipl\ToggleSwitch\ToggleSwitch\bin\Debug\ToggleSwitch.dll</HintPath>
+    </Reference>
     <Reference Include="WiringPi, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\Desktop\Dipl\WiringPi.Net\WiringPi\bin\Debug\WiringPi.dll</HintPath>
@@ -85,6 +89,12 @@
     </Compile>
     <Compile Include="Views\Functions.Designer.cs">
       <DependentUpon>Functions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Function_Views\Anti_Freeze.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Function_Views\Anti_Freeze.Designer.cs">
+      <DependentUpon>Anti_Freeze.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Function_Views\Boiler.cs">
       <SubType>UserControl</SubType>
@@ -123,6 +133,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Functions.resx">
       <DependentUpon>Functions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Function_Views\Anti_Freeze.resx">
+      <DependentUpon>Anti_Freeze.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Function_Views\Boiler.resx">
       <DependentUpon>Boiler.cs</DependentUpon>

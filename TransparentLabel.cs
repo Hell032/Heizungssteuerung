@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace diplwinform_v1_1
+namespace Heizungsregelung
 {
     class TransparentLabel : Label
     {

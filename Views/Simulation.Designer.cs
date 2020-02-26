@@ -1,4 +1,4 @@
-﻿namespace diplwinform_v1_1.Views
+﻿namespace Heizungsregelung.Views
 {
     partial class Simulation
     {
@@ -32,8 +32,10 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.SimulationPicture = new System.Windows.Forms.Panel();
+            this.HK_Mischer_Zu_Label = new System.Windows.Forms.Label();
+            this.Anforderung_Quelle_Label = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.HK_Mischer_Label = new System.Windows.Forms.Label();
+            this.HK_Mischer_Auf_Label = new System.Windows.Forms.Label();
             this.Pumpe_HK_Label = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.Pumpe_Boiler_Label = new System.Windows.Forms.Label();
@@ -51,7 +53,6 @@
             this.Ist_HK_Label = new System.Windows.Forms.Label();
             this.Ist_Boiler_Label = new System.Windows.Forms.Label();
             this.Außentemp_Label = new System.Windows.Forms.Label();
-            this.Anforderung_Quelle_Label = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.SimulationPicture.SuspendLayout();
             this.SuspendLayout();
@@ -87,9 +88,10 @@
             // 
             this.SimulationPicture.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("SimulationPicture.BackgroundImage")));
             this.SimulationPicture.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.SimulationPicture.Controls.Add(this.HK_Mischer_Zu_Label);
             this.SimulationPicture.Controls.Add(this.Anforderung_Quelle_Label);
             this.SimulationPicture.Controls.Add(this.label5);
-            this.SimulationPicture.Controls.Add(this.HK_Mischer_Label);
+            this.SimulationPicture.Controls.Add(this.HK_Mischer_Auf_Label);
             this.SimulationPicture.Controls.Add(this.Pumpe_HK_Label);
             this.SimulationPicture.Controls.Add(this.label3);
             this.SimulationPicture.Controls.Add(this.Pumpe_Boiler_Label);
@@ -115,6 +117,30 @@
             this.SimulationPicture.Size = new System.Drawing.Size(512, 318);
             this.SimulationPicture.TabIndex = 4;
             // 
+            // HK_Mischer_Zu_Label
+            // 
+            this.HK_Mischer_Zu_Label.AutoSize = true;
+            this.HK_Mischer_Zu_Label.BackColor = System.Drawing.Color.Red;
+            this.HK_Mischer_Zu_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HK_Mischer_Zu_Label.ForeColor = System.Drawing.Color.Black;
+            this.HK_Mischer_Zu_Label.Location = new System.Drawing.Point(308, 233);
+            this.HK_Mischer_Zu_Label.Name = "HK_Mischer_Zu_Label";
+            this.HK_Mischer_Zu_Label.Size = new System.Drawing.Size(50, 24);
+            this.HK_Mischer_Zu_Label.TabIndex = 24;
+            this.HK_Mischer_Zu_Label.Text = " ZU_";
+            // 
+            // Anforderung_Quelle_Label
+            // 
+            this.Anforderung_Quelle_Label.AutoSize = true;
+            this.Anforderung_Quelle_Label.BackColor = System.Drawing.Color.Red;
+            this.Anforderung_Quelle_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Anforderung_Quelle_Label.ForeColor = System.Drawing.Color.Red;
+            this.Anforderung_Quelle_Label.Location = new System.Drawing.Point(57, 266);
+            this.Anforderung_Quelle_Label.Name = "Anforderung_Quelle_Label";
+            this.Anforderung_Quelle_Label.Size = new System.Drawing.Size(39, 24);
+            this.Anforderung_Quelle_Label.TabIndex = 23;
+            this.Anforderung_Quelle_Label.Text = "   X";
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -126,17 +152,17 @@
             this.label5.TabIndex = 22;
             this.label5.Text = "Raum:";
             // 
-            // HK_Mischer_Label
+            // HK_Mischer_Auf_Label
             // 
-            this.HK_Mischer_Label.AutoSize = true;
-            this.HK_Mischer_Label.BackColor = System.Drawing.Color.Red;
-            this.HK_Mischer_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.HK_Mischer_Label.ForeColor = System.Drawing.Color.Red;
-            this.HK_Mischer_Label.Location = new System.Drawing.Point(328, 218);
-            this.HK_Mischer_Label.Name = "HK_Mischer_Label";
-            this.HK_Mischer_Label.Size = new System.Drawing.Size(39, 24);
-            this.HK_Mischer_Label.TabIndex = 20;
-            this.HK_Mischer_Label.Text = "   X";
+            this.HK_Mischer_Auf_Label.AutoSize = true;
+            this.HK_Mischer_Auf_Label.BackColor = System.Drawing.Color.Red;
+            this.HK_Mischer_Auf_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HK_Mischer_Auf_Label.ForeColor = System.Drawing.Color.Black;
+            this.HK_Mischer_Auf_Label.Location = new System.Drawing.Point(308, 209);
+            this.HK_Mischer_Auf_Label.Name = "HK_Mischer_Auf_Label";
+            this.HK_Mischer_Auf_Label.Size = new System.Drawing.Size(48, 24);
+            this.HK_Mischer_Auf_Label.TabIndex = 20;
+            this.HK_Mischer_Auf_Label.Text = "AUF";
             // 
             // Pumpe_HK_Label
             // 
@@ -327,18 +353,6 @@
             this.Außentemp_Label.TabIndex = 1;
             this.Außentemp_Label.Text = "0 °C";
             // 
-            // Anforderung_Quelle_Label
-            // 
-            this.Anforderung_Quelle_Label.AutoSize = true;
-            this.Anforderung_Quelle_Label.BackColor = System.Drawing.Color.Red;
-            this.Anforderung_Quelle_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Anforderung_Quelle_Label.ForeColor = System.Drawing.Color.Red;
-            this.Anforderung_Quelle_Label.Location = new System.Drawing.Point(35, 275);
-            this.Anforderung_Quelle_Label.Name = "Anforderung_Quelle_Label";
-            this.Anforderung_Quelle_Label.Size = new System.Drawing.Size(39, 24);
-            this.Anforderung_Quelle_Label.TabIndex = 23;
-            this.Anforderung_Quelle_Label.Text = "   X";
-            // 
             // Simulation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -360,7 +374,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel SimulationPicture;
-        private System.Windows.Forms.Label Pumpe_Boiler_Label;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
@@ -368,8 +381,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label HK_Mischer_Label;
-        private System.Windows.Forms.Label Pumpe_HK_Label;
         public System.Windows.Forms.Label Raumtemp_Label;
         public System.Windows.Forms.Label Soll_HK_Label;
         public System.Windows.Forms.Label Soll_Boiler_Label;
@@ -379,6 +390,10 @@
         public System.Windows.Forms.Label Ist_Boiler_Label;
         public System.Windows.Forms.Label Außentemp_Label;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label Anforderung_Quelle_Label;
+        public System.Windows.Forms.Label Anforderung_Quelle_Label;
+        public System.Windows.Forms.Label Pumpe_Boiler_Label;
+        public System.Windows.Forms.Label HK_Mischer_Auf_Label;
+        public System.Windows.Forms.Label Pumpe_HK_Label;
+        public System.Windows.Forms.Label HK_Mischer_Zu_Label;
     }
 }

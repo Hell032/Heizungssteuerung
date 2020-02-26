@@ -1,4 +1,4 @@
-﻿namespace diplwinform_v1_1
+﻿namespace Heizungsregelung
 {
     partial class Menu
     {
@@ -49,14 +49,19 @@
             this.MenuLabel = new System.Windows.Forms.Label();
             this.MenuPanel = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.RaumTemp_Soll_Label = new System.Windows.Forms.Label();
             this.RaumTemp_DOWN_Button = new System.Windows.Forms.Button();
             this.RaumTemp_UP_Button = new System.Windows.Forms.Button();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.RaumTemp_Soll_Label = new System.Windows.Forms.Label();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.Active_Function_Label = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.ButtonPanel.SuspendLayout();
             this.FormPanel.SuspendLayout();
             this.MenuPanel.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
+            this.tableLayoutPanel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -313,9 +318,9 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel2.Controls.Add(this.RaumTemp_Soll_Label, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.RaumTemp_DOWN_Button, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.RaumTemp_UP_Button, 2, 0);
+            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
@@ -324,20 +329,6 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(512, 96);
             this.tableLayoutPanel2.TabIndex = 0;
-            // 
-            // RaumTemp_Soll_Label
-            // 
-            this.RaumTemp_Soll_Label.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
-            this.RaumTemp_Soll_Label.AutoSize = true;
-            this.RaumTemp_Soll_Label.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.RaumTemp_Soll_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 38.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RaumTemp_Soll_Label.ForeColor = System.Drawing.Color.White;
-            this.RaumTemp_Soll_Label.Location = new System.Drawing.Point(173, 0);
-            this.RaumTemp_Soll_Label.Name = "RaumTemp_Soll_Label";
-            this.RaumTemp_Soll_Label.Size = new System.Drawing.Size(164, 96);
-            this.RaumTemp_Soll_Label.TabIndex = 4;
-            this.RaumTemp_Soll_Label.Text = "20 °C";
-            this.RaumTemp_Soll_Label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // RaumTemp_DOWN_Button
             // 
@@ -349,10 +340,10 @@
             this.RaumTemp_DOWN_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.RaumTemp_DOWN_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RaumTemp_DOWN_Button.ForeColor = System.Drawing.Color.White;
-            this.RaumTemp_DOWN_Button.Location = new System.Drawing.Point(0, 5);
-            this.RaumTemp_DOWN_Button.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            this.RaumTemp_DOWN_Button.Location = new System.Drawing.Point(0, 0);
+            this.RaumTemp_DOWN_Button.Margin = new System.Windows.Forms.Padding(0);
             this.RaumTemp_DOWN_Button.Name = "RaumTemp_DOWN_Button";
-            this.RaumTemp_DOWN_Button.Size = new System.Drawing.Size(170, 86);
+            this.RaumTemp_DOWN_Button.Size = new System.Drawing.Size(170, 96);
             this.RaumTemp_DOWN_Button.TabIndex = 1;
             this.RaumTemp_DOWN_Button.Text = "-";
             this.RaumTemp_DOWN_Button.UseVisualStyleBackColor = true;
@@ -368,16 +359,77 @@
             this.RaumTemp_UP_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.RaumTemp_UP_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RaumTemp_UP_Button.ForeColor = System.Drawing.Color.White;
-            this.RaumTemp_UP_Button.Location = new System.Drawing.Point(340, 5);
-            this.RaumTemp_UP_Button.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            this.RaumTemp_UP_Button.Location = new System.Drawing.Point(340, 0);
+            this.RaumTemp_UP_Button.Margin = new System.Windows.Forms.Padding(0);
             this.RaumTemp_UP_Button.Name = "RaumTemp_UP_Button";
             this.RaumTemp_UP_Button.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.RaumTemp_UP_Button.Size = new System.Drawing.Size(172, 86);
+            this.RaumTemp_UP_Button.Size = new System.Drawing.Size(172, 96);
             this.RaumTemp_UP_Button.TabIndex = 2;
             this.RaumTemp_UP_Button.Text = "+";
             this.RaumTemp_UP_Button.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.RaumTemp_UP_Button.UseVisualStyleBackColor = true;
             this.RaumTemp_UP_Button.Click += new System.EventHandler(this.RaumTemp_UP_Button_Click);
+            // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.ColumnCount = 1;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.Controls.Add(this.RaumTemp_Soll_Label, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel4, 0, 1);
+            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(170, 0);
+            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 2;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(170, 96);
+            this.tableLayoutPanel3.TabIndex = 3;
+            // 
+            // RaumTemp_Soll_Label
+            // 
+            this.RaumTemp_Soll_Label.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.RaumTemp_Soll_Label.AutoSize = true;
+            this.RaumTemp_Soll_Label.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.RaumTemp_Soll_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 38.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RaumTemp_Soll_Label.ForeColor = System.Drawing.Color.White;
+            this.RaumTemp_Soll_Label.Location = new System.Drawing.Point(0, 0);
+            this.RaumTemp_Soll_Label.Margin = new System.Windows.Forms.Padding(0);
+            this.RaumTemp_Soll_Label.Name = "RaumTemp_Soll_Label";
+            this.RaumTemp_Soll_Label.Size = new System.Drawing.Size(170, 76);
+            this.RaumTemp_Soll_Label.TabIndex = 5;
+            this.RaumTemp_Soll_Label.Text = "20 °C";
+            this.RaumTemp_Soll_Label.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            // 
+            // tableLayoutPanel4
+            // 
+            this.tableLayoutPanel4.ColumnCount = 1;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel4.Controls.Add(this.Active_Function_Label, 0, 0);
+            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 76);
+            this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            this.tableLayoutPanel4.RowCount = 1;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(170, 20);
+            this.tableLayoutPanel4.TabIndex = 6;
+            // 
+            // Active_Function_Label
+            // 
+            this.Active_Function_Label.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.Active_Function_Label.AutoSize = true;
+            this.Active_Function_Label.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Active_Function_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Active_Function_Label.ForeColor = System.Drawing.Color.White;
+            this.Active_Function_Label.Location = new System.Drawing.Point(0, 0);
+            this.Active_Function_Label.Margin = new System.Windows.Forms.Padding(0);
+            this.Active_Function_Label.Name = "Active_Function_Label";
+            this.Active_Function_Label.Size = new System.Drawing.Size(170, 20);
+            this.Active_Function_Label.TabIndex = 6;
+            this.Active_Function_Label.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // Menu
             // 
@@ -404,7 +456,10 @@
             this.FormPanel.PerformLayout();
             this.MenuPanel.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel2.PerformLayout();
+            this.tableLayoutPanel3.ResumeLayout(false);
+            this.tableLayoutPanel3.PerformLayout();
+            this.tableLayoutPanel4.ResumeLayout(false);
+            this.tableLayoutPanel4.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -433,6 +488,9 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Button RaumTemp_DOWN_Button;
         private System.Windows.Forms.Button RaumTemp_UP_Button;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         public System.Windows.Forms.Label RaumTemp_Soll_Label;
+        internal System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
+        public System.Windows.Forms.Label Active_Function_Label;
     }
 }

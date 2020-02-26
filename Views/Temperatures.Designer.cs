@@ -1,4 +1,4 @@
-﻿namespace diplwinform_v1_1.Views
+﻿namespace Heizungsregelung.Views
 {
     partial class Temperatures
     {
@@ -30,7 +30,7 @@
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.transparentLabel1 = new diplwinform_v1_1.TransparentLabel();
+            this.transparentLabel1 = new Heizungsregelung.TransparentLabel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel13 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel14 = new System.Windows.Forms.TableLayoutPanel();
@@ -71,7 +71,7 @@
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.Außentemp_Ist_Label = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.TempLabel = new diplwinform_v1_1.TransparentLabel();
+            this.TempLabel = new Heizungsregelung.TransparentLabel();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();

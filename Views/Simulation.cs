@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace diplwinform_v1_1.Views
+namespace Heizungsregelung.Views
 {
     public partial class Simulation : UserControl
     {

@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Threading;
 
-namespace diplwinform_v1_1
+namespace Heizungsregelung
 {
 
     class Calculations
@@ -15,17 +15,17 @@ namespace diplwinform_v1_1
         private static int m_außen_Mittel, m_quelle_Soll, m_hk_Soll = 60, m_boiler_Soll = 65, m_raum_Soll = 20;
         private static int m_außentemp_Ist, m_quelle_Ist, m_hk_Ist, m_boiler_Ist,  m_boiler_hysterese = 10;
         //only used internally for calculations, mischer repräsentiert den gesamtzyklus dees HK Mischers in Sekunden
-        private static double heizkurve = 1.2, fußpunkt = 25, mischer = 7;
+        private static double heizkurve = 1.2, fußpunkt = 25, mischer = 7, abweichung_mischer;
         private static int hk_anforderung, boiler_anforderung;
         //
-        private static bool m_anforderung_quelle, m_pumpe_boiler, m_pumpe_hk, m_mischer_hk;
+        private static bool m_anforderung_quelle, m_pumpe_boiler, m_pumpe_hk, m_mischer_auf_hk, m_mischer_zu_hk;
 
         #region variables to activate simulated pumps and valves 
         //for outside-the-class use to symbolise if the pumps should be running or not
         /// <summary>
         /// Zeigt ob eine Anforderung an die Quelle besteht
         /// </summary>
-        public static bool Anforderung_Quelle
+        public bool Anforderung_Quelle
         {
             get => m_anforderung_quelle;
         }
@@ -33,7 +33,7 @@ namespace diplwinform_v1_1
         /// <summary>
         /// gets if the pump of the boiler should be running or not
         /// </summary>
-        public static bool Pumpe_Boiler
+        public bool Pumpe_Boiler
         {
             get => m_pumpe_boiler;
         }
@@ -41,7 +41,7 @@ namespace diplwinform_v1_1
         /// <summary>
         /// gets if the pump of the heizkreis should be running
         /// </summary>
-        public static bool Pumpe_HK
+        public bool Pumpe_HK
         {
             get => m_pumpe_hk;
         }
@@ -49,10 +49,19 @@ namespace diplwinform_v1_1
         /// <summary>
         /// gets if the mischer for the heizkreis should be open
         /// </summary>
-        public static bool Mischer_HK
+        public bool Mischer_Auf_HK
         {
-            get => m_mischer_hk;
+            get => m_mischer_auf_hk;
         }
+
+        /// <summary>
+        /// gets if the mischer for the heizkreis should be open
+        /// </summary>
+        public bool Mischer_Zu_HK
+        {
+            get => m_mischer_zu_hk;
+        }
+
         #endregion variables to activate simulated pumps and valves 
 
         private Thread averageThread;
@@ -261,13 +270,16 @@ namespace diplwinform_v1_1
                 if (m_quelle_Ist < (m_quelle_Soll - 5))
                 {
                     //Anforderung an Quelle HIGH
+                    m_anforderung_quelle = true;
                 }
                 else
                 {
                     //Anforderung an Quelle LOW
+                    m_anforderung_quelle = false;
                 }
 
                 #endregion Berechnung Quelle
+
 
 
                 #region Berechnungen Heizkreis 
@@ -281,17 +293,41 @@ namespace diplwinform_v1_1
                 //wird die hk pumpe aktiviert und eine anforderung an die quelle gestellt
                 if (m_außen_Mittel < 18)
                 {
+                    //turn pump on
                     m_pumpe_hk = true;
+                    //set hk_anforderung
                     hk_anforderung = m_hk_Soll + 5;
                 }
                 //wenn nicht wird die hk pumpe nicht aktiviert --> somit ist heizung aus
                 else 
                 {
+                    //turn pump off
                     m_pumpe_hk = false;
                 }
 
+                //abweichung zwischen soll und ist
+                abweichung_mischer = (m_hk_Soll - m_hk_Ist);
+                //bei kleiner abweichung wird der mischer nicht angesteuert
+                if (abweichung_mischer >= -2 || abweichung_mischer <= 2)
+                    abweichung_mischer = 0;
+                //Abweichung negativ - Mischer fährt zu für die dauer von t1*1s 
+                //(also je weiter die abweichung, desto länger steht der Befehl an,
+                //nach 8sec wird wieder verglichen - geringere abweichung - kürzerer befehl) ------ ? matze fragen
+                else if (abweichung_mischer < 0)
+                {
+                    m_mischer_auf_hk = false;
+                    m_mischer_zu_hk = true;
+                }
+                //Abweichung positiv - Mischer fährt auf 
+                //(Achtung: Mischer darf niemals gleichzeitg die befehle Auf+Zu erhalten)
+                else if (abweichung_mischer > 0)
+                {
+                    m_mischer_auf_hk = true;
+                    m_mischer_zu_hk = false;
+                }
 
-                #endregion
+                #endregion Berechnungen Heizkreis 
+
 
 
                 #region Berechnungen Boiler 
@@ -305,7 +341,7 @@ namespace diplwinform_v1_1
                     //Anforderung an die Quelle
                     boiler_anforderung = m_boiler_Soll + 5;
                 }
-                else if (m_boiler_Ist > m_boiler_Soll)
+                else if (m_boiler_Ist >= m_boiler_Soll)
                 {
                     //Pumpe Boiler LOW
                     m_pumpe_boiler = false;
@@ -318,6 +354,7 @@ namespace diplwinform_v1_1
             }
 
         }
+
 
 
     }

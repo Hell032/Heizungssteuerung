@@ -1,4 +1,4 @@
-﻿namespace diplwinform_v1_1.Views.Function_Views
+﻿namespace Heizungsregelung.Views.Function_Views
 {
     partial class Boiler
     {

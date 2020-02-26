@@ -1,15 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
 
-namespace diplwinform_v1_1.Views.Function_Views
+namespace Heizungsregelung.Views.Function_Views
 {
     public partial class Boiler : UserControl
     {

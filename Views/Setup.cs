@@ -4,7 +4,7 @@ using System.Diagnostics;
 using System.IO.Ports;
 using System.Drawing;
 
-namespace diplwinform_v1_1.Views
+namespace Heizungsregelung.Views
 {
     public partial class Setup : UserControl
     {
@@ -144,7 +144,7 @@ namespace diplwinform_v1_1.Views
                 {
                     Debug.WriteLine("some ports are not displayed");
                 }
-                else
+                else if(port.Contains("USB") || port.Contains("COM"))
                 {
                     PortListBox.Items.Add(port);
                 }

@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using System.Threading;
 using System.Diagnostics;
 
-namespace diplwinform_v1_1.Views
+namespace Heizungsregelung.Views
 {
     public partial class Temperatures : UserControl
     {
@@ -55,7 +55,8 @@ namespace diplwinform_v1_1.Views
 
         //---------------------------------------------public-----------------------------------------
 
-
+        //variables to display which function is on and display on menu form 
+        public bool AntiFreezeON;
 
         //---------------------------------------------methodes--------------------------------------
         /// <summary>
@@ -147,36 +148,118 @@ namespace diplwinform_v1_1.Views
         private void WriteToLabels()
         {
             //change the labels asynchronously of the TemperatureForm UI Thread
-            this.BeginInvoke((Action)delegate
-            {
+            _ = this.BeginInvoke((Action)delegate
+              {
+                #region write to labels on temperature form
                 //set ist werte labels
                 Außentemp_Ist_Label.Text = m_außenTemp + " °C";
-                Quellentemp_Ist_Label.Text = m_quelleTemp + " °C";
+                  Quellentemp_Ist_Label.Text = m_quelleTemp + " °C";
                 //----------------------------------------------------------change values for debugging-------------------------
                 HKtemp_Ist_Label.Text = m_quelleTemp + " °C";
-                Boilertemp_Ist_Label.Text = m_quelleTemp + " °C";
+                  Boilertemp_Ist_Label.Text = m_quelleTemp + " °C";
 
                 //set soll werte labels
                 Außentemp_Mittel_Label.Text = Program.myCalculations.AußenTemp_Mittelwert + " °C";
-                Quellentemp_Soll_Label.Text = Program.myCalculations.VorlaufQuelle_Soll + " °C";
-                HKtemp_Soll_Label.Text = Program.myCalculations.VorlaufHeizkreis_Soll + " °C";
-                Boilertemp_Soll_Label.Text = Program.myCalculations.BoilerTemp_Soll + " °C";
+                  Quellentemp_Soll_Label.Text = Program.myCalculations.VorlaufQuelle_Soll + " °C";
+                  HKtemp_Soll_Label.Text = Program.myCalculations.VorlaufHeizkreis_Soll + " °C";
+                  Boilertemp_Soll_Label.Text = Program.myCalculations.BoilerTemp_Soll + " °C";
+                #endregion write to labels on temperature form
 
-
-
+                #region write temperatures to labels on simulation form
                 //Write ist werte To Simulation form labels
                 Program.SimulationForm.Außentemp_Label.Text = Program.myCalculations.AußenTemp_Ist + " °C";
-                Program.SimulationForm.Ist_Quelle_Label.Text = Program.myCalculations.VorlaufQuelle_Ist + " °C";
-                Program.SimulationForm.Ist_HK_Label.Text = Program.myCalculations.VorlaufHeizkreis_Ist + " °C";
-                Program.SimulationForm.Ist_Boiler_Label.Text = Program.myCalculations.BoilerTemp_Ist + " °C";
+                  Program.SimulationForm.Ist_Quelle_Label.Text = Program.myCalculations.VorlaufQuelle_Ist + " °C";
+                  Program.SimulationForm.Ist_HK_Label.Text = Program.myCalculations.VorlaufHeizkreis_Ist + " °C";
+                  Program.SimulationForm.Ist_Boiler_Label.Text = Program.myCalculations.BoilerTemp_Ist + " °C";
 
                 //write soll werte to simulation form labels
                 Program.SimulationForm.Soll_Quelle_Label.Text = Program.myCalculations.VorlaufQuelle_Soll + " °C";
-                Program.SimulationForm.Soll_HK_Label.Text = Program.myCalculations.VorlaufHeizkreis_Soll + " °C";
-                Program.SimulationForm.Soll_Boiler_Label.Text = Program.myCalculations.BoilerTemp_Soll+ " °C";
-                Program.SimulationForm.Raumtemp_Label.Text = Program.myCalculations.RaumTemp_Soll + " °C";
+                  Program.SimulationForm.Soll_HK_Label.Text = Program.myCalculations.VorlaufHeizkreis_Soll + " °C";
+                  Program.SimulationForm.Soll_Boiler_Label.Text = Program.myCalculations.BoilerTemp_Soll + " °C";
+                  Program.SimulationForm.Raumtemp_Label.Text = Program.myCalculations.RaumTemp_Soll + " °C";
+                #endregion write temperatures to labels on simulation form
+
+                #region Anforderung Quelle
+                if (Program.myCalculations.Anforderung_Quelle)
+                  {
+                      Program.SimulationForm.Anforderung_Quelle_Label.BackColor = Color.Green;
+                      Program.SimulationForm.Anforderung_Quelle_Label.ForeColor = Color.Green;
+                  }
+                  else
+                  {
+                      Program.SimulationForm.Anforderung_Quelle_Label.BackColor = Color.Red;
+                      Program.SimulationForm.Anforderung_Quelle_Label.ForeColor = Color.Red;
+                  }
+                #endregion Anforderung Quelle
+
+                #region Pumpe HK
+                if (Program.myCalculations.Pumpe_HK)
+                  {
+                      Program.SimulationForm.Pumpe_HK_Label.BackColor = Color.Green;
+                      Program.SimulationForm.Pumpe_HK_Label.ForeColor = Color.Green;
+                  }
+                  else
+                  {
+                      Program.SimulationForm.Pumpe_HK_Label.BackColor = Color.Red;
+                      Program.SimulationForm.Pumpe_HK_Label.ForeColor = Color.Red;
+                  }
+                #endregion Pumpe HK
+
+                #region Mischer HK
+                //handle mischer auf
+                if (Program.myCalculations.Mischer_Auf_HK)
+                  {
+                      Program.SimulationForm.HK_Mischer_Auf_Label.BackColor = Color.Green;
+                      Program.SimulationForm.HK_Mischer_Auf_Label.ForeColor = Color.Green;
+                  }
+                  else
+                  {
+                      Program.SimulationForm.HK_Mischer_Auf_Label.BackColor = Color.Red;
+                      Program.SimulationForm.HK_Mischer_Auf_Label.ForeColor = Color.Red;
+                  }
+
+                //handle mischer auf
+                if (Program.myCalculations.Mischer_Zu_HK)
+                  {
+                      Program.SimulationForm.HK_Mischer_Zu_Label.BackColor = Color.Green;
+                      Program.SimulationForm.HK_Mischer_Zu_Label.ForeColor = Color.Green;
+                  }
+                  else
+                  {
+                      Program.SimulationForm.HK_Mischer_Zu_Label.BackColor = Color.Red;
+                      Program.SimulationForm.HK_Mischer_Zu_Label.ForeColor = Color.Red;
+                  }
+
+                #endregion Mischer HK
+
+                #region Pumpe Boiler
+                if (Program.myCalculations.Pumpe_Boiler)
+                  {
+                      Program.SimulationForm.Pumpe_Boiler_Label.BackColor = Color.Green;
+                      Program.SimulationForm.Pumpe_Boiler_Label.ForeColor = Color.Green;
+                  }
+                  else
+                  {
+                      Program.SimulationForm.Pumpe_Boiler_Label.BackColor = Color.Red;
+                      Program.SimulationForm.Pumpe_Boiler_Label.ForeColor = Color.Red;
+                  }
+                #endregion Pumpe HK
+
+                #region Menu active function label
+
+                if (AntiFreezeON)
+                  {
+                      Program.MenuForm.Active_Function_Label.Text = "Anti-Freeze ";
+                      Debug.WriteLine("AntiFreeze ON");
+                  }
+                  else
+                  {
+                      Program.MenuForm.Active_Function_Label.Text = "";
+                      Debug.WriteLine("AntiFreeze OFF");
+                  }
 
 
+                #endregion menu active function label
             });
 
         }

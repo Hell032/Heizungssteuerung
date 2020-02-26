@@ -1,20 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using diplwinform_v1_1.Views.Function_Views;
+using Heizungsregelung.Views.Function_Views;
 
-namespace diplwinform_v1_1.Views
+namespace Heizungsregelung.Views
 {
     public partial class Functions : UserControl
     {
 
         public Boiler BoilerForm;
+        public Anti_Freeze AntiFreezeForm;
+        //public Sommer_Winter SommerWinterForm;
+        //public Tag_Nacht TagNachtForm;
 
         public Functions()
         {
@@ -27,64 +24,83 @@ namespace diplwinform_v1_1.Views
             BoilerForm = new Boiler();
             this.Function_Panel.Controls.Add(this.BoilerForm);
             Functions_Back_Button.FlatAppearance.MouseOverBackColor = Color.Transparent;
+
+            AntiFreezeForm = new Anti_Freeze();
+            this.Function_Panel.Controls.Add(this.AntiFreezeForm);
+            Functions_Back_Button.FlatAppearance.MouseOverBackColor = Color.Transparent;
         }
 
         //set visibility of selected form to true, display name in label and 
         private void Boiler_Click(object sender, EventArgs e)
         {
+            ModifyFunctionsForm("Boiler");
+
+            //dont show the other forms
+            AntiFreezeForm.Visible = false;
+            //SommerWinterForm.Visible = false;
+            //TagNachtForm.Visible = false;
+
+            //set size and show selected form
             BoilerForm.Size = Function_Panel.Size;
-            Functions_Back_Button.Text = "<--";
-            Functions_Back_Button.FlatAppearance.MouseOverBackColor = Color.DarkGray;
-            Functions_Back_Button.FlatAppearance.BorderSize = 0;
-            SelectedFunctionLabel.Text = "Boiler";
-            Function_ButtonPanel.Visible = false;
             BoilerForm.Visible = true;
-            Function_Panel.BorderStyle = BorderStyle.Fixed3D;
+
+
         }
 
         private void Sommer_Winter_Click(object sender, EventArgs e)
         {
-            Functions_Back_Button.Text = "<--";
-            Functions_Back_Button.FlatAppearance.MouseOverBackColor = Color.DarkGray;
-            Functions_Back_Button.FlatAppearance.BorderSize = 1;
-            SelectedFunctionLabel.Text = "Sommer\nWinter";
-            Function_ButtonPanel.Visible = false;
-            Function_Panel.BorderStyle = BorderStyle.Fixed3D;
+            ModifyFunctionsForm("Sommer / Winter");
 
-            //set visibility of function forms to falsec
-            BoilerForm.Visible = false;
+
+            //dont show the other forms
+            AntiFreezeForm.Visible = false;
+            Boiler.Visible = false;
+            //TagNachtForm.Visible = false;
+
+            //set size and show selected form
+            //SommerWinterForm.Size = Function_Panel.Size;
+            //SommerWinterForm.Visible = true;
+
         }
 
         private void AntiFreeze_Click(object sender, EventArgs e)
         {
-            Functions_Back_Button.Text = "<--";
-            Functions_Back_Button.FlatAppearance.MouseOverBackColor = Color.DarkGray;
-            Functions_Back_Button.FlatAppearance.BorderSize = 1;
-            SelectedFunctionLabel.Text = "Anti-\nFrezze";
-            Function_ButtonPanel.Visible = false;
-            Function_Panel.BorderStyle = BorderStyle.Fixed3D;
+            ModifyFunctionsForm("Anti-Freeze");
 
-            //set visibility of function forms to false
+            //dont show the other forms
             BoilerForm.Visible = false;
+            //SommerWinterForm.Visible = false;
+            //TagNachtForm.Visible = false;
+
+            //set size and show selected form
+            AntiFreezeForm.Size = Function_Panel.Size;
+            AntiFreezeForm.Visible = true;
         }
 
         private void Tag_Nacht_Click(object sender, EventArgs e)
         {
-            Functions_Back_Button.Text = "<--";
-            Functions_Back_Button.FlatAppearance.MouseOverBackColor = Color.DarkGray;
-            Functions_Back_Button.FlatAppearance.BorderSize = 1;
-            SelectedFunctionLabel.Text = "Tag\nNacht";
-            Function_ButtonPanel.Visible = false;
-            Function_Panel.BorderStyle = BorderStyle.Fixed3D;
+            ModifyFunctionsForm("Tag / Nacht");
 
-            //set visibility of function forms to false
+            //dont show the other forms
             BoilerForm.Visible = false;
+            //SommerWinterForm.Visible = false;
+            AntiFreezeForm.Visible = false;
+
+            //set size and show selected form
+            //TagNachtForm.Size = Function_Panel.Size;
+            //TagNachtForm.Visible = true;
         }
+
+
+
 
         private void Back_Click(object sender, EventArgs e)
         {
             //set visibility of function forms to false
             BoilerForm.Visible = false;
+            AntiFreezeForm.Visible = false;
+            //SommerWinterForm.Visible = false;
+            //TagNachtForm.Visible = false;
 
             Functions_Back_Button.Text = "Functions";
             Functions_Back_Button.FlatAppearance.MouseOverBackColor = Color.Transparent;
@@ -92,7 +108,17 @@ namespace diplwinform_v1_1.Views
             SelectedFunctionLabel.Text = "";
             Function_ButtonPanel.Visible = true;
             Function_Panel.BorderStyle = BorderStyle.None;
+        }
 
+        private void ModifyFunctionsForm(string FormName)
+        {
+            //modify FuncitonForm and Controls
+            Functions_Back_Button.Text = "<--";
+            Functions_Back_Button.FlatAppearance.MouseOverBackColor = Color.DarkGray;
+            Functions_Back_Button.FlatAppearance.BorderSize = 0;
+            Function_ButtonPanel.Visible = false;
+            SelectedFunctionLabel.Text = FormName;
+            Function_Panel.BorderStyle = BorderStyle.Fixed3D;
         }
     }
 }
