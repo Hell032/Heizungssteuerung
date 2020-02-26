@@ -51,7 +51,7 @@ namespace diplwinform_v1_1.Views
             Function_ButtonPanel.Visible = false;
             Function_Panel.BorderStyle = BorderStyle.Fixed3D;
 
-            //set visibility of function forms to false
+            //set visibility of function forms to falsec
             BoilerForm.Visible = false;
         }
 

@@ -89,12 +89,12 @@ namespace diplwinform_v1_1.Views
                         m_boilerTemp = pieces[3];
 
                         //writes the simulated values to the variables used to perform the calculations
-                        Program.myCalculations.AußenTemp_Mittelwert = int.Parse(m_außenTemp);
-                        Program.myCalculations.QuellenTemp_Soll = int.Parse(m_quelleTemp);
+                        Program.myCalculations.AußenTemp_Ist = int.Parse(m_außenTemp);
+                        Program.myCalculations.VorlaufQuelle_Ist = int.Parse(m_quelleTemp);
                         //---------------------------------------------------------------must change back to the correct variables
                         //---------------------------------------------------------------only for debugging
                         
-                        Program.myCalculations.HKTemp_Soll = int.Parse(m_quelleTemp);
+                        Program.myCalculations.VorlaufHeizkreis_Ist = int.Parse(m_quelleTemp);
                         Program.myCalculations.BoilerTemp_Ist = int.Parse(m_quelleTemp);
 
                         //Thread.Sleep(100);
@@ -113,7 +113,7 @@ namespace diplwinform_v1_1.Views
                     Debug.WriteLine("SerialPort not open");
                 }
 
-                ///-----------------------------------------for debuging
+                //for debuging
                 #region debuging
                 /*
                 for (int i = 0; i < 35; i++)
@@ -152,29 +152,29 @@ namespace diplwinform_v1_1.Views
                 //set ist werte labels
                 Außentemp_Ist_Label.Text = m_außenTemp + " °C";
                 Quellentemp_Ist_Label.Text = m_quelleTemp + " °C";
-                HKtemp_Ist_Label.Text = m_hkTemp + " °C";
-                Boilertemp_Ist_Label.Text = m_boilerTemp + " °C";
+                //----------------------------------------------------------change values for debugging-------------------------
+                HKtemp_Ist_Label.Text = m_quelleTemp + " °C";
+                Boilertemp_Ist_Label.Text = m_quelleTemp + " °C";
 
                 //set soll werte labels
                 Außentemp_Mittel_Label.Text = Program.myCalculations.AußenTemp_Mittelwert + " °C";
-                Quellentemp_Soll_Label.Text = Program.myCalculations.QuellenTemp_Soll + " °C";
-                HKtemp_Soll_Label.Text = Program.myCalculations.HKTemp_Soll + " °C";
+                Quellentemp_Soll_Label.Text = Program.myCalculations.VorlaufQuelle_Soll + " °C";
+                HKtemp_Soll_Label.Text = Program.myCalculations.VorlaufHeizkreis_Soll + " °C";
                 Boilertemp_Soll_Label.Text = Program.myCalculations.BoilerTemp_Soll + " °C";
 
 
 
                 //Write ist werte To Simulation form labels
-                Program.SimulationForm.Außentemp_Label.Text = m_außenTemp + " °C";
-                Program.SimulationForm.Ist_Quelle_Label.Text = m_quelleTemp + " °C";
-                Program.SimulationForm.Ist_HK_Label.Text = m_hkTemp + " °C";
-                Program.SimulationForm.Ist_Boiler_Label.Text = m_boilerTemp + " °C";
+                Program.SimulationForm.Außentemp_Label.Text = Program.myCalculations.AußenTemp_Ist + " °C";
+                Program.SimulationForm.Ist_Quelle_Label.Text = Program.myCalculations.VorlaufQuelle_Ist + " °C";
+                Program.SimulationForm.Ist_HK_Label.Text = Program.myCalculations.VorlaufHeizkreis_Ist + " °C";
+                Program.SimulationForm.Ist_Boiler_Label.Text = Program.myCalculations.BoilerTemp_Ist + " °C";
 
                 //write soll werte to simulation form labels
-                Program.SimulationForm.Soll_Quelle_Label.Text = Program.myCalculations.QuellenTemp_Soll + " °C";
-                Program.SimulationForm.Soll_HK_Label.Text = Program.myCalculations.HKTemp_Soll + " °C";
+                Program.SimulationForm.Soll_Quelle_Label.Text = Program.myCalculations.VorlaufQuelle_Soll + " °C";
+                Program.SimulationForm.Soll_HK_Label.Text = Program.myCalculations.VorlaufHeizkreis_Soll + " °C";
                 Program.SimulationForm.Soll_Boiler_Label.Text = Program.myCalculations.BoilerTemp_Soll+ " °C";
                 Program.SimulationForm.Raumtemp_Label.Text = Program.myCalculations.RaumTemp_Soll + " °C";
-                Program.SimulationForm
 
 
             });

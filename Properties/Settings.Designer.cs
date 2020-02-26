@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace diplwinform_v1_1.Properties {
+namespace Heizunsregelung.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

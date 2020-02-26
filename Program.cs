@@ -9,7 +9,7 @@ using RaspGPIOTest;
 namespace diplwinform_v1_1
 {
 
-    static class Program
+    class Program
     {
         /// <summary>
         /// The main entry point for the application.
