@@ -108,6 +108,12 @@
     <Compile Include="Views\Function_Views\Sommer_Winter.Designer.cs">
       <DependentUpon>Sommer_Winter.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Function_Views\Tag_Nacht.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Function_Views\Tag_Nacht.Designer.cs">
+      <DependentUpon>Tag_Nacht.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Menu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -148,6 +154,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Function_Views\Sommer_Winter.resx">
       <DependentUpon>Sommer_Winter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Function_Views\Tag_Nacht.resx">
+      <DependentUpon>Tag_Nacht.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>

@@ -11,7 +11,7 @@ namespace Heizungsregelung.Views
         public Boiler BoilerForm;
         public Anti_Freeze AntiFreezeForm;
         public Sommer_Winter SommerWinterForm;
-        //public Tag_Nacht TagNachtForm;
+        public Tag_Nacht TagNachtForm;
 
         public Functions()
         {
@@ -33,9 +33,9 @@ namespace Heizungsregelung.Views
             this.Function_Panel.Controls.Add(this.SommerWinterForm);
             Functions_Back_Button.FlatAppearance.MouseOverBackColor = Color.Transparent;
 
-            //TagNachtForm = new Tag_Nacht();
-            //this.Function_Panel.Controls.Add(this.TagNachtForm);
-            //Functions_Back_Button.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            TagNachtForm = new Tag_Nacht();
+            this.Function_Panel.Controls.Add(this.TagNachtForm);
+            Functions_Back_Button.FlatAppearance.MouseOverBackColor = Color.Transparent;
         }
 
         //set visibility of selected form to true, display name in label and 
@@ -63,7 +63,7 @@ namespace Heizungsregelung.Views
             //dont show the other forms
             AntiFreezeForm.Visible = false;
             Boiler.Visible = false;
-            //TagNachtForm.Visible = false;
+            TagNachtForm.Visible = false;
 
             //set size and show selected form
             SommerWinterForm.Size = Function_Panel.Size;
@@ -78,7 +78,7 @@ namespace Heizungsregelung.Views
             //dont show the other forms
             BoilerForm.Visible = false;
             SommerWinterForm.Visible = false;
-            //TagNachtForm.Visible = false;
+            TagNachtForm.Visible = false;
 
             //set size and show selected form
             AntiFreezeForm.Size = Function_Panel.Size;
@@ -95,8 +95,8 @@ namespace Heizungsregelung.Views
             AntiFreezeForm.Visible = false;
 
             //set size and show selected form
-            //TagNachtForm.Size = Function_Panel.Size;
-            //TagNachtForm.Visible = true;
+            TagNachtForm.Size = Function_Panel.Size;
+            TagNachtForm.Visible = true;
         }
 
 
@@ -108,7 +108,7 @@ namespace Heizungsregelung.Views
             BoilerForm.Visible = false;
             AntiFreezeForm.Visible = false;
             SommerWinterForm.Visible = false;
-            //TagNachtForm.Visible = false;
+            TagNachtForm.Visible = false;
 
             Functions_Back_Button.Text = "Functions";
             Functions_Back_Button.FlatAppearance.MouseOverBackColor = Color.Transparent;

@@ -31,7 +31,6 @@ namespace Heizungsregelung.Views.Function_Views
                     if (Program.MenuForm.Active_Function_Label.Text != " " || !Program.MenuForm.Active_Function_Label.Text.Contains("A-F"))
                         Program.MenuForm.Active_Function_Label.Text += " | A-F";
                 }
-
             });
             
         }
