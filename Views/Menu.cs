@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Drawing;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -7,6 +9,8 @@ namespace Heizungsregelung
 {
     public partial class Menu : Form
     {
+        private Thread StatusThread;
+
         public Menu()
         {
             //set size of program to fit the running operation system
@@ -62,65 +66,17 @@ namespace Heizungsregelung
             RaumTemp_UP_Button.Text = "";
             RaumTemp_UP_Button.Image = new Bitmap(Program.PlusIm, new Size(RaumTemp_UP_Button.Bounds.Height, RaumTemp_UP_Button.Bounds.Height - 5));
 
-            //Program.SetupForm.Visible = true;
-            //Program.SetupForm.Refresh();
+            this.CreateHandle();
 
-
-
-            //Task.Run((Action)delegate {
-            //    while (true)
-            //    {
-            //        if (Program.FunctionsForm.AntiFreezeForm != null && Program.FunctionsForm.SommerWinterForm != null && Program.FunctionsForm.TagNachtForm != null)
-            //        {
-            //            this.BeginInvoke((Action)delegate
-            //            {
-            //                #region Menu active function label
-            //                //change anti-freeze status
-            //                if (Program.FunctionsForm.AntiFreezeForm.AntiFreezeON)
-            //                {
-            //                    if (Program.MenuForm.Active_Function_Label.Text.Contains("A-F"))
-            //                        Program.MenuForm.Active_Function_Label.Text.Replace("A-F", " ");
-            //                }
-            //                else
-            //                {
-            //                    if (Program.MenuForm.Active_Function_Label.Text != " " || !Program.MenuForm.Active_Function_Label.Text.Contains("A-F"))
-            //                        Program.MenuForm.Active_Function_Label.Text += " | A-F";
-            //                }
-            //
-            //                //change sommer winter status
-            //                if (Program.FunctionsForm.SommerWinterForm.SommerON)
-            //                {
-            //                    if (Program.MenuForm.Active_Function_Label.Text.Contains("S/W"))
-            //                        Program.MenuForm.Active_Function_Label.Text.Replace("S/W", " ");
-            //                }
-            //                else
-            //                {
-            //                    if (Program.MenuForm.Active_Function_Label.Text != " " || !Program.MenuForm.Active_Function_Label.Text.Contains("S/W"))
-            //                        Program.MenuForm.Active_Function_Label.Text += " | S/W";
-            //                }
-            //
-            //                //change tag nacht status
-            //                if (Program.FunctionsForm.TagNachtForm.TagON)
-            //                {
-            //                    if (Program.MenuForm.Active_Function_Label.Text.Contains("T/N"))
-            //                        Program.MenuForm.Active_Function_Label.Text.Replace("T/N", " ");
-            //                }
-            //                else
-            //                {
-            //                    if (Program.MenuForm.Active_Function_Label.Text != " " || !Program.MenuForm.Active_Function_Label.Text.Contains("T/N"))
-            //                        Program.MenuForm.Active_Function_Label.Text += " | T/N";
-            //                }
-            //                #endregion menu active function label
-            //            });
-            //        }
-            //    }
-            //});
-
+            StatusThread = new Thread(new ThreadStart(WriteStatus));
+            StatusThread.IsBackground = true;
+            StatusThread.Priority = ThreadPriority.Lowest;
+            StatusThread.Start();
 
         }
 
         //---------------------------------------------click events--------------------------------------
-
+        #region Buttons
 
         /// <summary>
         /// shwos the temperatures form
@@ -141,7 +97,7 @@ namespace Heizungsregelung
         }
 
         //all the buttons that are on the menu 
-        #region Buttons
+
         /// <summary>
         /// shows the setup form
         /// </summary>
@@ -196,7 +152,8 @@ namespace Heizungsregelung
             Program.SimulationForm.Enabled = true;
             Program.SimulationForm.Dock = DockStyle.Fill;
 
-            Program.GPIOTestForm.Visible = true;
+            //if (!Program.GPIOTestForm.Visible || Program.GPIOTestForm.IsDisposed) Program.GPIOTestForm.Visible = true;
+
         }
 
 
@@ -213,6 +170,7 @@ namespace Heizungsregelung
             Cursor.Show();
         }
 
+
         /// <summary>
         /// lowers the room temperature
         /// </summary>
@@ -223,6 +181,7 @@ namespace Heizungsregelung
             Program.myCalculations.RaumTemp_Soll--;
             this.RaumTemp_Soll_Label.Text = Program.myCalculations.RaumTemp_Soll + " °C";
         }
+
 
         /// <summary>
         /// sets the room temp higher
@@ -236,7 +195,6 @@ namespace Heizungsregelung
         }
 
 #endregion Buttons
-
 
 
         //-------------------------------------- helper methodes ---------------------------------------
@@ -280,7 +238,86 @@ namespace Heizungsregelung
         }
 
 
-        //-------------------------------------
+        private void WriteStatus()
+        {
+            string text;
+            Stopwatch mystopwatch = new Stopwatch();
+
+            while (true)
+            {
+                text = "";
+
+                Thread.Sleep(1500);
+                mystopwatch.Start();
+                if (Program.FunctionsForm.AntiFreezeForm != null && Program.FunctionsForm.SommerWinterForm != null && Program.FunctionsForm.TagNachtForm != null)
+                {
+                    this.BeginInvoke((Action)delegate
+                    {
+                        #region Menu active function label
+
+                        //change anti-freeze status
+                        if (Program.FunctionsForm.AntiFreezeForm.AntiFreezeON)
+                            text += "| A-F ";
+                        else
+                            text += "";
+
+                        //change sommer winter status
+                        if (Program.FunctionsForm.SommerWinterForm.SommerON)
+                            text += "| S-W ";
+                        else
+                            text += "";
+
+                        //change tag nacht status
+                        if (Program.FunctionsForm.TagNachtForm.TagON)
+                            text += "| T-N |";
+                        else
+                            text += "";
+
+
+                        this.Active_Function_Label.Text = text;
+
+
+                        //if (Program.FunctionsForm.AntiFreezeForm.AntiFreezeON && this.Active_Function_Label.Text.Contains("A-F") == false)
+                        //    this.Active_Function_Label.Text += " | A-F";
+                        //
+                        //else if(this.Active_Function_Label.Text.Contains("A-F") == true)
+                        //        this.Active_Function_Label.Text.Replace("A-F", "");
+                        //
+                        //
+                        //if (!Program.FunctionsForm.SommerWinterForm.SommerON)
+                        //{
+                        //    if (this.Active_Function_Label.Text.Contains("S/W"))
+                        //        this.Active_Function_Label.Text.Replace("S/W", " ");
+                        //}
+                        //else
+                        //{
+                        //    if (this.Active_Function_Label.Text != " " || !this.Active_Function_Label.Text.Contains("S/W"))
+                        //        this.Active_Function_Label.Text += " | S/W";
+                        //}
+                        //
+                        //if (!Program.FunctionsForm.TagNachtForm.TagON)
+                        //{
+                        //    if (this.Active_Function_Label.Text.Contains("T/N"))
+                        //        this.Active_Function_Label.Text.Replace("T/N", " ");
+                        //}
+                        //else
+                        //{
+                        //    if (this.Active_Function_Label.Text != " " || !this.Active_Function_Label.Text.Contains("T/N"))
+                        //        this.Active_Function_Label.Text += " | T/N";
+                        //}
+
+
+                        #endregion menu active function label
+                    });
+                }
+                if (mystopwatch.ElapsedMilliseconds <= 1000)
+                    Thread.Sleep( (int)Math.Abs(1000 - mystopwatch.ElapsedMilliseconds));
+
+                mystopwatch.Reset();
+            }
+
+        }
+
 
     }
 }

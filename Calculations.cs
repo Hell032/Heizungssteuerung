@@ -4,9 +4,11 @@ using System.Threading;
 
 namespace Heizungsregelung
 {
-
+   
     class Calculations
     {
+
+        private static Output myoutput;
 
         //---------------------------------------------variables--------------------------------------
         //---------------------------------------------private----------------------------------------
@@ -212,8 +214,6 @@ namespace Heizungsregelung
         #endregion
 
 
-
-
         //-----------------------------------------------------methodes and ctor---------------------------------
 
         /// <summary>
@@ -227,10 +227,14 @@ namespace Heizungsregelung
             averageThread.Priority = ThreadPriority.Lowest;
             averageThread.Start();
 
+            myoutput = new Output();
+
             SollCalcThread = new Thread(new ThreadStart(CalculateTemperatures));
             SollCalcThread.IsBackground = true;
             SollCalcThread.Priority = ThreadPriority.Lowest;
             SollCalcThread.Start();
+
+
 
         }
 
@@ -280,11 +284,13 @@ namespace Heizungsregelung
                 {
                     //Anforderung an Quelle HIGH
                     m_anforderung_quelle = true;
+                    myoutput.Anforderung_Quelle(true);
                 }
                 else
                 {
                     //Anforderung an Quelle LOW
                     m_anforderung_quelle = false;
+                    myoutput.Anforderung_Quelle(false);
                 }
 
                 #endregion Berechnung Quelle
@@ -304,6 +310,7 @@ namespace Heizungsregelung
                 {
                     //turn pump on
                     m_pumpe_hk = true;
+                    myoutput.Pumpe_HK(true);
                     //set hk_anforderung
                     hk_anforderung = m_hk_Soll + 5;
                 }
@@ -312,6 +319,7 @@ namespace Heizungsregelung
                 {
                     //turn pump off
                     m_pumpe_hk = false;
+                    myoutput.Pumpe_HK(false);
                 }
 
                 //abweichung zwischen soll und ist
@@ -321,8 +329,11 @@ namespace Heizungsregelung
                 //(Achtung: Mischer darf niemals gleichzeitg die befehle Auf+Zu erhalten)
                 if (abweichung_mischer > 2)
                 {
-                    m_mischer_auf_hk = true;
                     m_mischer_zu_hk = false;
+                    myoutput.Mischer_ZU(false);
+                    Thread.Sleep(250);
+                    m_mischer_auf_hk = true;
+                    myoutput.Mischer_AUF(true);
                 }
                 //Abweichung negativ - Mischer fährt zu für die dauer von t1*1s 
                 //(also je weiter die abweichung, desto länger steht der Befehl an,
@@ -330,13 +341,18 @@ namespace Heizungsregelung
                 else if (abweichung_mischer < -2)
                 {
                     m_mischer_auf_hk = false;
+                    myoutput.Mischer_AUF(false);
+                    Thread.Sleep(250);
                     m_mischer_zu_hk = true;
+                    myoutput.Mischer_ZU(true);
                 }
                 //bei kleiner abweichung wird der mischer nicht angesteuert
                 else
                 {
                     m_mischer_auf_hk = false;
+                    myoutput.Mischer_AUF(false);
                     m_mischer_zu_hk = false;
+                    myoutput.Mischer_ZU(false);
                 }
 
                 #endregion Berechnungen Heizkreis 
@@ -351,6 +367,7 @@ namespace Heizungsregelung
                 {
                     //Pumpe Boiler HIGH
                     m_pumpe_boiler = true;
+                    myoutput.Pumpe_Boiler(true);
                     //Anforderung an die Quelle
                     boiler_anforderung = m_boiler_Soll + 5;
                 }
@@ -358,6 +375,7 @@ namespace Heizungsregelung
                 {
                     //Pumpe Boiler LOW
                     m_pumpe_boiler = false;
+                    myoutput.Pumpe_Boiler(false);
                     boiler_anforderung = 0;
                 }
 

@@ -63,7 +63,7 @@ namespace Heizungsregelung.Views
 
             //dont show the other forms
             AntiFreezeForm.Visible = false;
-            Boiler.Visible = false;
+            Boiler_Button.Visible = false;
             TagNachtForm.Visible = false;
 
             //set size and show selected form
@@ -115,6 +115,11 @@ namespace Heizungsregelung.Views
             SelectedFunctionLabel.Text = "";
             Function_ButtonPanel.Visible = true;
             Function_Panel.BorderStyle = BorderStyle.None;
+
+            Boiler_Button.Visible = true;
+            Sommer_Winter_Button.Visible = true;
+            Tag_Nacht_Button.Visible = true;
+            AntiFreeze_Button.Visible = true;
         }
         #endregion Buttons
 

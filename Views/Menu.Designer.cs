@@ -429,6 +429,7 @@
             this.Active_Function_Label.Name = "Active_Function_Label";
             this.Active_Function_Label.Size = new System.Drawing.Size(170, 20);
             this.Active_Function_Label.TabIndex = 6;
+            this.Active_Function_Label.Text = "XXX";
             this.Active_Function_Label.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // Menu

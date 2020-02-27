@@ -30,24 +30,24 @@
         {
             this.Function_Panel = new System.Windows.Forms.Panel();
             this.Function_ButtonPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.Tag_Nacht = new Heizungsregelung.TransparentButton();
-            this.Sommer_Winter = new Heizungsregelung.TransparentButton();
-            this.AntiFreeze = new Heizungsregelung.TransparentButton();
+            this.Tag_Nacht_Button = new Heizungsregelung.TransparentButton();
+            this.Sommer_Winter_Button = new Heizungsregelung.TransparentButton();
+            this.AntiFreeze_Button = new Heizungsregelung.TransparentButton();
+            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.Functions_Back_Button = new System.Windows.Forms.Button();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.SelectedFunctionLabel = new System.Windows.Forms.Label();
-            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.Boiler = new Heizungsregelung.TransparentButton();
+            this.Boiler_Button = new System.Windows.Forms.Button();
             this.Function_Panel.SuspendLayout();
             this.Function_ButtonPanel.SuspendLayout();
+            this.tableLayoutPanel5.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
-            this.tableLayoutPanel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // Function_Panel
@@ -65,9 +65,9 @@
             this.Function_ButtonPanel.ColumnCount = 2;
             this.Function_ButtonPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.Function_ButtonPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.Function_ButtonPanel.Controls.Add(this.Tag_Nacht, 1, 1);
-            this.Function_ButtonPanel.Controls.Add(this.Sommer_Winter, 1, 0);
-            this.Function_ButtonPanel.Controls.Add(this.AntiFreeze, 0, 1);
+            this.Function_ButtonPanel.Controls.Add(this.Tag_Nacht_Button, 1, 1);
+            this.Function_ButtonPanel.Controls.Add(this.Sommer_Winter_Button, 1, 0);
+            this.Function_ButtonPanel.Controls.Add(this.AntiFreeze_Button, 0, 1);
             this.Function_ButtonPanel.Controls.Add(this.tableLayoutPanel5, 0, 0);
             this.Function_ButtonPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Function_ButtonPanel.Location = new System.Drawing.Point(0, 0);
@@ -78,56 +78,70 @@
             this.Function_ButtonPanel.Size = new System.Drawing.Size(514, 269);
             this.Function_ButtonPanel.TabIndex = 0;
             // 
-            // Tag_Nacht
+            // Tag_Nacht_Button
             // 
-            this.Tag_Nacht.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Tag_Nacht.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.Tag_Nacht.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.Tag_Nacht.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Tag_Nacht.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Tag_Nacht.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.Tag_Nacht.Location = new System.Drawing.Point(260, 137);
-            this.Tag_Nacht.Margin = new System.Windows.Forms.Padding(3, 3, 0, 0);
-            this.Tag_Nacht.Name = "Tag_Nacht";
-            this.Tag_Nacht.Size = new System.Drawing.Size(254, 132);
-            this.Tag_Nacht.TabIndex = 19;
-            this.Tag_Nacht.Text = "Tag\r\nNacht";
-            this.Tag_Nacht.UseVisualStyleBackColor = true;
-            this.Tag_Nacht.Click += new System.EventHandler(this.Tag_Nacht_Click);
+            this.Tag_Nacht_Button.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Tag_Nacht_Button.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.Tag_Nacht_Button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.Tag_Nacht_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Tag_Nacht_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Tag_Nacht_Button.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.Tag_Nacht_Button.Location = new System.Drawing.Point(260, 137);
+            this.Tag_Nacht_Button.Margin = new System.Windows.Forms.Padding(3, 3, 0, 0);
+            this.Tag_Nacht_Button.Name = "Tag_Nacht_Button";
+            this.Tag_Nacht_Button.Size = new System.Drawing.Size(254, 132);
+            this.Tag_Nacht_Button.TabIndex = 19;
+            this.Tag_Nacht_Button.Text = "Tag\r\nNacht";
+            this.Tag_Nacht_Button.UseVisualStyleBackColor = true;
+            this.Tag_Nacht_Button.Click += new System.EventHandler(this.Tag_Nacht_Click);
             // 
-            // Sommer_Winter
+            // Sommer_Winter_Button
             // 
-            this.Sommer_Winter.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Sommer_Winter.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.Sommer_Winter.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.Sommer_Winter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Sommer_Winter.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Sommer_Winter.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.Sommer_Winter.Location = new System.Drawing.Point(260, 0);
-            this.Sommer_Winter.Margin = new System.Windows.Forms.Padding(3, 0, 0, 3);
-            this.Sommer_Winter.Name = "Sommer_Winter";
-            this.Sommer_Winter.Size = new System.Drawing.Size(254, 131);
-            this.Sommer_Winter.TabIndex = 23;
-            this.Sommer_Winter.Text = "Sommer\r\nWinter";
-            this.Sommer_Winter.UseVisualStyleBackColor = true;
-            this.Sommer_Winter.Click += new System.EventHandler(this.Sommer_Winter_Click);
+            this.Sommer_Winter_Button.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Sommer_Winter_Button.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.Sommer_Winter_Button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.Sommer_Winter_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Sommer_Winter_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Sommer_Winter_Button.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.Sommer_Winter_Button.Location = new System.Drawing.Point(260, 0);
+            this.Sommer_Winter_Button.Margin = new System.Windows.Forms.Padding(3, 0, 0, 3);
+            this.Sommer_Winter_Button.Name = "Sommer_Winter_Button";
+            this.Sommer_Winter_Button.Size = new System.Drawing.Size(254, 131);
+            this.Sommer_Winter_Button.TabIndex = 23;
+            this.Sommer_Winter_Button.Text = "Sommer\r\nWinter";
+            this.Sommer_Winter_Button.UseVisualStyleBackColor = true;
+            this.Sommer_Winter_Button.Click += new System.EventHandler(this.Sommer_Winter_Click);
             // 
-            // AntiFreeze
+            // AntiFreeze_Button
             // 
-            this.AntiFreeze.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.AntiFreeze.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.AntiFreeze.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.AntiFreeze.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AntiFreeze.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AntiFreeze.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.AntiFreeze.Location = new System.Drawing.Point(0, 137);
-            this.AntiFreeze.Margin = new System.Windows.Forms.Padding(0, 3, 3, 0);
-            this.AntiFreeze.Name = "AntiFreeze";
-            this.AntiFreeze.Size = new System.Drawing.Size(254, 132);
-            this.AntiFreeze.TabIndex = 18;
-            this.AntiFreeze.Text = "Anti-\r\nFreeze";
-            this.AntiFreeze.UseVisualStyleBackColor = true;
-            this.AntiFreeze.Click += new System.EventHandler(this.AntiFreeze_Click);
+            this.AntiFreeze_Button.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.AntiFreeze_Button.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.AntiFreeze_Button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.AntiFreeze_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AntiFreeze_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AntiFreeze_Button.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.AntiFreeze_Button.Location = new System.Drawing.Point(0, 137);
+            this.AntiFreeze_Button.Margin = new System.Windows.Forms.Padding(0, 3, 3, 0);
+            this.AntiFreeze_Button.Name = "AntiFreeze_Button";
+            this.AntiFreeze_Button.Size = new System.Drawing.Size(254, 132);
+            this.AntiFreeze_Button.TabIndex = 18;
+            this.AntiFreeze_Button.Text = "Anti-\r\nFreeze";
+            this.AntiFreeze_Button.UseVisualStyleBackColor = true;
+            this.AntiFreeze_Button.Click += new System.EventHandler(this.AntiFreeze_Click);
+            // 
+            // tableLayoutPanel5
+            // 
+            this.tableLayoutPanel5.ColumnCount = 1;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel5.Controls.Add(this.Boiler_Button, 0, 0);
+            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+            this.tableLayoutPanel5.RowCount = 1;
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(257, 134);
+            this.tableLayoutPanel5.TabIndex = 24;
             // 
             // tableLayoutPanel1
             // 
@@ -226,36 +240,23 @@
             this.SelectedFunctionLabel.TabIndex = 3;
             this.SelectedFunctionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // tableLayoutPanel5
+            // Boiler_Button
             // 
-            this.tableLayoutPanel5.ColumnCount = 1;
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.Controls.Add(this.Boiler, 0, 0);
-            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(0);
-            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
-            this.tableLayoutPanel5.RowCount = 1;
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(257, 134);
-            this.tableLayoutPanel5.TabIndex = 24;
-            // 
-            // Boiler
-            // 
-            this.Boiler.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Boiler.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.Boiler.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.Boiler.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Boiler.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Boiler.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.Boiler.Location = new System.Drawing.Point(0, 0);
-            this.Boiler.Margin = new System.Windows.Forms.Padding(0, 0, 3, 3);
-            this.Boiler.Name = "Boiler";
-            this.Boiler.Size = new System.Drawing.Size(254, 131);
-            this.Boiler.TabIndex = 22;
-            this.Boiler.Text = "Boiler";
-            this.Boiler.UseVisualStyleBackColor = true;
-            this.Boiler.Click += new System.EventHandler(this.Boiler_Click);
+            this.Boiler_Button.BackColor = System.Drawing.Color.Transparent;
+            this.Boiler_Button.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Boiler_Button.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.Boiler_Button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.Boiler_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Boiler_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Boiler_Button.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.Boiler_Button.Location = new System.Drawing.Point(0, 0);
+            this.Boiler_Button.Margin = new System.Windows.Forms.Padding(0, 0, 3, 3);
+            this.Boiler_Button.Name = "Boiler_Button";
+            this.Boiler_Button.Size = new System.Drawing.Size(254, 131);
+            this.Boiler_Button.TabIndex = 0;
+            this.Boiler_Button.Text = "Boiler";
+            this.Boiler_Button.UseVisualStyleBackColor = false;
+            this.Boiler_Button.Click += new System.EventHandler(this.Boiler_Click);
             // 
             // Functions
             // 
@@ -269,12 +270,12 @@
             this.Size = new System.Drawing.Size(514, 358);
             this.Function_Panel.ResumeLayout(false);
             this.Function_ButtonPanel.ResumeLayout(false);
+            this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
-            this.tableLayoutPanel5.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -283,9 +284,9 @@
 
         private System.Windows.Forms.Panel Function_Panel;
         private System.Windows.Forms.TableLayoutPanel Function_ButtonPanel;
-        private TransparentButton Tag_Nacht;
-        private TransparentButton Sommer_Winter;
-        private TransparentButton AntiFreeze;
+        private TransparentButton Tag_Nacht_Button;
+        private TransparentButton Sommer_Winter_Button;
+        private TransparentButton AntiFreeze_Button;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
@@ -293,6 +294,6 @@
         private System.Windows.Forms.Label SelectedFunctionLabel;
         private System.Windows.Forms.Button Functions_Back_Button;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
-        private TransparentButton Boiler;
+        private System.Windows.Forms.Button Boiler_Button;
     }
 }

@@ -5,8 +5,7 @@ using System.Windows.Forms;
 namespace Heizungsregelung.Views.Function_Views
 {
     public partial class Sommer_Winter : UserControl
-    {
-        //variable used across the form to display the status of the selected function
+    {//variable used across the form to display the status of the selected function
         public bool SommerON;
 
         public Sommer_Winter()
@@ -20,11 +19,12 @@ namespace Heizungsregelung.Views.Function_Views
 
         private void Sommer_Winter_ON_OFF_Switch_CheckedChanged(object sender, EventArgs e)
         {
-            //switch the variable according to the toggle button
-            if (Sommer_Winter_ON_OFF_Switch.Checked)
-                SommerON = true;
-            else
-                SommerON = false;
+
+        }
+
+        private void Somme_Winter_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

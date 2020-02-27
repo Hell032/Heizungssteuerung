@@ -79,19 +79,19 @@ namespace Heizungsregelung.Views
                         pieces = data.Split(delimiter, StringSplitOptions.None);
 
                         //writes the splited data array to the 
-                        m_außenTemp = pieces[0];
-                        m_quelleTemp = pieces[1];
-                        m_hkTemp = pieces[2];
-                        m_boilerTemp = pieces[3];
+                        //m_außenTemp = pieces[0];
+                        //m_quelleTemp = pieces[1];
+                        //m_hkTemp = pieces[2];
+                        //m_boilerTemp = pieces[3];
 
                         //writes the simulated values to the variables used to perform the calculations
-                        Program.myCalculations.AußenTemp_Ist = int.Parse(m_außenTemp);
-                        Program.myCalculations.VorlaufQuelle_Ist = int.Parse(m_quelleTemp);
+                        Program.myCalculations.AußenTemp_Ist = int.Parse(pieces[0]);
+                        Program.myCalculations.VorlaufQuelle_Ist = int.Parse(pieces[1]);
                         //---------------------------------------------------------------must change back to the correct variables
                         //---------------------------------------------------------------only for debugging
                         
-                        Program.myCalculations.VorlaufHeizkreis_Ist = int.Parse(m_hkTemp);
-                        Program.myCalculations.BoilerTemp_Ist = int.Parse(m_boilerTemp);
+                        Program.myCalculations.VorlaufHeizkreis_Ist = int.Parse(pieces[2]);
+                        Program.myCalculations.BoilerTemp_Ist = int.Parse(pieces[3]);
 
                         //Thread.Sleep(100);
                         //Debug.WriteLine("Working The Thread");
@@ -147,11 +147,10 @@ namespace Heizungsregelung.Views
             {
                 #region write to labels on temperature form
                 //set ist werte labels
-                Außentemp_Ist_Label.Text = m_außenTemp + " °C";
-                  Quellentemp_Ist_Label.Text = m_quelleTemp + " °C";
-                //----------------------------------------------------------change values for debugging-------------------------
-                HKtemp_Ist_Label.Text = m_quelleTemp + " °C";
-                  Boilertemp_Ist_Label.Text = m_quelleTemp + " °C";
+                Außentemp_Ist_Label.Text = Program.myCalculations.AußenTemp_Ist + " °C";
+                  Quellentemp_Ist_Label.Text = Program.myCalculations.VorlaufQuelle_Ist + " °C";
+                HKtemp_Ist_Label.Text = Program.myCalculations.VorlaufHeizkreis_Ist + " °C";
+                  Boilertemp_Ist_Label.Text = Program.myCalculations.BoilerTemp_Ist + " °C";
 
                 //set soll werte labels
                 Außentemp_Mittel_Label.Text = Program.myCalculations.AußenTemp_Mittelwert + " °C";

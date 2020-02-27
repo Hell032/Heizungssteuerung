@@ -72,6 +72,7 @@
   <ItemGroup>
     <Compile Include="Calculations.cs" />
     <Compile Include="GPIOController.cs" />
+    <Compile Include="Output.cs" />
     <Compile Include="RaspGPIOTest.cs">
       <SubType>Form</SubType>
     </Compile>
