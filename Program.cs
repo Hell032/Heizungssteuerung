@@ -5,6 +5,7 @@ using System.IO.Ports;
 using System.Windows.Forms;
 using System.IO;
 using RaspGPIOTest;
+using System.Threading.Tasks;
 
 namespace Heizungsregelung
 {
@@ -67,8 +68,9 @@ namespace Heizungsregelung
 
             //---------- initialize last to avoid errors -------------------------
             MenuForm = new Menu();
-
+            MenuForm.Refresh();
             Application.Run(MenuForm);
+
 
         }
 

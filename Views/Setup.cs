@@ -96,7 +96,7 @@ namespace Heizungsregelung.Views
             //------------------------------------output message 
             BeginInvoke((Action)delegate
             {
-                MessageBox.Show($"{message}", "Status", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //MessageBox.Show($"{message}", "Status", MessageBoxButtons.OK, MessageBoxIcon.Information);
             });
 
             Program.MenuForm.Refresh();

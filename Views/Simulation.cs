@@ -24,7 +24,7 @@ namespace Heizungsregelung.Views
             Image image = Image.FromFile(@"Pictures/SimulationBackgroundPic.png");
 
             SimulationPicture.BackgroundImage = image;
-            //pictureBox1.SizeMode = PictureBoxSizeMode.AutoSize;
+
         }
     }
 }

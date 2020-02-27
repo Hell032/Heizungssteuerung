@@ -6,33 +6,25 @@ namespace Heizungsregelung.Views.Function_Views
 {
     public partial class Sommer_Winter : UserControl
     {
+        //variable used across the form to display the status of the selected function
+        public bool SommerON;
+
         public Sommer_Winter()
         {
             InitializeComponent();
 
             this.Visible = false;
             this.BackColor = Color.Transparent;
+            SommerON = false;
         }
 
         private void Sommer_Winter_ON_OFF_Switch_CheckedChanged(object sender, EventArgs e)
         {
-
-            this.BeginInvoke((Action)delegate
-            {
-                if (Sommer_Winter_ON_OFF_Switch.Checked)
-                {
-                    Program.TemperaturesForm.SommerON = false;
-                    if (Program.MenuForm.Active_Function_Label.Text.Contains("S/W"))
-                        Program.MenuForm.Active_Function_Label.Text.Replace("S/W", " ");
-                }
-                else
-                {
-                    Program.TemperaturesForm.SommerON = true;
-                    if (Program.MenuForm.Active_Function_Label.Text != " " || !Program.MenuForm.Active_Function_Label.Text.Contains("S/W"))
-                        Program.MenuForm.Active_Function_Label.Text += " | S/W";
-                }
-
-            });
+            //switch the variable according to the toggle button
+            if (Sommer_Winter_ON_OFF_Switch.Checked)
+                SommerON = true;
+            else
+                SommerON = false;
         }
     }
 }

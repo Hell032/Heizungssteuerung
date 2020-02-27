@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
 using System.Diagnostics;
+using System.IO.Ports;
 
 namespace Heizungsregelung.Views
 {
@@ -36,11 +37,6 @@ namespace Heizungsregelung.Views
             tempthread.Priority = ThreadPriority.Lowest;
             tempthread.Start();
 
-            //AusentempLabel.Text = "0";
-            //VLQuelleLabel.Text = "0";
-            //VLHKLabel.Text = "0";
-            //BoilertempLabel.Text = "0";
-
         }
 
 
@@ -56,9 +52,6 @@ namespace Heizungsregelung.Views
         //---------------------------------------------public-----------------------------------------
 
         //variables to display which function is on and display on menu form 
-        public bool AntiFreezeON = false;
-        public bool SommerON = false;
-        public bool TagON = false;
 
         //---------------------------------------------methodes--------------------------------------
         /// <summary>
@@ -68,8 +61,8 @@ namespace Heizungsregelung.Views
         {
             string data;
             string[] pieces;
-            System.IO.Ports.SerialPort mySerialPort = Setup.mySerialPort;
-            mySerialPort.ReadTimeout = 500;
+            //SerialPort mySerialPort = Setup.mySerialPort;
+            //mySerialPort.ReadTimeout = 500;
 
             while (true)
             {
@@ -97,8 +90,8 @@ namespace Heizungsregelung.Views
                         //---------------------------------------------------------------must change back to the correct variables
                         //---------------------------------------------------------------only for debugging
                         
-                        Program.myCalculations.VorlaufHeizkreis_Ist = int.Parse(m_quelleTemp);
-                        Program.myCalculations.BoilerTemp_Ist = int.Parse(m_quelleTemp);
+                        Program.myCalculations.VorlaufHeizkreis_Ist = int.Parse(m_hkTemp);
+                        Program.myCalculations.BoilerTemp_Ist = int.Parse(m_boilerTemp);
 
                         //Thread.Sleep(100);
                         //Debug.WriteLine("Working The Thread");
@@ -151,7 +144,7 @@ namespace Heizungsregelung.Views
         {
             //change the labels asynchronously of the TemperatureForm UI Thread
             this.BeginInvoke((Action)delegate
-              {
+            {
                 #region write to labels on temperature form
                 //set ist werte labels
                 Außentemp_Ist_Label.Text = m_außenTemp + " °C";
@@ -179,7 +172,6 @@ namespace Heizungsregelung.Views
                   Program.SimulationForm.Soll_HK_Label.Text = Program.myCalculations.VorlaufHeizkreis_Soll + " °C";
                   Program.SimulationForm.Soll_Boiler_Label.Text = Program.myCalculations.BoilerTemp_Soll + " °C";
                   Program.SimulationForm.Raumtemp_Label.Text = Program.myCalculations.RaumTemp_Soll + " °C";
-                #endregion write temperatures to labels on simulation form
 
                 #region Anforderung Quelle
                 if (Program.myCalculations.Anforderung_Quelle)
@@ -196,41 +188,30 @@ namespace Heizungsregelung.Views
 
                 #region Pumpe HK
                 if (Program.myCalculations.Pumpe_HK)
-                  {
-                      Program.SimulationForm.Pumpe_HK_Label.BackColor = Color.Green;
-                      Program.SimulationForm.Pumpe_HK_Label.ForeColor = Color.Green;
-                  }
-                  else
-                  {
-                      Program.SimulationForm.Pumpe_HK_Label.BackColor = Color.Red;
-                      Program.SimulationForm.Pumpe_HK_Label.ForeColor = Color.Red;
-                  }
+                {
+                    Program.SimulationForm.Pumpe_HK_Label.BackColor = Color.Green;
+                    Program.SimulationForm.Pumpe_HK_Label.ForeColor = Color.Green;
+                }
+                else
+                {
+                    Program.SimulationForm.Pumpe_HK_Label.BackColor = Color.Red;
+                    Program.SimulationForm.Pumpe_HK_Label.ForeColor = Color.Red;
+                }
                 #endregion Pumpe HK
+
 
                 #region Mischer HK
                 //handle mischer auf
                 if (Program.myCalculations.Mischer_Auf_HK)
-                  {
-                      Program.SimulationForm.HK_Mischer_Auf_Label.BackColor = Color.Green;
-                      Program.SimulationForm.HK_Mischer_Auf_Label.ForeColor = Color.Green;
-                  }
-                  else
-                  {
-                      Program.SimulationForm.HK_Mischer_Auf_Label.BackColor = Color.Red;
-                      Program.SimulationForm.HK_Mischer_Auf_Label.ForeColor = Color.Red;
-                  }
+                    Program.SimulationForm.HK_Mischer_Auf_Label.BackColor = Color.Green;
+                else
+                    Program.SimulationForm.HK_Mischer_Auf_Label.BackColor = Color.Red;
 
                 //handle mischer auf
                 if (Program.myCalculations.Mischer_Zu_HK)
-                  {
-                      Program.SimulationForm.HK_Mischer_Zu_Label.BackColor = Color.Green;
-                      Program.SimulationForm.HK_Mischer_Zu_Label.ForeColor = Color.Green;
-                  }
-                  else
-                  {
-                      Program.SimulationForm.HK_Mischer_Zu_Label.BackColor = Color.Red;
-                      Program.SimulationForm.HK_Mischer_Zu_Label.ForeColor = Color.Red;
-                  }
+                    Program.SimulationForm.HK_Mischer_Zu_Label.BackColor = Color.Green;
+                else
+                    Program.SimulationForm.HK_Mischer_Zu_Label.BackColor = Color.Red;
 
                 #endregion Mischer HK
 
@@ -247,22 +228,9 @@ namespace Heizungsregelung.Views
                 }
                 #endregion Pumpe HK
 
-                #region Menu active function label
+                #endregion write temperatures to labels on simulation form
 
-                
-                //if (TagON)
-                //{
-                //    if (Program.MenuForm.Active_Function_Label.Text != "" || !Program.MenuForm.Active_Function_Label.Text.Contains("Tag/Nacht"))
-                //        Program.MenuForm.Active_Function_Label.Text += "Tag/Nacht ";
-                //}
-                //else
-                //{
-                //      if (Program.MenuForm.Active_Function_Label.Text.Contains("Tag/Nacht"))
-                //          Program.MenuForm.Active_Function_Label.Text.Replace("Tag/Nacht", "");
-                //  }
-                //
-                  #endregion menu active function label
-              });
+            });
 
         }
 

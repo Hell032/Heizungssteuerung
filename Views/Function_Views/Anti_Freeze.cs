@@ -7,6 +7,9 @@ namespace Heizungsregelung.Views.Function_Views
     public partial class Anti_Freeze : UserControl
     {
 
+        //variable used across the form to display the status of the selected function
+        public bool AntiFreezeON = false;
+
         public Anti_Freeze()
         {
             InitializeComponent();
@@ -17,22 +20,11 @@ namespace Heizungsregelung.Views.Function_Views
 
         private void Anti_Freeze_ON_OFF_Switch_CheckedChanged(object sender, EventArgs e)
         {
-            this.BeginInvoke((Action)delegate
-            {
-                if (Anti_Freeze_ON_OFF_Switch.Checked)
-                {
-                    Program.TemperaturesForm.AntiFreezeON = false;
-                    if (Program.MenuForm.Active_Function_Label.Text.Contains("A-F"))
-                        Program.MenuForm.Active_Function_Label.Text.Replace("A-F", " ");
-                }
-                else
-                {
-                    Program.TemperaturesForm.AntiFreezeON = true;
-                    if (Program.MenuForm.Active_Function_Label.Text != " " || !Program.MenuForm.Active_Function_Label.Text.Contains("A-F"))
-                        Program.MenuForm.Active_Function_Label.Text += " | A-F";
-                }
-            });
-            
+            //switch the variable according to the toggle button
+            if (Anti_Freeze_ON_OFF_Switch.Checked)
+                AntiFreezeON = true;
+            else
+                AntiFreezeON = false;
         }
     }
 }

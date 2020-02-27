@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Heizungsregelung
@@ -65,8 +66,57 @@ namespace Heizungsregelung
             //Program.SetupForm.Refresh();
 
 
-            //set 
-            //RaumTemp_Soll_Label.Text = "20 °C";
+
+            //Task.Run((Action)delegate {
+            //    while (true)
+            //    {
+            //        if (Program.FunctionsForm.AntiFreezeForm != null && Program.FunctionsForm.SommerWinterForm != null && Program.FunctionsForm.TagNachtForm != null)
+            //        {
+            //            this.BeginInvoke((Action)delegate
+            //            {
+            //                #region Menu active function label
+            //                //change anti-freeze status
+            //                if (Program.FunctionsForm.AntiFreezeForm.AntiFreezeON)
+            //                {
+            //                    if (Program.MenuForm.Active_Function_Label.Text.Contains("A-F"))
+            //                        Program.MenuForm.Active_Function_Label.Text.Replace("A-F", " ");
+            //                }
+            //                else
+            //                {
+            //                    if (Program.MenuForm.Active_Function_Label.Text != " " || !Program.MenuForm.Active_Function_Label.Text.Contains("A-F"))
+            //                        Program.MenuForm.Active_Function_Label.Text += " | A-F";
+            //                }
+            //
+            //                //change sommer winter status
+            //                if (Program.FunctionsForm.SommerWinterForm.SommerON)
+            //                {
+            //                    if (Program.MenuForm.Active_Function_Label.Text.Contains("S/W"))
+            //                        Program.MenuForm.Active_Function_Label.Text.Replace("S/W", " ");
+            //                }
+            //                else
+            //                {
+            //                    if (Program.MenuForm.Active_Function_Label.Text != " " || !Program.MenuForm.Active_Function_Label.Text.Contains("S/W"))
+            //                        Program.MenuForm.Active_Function_Label.Text += " | S/W";
+            //                }
+            //
+            //                //change tag nacht status
+            //                if (Program.FunctionsForm.TagNachtForm.TagON)
+            //                {
+            //                    if (Program.MenuForm.Active_Function_Label.Text.Contains("T/N"))
+            //                        Program.MenuForm.Active_Function_Label.Text.Replace("T/N", " ");
+            //                }
+            //                else
+            //                {
+            //                    if (Program.MenuForm.Active_Function_Label.Text != " " || !Program.MenuForm.Active_Function_Label.Text.Contains("T/N"))
+            //                        Program.MenuForm.Active_Function_Label.Text += " | T/N";
+            //                }
+            //                #endregion menu active function label
+            //            });
+            //        }
+            //    }
+            //});
+
+
         }
 
         //---------------------------------------------click events--------------------------------------
@@ -90,7 +140,8 @@ namespace Heizungsregelung
 
         }
 
-
+        //all the buttons that are on the menu 
+        #region Buttons
         /// <summary>
         /// shows the setup form
         /// </summary>
@@ -155,7 +206,9 @@ namespace Heizungsregelung
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void ExitButton_Click(object sender, EventArgs e)
-        {
+        {   
+            if(!Program.GPIOTestForm.IsDisposed) 
+                Program.GPIOTestForm.Dispose();
             Application.Exit();
             Cursor.Show();
         }
@@ -181,6 +234,10 @@ namespace Heizungsregelung
             Program.myCalculations.RaumTemp_Soll++;
             this.RaumTemp_Soll_Label.Text = Program.myCalculations.RaumTemp_Soll + " °C";
         }
+
+#endregion Buttons
+
+
 
         //-------------------------------------- helper methodes ---------------------------------------
 

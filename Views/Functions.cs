@@ -39,6 +39,7 @@ namespace Heizungsregelung.Views
         }
 
         //set visibility of selected form to true, display name in label and 
+        #region Buttons
         private void Boiler_Click(object sender, EventArgs e)
         {
             ModifyFunctionsForm("Boiler");
@@ -100,8 +101,6 @@ namespace Heizungsregelung.Views
         }
 
 
-
-
         private void Back_Click(object sender, EventArgs e)
         {
             //set visibility of function forms to false
@@ -117,7 +116,9 @@ namespace Heizungsregelung.Views
             Function_ButtonPanel.Visible = true;
             Function_Panel.BorderStyle = BorderStyle.None;
         }
+        #endregion Buttons
 
+        //----------------helper
         private void ModifyFunctionsForm(string FormName)
         {
             //modify FuncitonForm and Controls

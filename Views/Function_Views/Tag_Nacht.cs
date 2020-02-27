@@ -12,6 +12,10 @@ namespace Heizungsregelung.Views.Function_Views
 {
     public partial class Tag_Nacht : UserControl
     {
+
+        //variable used across the form to display the status of the selected function
+        public bool TagON = false;
+
         public Tag_Nacht()
         {
             InitializeComponent();
@@ -21,23 +25,11 @@ namespace Heizungsregelung.Views.Function_Views
 
         private void Tag_Nacht_ON_OFF_Switch_CheckedChanged(object sender, EventArgs e)
         {
-
-            this.BeginInvoke((Action)delegate
-            {
-                if (Tag_Nacht_ON_OFF_Switch.Checked)
-                {
-                    Program.TemperaturesForm.TagON = false;
-                    if (Program.MenuForm.Active_Function_Label.Text.Contains("T/N"))
-                        Program.MenuForm.Active_Function_Label.Text.Replace("T/N", " ");
-                }
-                else
-                {
-                    Program.TemperaturesForm.TagON = true;
-                    if (Program.MenuForm.Active_Function_Label.Text != " " || !Program.MenuForm.Active_Function_Label.Text.Contains("T/N"))
-                        Program.MenuForm.Active_Function_Label.Text += " | T/N";
-                }
-
-            });
+            //switch the variable according to the toggle button
+            if (Tag_Nacht_ON_OFF_Switch.Checked)
+                TagON = true;
+            else
+                TagON = false;
         }
     }
 }

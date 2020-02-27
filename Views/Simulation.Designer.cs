@@ -123,11 +123,11 @@
             this.HK_Mischer_Zu_Label.BackColor = System.Drawing.Color.Red;
             this.HK_Mischer_Zu_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.HK_Mischer_Zu_Label.ForeColor = System.Drawing.Color.Black;
-            this.HK_Mischer_Zu_Label.Location = new System.Drawing.Point(308, 233);
+            this.HK_Mischer_Zu_Label.Location = new System.Drawing.Point(290, 232);
             this.HK_Mischer_Zu_Label.Name = "HK_Mischer_Zu_Label";
-            this.HK_Mischer_Zu_Label.Size = new System.Drawing.Size(50, 24);
+            this.HK_Mischer_Zu_Label.Size = new System.Drawing.Size(40, 24);
             this.HK_Mischer_Zu_Label.TabIndex = 24;
-            this.HK_Mischer_Zu_Label.Text = " ZU_";
+            this.HK_Mischer_Zu_Label.Text = " ZU";
             // 
             // Anforderung_Quelle_Label
             // 
@@ -135,18 +135,18 @@
             this.Anforderung_Quelle_Label.BackColor = System.Drawing.Color.Red;
             this.Anforderung_Quelle_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Anforderung_Quelle_Label.ForeColor = System.Drawing.Color.Red;
-            this.Anforderung_Quelle_Label.Location = new System.Drawing.Point(57, 266);
+            this.Anforderung_Quelle_Label.Location = new System.Drawing.Point(43, 275);
             this.Anforderung_Quelle_Label.Name = "Anforderung_Quelle_Label";
-            this.Anforderung_Quelle_Label.Size = new System.Drawing.Size(39, 24);
+            this.Anforderung_Quelle_Label.Size = new System.Drawing.Size(116, 24);
             this.Anforderung_Quelle_Label.TabIndex = 23;
-            this.Anforderung_Quelle_Label.Text = "   X";
+            this.Anforderung_Quelle_Label.Text = "Anforderung";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(6, 56);
+            this.label5.Location = new System.Drawing.Point(308, 32);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(65, 24);
             this.label5.TabIndex = 22;
@@ -158,7 +158,7 @@
             this.HK_Mischer_Auf_Label.BackColor = System.Drawing.Color.Red;
             this.HK_Mischer_Auf_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.HK_Mischer_Auf_Label.ForeColor = System.Drawing.Color.Black;
-            this.HK_Mischer_Auf_Label.Location = new System.Drawing.Point(308, 209);
+            this.HK_Mischer_Auf_Label.Location = new System.Drawing.Point(285, 208);
             this.HK_Mischer_Auf_Label.Name = "HK_Mischer_Auf_Label";
             this.HK_Mischer_Auf_Label.Size = new System.Drawing.Size(48, 24);
             this.HK_Mischer_Auf_Label.TabIndex = 20;
@@ -170,18 +170,18 @@
             this.Pumpe_HK_Label.BackColor = System.Drawing.Color.Red;
             this.Pumpe_HK_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Pumpe_HK_Label.ForeColor = System.Drawing.Color.Red;
-            this.Pumpe_HK_Label.Location = new System.Drawing.Point(328, 181);
+            this.Pumpe_HK_Label.Location = new System.Drawing.Point(279, 184);
             this.Pumpe_HK_Label.Name = "Pumpe_HK_Label";
-            this.Pumpe_HK_Label.Size = new System.Drawing.Size(39, 24);
+            this.Pumpe_HK_Label.Size = new System.Drawing.Size(71, 24);
             this.Pumpe_HK_Label.TabIndex = 19;
-            this.Pumpe_HK_Label.Text = "   X";
+            this.Pumpe_HK_Label.Text = "Pumpe";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(2, 11);
+            this.label3.Location = new System.Drawing.Point(33, 11);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(72, 24);
             this.label3.TabIndex = 18;
@@ -193,18 +193,18 @@
             this.Pumpe_Boiler_Label.BackColor = System.Drawing.Color.Red;
             this.Pumpe_Boiler_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Pumpe_Boiler_Label.ForeColor = System.Drawing.Color.Red;
-            this.Pumpe_Boiler_Label.Location = new System.Drawing.Point(120, 161);
+            this.Pumpe_Boiler_Label.Location = new System.Drawing.Point(75, 165);
             this.Pumpe_Boiler_Label.Name = "Pumpe_Boiler_Label";
-            this.Pumpe_Boiler_Label.Size = new System.Drawing.Size(39, 24);
+            this.Pumpe_Boiler_Label.Size = new System.Drawing.Size(71, 24);
             this.Pumpe_Boiler_Label.TabIndex = 15;
-            this.Pumpe_Boiler_Label.Text = "   X";
+            this.Pumpe_Boiler_Label.Text = "Pumpe";
             // 
             // Raumtemp_Label
             // 
             this.Raumtemp_Label.AutoSize = true;
             this.Raumtemp_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Raumtemp_Label.ForeColor = System.Drawing.Color.Black;
-            this.Raumtemp_Label.Location = new System.Drawing.Point(71, 56);
+            this.Raumtemp_Label.Location = new System.Drawing.Point(373, 32);
             this.Raumtemp_Label.Name = "Raumtemp_Label";
             this.Raumtemp_Label.Size = new System.Drawing.Size(44, 24);
             this.Raumtemp_Label.TabIndex = 14;
@@ -215,7 +215,7 @@
             this.Soll_HK_Label.AutoSize = true;
             this.Soll_HK_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Soll_HK_Label.ForeColor = System.Drawing.Color.Black;
-            this.Soll_HK_Label.Location = new System.Drawing.Point(373, 37);
+            this.Soll_HK_Label.Location = new System.Drawing.Point(365, 143);
             this.Soll_HK_Label.Name = "Soll_HK_Label";
             this.Soll_HK_Label.Size = new System.Drawing.Size(44, 24);
             this.Soll_HK_Label.TabIndex = 13;
@@ -226,7 +226,7 @@
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.Black;
-            this.label13.Location = new System.Drawing.Point(321, 37);
+            this.label13.Location = new System.Drawing.Point(313, 143);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(46, 24);
             this.label13.TabIndex = 12;
@@ -259,7 +259,7 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.Black;
-            this.label10.Location = new System.Drawing.Point(19, 242);
+            this.label10.Location = new System.Drawing.Point(33, 242);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(46, 24);
             this.label10.TabIndex = 9;
@@ -270,7 +270,7 @@
             this.Soll_Quelle_Label.AutoSize = true;
             this.Soll_Quelle_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Soll_Quelle_Label.ForeColor = System.Drawing.Color.Black;
-            this.Soll_Quelle_Label.Location = new System.Drawing.Point(57, 242);
+            this.Soll_Quelle_Label.Location = new System.Drawing.Point(71, 242);
             this.Soll_Quelle_Label.Name = "Soll_Quelle_Label";
             this.Soll_Quelle_Label.Size = new System.Drawing.Size(44, 24);
             this.Soll_Quelle_Label.TabIndex = 8;
@@ -281,7 +281,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(19, 218);
+            this.label8.Location = new System.Drawing.Point(33, 218);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(32, 24);
             this.label8.TabIndex = 7;
@@ -303,7 +303,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(321, 13);
+            this.label6.Location = new System.Drawing.Point(313, 119);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(32, 24);
             this.label6.TabIndex = 5;
@@ -314,7 +314,7 @@
             this.Ist_Quelle_Label.AutoSize = true;
             this.Ist_Quelle_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Ist_Quelle_Label.ForeColor = System.Drawing.Color.Black;
-            this.Ist_Quelle_Label.Location = new System.Drawing.Point(57, 218);
+            this.Ist_Quelle_Label.Location = new System.Drawing.Point(71, 218);
             this.Ist_Quelle_Label.Name = "Ist_Quelle_Label";
             this.Ist_Quelle_Label.Size = new System.Drawing.Size(44, 24);
             this.Ist_Quelle_Label.TabIndex = 4;
@@ -325,7 +325,7 @@
             this.Ist_HK_Label.AutoSize = true;
             this.Ist_HK_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Ist_HK_Label.ForeColor = System.Drawing.Color.Black;
-            this.Ist_HK_Label.Location = new System.Drawing.Point(373, 13);
+            this.Ist_HK_Label.Location = new System.Drawing.Point(365, 119);
             this.Ist_HK_Label.Name = "Ist_HK_Label";
             this.Ist_HK_Label.Size = new System.Drawing.Size(44, 24);
             this.Ist_HK_Label.TabIndex = 3;
@@ -347,7 +347,7 @@
             this.Außentemp_Label.AutoSize = true;
             this.Außentemp_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Außentemp_Label.ForeColor = System.Drawing.Color.Black;
-            this.Außentemp_Label.Location = new System.Drawing.Point(71, 11);
+            this.Außentemp_Label.Location = new System.Drawing.Point(102, 11);
             this.Außentemp_Label.Name = "Außentemp_Label";
             this.Außentemp_Label.Size = new System.Drawing.Size(44, 24);
             this.Außentemp_Label.TabIndex = 1;
