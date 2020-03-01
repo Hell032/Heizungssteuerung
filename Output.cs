@@ -148,6 +148,7 @@ namespace Heizungsregelung
                 Thread.Sleep(250);
                 GPIO.digitalWrite(pin4, (int)GPIO.GPIOpinvalue.High);
                 Thread.Sleep(1000);
+
         }
 
     }

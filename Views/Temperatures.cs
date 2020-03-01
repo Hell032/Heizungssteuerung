@@ -84,14 +84,25 @@ namespace Heizungsregelung.Views
                         //m_hkTemp = pieces[2];
                         //m_boilerTemp = pieces[3];
 
-                        //writes the simulated values to the variables used to perform the calculations
-                        Program.myCalculations.AußenTemp_Ist = int.Parse(pieces[0]);
-                        Program.myCalculations.VorlaufQuelle_Ist = int.Parse(pieces[1]);
-                        //---------------------------------------------------------------must change back to the correct variables
-                        //---------------------------------------------------------------only for debugging
-                        
-                        Program.myCalculations.VorlaufHeizkreis_Ist = int.Parse(pieces[2]);
-                        Program.myCalculations.BoilerTemp_Ist = int.Parse(pieces[3]);
+                        if (Program.SelectModeForm.SimulationMode)
+                        {
+                            //writes the simulated values to the variables used to perform the calculations
+                            Program.myCalculations.AußenTemp_Ist = int.Parse(pieces[0]);
+                            Program.myCalculations.VorlaufQuelle_Ist = int.Parse(pieces[1]);
+                            Program.myCalculations.VorlaufHeizkreis_Ist = int.Parse(pieces[2]);
+                            Program.myCalculations.BoilerTemp_Ist = int.Parse(pieces[3]);
+                        }
+                        else 
+                        {
+                            //writes the real values to the variables used to perform the calculations
+                            Program.myCalculations.AußenTemp_Ist = int.Parse(pieces[4]);
+                            Program.myCalculations.VorlaufQuelle_Ist = int.Parse(pieces[5]);
+                            Program.myCalculations.VorlaufHeizkreis_Ist = int.Parse(pieces[6]);
+                            Program.myCalculations.BoilerTemp_Ist = int.Parse(pieces[7]);
+                        }
+
+
+
 
                         //Thread.Sleep(100);
                         //Debug.WriteLine("Working The Thread");
@@ -176,12 +187,10 @@ namespace Heizungsregelung.Views
                 if (Program.myCalculations.Anforderung_Quelle)
                   {
                       Program.SimulationForm.Anforderung_Quelle_Label.BackColor = Color.Green;
-                      Program.SimulationForm.Anforderung_Quelle_Label.ForeColor = Color.Green;
                   }
                   else
                   {
                       Program.SimulationForm.Anforderung_Quelle_Label.BackColor = Color.Red;
-                      Program.SimulationForm.Anforderung_Quelle_Label.ForeColor = Color.Red;
                   }
                 #endregion Anforderung Quelle
 
@@ -189,12 +198,10 @@ namespace Heizungsregelung.Views
                 if (Program.myCalculations.Pumpe_HK)
                 {
                     Program.SimulationForm.Pumpe_HK_Label.BackColor = Color.Green;
-                    Program.SimulationForm.Pumpe_HK_Label.ForeColor = Color.Green;
                 }
                 else
                 {
                     Program.SimulationForm.Pumpe_HK_Label.BackColor = Color.Red;
-                    Program.SimulationForm.Pumpe_HK_Label.ForeColor = Color.Red;
                 }
                 #endregion Pumpe HK
 
@@ -218,12 +225,10 @@ namespace Heizungsregelung.Views
                 if (Program.myCalculations.Pumpe_Boiler)
                 {
                     Program.SimulationForm.Pumpe_Boiler_Label.BackColor = Color.Green;
-                    Program.SimulationForm.Pumpe_Boiler_Label.ForeColor = Color.Green;
                 }
                 else
                 {
                     Program.SimulationForm.Pumpe_Boiler_Label.BackColor = Color.Red;
-                    Program.SimulationForm.Pumpe_Boiler_Label.ForeColor = Color.Red;
                 }
                 #endregion Pumpe HK
 

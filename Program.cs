@@ -24,6 +24,7 @@ namespace Heizungsregelung
         public static Temperatures TemperaturesForm;
         public static Simulation SimulationForm;
         public static Form1 GPIOTestForm;
+        public static SelectMode SelectModeForm;
 
         public static Image MinusIm;
         public static Image PlusIm;
@@ -64,6 +65,7 @@ namespace Heizungsregelung
             TemperaturesForm = new Temperatures();
             SimulationForm = new Simulation();
             GPIOTestForm = new Form1();
+            SelectModeForm = new SelectMode();
 
 
             //---------- initialize last to avoid errors -------------------------

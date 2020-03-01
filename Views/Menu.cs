@@ -76,6 +76,7 @@ namespace Heizungsregelung
         }
 
         //---------------------------------------------click events--------------------------------------
+        
         #region Buttons
 
         /// <summary>
@@ -89,10 +90,12 @@ namespace Heizungsregelung
 
             Program.SetupForm.Visible = false;
             Program.FunctionsForm.Visible = false;
-            Program.SimulationForm.Visible = false;
+            Program.TemperaturesForm.Visible = false;
             Program.GPIOTestForm.Visible = false;
             //-------------------------------------set visible form last to avoid rendering errors on raspberry 
-            Program.TemperaturesForm.Visible = true;
+            Program.SimulationForm.Visible = true;
+            Program.SimulationForm.Enabled = true;
+            Program.SimulationForm.Dock = DockStyle.Fill;
 
         }
 
@@ -112,6 +115,7 @@ namespace Heizungsregelung
             Program.SimulationForm.Visible = false;
             Program.GPIOTestForm.Visible = false;
             //-------------------------------------set visible form last to avoid rendering errors on raspberry 
+            Program.SelectModeForm.Visible = true;
             Program.SetupForm.Visible = true;
         }
 
@@ -126,6 +130,7 @@ namespace Heizungsregelung
             SetDebugLabels(false);
 
             Program.SetupForm.Visible = false;
+            Program.SelectModeForm.Visible = false;
             Program.TemperaturesForm.Visible = false;
             Program.SimulationForm.Visible = false;
             Program.GPIOTestForm.Visible = false;
@@ -145,13 +150,12 @@ namespace Heizungsregelung
             SetDebugLabels(false);
             
             Program.SetupForm.Visible = false;
-            Program.TemperaturesForm.Visible = false;
+            Program.SelectModeForm.Visible = false;
+            Program.SimulationForm.Visible = false;
             Program.FunctionsForm.Visible = false;
 
-            Program.SimulationForm.Visible = true;
-            Program.SimulationForm.Enabled = true;
-            Program.SimulationForm.Dock = DockStyle.Fill;
-
+            Program.TemperaturesForm.Visible = true;
+            
             //if (!Program.GPIOTestForm.Visible || Program.GPIOTestForm.IsDisposed) Program.GPIOTestForm.Visible = true;
 
         }
@@ -166,6 +170,7 @@ namespace Heizungsregelung
         {   
             if(!Program.GPIOTestForm.IsDisposed) 
                 Program.GPIOTestForm.Dispose();
+            
             Application.Exit();
             Cursor.Show();
         }
@@ -257,19 +262,24 @@ namespace Heizungsregelung
 
                         //change anti-freeze status
                         if (Program.FunctionsForm.AntiFreezeForm.AntiFreezeON)
-                            text += "| A-F ";
+                            text += "A-F ";
                         else
                             text += "";
+
+                        //if text is already filled, add space so that the label looks nicer
+                        //if (text != "") text += " ";
 
                         //change sommer winter status
                         if (Program.FunctionsForm.SommerWinterForm.SommerON)
-                            text += "| S-W ";
+                            text += "S-W ";
                         else
                             text += "";
 
+                        //if (text != "") text += " ";
+
                         //change tag nacht status
                         if (Program.FunctionsForm.TagNachtForm.TagON)
-                            text += "| T-N |";
+                            text += "T-N";
                         else
                             text += "";
 

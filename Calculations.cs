@@ -8,7 +8,7 @@ namespace Heizungsregelung
     class Calculations
     {
 
-        private static Output myoutput;
+        public static Output myoutput;
 
         //---------------------------------------------variables--------------------------------------
         //---------------------------------------------private----------------------------------------

@@ -144,7 +144,7 @@ namespace Heizungsregelung.Views
                 {
                     Debug.WriteLine("some ports are not displayed");
                 }
-                else if(port.Contains("USB") || port.Contains("COM"))
+                else if (port.Contains("USB") || port.Contains("COM") || port.Contains("ACM"))
                 {
                     PortListBox.Items.Add(port);
                 }
