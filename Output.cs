@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using WiringPi;
 
@@ -85,9 +86,9 @@ namespace Heizungsregelung
             if (WiringPiAvailable)
             {
                 if (status)
-                    GPIO.digitalWrite( mischer_auf, (int)GPIO.GPIOpinvalue.Low);
+                    GPIO.digitalWrite(mischer_zu, (int)GPIO.GPIOpinvalue.Low);
                 else
-                    GPIO.digitalWrite( mischer_auf, (int)GPIO.GPIOpinvalue.High);
+                    GPIO.digitalWrite(mischer_zu, (int)GPIO.GPIOpinvalue.High);
             }
         }
         public void Mischer_ZU(bool status)
@@ -128,27 +129,48 @@ namespace Heizungsregelung
 
         private void StartUP()
         {
-                Thread.Sleep(1000);
-                GPIO.digitalWrite(quelle, (int)GPIO.GPIOpinvalue.Low);
-                Thread.Sleep(750);
-                GPIO.digitalWrite(pump_boiler, (int)GPIO.GPIOpinvalue.Low);
-                Thread.Sleep(750);
-                GPIO.digitalWrite(pump_hk, (int)GPIO.GPIOpinvalue.Low);
-                Thread.Sleep(750);
-                GPIO.digitalWrite( mischer_auf, (int)GPIO.GPIOpinvalue.Low);
-                Thread.Sleep(750);
-                GPIO.digitalWrite(mischer_zu, (int)GPIO.GPIOpinvalue.Low);
-                Thread.Sleep(3000);
+            Thread.Sleep(1000);
+            GPIO.digitalWrite(quelle, (int)GPIO.GPIOpinvalue.High);
+            Thread.Sleep(750);
+            GPIO.digitalWrite(pump_boiler, (int)GPIO.GPIOpinvalue.High);
+            Thread.Sleep(750);
+            GPIO.digitalWrite(pump_hk, (int)GPIO.GPIOpinvalue.High);
+            Thread.Sleep(750);
+            GPIO.digitalWrite(mischer_auf, (int)GPIO.GPIOpinvalue.High);
+            Thread.Sleep(750);
+            GPIO.digitalWrite(mischer_zu, (int)GPIO.GPIOpinvalue.High);
+            Thread.Sleep(5000);
+            GPIO.digitalWrite(quelle, (int)GPIO.GPIOpinvalue.Low);
+            Thread.Sleep(750);
+            GPIO.digitalWrite(pump_boiler, (int)GPIO.GPIOpinvalue.Low);
+            Thread.Sleep(750);
+            GPIO.digitalWrite(pump_hk, (int)GPIO.GPIOpinvalue.Low);
+            Thread.Sleep(750);
+            GPIO.digitalWrite( mischer_auf, (int)GPIO.GPIOpinvalue.Low);
+            Thread.Sleep(750);
+            GPIO.digitalWrite(mischer_zu, (int)GPIO.GPIOpinvalue.Low);
+            Thread.Sleep(5000);
+            GPIO.digitalWrite(quelle, (int)GPIO.GPIOpinvalue.High);
+            Thread.Sleep(750);
+            GPIO.digitalWrite(pump_boiler, (int)GPIO.GPIOpinvalue.High);
+            Thread.Sleep(750);
+            GPIO.digitalWrite(pump_hk, (int)GPIO.GPIOpinvalue.High);
+            Thread.Sleep(750);
+            GPIO.digitalWrite( mischer_auf, (int)GPIO.GPIOpinvalue.High);
+            Thread.Sleep(750);
+            GPIO.digitalWrite(mischer_zu, (int)GPIO.GPIOpinvalue.High);
+        }
+
+        public void DisposeOpenConnections()
+        {
+            if (WiringPiAvailable)
+            {
                 GPIO.digitalWrite(quelle, (int)GPIO.GPIOpinvalue.High);
-                Thread.Sleep(750);
                 GPIO.digitalWrite(pump_boiler, (int)GPIO.GPIOpinvalue.High);
-                Thread.Sleep(750);
                 GPIO.digitalWrite(pump_hk, (int)GPIO.GPIOpinvalue.High);
-                Thread.Sleep(750);
-                GPIO.digitalWrite( mischer_auf, (int)GPIO.GPIOpinvalue.High);
-                Thread.Sleep(750);
+                GPIO.digitalWrite(mischer_auf, (int)GPIO.GPIOpinvalue.High);
                 GPIO.digitalWrite(mischer_zu, (int)GPIO.GPIOpinvalue.High);
-                Thread.Sleep(3000);
+            }
         }
 
     }

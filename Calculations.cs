@@ -4,7 +4,7 @@ using System.Threading;
 
 namespace Heizungsregelung
 {
-   
+
     class Calculations
     {
 
@@ -15,9 +15,9 @@ namespace Heizungsregelung
 
         //needed for outside variables
         private static int m_außen_Mittel, m_quelle_Soll, m_hk_Soll = 60, m_boiler_Soll = 65, m_raum_Soll = 20;
-        private static int m_außentemp_Ist, m_quelle_Ist, m_hk_Ist, m_boiler_Ist,  m_boiler_hysterese = 10, m_tag_nacht = 4;
-        //only used internally for calculations, mischer repräsentiert den gesamtzyklus dees HK Mischers in Sekunden
-        private static double heizkurve = 1.2, fußpunkt = 25, abweichung_mischer; //mischer = 7,
+        private static int m_außentemp_Ist, m_quelle_Ist, m_hk_Ist, m_boiler_Ist, m_boiler_hysterese = 10, m_tag_nacht = 4, mischeractive = 7000;
+        //only used internally for calculations, mischer repräsentiert den gesamtzyklus dees HK Mischers in millisekunden
+        private static double heizkurve = 1.2, fußpunkt = 25, abweichung_mischer;
         private static int hk_anforderung, boiler_anforderung;
         //
         private static bool m_anforderung_quelle, m_pumpe_boiler, m_pumpe_hk, m_mischer_auf_hk, m_mischer_zu_hk;
@@ -98,17 +98,17 @@ namespace Heizungsregelung
         /// <summary>
         /// takes the IST value and calculates the SOLL value
         /// </summary>
-        public int VorlaufQuelle_Ist 
-        { 
+        public int VorlaufQuelle_Ist
+        {
             get => m_quelle_Ist;
             //gets set through datastream of sensors
             set
             {
-                if (value >= 1 && value < 100)
+                if (value >= 0 && value < 100)
                     m_quelle_Ist = value;
             }
         }
-        
+
         /// <summary>
         /// Anforderung and die Quelle; grundsatzlich 
         /// </summary>
@@ -129,7 +129,7 @@ namespace Heizungsregelung
             get => m_raum_Soll;
             set
             {
-                if (value >= 1 && value < 100)
+                if (value >= 0 && value < 100)
                     m_raum_Soll = value;
             }
         }
@@ -141,8 +141,8 @@ namespace Heizungsregelung
         {
             get => m_hk_Soll;
         }
-        
-        
+
+
         /// <summary>
         /// gets and sets the IST heizkreis temperature
         /// </summary>
@@ -152,7 +152,7 @@ namespace Heizungsregelung
             //gets set through datastream of sensors
             set
             {
-                if (value >= 1 && value < 100)
+                if (value >= 0 && value < 100)
                     m_hk_Ist = value;
             }
         }
@@ -181,7 +181,7 @@ namespace Heizungsregelung
             //set available because user can change this value
             set
             {
-                if (value >= 20 && value < 100)
+                if (value >= 0 && value < 100)
                     m_boiler_Soll = value;
             }
         }
@@ -195,7 +195,7 @@ namespace Heizungsregelung
             //gets set through data stream of sensors
             set
             {
-                if (value >= 1 && value < 100)
+                if (value >= 0 && value < 100)
                     m_boiler_Ist = value;
             }
         }
@@ -209,7 +209,7 @@ namespace Heizungsregelung
             //set available because user can change this value
             set
             {
-                if (value >= 1 && value <= 50)
+                if (value >= 0 && value <= 50)
                     m_boiler_hysterese = value;
             }
         }
@@ -225,7 +225,7 @@ namespace Heizungsregelung
         public Calculations()
         {
             //start the helper thread used to calculate the temperatures
-            
+
             averageThread = new Thread(new ThreadStart(AverageOutsideTemp));
             averageThread.IsBackground = true;
             averageThread.Priority = ThreadPriority.Lowest;
@@ -248,7 +248,7 @@ namespace Heizungsregelung
             //sets initial temperature to ist value
             m_außen_Mittel = m_außentemp_Ist;
 
-            int items = 30;
+            int items = 15;
 
             //create a list of integers
             int[] wert = new int[items];
@@ -279,6 +279,9 @@ namespace Heizungsregelung
             while (true)
             {
 
+
+                #region debug
+                /*
                 #region Berechnung Quelle
 
                 if (hk_anforderung > boiler_anforderung)
@@ -321,7 +324,7 @@ namespace Heizungsregelung
                     hk_anforderung = m_hk_Soll + 5;
                 }
                 //wenn nicht wird die hk pumpe nicht aktiviert --> somit ist heizung aus
-                else 
+                else
                 {
                     //turn pump off
                     m_pumpe_hk = false;
@@ -389,78 +392,234 @@ namespace Heizungsregelung
                 }
 
                 #endregion Berechnungen Boiler 
+                */
+
+
+
+
+
+
+
+                //check what temperatures should be and then set the pumps/valves accordingly 
+
+                //first check the selected functions
+
+                #endregion
+
+
+                //newly written function-------------------------------------------------------------------------------------
+
+
+                
+
+
+                #region Berechnungen Heizkreis 
+
+                //Heizkurvenberechnung, je kälter aussen bzw höher eingestellte RT, desto mehr Vorlauftemperatur (Max 70°!)
+                m_hk_Soll = (int)((m_raum_Soll - m_außentemp_Ist) * heizkurve + fußpunkt);
+                
+                //check for limits 
+                if (m_hk_Soll >= 70)
+                    m_hk_Soll = 70;
+                if (m_hk_Soll < 0)
+                    m_hk_Soll = 0;
+
+                //wenn der mittelwert (letzten 30 Sekunden) höher als 18°C ist, 
+                //wird die hk pumpe aktiviert und eine anforderung an die quelle gestellt
+                if (m_außen_Mittel < 18)
+                {
+                    //turn pump on
+                    m_pumpe_hk = true;
+                    //set hk_anforderung
+                    hk_anforderung = m_hk_Soll + 5;
+                }
+                //wenn nicht wird die hk pumpe nicht aktiviert --> somit ist heizung aus
+                else
+                {
+                    //turn pump off
+                    m_pumpe_hk = false;
+                    hk_anforderung = 0;
+                }
+
+                if (m_hk_Soll == 0)
+                    m_pumpe_hk = false;
+
+
+                #region Berechnung Mischer HK
+                //abweichung zwischen soll und ist
+                abweichung_mischer = (m_hk_Soll - m_hk_Ist);
+
+                //Abweichung positiv - Mischer fährt auf 
+                //(Achtung: Mischer darf niemals gleichzeitg die befehle Auf+Zu erhalten)
+                if (abweichung_mischer > 2)
+                {
+                    m_mischer_auf_hk = true;
+                    m_mischer_zu_hk = false;
+                }
+                //Abweichung negativ - Mischer fährt zu für die dauer von t1*1s 
+                //(also je weiter die abweichung, desto länger steht der Befehl an,
+                //nach 8sec wird wieder verglichen - geringere abweichung - kürzerer befehl) ------ ? matze fragen
+                else if (abweichung_mischer < -2)
+                {
+                    m_mischer_auf_hk = false;
+                    m_mischer_zu_hk = true;
+                }
+                //bei kleiner abweichung wird der mischer nicht angesteuert
+                else
+                {
+                    m_mischer_auf_hk = false;
+                    m_mischer_zu_hk = false;
+                }
+                #endregion Berechnung Mischer HK
+
+                #endregion Berechnungen Heizkreis 
+
+
+                #region Berechnungen Boiler 
+
+                //Sinkt die Boilertemperatur unter die Eingestellte Schwelle 
+                //(üblich ca 10°, also z.B. Soll 65°-HB 10°=55°), beginnt die Boilerladung
+                if (m_boiler_Ist < ( m_boiler_Soll - m_boiler_hysterese))
+                {
+                    //Pumpe Boiler HIGH
+                    m_pumpe_boiler = true;
+                    boiler_anforderung = m_boiler_Soll + 5;
+                }
+                else if (m_boiler_Ist >= m_boiler_Soll)
+                {
+                    //Pumpe Boiler LOW
+                    m_pumpe_boiler = false;
+                    //keine anforderung an die quelle
+                    boiler_anforderung = 0;
+                }
+
+                //check for limit
+                if (m_boiler_Soll == 0)
+                    m_pumpe_boiler = false;
+
+                #endregion Berechnungen Boiler 
 
 
                 #region take selected function into account
 
                 //check if a function is active
-                if (Program.FunctionsForm.AntiFreezeForm.AntiFreezeON && m_außentemp_Ist > 5)
+                //
+                if (Program.FunctionsForm.AntiFreezeForm.AntiFreezeON)
                 {
                     //set boiler soll und hk soll auf 0
                     m_boiler_Soll = 0;
+                    boiler_anforderung = 0;
+                    hk_anforderung = 0;
                     m_hk_Soll = 0;
                     //set mischer von hk auf zu das kein wasser zirkulieren kann 
                     m_mischer_auf_hk = false;
-                    Thread.Sleep(250);
-                    m_mischer_zu_hk = true;                
+                    m_mischer_zu_hk = true;
+                    m_pumpe_hk = false;
+                    m_pumpe_boiler = false;
+
                 }
 
-                if (Program.FunctionsForm.SommerWinterForm.SommerON)
+                if (Program.FunctionsForm.SommerWinterForm.SommerON && m_außen_Mittel > 5)
                 {
                     //heizung ist aus, boiler unverändert bzw. auf normalem sollwert
                     m_hk_Soll = 0;
-                    //set mischer von hk auf zu das kein wasser zirkulieren kann und pumpe auschalten
+                    hk_anforderung = 0;
+                    //set mischer zu auf true zu das kein wasser zirkulieren kann und pumpe auschalten
                     m_mischer_auf_hk = false;
-                    Thread.Sleep(250);
                     m_mischer_zu_hk = true;
                     m_pumpe_hk = false;
                 }
-                
-                if (Program.FunctionsForm.TagNachtForm.NachtON) 
+
+                if (Program.FunctionsForm.TagNachtForm.NachtON)
                 {
                     //raum soll temp um vom user eingestellte temp verringern
                     m_raum_Soll = m_raum_Soll - m_tag_nacht;
 
-                    if (m_außen_Mittel < 15)
-                        myoutput.Pumpe_HK(false);
-                    
+                    if (m_außen_Mittel > 15)
+                        m_pumpe_hk = false;
+
                 }
 
                 #endregion handle selected functions
 
 
+                #region Berechnung Quelle
+                //ist die anforderungstemp des hk höher soll die quelle diese temp liefern, andernfalls die des boilers
+                //falls beide anforderungen an die quelle unter 20 °C liegen und außentemp unter 5°C liegt 
+                //--> fixe quellen anforderung von 20°C wegen anti - frezze
+                if (hk_anforderung > boiler_anforderung && hk_anforderung >= 20)
+                    m_quelle_Soll = hk_anforderung;         // hk größer als boiler und hk größer als 20 
+                else if (hk_anforderung < boiler_anforderung && boiler_anforderung >= 20)
+                    m_quelle_Soll = boiler_anforderung;     //boiler größer als hk und boiler größer als 20
+                else if (hk_anforderung < 20 && boiler_anforderung < 20 && m_außentemp_Ist <= 5)
+                {
+                    m_quelle_Soll = 20;
+                    m_boiler_Soll = 20;
+                    m_hk_Soll = 20;
+                }                     //wenn hk und boiler kleiner als 20 und außentemp unter 5 ist
+                else
+                    m_quelle_Soll = 0;
+
+
+                //Ist die Vorlauftemperatur der Quelle um die fixe Hysteres 5° unterschritten, wird Wärme angefordert.
+                if (m_quelle_Ist < (m_quelle_Soll - 5))
+                    m_anforderung_quelle = true;    //Anforderung an Quelle HIGH
+                else
+                    m_anforderung_quelle = false;   //Anforderung an Quelle LOW
+
+                if (m_quelle_Soll == 0)
+                    m_anforderung_quelle = false;   //wenn außentemp über <= 5 und keine sonstifge anforderung
+                #endregion Berechnung Quelle
+
 
 
                 #region fixed Anti-Freeze / heating system protection
                 //standard antifreeze to protect the whole heatingsystem when lower outside temps are detected
-                if (m_außentemp_Ist < 5)
-                {
-                    //set variables to fixed values so dass die Heizanlage keine Schäden durch frost nimmt
-                    if(m_boiler_Soll < 20)
-                        m_boiler_Soll = 20;
-                    if(boiler_anforderung < 25)
-                        boiler_anforderung = 25;
-                    if(m_hk_Soll < 20)
-                        m_hk_Soll = 20;
 
-                }
                 #endregion Fixed Anti-Freeze / heating system protection
 
 
-
-
-
-
-
-
-
-
+                SetActuators();
 
             }
 
         }
 
+        private static void SetActuators()
+        {
+            //set the pumps and valves
+            myoutput.Anforderung_Quelle(m_anforderung_quelle);
+            myoutput.Pumpe_Boiler(m_pumpe_boiler);
+            myoutput.Pumpe_HK(m_pumpe_hk);
 
+            //the valves MUST NOT be activated (get HIGH signal) at the same time
+            if (m_mischer_auf_hk && !m_mischer_zu_hk)
+            {
+                myoutput.Mischer_AUF(m_mischer_auf_hk);
+                //add a small buffer
+                Thread.Sleep(500);
+                myoutput.Mischer_ZU(m_mischer_zu_hk);
+
+            }
+            else if (!m_mischer_auf_hk && m_mischer_zu_hk)
+            {
+                myoutput.Mischer_AUF(m_mischer_auf_hk);
+                //add a small buffer
+                Thread.Sleep(500);
+                myoutput.Mischer_ZU(m_mischer_zu_hk);
+            }
+            else if (m_mischer_auf_hk && m_mischer_zu_hk)
+            {
+                //myoutput.Mischer_AUF(false);
+                //myoutput.Mischer_ZU(false);
+                System.Diagnostics.Debug.WriteLine("ERROR WITH MISCHER SOMEWHERE - both are set to true");
+            }
+            else if (!m_mischer_auf_hk && !m_mischer_zu_hk)
+            {
+                myoutput.Mischer_AUF(false);
+                myoutput.Mischer_ZU(false);
+            }
+        }
 
     }
 }

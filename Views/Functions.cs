@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Drawing;
+using System.Threading;
 using System.Windows.Forms;
 using Heizungsregelung.Views.Function_Views;
 
@@ -24,6 +26,7 @@ namespace Heizungsregelung.Views
             this.Visible = false;
             this.BackColor = Color.Transparent;
 
+            this.CreateHandle();
 
             BackButtonBitmap = new Bitmap(Program.BackIm, new Size(Functions_Back_Button.Bounds.Width - 30, Functions_Back_Button.Bounds.Height - 5));
 
@@ -43,6 +46,10 @@ namespace Heizungsregelung.Views
             TagNachtForm = new Tag_Nacht();
             this.Function_Panel.Controls.Add(this.TagNachtForm);
             Functions_Back_Button.FlatAppearance.MouseOverBackColor = Color.Transparent;
+
+            Thread CheckForUpdates = new Thread(new ThreadStart(ChangeValuesOnButtons));
+            CheckForUpdates.IsBackground = true;
+            CheckForUpdates.Start();
         }
 
         //set visibility of selected form to true, display name in label and 
@@ -145,6 +152,40 @@ namespace Heizungsregelung.Views
             Function_ButtonPanel.Visible = false;
             SelectedFunctionLabel.Text = FormName;
             Function_Panel.BorderStyle = BorderStyle.Fixed3D;
+        }
+
+        private void ChangeValuesOnButtons()
+        {
+            Thread.Sleep(5000);
+            Stopwatch mystopwatch = new Stopwatch();
+
+            while (true)
+            {
+                Thread.Sleep(1500);
+                mystopwatch.Start();
+
+                if (Program.FunctionsForm != null && Program.FunctionsForm.SommerWinterForm != null)
+                {
+
+                    this.BeginInvoke((Action)delegate
+                    {
+
+                        if (Program.myCalculations.AußenTemp_Mittelwert <= 5)
+                        {
+                            Program.FunctionsForm.SommerWinterForm.Sommer_Winter_ON_OFF_Switch.Checked = false;
+                            Program.FunctionsForm.SommerWinterForm.Sommer_Winter_ON_OFF_Switch.Enabled = false;
+                            Program.FunctionsForm.SommerWinterForm.SommerON = false;
+                        }
+                        else
+                            Program.FunctionsForm.SommerWinterForm.Sommer_Winter_ON_OFF_Switch.Enabled = true;
+                    });
+                }
+                if (mystopwatch.ElapsedMilliseconds <= 500)
+                    Thread.Sleep((int)Math.Abs(500 - mystopwatch.ElapsedMilliseconds));
+
+                mystopwatch.Reset();
+            }
+        
         }
     }
 }

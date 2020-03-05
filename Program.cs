@@ -30,7 +30,7 @@ namespace Heizungsregelung
         public static Image BackIm;
         public static Image SimulationIm;
 
-        public static Calculations myCalculations = new Calculations();
+        public static Calculations myCalculations;
 
         static void Main()
         {
@@ -47,26 +47,27 @@ namespace Heizungsregelung
 
                     BackIm = Image.FromFile($"../Regler/Pictures/Back_Button.png");
 
-                    SimulationIm = Image.FromFile($"../Regler/Pictures/SimulationPic.png");
+                    SimulationIm = Image.FromFile($"../Regler/Pictures/SimulationBackgroundPic.png");
 
                     Cursor.Hide();
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"{ex}\n{Path.AltDirectorySeparatorChar} and {Path.DirectorySeparatorChar}");
+                    MessageBox.Show($"ERROR WHILE LOADING STUFF\n\n{ex}\n\n{Path.AltDirectorySeparatorChar} and {Path.DirectorySeparatorChar}");
                 }
 
             }
             else 
             {
-                MinusIm = Image.FromFile($"../Debug{Path.AltDirectorySeparatorChar}Pictures{Path.AltDirectorySeparatorChar}Minus_white.png");
-                PlusIm = Image.FromFile($"../Debug{Path.AltDirectorySeparatorChar}Pictures{Path.AltDirectorySeparatorChar}Plus_white.png");
-                BackIm = Image.FromFile($"../Debug{Path.AltDirectorySeparatorChar}Pictures{Path.AltDirectorySeparatorChar}Back_Button.png");
-                SimulationIm = Image.FromFile($"../Debug{Path.AltDirectorySeparatorChar}Pictures{Path.AltDirectorySeparatorChar}SimulationBackgroundPic.png");
+                MinusIm = Image.FromFile($"Pictures{Path.AltDirectorySeparatorChar}Minus_white.png");
+                PlusIm = Image.FromFile($"Pictures{Path.AltDirectorySeparatorChar}Plus_white.png");
+                BackIm = Image.FromFile($"Pictures{Path.AltDirectorySeparatorChar}Back_Button.png");
+                SimulationIm = Image.FromFile($"Pictures{Path.AltDirectorySeparatorChar}SimulationBackgroundPic.png");
             }
 
-            FunctionsForm = new Functions();
+            myCalculations = new Calculations();
             SetupForm = new Setup();
+            FunctionsForm = new Functions();
             SimulationForm = new Simulation();
             GPIOTestForm = new Form1();
             TemperaturesForm = new Temperatures();

@@ -61,8 +61,6 @@ namespace Heizungsregelung.Views
         {
             string data;
             string[] pieces;
-            //SerialPort mySerialPort = Setup.mySerialPort;
-            //mySerialPort.ReadTimeout = 500;
 
             while (true)
             {
@@ -100,16 +98,13 @@ namespace Heizungsregelung.Views
                             Program.myCalculations.VorlaufHeizkreis_Ist = int.Parse(pieces[6]);
                             Program.myCalculations.BoilerTemp_Ist = int.Parse(pieces[7]);
                         }
-
-                        WriteToLabels();
                     }
                     catch (Exception)
                     {
-                        Debug.WriteLine("Unable To Read From SerialPort");
+                        Debug.WriteLine("Error occourd while reading from serialport");
                     }
 
-                    //WriteToLabels();
- 
+                    WriteToLabels();
                 }
                 else
                 {
@@ -168,7 +163,9 @@ namespace Heizungsregelung.Views
                     Boilertemp_Soll_Label.Text = Program.myCalculations.BoilerTemp_Soll + " °C";
                     #endregion write to labels on temperature form
 
-                    #region write temperatures to labels on simulation form
+                    #region write to labels on simulation form
+
+                    #region labels 
                     //Write ist werte To Simulation form labels
                     Program.SimulationForm.Außentemp_Label.Text = Program.myCalculations.AußenTemp_Ist + " °C";
                     Program.SimulationForm.Ist_Quelle_Label.Text = Program.myCalculations.VorlaufQuelle_Ist + " °C";
@@ -180,6 +177,7 @@ namespace Heizungsregelung.Views
                     Program.SimulationForm.Soll_HK_Label.Text = Program.myCalculations.VorlaufHeizkreis_Soll + " °C";
                     Program.SimulationForm.Soll_Boiler_Label.Text = Program.myCalculations.BoilerTemp_Soll + " °C";
                     Program.SimulationForm.Raumtemp_Label.Text = Program.myCalculations.RaumTemp_Soll + " °C";
+                    #endregion labels
 
                     #region Anforderung Quelle
                     if (Program.myCalculations.Anforderung_Quelle)
@@ -187,6 +185,13 @@ namespace Heizungsregelung.Views
                     else
                         Program.SimulationForm.Anforderung_Quelle_Label.BackColor = Color.Red;
                     #endregion Anforderung Quelle
+
+                    #region Pumpe Boiler
+                    if (Program.myCalculations.Pumpe_Boiler)
+                        Program.SimulationForm.Pumpe_Boiler_Label.BackColor = Color.Green;
+                    else
+                        Program.SimulationForm.Pumpe_Boiler_Label.BackColor = Color.Red;
+                    #endregion Pumpe HK
 
                     #region Pumpe HK
 
@@ -211,14 +216,7 @@ namespace Heizungsregelung.Views
 
                     #endregion Mischer HK
 
-                    #region Pumpe Boiler
-                    if (Program.myCalculations.Pumpe_Boiler)
-                        Program.SimulationForm.Pumpe_Boiler_Label.BackColor = Color.Green;
-                    else
-                        Program.SimulationForm.Pumpe_Boiler_Label.BackColor = Color.Red;
-                    #endregion Pumpe HK
-
-                    #endregion write temperatures to labels on simulation form
+                    #endregion write to labels on simulation form
 
                 });
             }

@@ -134,7 +134,7 @@
             this.Sommer_Winter_ON_OFF_Switch.OnForeColor = System.Drawing.Color.White;
             this.Sommer_Winter_ON_OFF_Switch.Size = new System.Drawing.Size(171, 134);
             this.Sommer_Winter_ON_OFF_Switch.TabIndex = 0;
-            this.Sommer_Winter_ON_OFF_Switch.CheckedChanged += new JCS.ToggleSwitch.CheckedChangedDelegate(this.Sommer_Winter_ON_OFF_Switch_CheckedChanged);
+            this.Sommer_Winter_ON_OFF_Switch.Click += new System.EventHandler(this.Sommer_Winter_ON_OFF_Switch_Click);
             // 
             // tableLayoutPanel4
             // 
@@ -251,12 +251,12 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
-        private JCS.ToggleSwitch Sommer_Winter_ON_OFF_Switch;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
         private System.Windows.Forms.Label label3;
+        public JCS.ToggleSwitch Sommer_Winter_ON_OFF_Switch;
     }
 }

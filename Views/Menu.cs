@@ -168,7 +168,9 @@ namespace Heizungsregelung
         {   
             if(!Program.GPIOTestForm.IsDisposed) 
                 Program.GPIOTestForm.Dispose();
-            
+            //close all used connections i.e. set all pins high
+            Calculations.myoutput.DisposeOpenConnections();
+
             Application.Exit();
             Cursor.Show();
         }
@@ -283,6 +285,7 @@ namespace Heizungsregelung
                 mystopwatch.Reset();
             }
         }
+
     }
     //end of partial class menu
 }
