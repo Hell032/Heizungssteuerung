@@ -11,6 +11,9 @@ namespace Heizungsregelung.Views
         public static SerialPort mySerialPort = new SerialPort();
         //flag for starting the hleper threads in different classes
         public bool StatusFlag_Connected = false;
+        public bool SimulationMode;
+
+        private string port;
 
         public Setup()
         {
@@ -22,24 +25,44 @@ namespace Heizungsregelung.Views
             this.Visible = false;
             this.BackColor = Color.Transparent;
 
-
             GetAvailablePorts();
 
             this.BaudrateBox.SelectedIndex = 5;
-
-            this.PortBox.ReadOnly = true;
 
         }
 
 
         //---------------------------------------------events--------------------------------------
 
+
+        private void RealData_CheckedChanged(object sender, EventArgs e)
+        {
+            if (RealData.Checked == true)
+            {
+                SimulationMode = false;
+                SimulationData.Checked = false;
+            }
+            else
+                SimulationMode = false;
+        }
+
+        private void SimulationData_CheckedChanged(object sender, EventArgs e)
+        {
+            if (SimulationData.Checked == true)
+            {
+                RealData.Checked = false;
+                SimulationMode = true;
+            }
+            else
+                SimulationMode = false;
+        }
+
         //when a different item in portlist is selected autofill it in the port box
         private void SelectedValueChanged(object sender, EventArgs e)
         {
             if (PortListBox.SelectedItem != null)
             {
-                PortBox.Text = PortListBox.SelectedItem.ToString();
+                port = PortListBox.SelectedItem.ToString();
             }
         }
 
@@ -47,8 +70,8 @@ namespace Heizungsregelung.Views
         private void SetupSerialport(object sender, EventArgs e)
         {
             string message = "";
-            try
-            {
+            //try
+            //{
                 //check if serialport is open and display a message 
                 if (mySerialPort.IsOpen)
                 {
@@ -57,15 +80,15 @@ namespace Heizungsregelung.Views
                     message += $"\nSerialPort on {mySerialPort.PortName} Closed";
                     StatusFlag_Connected = false;
                 }
-            }
-            catch (Exception)
-            {
-                Debug.WriteLine("serialport not open");
-            }
+            //}
+            //catch (Exception)
+            //{
+            //    Debug.WriteLine("serialport not open");
+            //}
 
 
-            //-----------------------------------TODO  portname and baudrate try catch when nothing is entered
-            string port = PortBox.Text;
+         
+            
             int baudrate = int.Parse(BaudrateBox.Text);
 
             try
@@ -143,6 +166,7 @@ namespace Heizungsregelung.Views
                 if (port.Contains("ttyS"))
                 {
                     Debug.WriteLine("some ports are not displayed");
+                    PortListBox.Items.Add("Arduino not detected");
                 }
                 else if (port.Contains("USB") || port.Contains("COM") || port.Contains("ACM"))
                 {

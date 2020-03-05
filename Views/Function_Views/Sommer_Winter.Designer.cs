@@ -134,6 +134,7 @@
             this.Sommer_Winter_ON_OFF_Switch.OnForeColor = System.Drawing.Color.White;
             this.Sommer_Winter_ON_OFF_Switch.Size = new System.Drawing.Size(171, 134);
             this.Sommer_Winter_ON_OFF_Switch.TabIndex = 0;
+            this.Sommer_Winter_ON_OFF_Switch.CheckedChanged += new JCS.ToggleSwitch.CheckedChangedDelegate(this.Sommer_Winter_ON_OFF_Switch_CheckedChanged);
             // 
             // tableLayoutPanel4
             // 
@@ -220,15 +221,14 @@
             this.label3.Text = "Winterbetrieb\r\n\r\nBoiler: ON\r\nHeizung: ON\r\n";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // Somme_Winter
+            // Sommer_Winter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Name = "Somme_Winter";
+            this.Name = "Sommer_Winter";
             this.Size = new System.Drawing.Size(514, 269);
-            this.Load += new System.EventHandler(this.Somme_Winter_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);

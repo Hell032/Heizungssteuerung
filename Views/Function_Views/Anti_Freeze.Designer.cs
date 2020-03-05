@@ -190,7 +190,7 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(248, 129);
             this.label5.TabIndex = 2;
-            this.label5.Text = "Anti-Freeze ON:\r\n\r\nBoiler: 10°C\r\nQuellenvorlauf: 20°C\r\n";
+            this.label5.Text = "Anti-Freeze ON\r\n\r\nBoiler: 10°C\r\nQuellenvorlauf: 20°C\r\n";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label4
@@ -204,8 +204,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(248, 129);
             this.label4.TabIndex = 1;
-            this.label4.Text = "Anti-Freeze OFF:\r\n\r\nnormaler Modus\r\nBoiler --> manuell \r\nQuellenvorlauf --> auto\r" +
-    "\n";
+            this.label4.Text = "Anti-Freeze OFF\r\n\r\nBoiler: manuell \r\nQuellenvorlauf: auto\r\n";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Anti_Freeze

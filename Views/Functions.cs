@@ -13,6 +13,9 @@ namespace Heizungsregelung.Views
         public Sommer_Winter SommerWinterForm;
         public Tag_Nacht TagNachtForm;
 
+        private Bitmap BackButtonBitmap;
+
+
         public Functions()
         {
             InitializeComponent();
@@ -20,6 +23,10 @@ namespace Heizungsregelung.Views
             this.Dock = DockStyle.Fill;
             this.Visible = false;
             this.BackColor = Color.Transparent;
+
+
+            BackButtonBitmap = new Bitmap(Program.BackIm, new Size(Functions_Back_Button.Bounds.Width - 30, Functions_Back_Button.Bounds.Height - 5));
+
 
             BoilerForm = new Boiler();
             this.Function_Panel.Controls.Add(this.BoilerForm);
@@ -47,13 +54,11 @@ namespace Heizungsregelung.Views
             //dont show the other forms
             AntiFreezeForm.Visible = false;
             SommerWinterForm.Visible = false;
-            //TagNachtForm.Visible = false;
+            TagNachtForm.Visible = false;
 
             //set size and show selected form
             BoilerForm.Size = Function_Panel.Size;
             BoilerForm.Visible = true;
-
-
         }
 
         private void Sommer_Winter_Click(object sender, EventArgs e)
@@ -69,7 +74,6 @@ namespace Heizungsregelung.Views
             //set size and show selected form
             SommerWinterForm.Size = Function_Panel.Size;
             SommerWinterForm.Visible = true;
-
         }
 
         private void AntiFreeze_Click(object sender, EventArgs e)
@@ -109,6 +113,9 @@ namespace Heizungsregelung.Views
             SommerWinterForm.Visible = false;
             TagNachtForm.Visible = false;
 
+            //
+            Functions_Back_Button.BackgroundImage = null;
+
             Functions_Back_Button.Text = "Functions";
             Functions_Back_Button.FlatAppearance.MouseOverBackColor = Color.Transparent;
             Functions_Back_Button.FlatAppearance.BorderSize = 0;
@@ -127,7 +134,12 @@ namespace Heizungsregelung.Views
         private void ModifyFunctionsForm(string FormName)
         {
             //modify FuncitonForm and Controls
-            Functions_Back_Button.Text = "<--";
+            //Functions_Back_Button.Text = "<--";
+
+            Functions_Back_Button.Text = "";
+            Functions_Back_Button.BackgroundImage = BackButtonBitmap;
+            Functions_Back_Button.BackgroundImageLayout = ImageLayout.Stretch;
+
             Functions_Back_Button.FlatAppearance.MouseOverBackColor = Color.DarkGray;
             Functions_Back_Button.FlatAppearance.BorderSize = 0;
             Function_ButtonPanel.Visible = false;

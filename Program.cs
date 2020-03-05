@@ -24,10 +24,11 @@ namespace Heizungsregelung
         public static Temperatures TemperaturesForm;
         public static Simulation SimulationForm;
         public static Form1 GPIOTestForm;
-        public static SelectMode SelectModeForm;
 
         public static Image MinusIm;
         public static Image PlusIm;
+        public static Image BackIm;
+        public static Image SimulationIm;
 
         public static Calculations myCalculations = new Calculations();
 
@@ -40,13 +41,15 @@ namespace Heizungsregelung
             {
                 try
                 {
-
                     MinusIm = Image.FromFile($"../Regler/Pictures/Minus_white.png");
 
                     PlusIm = Image.FromFile($"../Regler/Pictures/Plus_white.png");
 
-                    Cursor.Hide();
+                    BackIm = Image.FromFile($"../Regler/Pictures/Back_Button.png");
 
+                    SimulationIm = Image.FromFile($"../Regler/Pictures/SimulationPic.png");
+
+                    Cursor.Hide();
                 }
                 catch (Exception ex)
                 {
@@ -58,19 +61,20 @@ namespace Heizungsregelung
             {
                 MinusIm = Image.FromFile($"../Debug{Path.AltDirectorySeparatorChar}Pictures{Path.AltDirectorySeparatorChar}Minus_white.png");
                 PlusIm = Image.FromFile($"../Debug{Path.AltDirectorySeparatorChar}Pictures{Path.AltDirectorySeparatorChar}Plus_white.png");
+                BackIm = Image.FromFile($"../Debug{Path.AltDirectorySeparatorChar}Pictures{Path.AltDirectorySeparatorChar}Back_Button.png");
+                SimulationIm = Image.FromFile($"../Debug{Path.AltDirectorySeparatorChar}Pictures{Path.AltDirectorySeparatorChar}SimulationBackgroundPic.png");
             }
 
-            SetupForm = new Setup();
             FunctionsForm = new Functions();
-            TemperaturesForm = new Temperatures();
+            SetupForm = new Setup();
             SimulationForm = new Simulation();
             GPIOTestForm = new Form1();
-            SelectModeForm = new SelectMode();
+            TemperaturesForm = new Temperatures();
 
 
             //---------- initialize last to avoid errors -------------------------
             MenuForm = new Menu();
-            MenuForm.Refresh();
+            //MenuForm.Refresh();
             Application.Run(MenuForm);
 
 

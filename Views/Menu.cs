@@ -11,9 +11,12 @@ namespace Heizungsregelung
     {
         private Thread StatusThread;
 
+        /// <summary>
+        /// ctor
+        /// </summary>
         public Menu()
         {
-            //set size of program to fit the running operation system
+            //set size of window to fit the running operation system
             switch (Environment.OSVersion.Platform.ToString())
             {
                 case "Win32NT":
@@ -39,7 +42,7 @@ namespace Heizungsregelung
             this.FormPanel.Controls.Add(Program.FunctionsForm);
             this.FormPanel.Controls.Add(Program.TemperaturesForm);
             this.FormPanel.Controls.Add(Program.SimulationForm);
-
+            
 
             //show no window bar
             this.ControlBox = false;
@@ -51,21 +54,19 @@ namespace Heizungsregelung
 
             // Set the start position of the form to the center of the screen.
             this.StartPosition = FormStartPosition.CenterScreen;
-            //this.FormBorderStyle = FormBorderStyle.None;
-            //this.TopLevel = true;
 
-            //set window size to maximum
-            //this.WindowState = FormWindowState.Maximized;
 
             //set labels for debugging
             SetDebugLabels(false);
 
+            //set pictures of buttons
             RaumTemp_DOWN_Button.Text = "";
             RaumTemp_DOWN_Button.Image = new Bitmap(Program.MinusIm, new Size(RaumTemp_DOWN_Button.Bounds.Height, RaumTemp_DOWN_Button.Bounds.Height - 5));
 
             RaumTemp_UP_Button.Text = "";
             RaumTemp_UP_Button.Image = new Bitmap(Program.PlusIm, new Size(RaumTemp_UP_Button.Bounds.Height, RaumTemp_UP_Button.Bounds.Height - 5));
 
+            //handle is needed for begin invoke methode
             this.CreateHandle();
 
             StatusThread = new Thread(new ThreadStart(WriteStatus));
@@ -115,7 +116,6 @@ namespace Heizungsregelung
             Program.SimulationForm.Visible = false;
             Program.GPIOTestForm.Visible = false;
             //-------------------------------------set visible form last to avoid rendering errors on raspberry 
-            Program.SelectModeForm.Visible = true;
             Program.SetupForm.Visible = true;
         }
 
@@ -130,7 +130,6 @@ namespace Heizungsregelung
             SetDebugLabels(false);
 
             Program.SetupForm.Visible = false;
-            Program.SelectModeForm.Visible = false;
             Program.TemperaturesForm.Visible = false;
             Program.SimulationForm.Visible = false;
             Program.GPIOTestForm.Visible = false;
@@ -150,7 +149,6 @@ namespace Heizungsregelung
             SetDebugLabels(false);
             
             Program.SetupForm.Visible = false;
-            Program.SelectModeForm.Visible = false;
             Program.SimulationForm.Visible = false;
             Program.FunctionsForm.Visible = false;
 
@@ -254,80 +252,38 @@ namespace Heizungsregelung
 
                 Thread.Sleep(1500);
                 mystopwatch.Start();
+
                 if (Program.FunctionsForm.AntiFreezeForm != null && Program.FunctionsForm.SommerWinterForm != null && Program.FunctionsForm.TagNachtForm != null)
                 {
-                    this.BeginInvoke((Action)delegate
+                    this.BeginInvoke((Action) delegate
                     {
                         #region Menu active function label
 
                         //change anti-freeze status
                         if (Program.FunctionsForm.AntiFreezeForm.AntiFreezeON)
-                            text += "A-F ";
-                        else
-                            text += "";
-
-                        //if text is already filled, add space so that the label looks nicer
-                        //if (text != "") text += " ";
+                            text += "A-F    ";
 
                         //change sommer winter status
                         if (Program.FunctionsForm.SommerWinterForm.SommerON)
-                            text += "S-W ";
-                        else
-                            text += "";
+                            text += "S-W    ";
 
-                        //if (text != "") text += " ";
 
                         //change tag nacht status
-                        if (Program.FunctionsForm.TagNachtForm.TagON)
+                        if (Program.FunctionsForm.TagNachtForm.NachtON)
                             text += "T-N";
-                        else
-                            text += "";
-
 
                         this.Active_Function_Label.Text = text;
-
-
-                        //if (Program.FunctionsForm.AntiFreezeForm.AntiFreezeON && this.Active_Function_Label.Text.Contains("A-F") == false)
-                        //    this.Active_Function_Label.Text += " | A-F";
-                        //
-                        //else if(this.Active_Function_Label.Text.Contains("A-F") == true)
-                        //        this.Active_Function_Label.Text.Replace("A-F", "");
-                        //
-                        //
-                        //if (!Program.FunctionsForm.SommerWinterForm.SommerON)
-                        //{
-                        //    if (this.Active_Function_Label.Text.Contains("S/W"))
-                        //        this.Active_Function_Label.Text.Replace("S/W", " ");
-                        //}
-                        //else
-                        //{
-                        //    if (this.Active_Function_Label.Text != " " || !this.Active_Function_Label.Text.Contains("S/W"))
-                        //        this.Active_Function_Label.Text += " | S/W";
-                        //}
-                        //
-                        //if (!Program.FunctionsForm.TagNachtForm.TagON)
-                        //{
-                        //    if (this.Active_Function_Label.Text.Contains("T/N"))
-                        //        this.Active_Function_Label.Text.Replace("T/N", " ");
-                        //}
-                        //else
-                        //{
-                        //    if (this.Active_Function_Label.Text != " " || !this.Active_Function_Label.Text.Contains("T/N"))
-                        //        this.Active_Function_Label.Text += " | T/N";
-                        //}
-
 
                         #endregion menu active function label
                     });
                 }
-                if (mystopwatch.ElapsedMilliseconds <= 1000)
-                    Thread.Sleep( (int)Math.Abs(1000 - mystopwatch.ElapsedMilliseconds));
+                if (mystopwatch.ElapsedMilliseconds <= 500)
+                    Thread.Sleep( (int)Math.Abs(500 - mystopwatch.ElapsedMilliseconds));
 
                 mystopwatch.Reset();
             }
-
         }
-
-
     }
+    //end of partial class menu
 }
+//end of namespace

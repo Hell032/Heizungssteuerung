@@ -16,8 +16,8 @@ namespace RaspGPIOTest
         public static bool gpio4;
 
         //set physical gpio pins 
-        public static int pin0 = 29;
-        public static int pin1 = 31;
+        public static int quelle = 29;
+        public static int pump_boiler = 31;
         public static int pin2 = 33;
         public static int pin3 = 35;
         public static int pin4 = 37;
@@ -51,14 +51,14 @@ namespace RaspGPIOTest
 
             if (WiringPiAvailable)
             {
-                GPIO.pinMode(pin0, (int)GPIO.GPIOpinmode.Output);
-                GPIO.pinMode(pin1, (int)GPIO.GPIOpinmode.Output);
+                GPIO.pinMode(quelle, (int)GPIO.GPIOpinmode.Output);
+                GPIO.pinMode(pump_boiler, (int)GPIO.GPIOpinmode.Output);
                 GPIO.pinMode(pin2, (int)GPIO.GPIOpinmode.Output);
                 GPIO.pinMode(pin3, (int)GPIO.GPIOpinmode.Output);
                 GPIO.pinMode(pin4, (int)GPIO.GPIOpinmode.Output);
 
-                GPIO.digitalWrite(pin0, (int)GPIO.GPIOpinvalue.High);
-                GPIO.digitalWrite(pin1, (int)GPIO.GPIOpinvalue.High);
+                GPIO.digitalWrite(quelle, (int)GPIO.GPIOpinvalue.High);
+                GPIO.digitalWrite(pump_boiler, (int)GPIO.GPIOpinvalue.High);
                 GPIO.digitalWrite(pin2, (int)GPIO.GPIOpinvalue.High);
                 GPIO.digitalWrite(pin3, (int)GPIO.GPIOpinvalue.High);
                 GPIO.digitalWrite(pin4, (int)GPIO.GPIOpinvalue.High);
@@ -81,7 +81,7 @@ namespace RaspGPIOTest
                 gpio0 = true;
 
                 if (WiringPiAvailable)
-                    GPIO.digitalWrite(pin0, (int)GPIO.GPIOpinvalue.Low);
+                    GPIO.digitalWrite(quelle, (int)GPIO.GPIOpinvalue.Low);
             }
             else
             {
@@ -89,7 +89,7 @@ namespace RaspGPIOTest
                 gpio0 = false;
 
                 if (WiringPiAvailable)
-                    GPIO.digitalWrite(pin0, (int)GPIO.GPIOpinvalue.High);
+                    GPIO.digitalWrite(quelle, (int)GPIO.GPIOpinvalue.High);
             }
         }
 
@@ -101,7 +101,7 @@ namespace RaspGPIOTest
                 gpio1 = true;
 
                 if (WiringPiAvailable)
-                    GPIO.digitalWrite(pin1, (int)GPIO.GPIOpinvalue.Low);
+                    GPIO.digitalWrite(pump_boiler, (int)GPIO.GPIOpinvalue.Low);
             }
             else
             {
@@ -109,7 +109,7 @@ namespace RaspGPIOTest
                 gpio1 = false;
 
                 if (WiringPiAvailable)
-                    GPIO.digitalWrite(pin1, (int)GPIO.GPIOpinvalue.High);
+                    GPIO.digitalWrite(pump_boiler, (int)GPIO.GPIOpinvalue.High);
             }
         }
 

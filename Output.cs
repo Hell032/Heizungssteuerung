@@ -8,19 +8,21 @@ namespace Heizungsregelung
     class Output
     {
 
-        //set physical gpio pins 
-        private static int pin0 = 29;
-        private static int pin1 = 31;
-        private static int pin2 = 33;
-        private static int pin3 = 35;
-        private static int pin4 = 37;
+        //set physical gpio pins with coresponding colours of used wires
+        // used pins of raspberry pi: 29, 31, 33, 35, 37
+        //white
+        private static int quelle = 29;
+        //orange
+        private static int pump_boiler = 37;
+        //yellow
+        private static int pump_hk = 35;
+        //green
+        private static int  mischer_auf = 33;
+        //blue
+        private static int mischer_zu = 31;
 
 
-        private static bool WiringPiAvailable
-        {
-            get;
-            set;
-        }
+        private static bool WiringPiAvailable;
 
 
         public Output()
@@ -30,23 +32,22 @@ namespace Heizungsregelung
 
             if (WiringPiAvailable)
             {
-                GPIO.pinMode(pin0, (int)GPIO.GPIOpinmode.Output);
-                GPIO.pinMode(pin1, (int)GPIO.GPIOpinmode.Output);
-                GPIO.pinMode(pin2, (int)GPIO.GPIOpinmode.Output);
-                GPIO.pinMode(pin3, (int)GPIO.GPIOpinmode.Output);
-                GPIO.pinMode(pin4, (int)GPIO.GPIOpinmode.Output);
+                GPIO.pinMode(quelle, (int)GPIO.GPIOpinmode.Output);
+                GPIO.pinMode(pump_boiler, (int)GPIO.GPIOpinmode.Output);
+                GPIO.pinMode(pump_hk, (int)GPIO.GPIOpinmode.Output);
+                GPIO.pinMode( mischer_auf, (int)GPIO.GPIOpinmode.Output);
+                GPIO.pinMode(mischer_zu, (int)GPIO.GPIOpinmode.Output);
 
-                GPIO.digitalWrite(pin0, (int)GPIO.GPIOpinvalue.High);
-                GPIO.digitalWrite(pin1, (int)GPIO.GPIOpinvalue.High);
-                GPIO.digitalWrite(pin2, (int)GPIO.GPIOpinvalue.High);
-                GPIO.digitalWrite(pin3, (int)GPIO.GPIOpinvalue.High);
-                GPIO.digitalWrite(pin4, (int)GPIO.GPIOpinvalue.High);
+                GPIO.digitalWrite(quelle, (int)GPIO.GPIOpinvalue.High);
+                GPIO.digitalWrite(pump_boiler, (int)GPIO.GPIOpinvalue.High);
+                GPIO.digitalWrite(pump_hk, (int)GPIO.GPIOpinvalue.High);
+                GPIO.digitalWrite( mischer_auf, (int)GPIO.GPIOpinvalue.High);
+                GPIO.digitalWrite(mischer_zu, (int)GPIO.GPIOpinvalue.High);
 
-                StartUP();
+                Thread outputstart = new Thread(new ThreadStart(StartUP));
+                outputstart.IsBackground = true;
+                outputstart.Start();
             }
-
-
-
         }
 
         public void Anforderung_Quelle(bool status)
@@ -54,9 +55,9 @@ namespace Heizungsregelung
             if (WiringPiAvailable) 
             {
                 if (status)
-                    GPIO.digitalWrite(pin0, (int)GPIO.GPIOpinvalue.Low);
+                    GPIO.digitalWrite(quelle, (int)GPIO.GPIOpinvalue.Low);
                 else
-                    GPIO.digitalWrite(pin0, (int)GPIO.GPIOpinvalue.High);
+                    GPIO.digitalWrite(quelle, (int)GPIO.GPIOpinvalue.High);
             }
         }
         public void Pumpe_Boiler(bool status)
@@ -64,9 +65,9 @@ namespace Heizungsregelung
             if (WiringPiAvailable)
             {
                 if (status)
-                    GPIO.digitalWrite(pin1, (int)GPIO.GPIOpinvalue.Low);
+                    GPIO.digitalWrite(pump_boiler, (int)GPIO.GPIOpinvalue.Low);
                 else
-                    GPIO.digitalWrite(pin1, (int)GPIO.GPIOpinvalue.High);
+                    GPIO.digitalWrite(pump_boiler, (int)GPIO.GPIOpinvalue.High);
             }
         }
         public void Pumpe_HK(bool status)
@@ -74,9 +75,9 @@ namespace Heizungsregelung
             if (WiringPiAvailable)
             {
                 if (status)
-                    GPIO.digitalWrite(pin2, (int)GPIO.GPIOpinvalue.Low);
+                    GPIO.digitalWrite(pump_hk, (int)GPIO.GPIOpinvalue.Low);
                 else
-                    GPIO.digitalWrite(pin2, (int)GPIO.GPIOpinvalue.High);
+                    GPIO.digitalWrite(pump_hk, (int)GPIO.GPIOpinvalue.High);
             }
         }
         public void Mischer_AUF(bool status)
@@ -84,9 +85,9 @@ namespace Heizungsregelung
             if (WiringPiAvailable)
             {
                 if (status)
-                    GPIO.digitalWrite(pin3, (int)GPIO.GPIOpinvalue.Low);
+                    GPIO.digitalWrite( mischer_auf, (int)GPIO.GPIOpinvalue.Low);
                 else
-                    GPIO.digitalWrite(pin3, (int)GPIO.GPIOpinvalue.High);
+                    GPIO.digitalWrite( mischer_auf, (int)GPIO.GPIOpinvalue.High);
             }
         }
         public void Mischer_ZU(bool status)
@@ -94,9 +95,9 @@ namespace Heizungsregelung
             if (WiringPiAvailable)
             {
                 if (status)
-                    GPIO.digitalWrite(pin4, (int)GPIO.GPIOpinvalue.Low);
+                    GPIO.digitalWrite(mischer_zu, (int)GPIO.GPIOpinvalue.Low);
                 else
-                    GPIO.digitalWrite(pin4, (int)GPIO.GPIOpinvalue.High);
+                    GPIO.digitalWrite(mischer_zu, (int)GPIO.GPIOpinvalue.High);
             }
         }
 
@@ -128,27 +129,26 @@ namespace Heizungsregelung
         private void StartUP()
         {
                 Thread.Sleep(1000);
-                GPIO.digitalWrite(pin0, (int)GPIO.GPIOpinvalue.Low);
-                Thread.Sleep(250);
-                GPIO.digitalWrite(pin1, (int)GPIO.GPIOpinvalue.Low);
-                Thread.Sleep(250);
-                GPIO.digitalWrite(pin2, (int)GPIO.GPIOpinvalue.Low);
-                Thread.Sleep(250);
-                GPIO.digitalWrite(pin3, (int)GPIO.GPIOpinvalue.Low);
-                Thread.Sleep(250);
-                GPIO.digitalWrite(pin4, (int)GPIO.GPIOpinvalue.Low);
-                Thread.Sleep(1000);
-                GPIO.digitalWrite(pin0, (int)GPIO.GPIOpinvalue.High);
-                Thread.Sleep(250);
-                GPIO.digitalWrite(pin1, (int)GPIO.GPIOpinvalue.High);
-                Thread.Sleep(250);
-                GPIO.digitalWrite(pin2, (int)GPIO.GPIOpinvalue.High);
-                Thread.Sleep(250);
-                GPIO.digitalWrite(pin3, (int)GPIO.GPIOpinvalue.High);
-                Thread.Sleep(250);
-                GPIO.digitalWrite(pin4, (int)GPIO.GPIOpinvalue.High);
-                Thread.Sleep(1000);
-
+                GPIO.digitalWrite(quelle, (int)GPIO.GPIOpinvalue.Low);
+                Thread.Sleep(750);
+                GPIO.digitalWrite(pump_boiler, (int)GPIO.GPIOpinvalue.Low);
+                Thread.Sleep(750);
+                GPIO.digitalWrite(pump_hk, (int)GPIO.GPIOpinvalue.Low);
+                Thread.Sleep(750);
+                GPIO.digitalWrite( mischer_auf, (int)GPIO.GPIOpinvalue.Low);
+                Thread.Sleep(750);
+                GPIO.digitalWrite(mischer_zu, (int)GPIO.GPIOpinvalue.Low);
+                Thread.Sleep(3000);
+                GPIO.digitalWrite(quelle, (int)GPIO.GPIOpinvalue.High);
+                Thread.Sleep(750);
+                GPIO.digitalWrite(pump_boiler, (int)GPIO.GPIOpinvalue.High);
+                Thread.Sleep(750);
+                GPIO.digitalWrite(pump_hk, (int)GPIO.GPIOpinvalue.High);
+                Thread.Sleep(750);
+                GPIO.digitalWrite( mischer_auf, (int)GPIO.GPIOpinvalue.High);
+                Thread.Sleep(750);
+                GPIO.digitalWrite(mischer_zu, (int)GPIO.GPIOpinvalue.High);
+                Thread.Sleep(3000);
         }
 
     }

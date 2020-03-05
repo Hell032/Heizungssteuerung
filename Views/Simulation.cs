@@ -21,9 +21,10 @@ namespace Heizungsregelung.Views
             this.Visible = false;
             this.BackColor = Color.Transparent;
 
-            Image image = Image.FromFile(@"Pictures/SimulationBackgroundPic.png");
+            
 
-            SimulationPicture.BackgroundImage = image;
+            SimulationPicture.BackgroundImage = Program.SimulationIm;
+            SimulationPicture.BackgroundImageLayout = ImageLayout.Stretch;
 
         }
     }
