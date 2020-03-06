@@ -98,6 +98,7 @@ namespace Heizungsregelung.Views
                             Program.myCalculations.VorlaufHeizkreis_Ist = int.Parse(pieces[6]);
                             Program.myCalculations.BoilerTemp_Ist = int.Parse(pieces[7]);
                         }
+
                     }
                     catch (Exception)
                     {
@@ -105,6 +106,7 @@ namespace Heizungsregelung.Views
                     }
 
                     WriteToLabels();
+
                 }
                 else
                 {
@@ -147,7 +149,7 @@ namespace Heizungsregelung.Views
             //while (true)
             {
                 //change the labels asynchronously of the TemperatureForm UI Thread
-                this.BeginInvoke((Action)delegate
+                this.BeginInvoke((Action) delegate
                 {
                     #region write to labels on temperature form
                     //set ist werte labels
@@ -220,8 +222,6 @@ namespace Heizungsregelung.Views
 
                 });
             }
-            
-
         }
 
     }

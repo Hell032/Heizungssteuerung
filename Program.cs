@@ -75,7 +75,7 @@ namespace Heizungsregelung
 
             //---------- initialize last to avoid errors -------------------------
             MenuForm = new Menu();
-            //MenuForm.Refresh();
+            MenuForm.Refresh();
             Application.Run(MenuForm);
 
 

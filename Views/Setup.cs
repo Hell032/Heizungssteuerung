@@ -22,7 +22,7 @@ namespace Heizungsregelung.Views
 
             this.AutoScroll = true;
             this.Dock = DockStyle.Fill;
-            this.Visible = true;
+            this.Visible = false;
             this.BackColor = Color.Transparent;
 
             GetAvailablePorts();
@@ -119,7 +119,9 @@ namespace Heizungsregelung.Views
                 Program.SetupForm.Refresh();
             }
             else
+            {
                 MessageBox.Show("HOPPALA ! !\nYou must choose a mode\n", "I guess something happend", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
 
@@ -159,7 +161,7 @@ namespace Heizungsregelung.Views
 
             foreach (string port in ports)
             {
-                if (port.Contains("tty"))
+                if (port.Contains("ttyS"))
                 {
                     Debug.WriteLine("some ports are not displayed");
                     PortListBox.Items.Add("Arduino not detected");

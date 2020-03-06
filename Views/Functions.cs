@@ -47,9 +47,10 @@ namespace Heizungsregelung.Views
             this.Function_Panel.Controls.Add(this.TagNachtForm);
             Functions_Back_Button.FlatAppearance.MouseOverBackColor = Color.Transparent;
 
-            Thread CheckForUpdates = new Thread(new ThreadStart(ChangeValuesOnButtons));
-            CheckForUpdates.IsBackground = true;
-            CheckForUpdates.Start();
+            //Thread CheckForUpdates = new Thread(new ThreadStart(ChangeValuesOnButtons));
+            //CheckForUpdates.IsBackground = true;
+            //CheckForUpdates.Priority = ThreadPriority.Lowest;
+            //CheckForUpdates.Start();
         }
 
         //set visibility of selected form to true, display name in label and 
@@ -166,7 +167,6 @@ namespace Heizungsregelung.Views
 
                 if (Program.FunctionsForm != null && Program.FunctionsForm.SommerWinterForm != null)
                 {
-
                     this.BeginInvoke((Action)delegate
                     {
 

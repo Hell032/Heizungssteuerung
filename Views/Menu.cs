@@ -74,6 +74,9 @@ namespace Heizungsregelung
             StatusThread.Priority = ThreadPriority.Lowest;
             StatusThread.Start();
 
+
+            Program.SetupForm.Refresh();
+
         }
 
         //---------------------------------------------click events--------------------------------------
