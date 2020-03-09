@@ -29,9 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Simulation));
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.SimulationPicture = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.myLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.Pumpe_Boiler_Label = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.Raumtemp_Label = new System.Windows.Forms.Label();
@@ -54,103 +52,73 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel1.SuspendLayout();
-            this.SimulationPicture.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
+            this.myLayoutPanel.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tableLayoutPanel1
+            // myLayoutPanel
             // 
-            this.tableLayoutPanel1.BackColor = System.Drawing.Color.Transparent;
-            this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Controls.Add(this.SimulationPicture, 0, 0);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(512, 356);
-            this.tableLayoutPanel1.TabIndex = 3;
-            // 
-            // SimulationPicture
-            // 
-            this.SimulationPicture.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("SimulationPicture.BackgroundImage")));
-            this.SimulationPicture.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.SimulationPicture.CausesValidation = false;
-            this.SimulationPicture.Controls.Add(this.tableLayoutPanel2);
-            this.SimulationPicture.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SimulationPicture.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.SimulationPicture.Location = new System.Drawing.Point(0, 0);
-            this.SimulationPicture.Margin = new System.Windows.Forms.Padding(0);
-            this.SimulationPicture.Name = "SimulationPicture";
-            this.SimulationPicture.Size = new System.Drawing.Size(512, 356);
-            this.SimulationPicture.TabIndex = 4;
-            // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.ColumnCount = 8;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.54795F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7.990868F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.38356F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.24944F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.70379F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7.762557F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.31964F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70F));
-            this.tableLayoutPanel2.Controls.Add(this.Pumpe_Boiler_Label, 1, 5);
-            this.tableLayoutPanel2.Controls.Add(this.label3, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.Raumtemp_Label, 7, 1);
-            this.tableLayoutPanel2.Controls.Add(this.label5, 6, 1);
-            this.tableLayoutPanel2.Controls.Add(this.HK_Mischer_Zu_Label, 5, 8);
-            this.tableLayoutPanel2.Controls.Add(this.label8, 0, 7);
-            this.tableLayoutPanel2.Controls.Add(this.Soll_HK_Label, 7, 5);
-            this.tableLayoutPanel2.Controls.Add(this.label10, 0, 8);
-            this.tableLayoutPanel2.Controls.Add(this.Ist_HK_Label, 7, 4);
-            this.tableLayoutPanel2.Controls.Add(this.HK_Mischer_Auf_Label, 5, 7);
-            this.tableLayoutPanel2.Controls.Add(this.Anforderung_Quelle_Label, 0, 9);
-            this.tableLayoutPanel2.Controls.Add(this.Pumpe_HK_Label, 6, 6);
-            this.tableLayoutPanel2.Controls.Add(this.Ist_Quelle_Label, 1, 7);
-            this.tableLayoutPanel2.Controls.Add(this.Soll_Quelle_Label, 1, 8);
-            this.tableLayoutPanel2.Controls.Add(this.label7, 3, 2);
-            this.tableLayoutPanel2.Controls.Add(this.Soll_Boiler_Label, 4, 3);
-            this.tableLayoutPanel2.Controls.Add(this.label11, 3, 3);
-            this.tableLayoutPanel2.Controls.Add(this.Ist_Boiler_Label, 4, 2);
-            this.tableLayoutPanel2.Controls.Add(this.Außentemp_Label, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.label13, 6, 5);
-            this.tableLayoutPanel2.Controls.Add(this.label6, 6, 4);
-            this.tableLayoutPanel2.Controls.Add(this.label2, 3, 7);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 10;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.433962F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.06289F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(512, 356);
-            this.tableLayoutPanel2.TabIndex = 25;
+            this.myLayoutPanel.BackColor = System.Drawing.Color.Transparent;
+            this.myLayoutPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.myLayoutPanel.ColumnCount = 8;
+            this.myLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.54795F));
+            this.myLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7.990868F));
+            this.myLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13.08411F));
+            this.myLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13.5514F));
+            this.myLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.70379F));
+            this.myLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7.762557F));
+            this.myLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.31964F));
+            this.myLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 74F));
+            this.myLayoutPanel.Controls.Add(this.Pumpe_Boiler_Label, 1, 5);
+            this.myLayoutPanel.Controls.Add(this.label3, 0, 0);
+            this.myLayoutPanel.Controls.Add(this.Raumtemp_Label, 7, 1);
+            this.myLayoutPanel.Controls.Add(this.label5, 6, 1);
+            this.myLayoutPanel.Controls.Add(this.HK_Mischer_Zu_Label, 5, 8);
+            this.myLayoutPanel.Controls.Add(this.label8, 0, 7);
+            this.myLayoutPanel.Controls.Add(this.Soll_HK_Label, 7, 5);
+            this.myLayoutPanel.Controls.Add(this.label10, 0, 8);
+            this.myLayoutPanel.Controls.Add(this.Ist_HK_Label, 7, 4);
+            this.myLayoutPanel.Controls.Add(this.HK_Mischer_Auf_Label, 5, 7);
+            this.myLayoutPanel.Controls.Add(this.Anforderung_Quelle_Label, 0, 9);
+            this.myLayoutPanel.Controls.Add(this.Pumpe_HK_Label, 6, 6);
+            this.myLayoutPanel.Controls.Add(this.Ist_Quelle_Label, 1, 7);
+            this.myLayoutPanel.Controls.Add(this.Soll_Quelle_Label, 1, 8);
+            this.myLayoutPanel.Controls.Add(this.label7, 3, 2);
+            this.myLayoutPanel.Controls.Add(this.Soll_Boiler_Label, 4, 3);
+            this.myLayoutPanel.Controls.Add(this.label11, 3, 3);
+            this.myLayoutPanel.Controls.Add(this.Ist_Boiler_Label, 4, 2);
+            this.myLayoutPanel.Controls.Add(this.Außentemp_Label, 1, 0);
+            this.myLayoutPanel.Controls.Add(this.label13, 6, 5);
+            this.myLayoutPanel.Controls.Add(this.label6, 6, 4);
+            this.myLayoutPanel.Controls.Add(this.label2, 3, 7);
+            this.myLayoutPanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.myLayoutPanel.Location = new System.Drawing.Point(0, 0);
+            this.myLayoutPanel.Margin = new System.Windows.Forms.Padding(5);
+            this.myLayoutPanel.Name = "myLayoutPanel";
+            this.myLayoutPanel.RowCount = 10;
+            this.myLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.myLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.myLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.myLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.myLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.myLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.433962F));
+            this.myLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.06289F));
+            this.myLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.myLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.myLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.myLayoutPanel.Size = new System.Drawing.Size(500, 350);
+            this.myLayoutPanel.TabIndex = 28;
             // 
             // Pumpe_Boiler_Label
             // 
             this.Pumpe_Boiler_Label.AutoSize = true;
             this.Pumpe_Boiler_Label.BackColor = System.Drawing.Color.Red;
-            this.tableLayoutPanel2.SetColumnSpan(this.Pumpe_Boiler_Label, 2);
-            this.Pumpe_Boiler_Label.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.myLayoutPanel.SetColumnSpan(this.Pumpe_Boiler_Label, 2);
             this.Pumpe_Boiler_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Pumpe_Boiler_Label.ForeColor = System.Drawing.Color.Black;
-            this.Pumpe_Boiler_Label.Location = new System.Drawing.Point(90, 178);
+            this.Pumpe_Boiler_Label.Location = new System.Drawing.Point(87, 178);
             this.Pumpe_Boiler_Label.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
             this.Pumpe_Boiler_Label.Name = "Pumpe_Boiler_Label";
-            this.Pumpe_Boiler_Label.Size = new System.Drawing.Size(98, 27);
+            this.Pumpe_Boiler_Label.Size = new System.Drawing.Size(76, 24);
             this.Pumpe_Boiler_Label.TabIndex = 26;
             this.Pumpe_Boiler_Label.Text = "Pumpe";
             this.Pumpe_Boiler_Label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -158,12 +126,13 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Black;
             this.label3.Location = new System.Drawing.Point(3, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(84, 35);
+            this.label3.Size = new System.Drawing.Size(81, 35);
             this.label3.TabIndex = 24;
             this.label3.Text = "Außen:";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -171,12 +140,13 @@
             // Raumtemp_Label
             // 
             this.Raumtemp_Label.AutoSize = true;
+            this.Raumtemp_Label.BackColor = System.Drawing.Color.Transparent;
             this.Raumtemp_Label.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Raumtemp_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Raumtemp_Label.ForeColor = System.Drawing.Color.Black;
-            this.Raumtemp_Label.Location = new System.Drawing.Point(441, 35);
+            this.Raumtemp_Label.Location = new System.Drawing.Point(426, 35);
             this.Raumtemp_Label.Name = "Raumtemp_Label";
-            this.Raumtemp_Label.Size = new System.Drawing.Size(68, 35);
+            this.Raumtemp_Label.Size = new System.Drawing.Size(71, 35);
             this.Raumtemp_Label.TabIndex = 14;
             this.Raumtemp_Label.Text = "0 °C";
             this.Raumtemp_Label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -184,12 +154,13 @@
             // label5
             // 
             this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(352, 35);
+            this.label5.Location = new System.Drawing.Point(340, 35);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(83, 35);
+            this.label5.Size = new System.Drawing.Size(80, 35);
             this.label5.TabIndex = 22;
             this.label5.Text = "Raum:";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -198,14 +169,14 @@
             // 
             this.HK_Mischer_Zu_Label.AutoSize = true;
             this.HK_Mischer_Zu_Label.BackColor = System.Drawing.Color.Red;
-            this.tableLayoutPanel2.SetColumnSpan(this.HK_Mischer_Zu_Label, 2);
+            this.myLayoutPanel.SetColumnSpan(this.HK_Mischer_Zu_Label, 2);
             this.HK_Mischer_Zu_Label.Dock = System.Windows.Forms.DockStyle.Fill;
             this.HK_Mischer_Zu_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.HK_Mischer_Zu_Label.ForeColor = System.Drawing.Color.Black;
-            this.HK_Mischer_Zu_Label.Location = new System.Drawing.Point(315, 284);
+            this.HK_Mischer_Zu_Label.Location = new System.Drawing.Point(304, 283);
             this.HK_Mischer_Zu_Label.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.HK_Mischer_Zu_Label.Name = "HK_Mischer_Zu_Label";
-            this.HK_Mischer_Zu_Label.Size = new System.Drawing.Size(123, 30);
+            this.HK_Mischer_Zu_Label.Size = new System.Drawing.Size(119, 30);
             this.HK_Mischer_Zu_Label.TabIndex = 24;
             this.HK_Mischer_Zu_Label.Text = " ZU";
             this.HK_Mischer_Zu_Label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -213,12 +184,13 @@
             // label8
             // 
             this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(3, 244);
+            this.label8.Location = new System.Drawing.Point(3, 243);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(84, 35);
+            this.label8.Size = new System.Drawing.Size(81, 35);
             this.label8.TabIndex = 8;
             this.label8.Text = "Ist:";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -226,12 +198,13 @@
             // Soll_HK_Label
             // 
             this.Soll_HK_Label.AutoSize = true;
+            this.Soll_HK_Label.BackColor = System.Drawing.Color.Transparent;
             this.Soll_HK_Label.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Soll_HK_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Soll_HK_Label.ForeColor = System.Drawing.Color.Black;
-            this.Soll_HK_Label.Location = new System.Drawing.Point(441, 175);
+            this.Soll_HK_Label.Location = new System.Drawing.Point(426, 175);
             this.Soll_HK_Label.Name = "Soll_HK_Label";
-            this.Soll_HK_Label.Size = new System.Drawing.Size(68, 33);
+            this.Soll_HK_Label.Size = new System.Drawing.Size(71, 33);
             this.Soll_HK_Label.TabIndex = 13;
             this.Soll_HK_Label.Text = "0 °C";
             this.Soll_HK_Label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -239,12 +212,13 @@
             // label10
             // 
             this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.Color.Transparent;
             this.label10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.Black;
-            this.label10.Location = new System.Drawing.Point(3, 279);
+            this.label10.Location = new System.Drawing.Point(3, 278);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(84, 35);
+            this.label10.Size = new System.Drawing.Size(81, 35);
             this.label10.TabIndex = 10;
             this.label10.Text = "Soll:";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -252,12 +226,13 @@
             // Ist_HK_Label
             // 
             this.Ist_HK_Label.AutoSize = true;
+            this.Ist_HK_Label.BackColor = System.Drawing.Color.Transparent;
             this.Ist_HK_Label.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Ist_HK_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Ist_HK_Label.ForeColor = System.Drawing.Color.Black;
-            this.Ist_HK_Label.Location = new System.Drawing.Point(441, 140);
+            this.Ist_HK_Label.Location = new System.Drawing.Point(426, 140);
             this.Ist_HK_Label.Name = "Ist_HK_Label";
-            this.Ist_HK_Label.Size = new System.Drawing.Size(68, 35);
+            this.Ist_HK_Label.Size = new System.Drawing.Size(71, 35);
             this.Ist_HK_Label.TabIndex = 3;
             this.Ist_HK_Label.Text = "0 °C";
             this.Ist_HK_Label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -266,14 +241,14 @@
             // 
             this.HK_Mischer_Auf_Label.AutoSize = true;
             this.HK_Mischer_Auf_Label.BackColor = System.Drawing.Color.Red;
-            this.tableLayoutPanel2.SetColumnSpan(this.HK_Mischer_Auf_Label, 2);
+            this.myLayoutPanel.SetColumnSpan(this.HK_Mischer_Auf_Label, 2);
             this.HK_Mischer_Auf_Label.Dock = System.Windows.Forms.DockStyle.Fill;
             this.HK_Mischer_Auf_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.HK_Mischer_Auf_Label.ForeColor = System.Drawing.Color.Black;
-            this.HK_Mischer_Auf_Label.Location = new System.Drawing.Point(315, 249);
+            this.HK_Mischer_Auf_Label.Location = new System.Drawing.Point(304, 248);
             this.HK_Mischer_Auf_Label.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.HK_Mischer_Auf_Label.Name = "HK_Mischer_Auf_Label";
-            this.HK_Mischer_Auf_Label.Size = new System.Drawing.Size(123, 30);
+            this.HK_Mischer_Auf_Label.Size = new System.Drawing.Size(119, 30);
             this.HK_Mischer_Auf_Label.TabIndex = 20;
             this.HK_Mischer_Auf_Label.Text = "AUF";
             this.HK_Mischer_Auf_Label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -282,13 +257,13 @@
             // 
             this.Anforderung_Quelle_Label.AutoSize = true;
             this.Anforderung_Quelle_Label.BackColor = System.Drawing.Color.Red;
-            this.tableLayoutPanel2.SetColumnSpan(this.Anforderung_Quelle_Label, 3);
+            this.myLayoutPanel.SetColumnSpan(this.Anforderung_Quelle_Label, 3);
             this.Anforderung_Quelle_Label.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Anforderung_Quelle_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Anforderung_Quelle_Label.ForeColor = System.Drawing.Color.Black;
-            this.Anforderung_Quelle_Label.Location = new System.Drawing.Point(3, 314);
+            this.Anforderung_Quelle_Label.Location = new System.Drawing.Point(3, 313);
             this.Anforderung_Quelle_Label.Name = "Anforderung_Quelle_Label";
-            this.Anforderung_Quelle_Label.Size = new System.Drawing.Size(182, 42);
+            this.Anforderung_Quelle_Label.Size = new System.Drawing.Size(170, 37);
             this.Anforderung_Quelle_Label.TabIndex = 23;
             this.Anforderung_Quelle_Label.Text = "Anforderung";
             this.Anforderung_Quelle_Label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -297,14 +272,14 @@
             // 
             this.Pumpe_HK_Label.AutoSize = true;
             this.Pumpe_HK_Label.BackColor = System.Drawing.Color.Red;
-            this.tableLayoutPanel2.SetColumnSpan(this.Pumpe_HK_Label, 2);
+            this.myLayoutPanel.SetColumnSpan(this.Pumpe_HK_Label, 2);
             this.Pumpe_HK_Label.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Pumpe_HK_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Pumpe_HK_Label.ForeColor = System.Drawing.Color.Black;
-            this.Pumpe_HK_Label.Location = new System.Drawing.Point(354, 213);
+            this.Pumpe_HK_Label.Location = new System.Drawing.Point(342, 213);
             this.Pumpe_HK_Label.Margin = new System.Windows.Forms.Padding(5);
             this.Pumpe_HK_Label.Name = "Pumpe_HK_Label";
-            this.Pumpe_HK_Label.Size = new System.Drawing.Size(153, 26);
+            this.Pumpe_HK_Label.Size = new System.Drawing.Size(153, 25);
             this.Pumpe_HK_Label.TabIndex = 19;
             this.Pumpe_HK_Label.Text = "Pumpe";
             this.Pumpe_HK_Label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -312,13 +287,14 @@
             // Ist_Quelle_Label
             // 
             this.Ist_Quelle_Label.AutoSize = true;
-            this.tableLayoutPanel2.SetColumnSpan(this.Ist_Quelle_Label, 2);
+            this.Ist_Quelle_Label.BackColor = System.Drawing.Color.Transparent;
+            this.myLayoutPanel.SetColumnSpan(this.Ist_Quelle_Label, 2);
             this.Ist_Quelle_Label.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Ist_Quelle_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Ist_Quelle_Label.ForeColor = System.Drawing.Color.Black;
-            this.Ist_Quelle_Label.Location = new System.Drawing.Point(93, 244);
+            this.Ist_Quelle_Label.Location = new System.Drawing.Point(90, 243);
             this.Ist_Quelle_Label.Name = "Ist_Quelle_Label";
-            this.Ist_Quelle_Label.Size = new System.Drawing.Size(92, 35);
+            this.Ist_Quelle_Label.Size = new System.Drawing.Size(83, 35);
             this.Ist_Quelle_Label.TabIndex = 11;
             this.Ist_Quelle_Label.Text = "0 °C";
             this.Ist_Quelle_Label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -326,13 +302,14 @@
             // Soll_Quelle_Label
             // 
             this.Soll_Quelle_Label.AutoSize = true;
-            this.tableLayoutPanel2.SetColumnSpan(this.Soll_Quelle_Label, 2);
+            this.Soll_Quelle_Label.BackColor = System.Drawing.Color.Transparent;
+            this.myLayoutPanel.SetColumnSpan(this.Soll_Quelle_Label, 2);
             this.Soll_Quelle_Label.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Soll_Quelle_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Soll_Quelle_Label.ForeColor = System.Drawing.Color.Black;
-            this.Soll_Quelle_Label.Location = new System.Drawing.Point(93, 279);
+            this.Soll_Quelle_Label.Location = new System.Drawing.Point(90, 278);
             this.Soll_Quelle_Label.Name = "Soll_Quelle_Label";
-            this.Soll_Quelle_Label.Size = new System.Drawing.Size(92, 35);
+            this.Soll_Quelle_Label.Size = new System.Drawing.Size(83, 35);
             this.Soll_Quelle_Label.TabIndex = 8;
             this.Soll_Quelle_Label.Text = "0 °C";
             this.Soll_Quelle_Label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -340,12 +317,13 @@
             // label7
             // 
             this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(191, 70);
+            this.label7.Location = new System.Drawing.Point(179, 70);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(48, 35);
+            this.label7.Size = new System.Drawing.Size(51, 35);
             this.label7.TabIndex = 6;
             this.label7.Text = "Ist:";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -353,12 +331,13 @@
             // Soll_Boiler_Label
             // 
             this.Soll_Boiler_Label.AutoSize = true;
+            this.Soll_Boiler_Label.BackColor = System.Drawing.Color.Transparent;
             this.Soll_Boiler_Label.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Soll_Boiler_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Soll_Boiler_Label.ForeColor = System.Drawing.Color.Black;
-            this.Soll_Boiler_Label.Location = new System.Drawing.Point(245, 105);
+            this.Soll_Boiler_Label.Location = new System.Drawing.Point(236, 105);
             this.Soll_Boiler_Label.Name = "Soll_Boiler_Label";
-            this.Soll_Boiler_Label.Size = new System.Drawing.Size(67, 35);
+            this.Soll_Boiler_Label.Size = new System.Drawing.Size(65, 35);
             this.Soll_Boiler_Label.TabIndex = 11;
             this.Soll_Boiler_Label.Text = "0 °C";
             this.Soll_Boiler_Label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -366,12 +345,13 @@
             // label11
             // 
             this.label11.AutoSize = true;
+            this.label11.BackColor = System.Drawing.Color.Transparent;
             this.label11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.Black;
-            this.label11.Location = new System.Drawing.Point(191, 105);
+            this.label11.Location = new System.Drawing.Point(179, 105);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(48, 35);
+            this.label11.Size = new System.Drawing.Size(51, 35);
             this.label11.TabIndex = 10;
             this.label11.Text = "Soll:";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -379,12 +359,13 @@
             // Ist_Boiler_Label
             // 
             this.Ist_Boiler_Label.AutoSize = true;
+            this.Ist_Boiler_Label.BackColor = System.Drawing.Color.Transparent;
             this.Ist_Boiler_Label.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Ist_Boiler_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Ist_Boiler_Label.ForeColor = System.Drawing.Color.Black;
-            this.Ist_Boiler_Label.Location = new System.Drawing.Point(245, 70);
+            this.Ist_Boiler_Label.Location = new System.Drawing.Point(236, 70);
             this.Ist_Boiler_Label.Name = "Ist_Boiler_Label";
-            this.Ist_Boiler_Label.Size = new System.Drawing.Size(67, 35);
+            this.Ist_Boiler_Label.Size = new System.Drawing.Size(65, 35);
             this.Ist_Boiler_Label.TabIndex = 2;
             this.Ist_Boiler_Label.Text = "0 °C";
             this.Ist_Boiler_Label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -392,14 +373,15 @@
             // Außentemp_Label
             // 
             this.Außentemp_Label.AutoSize = true;
-            this.tableLayoutPanel2.SetColumnSpan(this.Außentemp_Label, 2);
+            this.Außentemp_Label.BackColor = System.Drawing.Color.Transparent;
+            this.myLayoutPanel.SetColumnSpan(this.Außentemp_Label, 2);
             this.Außentemp_Label.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Außentemp_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Außentemp_Label.ForeColor = System.Drawing.Color.Black;
-            this.Außentemp_Label.Location = new System.Drawing.Point(90, 0);
+            this.Außentemp_Label.Location = new System.Drawing.Point(87, 0);
             this.Außentemp_Label.Margin = new System.Windows.Forms.Padding(0);
             this.Außentemp_Label.Name = "Außentemp_Label";
-            this.Außentemp_Label.Size = new System.Drawing.Size(98, 35);
+            this.Außentemp_Label.Size = new System.Drawing.Size(89, 35);
             this.Außentemp_Label.TabIndex = 1;
             this.Außentemp_Label.Text = "0 °C";
             this.Außentemp_Label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -407,12 +389,13 @@
             // label13
             // 
             this.label13.AutoSize = true;
+            this.label13.BackColor = System.Drawing.Color.Transparent;
             this.label13.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.Black;
-            this.label13.Location = new System.Drawing.Point(352, 175);
+            this.label13.Location = new System.Drawing.Point(340, 175);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(83, 33);
+            this.label13.Size = new System.Drawing.Size(80, 33);
             this.label13.TabIndex = 12;
             this.label13.Text = "Soll:";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -420,12 +403,13 @@
             // label6
             // 
             this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(352, 140);
+            this.label6.Location = new System.Drawing.Point(340, 140);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(83, 35);
+            this.label6.Size = new System.Drawing.Size(80, 35);
             this.label6.TabIndex = 5;
             this.label6.Text = "Ist:";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -433,14 +417,15 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.tableLayoutPanel2.SetColumnSpan(this.label2, 2);
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.myLayoutPanel.SetColumnSpan(this.label2, 2);
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(191, 244);
+            this.label2.Location = new System.Drawing.Point(179, 243);
             this.label2.Name = "label2";
-            this.tableLayoutPanel2.SetRowSpan(this.label2, 2);
-            this.label2.Size = new System.Drawing.Size(121, 70);
+            this.myLayoutPanel.SetRowSpan(this.label2, 2);
+            this.label2.Size = new System.Drawing.Size(122, 70);
             this.label2.TabIndex = 27;
             this.label2.Text = "Mischer";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -450,23 +435,19 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.Controls.Add(this.tableLayoutPanel1);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Controls.Add(this.myLayoutPanel);
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "Simulation";
             this.Size = new System.Drawing.Size(512, 356);
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.SimulationPicture.ResumeLayout(false);
-            this.tableLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel2.PerformLayout();
+            this.myLayoutPanel.ResumeLayout(false);
+            this.myLayoutPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Panel SimulationPicture;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         public System.Windows.Forms.Label Pumpe_Boiler_Label;
         private System.Windows.Forms.Label label3;
         public System.Windows.Forms.Label Raumtemp_Label;
@@ -489,5 +470,6 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label2;
+        public System.Windows.Forms.TableLayoutPanel myLayoutPanel;
     }
 }

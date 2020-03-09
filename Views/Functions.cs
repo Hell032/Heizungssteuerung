@@ -22,12 +22,6 @@ namespace Heizungsregelung.Views
         {
             InitializeComponent();
 
-            this.Dock = DockStyle.Fill;
-            this.Visible = false;
-            this.BackColor = Color.Transparent;
-
-            this.CreateHandle();
-
             BackButtonBitmap = new Bitmap(Program.BackIm, new Size(Functions_Back_Button.Bounds.Width - 30, Functions_Back_Button.Bounds.Height - 5));
 
 
@@ -51,6 +45,12 @@ namespace Heizungsregelung.Views
             //CheckForUpdates.IsBackground = true;
             //CheckForUpdates.Priority = ThreadPriority.Lowest;
             //CheckForUpdates.Start();
+
+
+            this.Visible = false;
+            this.BackColor = Color.Transparent;
+            this.Dock = DockStyle.Fill;
+
         }
 
         //set visibility of selected form to true, display name in label and 

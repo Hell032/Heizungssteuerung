@@ -74,9 +74,6 @@ namespace Heizungsregelung
             StatusThread.Priority = ThreadPriority.Lowest;
             StatusThread.Start();
 
-
-            Program.SetupForm.Refresh();
-
         }
 
         //---------------------------------------------click events--------------------------------------
@@ -97,9 +94,10 @@ namespace Heizungsregelung
             Program.TemperaturesForm.Visible = false;
             Program.GPIOTestForm.Visible = false;
             //-------------------------------------set visible form last to avoid rendering errors on raspberry 
+          
             Program.SimulationForm.Visible = true;
-            Program.SimulationForm.Enabled = true;
-            Program.SimulationForm.Dock = DockStyle.Fill;
+            Program.SimulationForm.Refresh();
+            Program.SimulationForm.Show();
 
         }
 
@@ -120,6 +118,8 @@ namespace Heizungsregelung
             Program.GPIOTestForm.Visible = false;
             //-------------------------------------set visible form last to avoid rendering errors on raspberry 
             Program.SetupForm.Visible = true;
+            Program.SetupForm.Refresh();
+            Program.SetupForm.Show();
         }
 
 
@@ -139,6 +139,8 @@ namespace Heizungsregelung
 
             //-------------------------------------set visible form last to avoid rendering errors on raspberry 
             Program.FunctionsForm.Visible = true;
+            Program.FunctionsForm.Refresh();
+            Program.FunctionsForm.Show();
         }
 
 
@@ -156,6 +158,8 @@ namespace Heizungsregelung
             Program.FunctionsForm.Visible = false;
 
             Program.TemperaturesForm.Visible = true;
+            Program.TemperaturesForm.Refresh();
+            Program.TemperaturesForm.Show();
             
             //if (!Program.GPIOTestForm.Visible || Program.GPIOTestForm.IsDisposed) Program.GPIOTestForm.Visible = true;
 

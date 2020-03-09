@@ -15,7 +15,7 @@ namespace Heizungsregelung
 
         //needed for outside variables
         private static int m_außen_Mittel, m_quelle_Soll, m_hk_Soll = 60, m_boiler_Soll = 65, m_raum_Soll = 20;
-        private static int m_außentemp_Ist, m_quelle_Ist, m_hk_Ist, m_boiler_Ist, m_boiler_hysterese = 10, m_tag_nacht = 4, mischeractive = 7000;
+        private static int m_außentemp_Ist, m_quelle_Ist, m_hk_Ist, m_boiler_Ist, m_boiler_hysterese = 10, m_tag_nacht = 4, m_wasserverbrauch;
         //only used internally for calculations, mischer repräsentiert den gesamtzyklus dees HK Mischers in millisekunden
         private static double heizkurve = 1.2, fußpunkt = 25, abweichung_mischer;
         private static int hk_anforderung, boiler_anforderung;
@@ -142,7 +142,6 @@ namespace Heizungsregelung
             get => m_hk_Soll;
         }
 
-
         /// <summary>
         /// gets and sets the IST heizkreis temperature
         /// </summary>
@@ -156,6 +155,22 @@ namespace Heizungsregelung
                     m_hk_Ist = value;
             }
         }
+
+
+        /// <summary>
+        /// gets and sets the IST heizkreis temperature
+        /// </summary>
+        public int NachlaufHeizkreis_Ist
+        {
+            get => m_hk_Ist;
+            //gets set through datastream of sensors
+            set
+            {
+                if (value >= 0 && value < 100)
+                    m_hk_Ist = value;
+            }
+        }
+
         /// <summary>
         /// gets and sets the temperature difference between day and night
         /// </summary>
@@ -211,6 +226,17 @@ namespace Heizungsregelung
             {
                 if (value >= 0 && value <= 50)
                     m_boiler_hysterese = value;
+            }
+        }
+
+        public int Wasserverbrauch
+        {
+            get => m_wasserverbrauch;
+            //gets set through data stream of sensors
+            set
+            {
+                if (value >= 0 && value < 100)
+                    m_wasserverbrauch = value;
             }
         }
         #endregion
@@ -280,7 +306,7 @@ namespace Heizungsregelung
             {
 
 
-                #region debug
+                #region First Try
                 /*
                 #region Berechnung Quelle
 

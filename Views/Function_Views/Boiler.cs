@@ -12,23 +12,26 @@ namespace Heizungsregelung.Views.Function_Views
         {
             InitializeComponent();
 
-
             this.Visible = false;
             this.BackColor = Color.Transparent;
+
 
             //Set the up and down pictures for the buttons
             BoilerSoll_DOWN_Button.Image = new Bitmap(
                 Program.MinusIm, 
                 new Size(BoilerSoll_DOWN_Button.Bounds.Height, BoilerSoll_DOWN_Button.Bounds.Height)
                 );
+
             BoilerSoll_UP_Button.Image = new Bitmap(
                 Program.PlusIm, 
                 new Size(BoilerSoll_UP_Button.Bounds.Height, BoilerSoll_UP_Button.Bounds.Height)
                 );
+
             Hyterese_Boiler_DOWN.Image = new Bitmap(
                Program.MinusIm,
                new Size(Hyterese_Boiler_DOWN.Height, Hyterese_Boiler_DOWN.Bounds.Height)
                );
+
             Hyterese_Boiler_UP.Image = new Bitmap(
                Program.PlusIm,
                new Size(Hyterese_Boiler_UP.Bounds.Height, Hyterese_Boiler_UP.Bounds.Height)
@@ -36,7 +39,7 @@ namespace Heizungsregelung.Views.Function_Views
 
             BoilerSoll_Label.Text = Program.myCalculations.BoilerTemp_Soll + " °C";
             BoilerHysterese_Label.Text = Program.myCalculations.Boiler_Hysterese + " °C";
-            
+
         }
 
         //BoilerSoll Button Events

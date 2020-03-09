@@ -3,6 +3,7 @@ using System.Windows.Forms;
 using System.Diagnostics;
 using System.IO.Ports;
 using System.Drawing;
+using System.Threading;
 
 namespace Heizungsregelung.Views
 {
@@ -10,8 +11,11 @@ namespace Heizungsregelung.Views
     {
         public static SerialPort mySerialPort = new SerialPort();
         //flag for starting the hleper threads in different classes
-        public bool StatusFlag_Connected = false;
+        public bool StatusFlag_Connected;
         public bool SimulationMode;
+
+        //---------------------------------------------private----------------------------------------
+        private Thread tempthread;
 
         private string port;
 
@@ -28,6 +32,14 @@ namespace Heizungsregelung.Views
             GetAvailablePorts();
 
             this.BaudrateBox.SelectedIndex = 5;
+
+
+            tempthread = new Thread(new ThreadStart(GetTemps_Thread));
+            tempthread.IsBackground = true;
+            tempthread.Priority = ThreadPriority.Highest;
+
+            //-----------------------------------------------------------TODO----------------------------------------
+            //put serialstuff in a seperate class where all inputs come together
 
         }
 
@@ -96,6 +108,8 @@ namespace Heizungsregelung.Views
                     //set flag to true to start helper-threads
                     StatusFlag_Connected = true;
 
+
+                    tempthread.Start();
                 }
                 catch (Exception ex)
                 {
@@ -151,6 +165,95 @@ namespace Heizungsregelung.Views
 
 
         //---------------------------------------------helper methods----------------------------------
+
+        /// <summary>
+        /// methode which is used in the tempthread
+        /// </summary>
+        private void GetTemps_Thread()
+        {
+
+            string data;
+            string[] pieces;
+
+            while (true)
+            {
+                if (mySerialPort.IsOpen)
+                {
+                    try
+                    {
+                        //gets the simulated values from the serialport
+                        Setup.mySerialPort.DiscardOutBuffer();
+                        data = Setup.mySerialPort.ReadLine();
+
+                        //splits the data via a delimiter string into a data array
+                        string[] delimiter = { "\t" };
+                        pieces = data.Split(delimiter, StringSplitOptions.None);
+
+                        //writes the splited data array to the 
+                        if (Program.SetupForm.SimulationMode)
+                        {
+                            //writes the simulated values to the variables used to perform the calculations
+                            Program.myCalculations.VorlaufQuelle_Ist = int.Parse(pieces[0]);
+                            Program.myCalculations.Wasserverbrauch = int.Parse(pieces[1]);
+                            Program.myCalculations.NachlaufHeizkreis_Ist = int.Parse(pieces[2]);
+                            Program.myCalculations.AußenTemp_Ist = int.Parse(pieces[3]);
+                        }
+                        else
+                        {
+                            //writes the real values to the variables used to perform the calculations
+                            Program.myCalculations.VorlaufQuelle_Ist = int.Parse(pieces[4]);
+                            Program.myCalculations.Wasserverbrauch = int.Parse(pieces[5]);
+                            Program.myCalculations.NachlaufHeizkreis_Ist = int.Parse(pieces[6]);
+                            Program.myCalculations.AußenTemp_Ist = int.Parse(pieces[7]);
+                        }
+
+                        Program.TemperaturesForm.WriteToTemperatureFormLabels();
+                        Program.SimulationForm.WriteToSimulationFormLabels();
+                    }
+                    catch
+                    {
+                        //this.BeginInvoke((Action)delegate
+                        //{
+                        //    PortStatusLabel.Text = "Port Status:\nConnection\nrefused";
+                        //});
+                        Debug.WriteLine("Error occourd while reading from serialport");
+                    }
+                }
+                else
+                {
+                    //this.BeginInvoke((Action)delegate
+                    //{
+                    //    PortStatusLabel.Text = "Port Status:\nConnection\nrefused";
+                    //}); 
+                    Debug.WriteLine("SerialPort not open");
+                }
+                //for debuging
+                #region debuging
+                /*
+                for (int i = 0; i < 35; i++)
+                {
+                    Debug.WriteLine(i);
+
+                    this.BeginInvoke((Action)delegate
+                    {
+                        AusentempLabel.Text = i.ToString();
+                        VLQuelleLabel.Text = i.ToString();
+                        VLHKLabel.Text = i.ToString();
+                        BoilertempLabel.Text = i.ToString();
+                    });
+
+                    Thread.Sleep(750);
+                }
+
+                /*
+                AusentempLabel.BeginInvoke(delegate (
+                    this.Text = m_außenTemp
+                    ));
+                */
+                #endregion
+            }
+        }
+
 
         //gets all available ports on the device
         private void GetAvailablePorts()

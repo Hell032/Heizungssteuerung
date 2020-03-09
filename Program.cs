@@ -1,11 +1,9 @@
 ﻿using Heizungsregelung.Views;
 using System;
 using System.Drawing;
-using System.IO.Ports;
 using System.Windows.Forms;
 using System.IO;
 using RaspGPIOTest;
-using System.Threading.Tasks;
 
 namespace Heizungsregelung
 {
@@ -41,13 +39,13 @@ namespace Heizungsregelung
             {
                 try
                 {
-                    MinusIm = Image.FromFile($"../Regler/Pictures/Minus_white.png");
+                    MinusIm = Image.FromFile($"Pictures/Minus_white.png");
 
-                    PlusIm = Image.FromFile($"../Regler/Pictures/Plus_white.png");
+                    PlusIm = Image.FromFile($"Pictures/Plus_white.png");
 
-                    BackIm = Image.FromFile($"../Regler/Pictures/Back_Button.png");
+                    BackIm = Image.FromFile($"Pictures/Back_Button.png");
 
-                    SimulationIm = Image.FromFile($"../Regler/Pictures/SimulationBackgroundPic.png");
+                    SimulationIm = Image.FromFile($"Pictures/SimulationBackgroundPic.png");
 
                     Cursor.Hide();
                 }
@@ -55,7 +53,6 @@ namespace Heizungsregelung
                 {
                     MessageBox.Show($"ERROR WHILE LOADING STUFF\n\n{ex}\n\n{Path.AltDirectorySeparatorChar} and {Path.DirectorySeparatorChar}");
                 }
-
             }
             else 
             {

@@ -474,7 +474,6 @@
         private System.Windows.Forms.Button ExitButton;
         private System.Windows.Forms.Button FunctionsButton;
         private System.Windows.Forms.Button SetupButton;
-        private System.Windows.Forms.Panel FormPanel;
         private System.Windows.Forms.Label OS_label;
         private System.Windows.Forms.Label MenuPanelWidth;
         private System.Windows.Forms.Label MenuPanellabel;
@@ -493,5 +492,6 @@
         public System.Windows.Forms.Label RaumTemp_Soll_Label;
         internal System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         public System.Windows.Forms.Label Active_Function_Label;
+        public System.Windows.Forms.Panel FormPanel;
     }
 }
