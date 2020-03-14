@@ -92,7 +92,7 @@ namespace Heizungsregelung
             Program.SetupForm.Visible = false;
             Program.FunctionsForm.Visible = false;
             Program.TemperaturesForm.Visible = false;
-            Program.GPIOTestForm.Visible = false;
+            //Program.GPIOTestForm.Visible = false;
             //-------------------------------------set visible form last to avoid rendering errors on raspberry 
           
             Program.SimulationForm.Visible = true;
@@ -115,7 +115,7 @@ namespace Heizungsregelung
             Program.TemperaturesForm.Visible = false;
             Program.FunctionsForm.Visible = false;
             Program.SimulationForm.Visible = false;
-            Program.GPIOTestForm.Visible = false;
+            //Program.GPIOTestForm.Visible = false;
             //-------------------------------------set visible form last to avoid rendering errors on raspberry 
             Program.SetupForm.Visible = true;
             Program.SetupForm.Refresh();
@@ -135,8 +135,7 @@ namespace Heizungsregelung
             Program.SetupForm.Visible = false;
             Program.TemperaturesForm.Visible = false;
             Program.SimulationForm.Visible = false;
-            Program.GPIOTestForm.Visible = false;
-
+            //Program.GPIOTestForm.Visible = false;
             //-------------------------------------set visible form last to avoid rendering errors on raspberry 
             Program.FunctionsForm.Visible = true;
             Program.FunctionsForm.Refresh();
@@ -156,7 +155,7 @@ namespace Heizungsregelung
             Program.SetupForm.Visible = false;
             Program.SimulationForm.Visible = false;
             Program.FunctionsForm.Visible = false;
-
+            //-------------------------------------set visible form last to avoid rendering errors on raspberry 
             Program.TemperaturesForm.Visible = true;
             Program.TemperaturesForm.Refresh();
             Program.TemperaturesForm.Show();
@@ -173,8 +172,8 @@ namespace Heizungsregelung
         /// <param name="e"></param>
         private void ExitButton_Click(object sender, EventArgs e)
         {   
-            if(!Program.GPIOTestForm.IsDisposed) 
-                Program.GPIOTestForm.Dispose();
+            //if(!Program.GPIOTestForm.IsDisposed) 
+            //    Program.GPIOTestForm.Dispose();
             //close all used connections i.e. set all pins high
             Calculations.myoutput.DisposeOpenConnections();
 
@@ -242,7 +241,6 @@ namespace Heizungsregelung
                 MenuPanelHeight.Text = MenuPanel.Size.Height.ToString();
                 MenuPanelWidth.Text = MenuPanel.Size.Width.ToString();
 
-
                 this.OS_label.Text = Environment.OSVersion.Platform.ToString();
 
             }
@@ -289,7 +287,7 @@ namespace Heizungsregelung
                 if (mystopwatch.ElapsedMilliseconds <= 500)
                     Thread.Sleep( (int)Math.Abs(500 - mystopwatch.ElapsedMilliseconds));
 
-                mystopwatch.Reset();
+               mystopwatch.Reset();
             }
         }
 

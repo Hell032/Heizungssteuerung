@@ -115,13 +115,13 @@ namespace Heizungsregelung
                 else
                 {
                     //ensures that it initializes the GPIO interface and reports ready to work. We will use Physical Pin Numbers
-                    MessageBox.Show($"Unable to get the gpio interface and reports to work", "Error", MessageBoxButtons.OK);
+                    MessageBox.Show($"Unable to get the gpio interface and reports to work\nWiringPi Error", "Error", MessageBoxButtons.OK);
                     return false;
                 }
             }
             else
             {
-                MessageBox.Show("No Unix Platform detected", "Error", MessageBoxButtons.OK);
+                MessageBox.Show("No Unix Platform detected in WiringPi Setup", "Error", MessageBoxButtons.OK);
                 return false;
             }
 

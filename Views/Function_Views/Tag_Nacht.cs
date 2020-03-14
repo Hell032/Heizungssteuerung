@@ -24,7 +24,7 @@ namespace Heizungsregelung.Views.Function_Views
             Tag_Nacht_UP_Button.Image = new Bitmap(Program.PlusIm, new Size(Tag_Nacht_UP_Button.Bounds.Height, Tag_Nacht_UP_Button.Bounds.Height - 5));
 
             Tag_Nacht_Temp_Label.Text = "";
-            Tag_Nacht_Temp_Label.Text = "- " + Program.myCalculations.Tag_Nacht_Abweichung + " °C";
+            //Tag_Nacht_Temp_Label.Text = "- " + Program.myCalculations.Tag_Nacht_Abweichung + " °C";
         }
 
         private void Tag_Nacht_ON_OFF_Switch_CheckedChanged(object sender, EventArgs e)

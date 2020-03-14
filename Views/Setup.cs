@@ -144,15 +144,7 @@ namespace Heizungsregelung.Views
         {
             if (this.Visible)
             {
-                try
-                {
-                    //if (Program.mySerialPort.IsOpen)
-                    //PortStatus.Text = ($"{Program.mySerialPort.PortName}, {Program.mySerialPort.BaudRate}, {Program.mySerialPort.IsOpen}");
-                }
-                catch (Exception)
-                {
-                    Debug.WriteLine("No Port open");
-                }
+                GetAvailablePorts();
             }
         }
 

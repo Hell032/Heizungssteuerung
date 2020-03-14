@@ -37,8 +37,8 @@ namespace Heizungsregelung.Views.Function_Views
                new Size(Hyterese_Boiler_UP.Bounds.Height, Hyterese_Boiler_UP.Bounds.Height)
                );
 
-            BoilerSoll_Label.Text = Program.myCalculations.BoilerTemp_Soll + " °C";
-            BoilerHysterese_Label.Text = Program.myCalculations.Boiler_Hysterese + " °C";
+            //BoilerSoll_Label.Text = Program.myCalculations.BoilerTemp_Soll + " °C";
+            //BoilerHysterese_Label.Text = Program.myCalculations.Boiler_Hysterese + " °C";
 
         }
 

@@ -68,6 +68,7 @@ namespace Heizungsregelung
 
         private Thread averageThread;
         private Thread SollCalcThread;
+        private Thread ReduceTemperaturesThread;
 
         //---------------------------------------------public variables-----------------------------------------
 
@@ -250,6 +251,9 @@ namespace Heizungsregelung
         /// </summary>
         public Calculations()
         {
+            //must start first so that the threads that use this class can start properly
+            myoutput = new Output();
+
             //start the helper thread used to calculate the temperatures
 
             averageThread = new Thread(new ThreadStart(AverageOutsideTemp));
@@ -257,16 +261,21 @@ namespace Heizungsregelung
             averageThread.Priority = ThreadPriority.Lowest;
             averageThread.Start();
 
-            myoutput = new Output();
 
             SollCalcThread = new Thread(new ThreadStart(CalculateTemperatures));
             SollCalcThread.IsBackground = true;
             SollCalcThread.Priority = ThreadPriority.Lowest;
             SollCalcThread.Start();
+
+            ReduceTemperaturesThread = new Thread(ReduceTemps);
+            ReduceTemperaturesThread.IsBackground = true;
+            ReduceTemperaturesThread.Priority = ThreadPriority.Lowest;
+            ReduceTemperaturesThread.Start();
+
         }
 
         /// <summary>
-        /// average the outside temperature over 1 minute
+        /// average the outside temperature over 15 seconds
         /// </summary>
         private static void AverageOutsideTemp()
         {
@@ -297,6 +306,10 @@ namespace Heizungsregelung
 
         }
 
+
+        /// <summary>
+        /// used to calculate the temperatures
+        /// </summary>
         private static void CalculateTemperatures()
         {
             //used to buffer the thread to load forms and avoid null exceptions
@@ -304,7 +317,6 @@ namespace Heizungsregelung
 
             while (true)
             {
-
 
                 #region First Try
                 /*
@@ -434,9 +446,6 @@ namespace Heizungsregelung
 
 
                 //newly written function-------------------------------------------------------------------------------------
-
-
-                
 
 
                 #region Berechnungen Heizkreis 
@@ -611,6 +620,10 @@ namespace Heizungsregelung
 
         }
 
+
+        /// <summary>
+        /// used to set the gpio pins of the raspberry
+        /// </summary>
         private static void SetActuators()
         {
             //set the pumps and valves
@@ -640,12 +653,36 @@ namespace Heizungsregelung
                 //myoutput.Mischer_ZU(false);
                 System.Diagnostics.Debug.WriteLine("ERROR WITH MISCHER SOMEWHERE - both are set to true");
             }
-            else if (!m_mischer_auf_hk && !m_mischer_zu_hk)
-            {
-                myoutput.Mischer_AUF(false);
-                myoutput.Mischer_ZU(false);
-            }
+            //else if (!m_mischer_auf_hk && !m_mischer_zu_hk)
+            //{
+            //    myoutput.Mischer_AUF(false);
+            //    myoutput.Mischer_ZU(false);
+            //}
         }
 
+
+        /// <summary>
+        /// used to simulate the normal decay of the temperatures
+        /// </summary>
+        private static void ReduceTemps() 
+        {
+            while (true)
+            {
+                //linear 
+                if (m_boiler_Ist >= 15 || !m_pumpe_boiler)
+                {
+                    //m_boiler_Ist = (int)((0.05 * m_boiler_Ist));
+                    m_boiler_Ist--;
+                    
+                    Thread.Sleep(500);
+                }
+                else if (m_pumpe_boiler)
+                {
+                    m_boiler_Ist++;
+                    Thread.Sleep(100);
+                }
+                
+            }
+        }
     }
 }

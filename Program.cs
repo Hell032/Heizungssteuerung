@@ -62,17 +62,17 @@ namespace Heizungsregelung
                 SimulationIm = Image.FromFile($"Pictures{Path.AltDirectorySeparatorChar}SimulationBackgroundPic.png");
             }
 
-            myCalculations = new Calculations();
             SetupForm = new Setup();
             FunctionsForm = new Functions();
             SimulationForm = new Simulation();
-            GPIOTestForm = new Form1();
             TemperaturesForm = new Temperatures();
 
 
             //---------- initialize last to avoid errors -------------------------
             MenuForm = new Menu();
-            MenuForm.Refresh();
+
+            myCalculations = new Calculations();
+
             Application.Run(MenuForm);
 
 
