@@ -72,7 +72,6 @@
   <ItemGroup>
     <Compile Include="Calculations.cs" />
     <Compile Include="Output.cs" />
-    <Compile Include="Quelle.cs" />
     <Compile Include="RaspGPIOTest.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -211,6 +210,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\SimulationBackgroundPic.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Helper_Classes\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

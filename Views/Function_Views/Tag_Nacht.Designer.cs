@@ -39,9 +39,9 @@
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
-            this.Tag_Nacht_Temp_Label = new System.Windows.Forms.Label();
-            this.Tag_Nacht_DOWN_Button = new System.Windows.Forms.Button();
             this.Tag_Nacht_UP_Button = new System.Windows.Forms.Button();
+            this.Tag_Nacht_DOWN_Button = new System.Windows.Forms.Button();
+            this.Tag_Nacht_Temp_Label = new System.Windows.Forms.Label();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
             this.label3 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
@@ -219,39 +219,6 @@
             this.tableLayoutPanel7.Size = new System.Drawing.Size(514, 67);
             this.tableLayoutPanel7.TabIndex = 0;
             // 
-            // Tag_Nacht_Temp_Label
-            // 
-            this.Tag_Nacht_Temp_Label.AutoSize = true;
-            this.Tag_Nacht_Temp_Label.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Tag_Nacht_Temp_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Tag_Nacht_Temp_Label.ForeColor = System.Drawing.Color.White;
-            this.Tag_Nacht_Temp_Label.Location = new System.Drawing.Point(171, 0);
-            this.Tag_Nacht_Temp_Label.Margin = new System.Windows.Forms.Padding(0);
-            this.Tag_Nacht_Temp_Label.Name = "Tag_Nacht_Temp_Label";
-            this.Tag_Nacht_Temp_Label.Size = new System.Drawing.Size(171, 67);
-            this.Tag_Nacht_Temp_Label.TabIndex = 0;
-            this.Tag_Nacht_Temp_Label.Text = "- 3°C";
-            this.Tag_Nacht_Temp_Label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // Tag_Nacht_DOWN_Button
-            // 
-            this.Tag_Nacht_DOWN_Button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.Tag_Nacht_DOWN_Button.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Tag_Nacht_DOWN_Button.FlatAppearance.BorderSize = 0;
-            this.Tag_Nacht_DOWN_Button.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.Tag_Nacht_DOWN_Button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.Tag_Nacht_DOWN_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Tag_Nacht_DOWN_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Tag_Nacht_DOWN_Button.ForeColor = System.Drawing.Color.White;
-            this.Tag_Nacht_DOWN_Button.Location = new System.Drawing.Point(0, 0);
-            this.Tag_Nacht_DOWN_Button.Margin = new System.Windows.Forms.Padding(0);
-            this.Tag_Nacht_DOWN_Button.Name = "Tag_Nacht_DOWN_Button";
-            this.Tag_Nacht_DOWN_Button.Size = new System.Drawing.Size(171, 67);
-            this.Tag_Nacht_DOWN_Button.TabIndex = 2;
-            this.Tag_Nacht_DOWN_Button.Text = "-";
-            this.Tag_Nacht_DOWN_Button.UseVisualStyleBackColor = true;
-            this.Tag_Nacht_DOWN_Button.Click += new System.EventHandler(this.Tag_Nacht_DOWN_Button_Click);
-            // 
             // Tag_Nacht_UP_Button
             // 
             this.Tag_Nacht_UP_Button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
@@ -272,6 +239,39 @@
             this.Tag_Nacht_UP_Button.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.Tag_Nacht_UP_Button.UseVisualStyleBackColor = true;
             this.Tag_Nacht_UP_Button.Click += new System.EventHandler(this.Tag_Nacht_UP_Button_Click);
+            // 
+            // Tag_Nacht_DOWN_Button
+            // 
+            this.Tag_Nacht_DOWN_Button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.Tag_Nacht_DOWN_Button.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Tag_Nacht_DOWN_Button.FlatAppearance.BorderSize = 0;
+            this.Tag_Nacht_DOWN_Button.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.Tag_Nacht_DOWN_Button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.Tag_Nacht_DOWN_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Tag_Nacht_DOWN_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Tag_Nacht_DOWN_Button.ForeColor = System.Drawing.Color.White;
+            this.Tag_Nacht_DOWN_Button.Location = new System.Drawing.Point(0, 0);
+            this.Tag_Nacht_DOWN_Button.Margin = new System.Windows.Forms.Padding(0);
+            this.Tag_Nacht_DOWN_Button.Name = "Tag_Nacht_DOWN_Button";
+            this.Tag_Nacht_DOWN_Button.Size = new System.Drawing.Size(171, 67);
+            this.Tag_Nacht_DOWN_Button.TabIndex = 2;
+            this.Tag_Nacht_DOWN_Button.Text = "-";
+            this.Tag_Nacht_DOWN_Button.UseVisualStyleBackColor = true;
+            this.Tag_Nacht_DOWN_Button.Click += new System.EventHandler(this.Tag_Nacht_DOWN_Button_Click);
+            // 
+            // Tag_Nacht_Temp_Label
+            // 
+            this.Tag_Nacht_Temp_Label.AutoSize = true;
+            this.Tag_Nacht_Temp_Label.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Tag_Nacht_Temp_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Tag_Nacht_Temp_Label.ForeColor = System.Drawing.Color.White;
+            this.Tag_Nacht_Temp_Label.Location = new System.Drawing.Point(171, 0);
+            this.Tag_Nacht_Temp_Label.Margin = new System.Windows.Forms.Padding(0);
+            this.Tag_Nacht_Temp_Label.Name = "Tag_Nacht_Temp_Label";
+            this.Tag_Nacht_Temp_Label.Size = new System.Drawing.Size(171, 67);
+            this.Tag_Nacht_Temp_Label.TabIndex = 0;
+            this.Tag_Nacht_Temp_Label.Text = "- 3°C";
+            this.Tag_Nacht_Temp_Label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel8
             // 
@@ -338,10 +338,10 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
-        private System.Windows.Forms.Label Tag_Nacht_Temp_Label;
         private System.Windows.Forms.Button Tag_Nacht_DOWN_Button;
         private System.Windows.Forms.Button Tag_Nacht_UP_Button;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
         private System.Windows.Forms.Label label3;
+        public System.Windows.Forms.Label Tag_Nacht_Temp_Label;
     }
 }

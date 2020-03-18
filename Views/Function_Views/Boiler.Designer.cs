@@ -255,12 +255,12 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Button BoilerSoll_DOWN_Button;
         private System.Windows.Forms.Button BoilerSoll_UP_Button;
-        private System.Windows.Forms.Label BoilerSoll_Label;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private System.Windows.Forms.Label BoilerHysterese_Label;
         private System.Windows.Forms.Button Hyterese_Boiler_UP;
         private System.Windows.Forms.Button Hyterese_Boiler_DOWN;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
+        public System.Windows.Forms.Label BoilerSoll_Label;
+        public System.Windows.Forms.Label BoilerHysterese_Label;
     }
 }

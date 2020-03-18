@@ -269,7 +269,7 @@ namespace Heizungsregelung
 
             ReduceTemperaturesThread = new Thread(ReduceTemps);
             ReduceTemperaturesThread.IsBackground = true;
-            ReduceTemperaturesThread.Priority = ThreadPriority.Lowest;
+            ReduceTemperaturesThread.Priority = ThreadPriority.Normal;
             ReduceTemperaturesThread.Start();
 
         }
@@ -514,7 +514,7 @@ namespace Heizungsregelung
 
                 //Sinkt die Boilertemperatur unter die Eingestellte Schwelle 
                 //(üblich ca 10°, also z.B. Soll 65°-HB 10°=55°), beginnt die Boilerladung
-                if (m_boiler_Ist < ( m_boiler_Soll - m_boiler_hysterese))
+                if (m_boiler_Ist <= ( m_boiler_Soll - m_boiler_hysterese))
                 {
                     //Pumpe Boiler HIGH
                     m_pumpe_boiler = true;
@@ -661,27 +661,46 @@ namespace Heizungsregelung
         }
 
 
+
         /// <summary>
         /// used to simulate the normal decay of the temperatures
         /// </summary>
         private static void ReduceTemps() 
         {
+
+            long t = 0;
+            double k_laden;
+
             while (true)
             {
-                //linear 
-                if (m_boiler_Ist >= 15 || !m_pumpe_boiler)
+                if (Program.MenuForm.Visible == true)
                 {
-                    //m_boiler_Ist = (int)((0.05 * m_boiler_Ist));
-                    m_boiler_Ist--;
-                    
-                    Thread.Sleep(500);
+                    //berechne die steigung der geraden zum laden des boilers
+                    //da das laden von 
+                    k_laden = ((double)(m_boiler_Soll) / (double)60000);
+
+                    if (m_boiler_Ist >= 15 && !m_pumpe_boiler)
+                    {
+                        t -= 100;
+
+                        m_boiler_Ist = (int)(-k_laden * t) + m_boiler_Soll;
+                        Thread.Sleep(100);
+                    }
+                    //wenn die pumpe eingeschaltete ist soll der boiler geladen werden
+                    else if ((m_boiler_Ist < m_boiler_Soll) && m_pumpe_boiler)
+                    {
+
+                        if (m_boiler_Ist <= m_boiler_Soll)
+                            t += 100;
+
+                        m_boiler_Ist = (int)(k_laden * t);
+                        Thread.Sleep(100);
+                    }
                 }
-                else if (m_pumpe_boiler)
+                else
                 {
-                    m_boiler_Ist++;
-                    Thread.Sleep(100);
+                    Thread.Sleep(2000);
                 }
-                
             }
         }
     }

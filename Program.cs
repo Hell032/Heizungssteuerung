@@ -21,7 +21,7 @@ namespace Heizungsregelung
         public static Functions FunctionsForm;
         public static Temperatures TemperaturesForm;
         public static Simulation SimulationForm;
-        public static Form1 GPIOTestForm;
+
 
         public static Image MinusIm;
         public static Image PlusIm;

@@ -67,6 +67,9 @@ namespace Heizungsregelung.Views
             //set size and show selected form
             BoilerForm.Size = Function_Panel.Size;
             BoilerForm.Visible = true;
+
+            BoilerForm.BoilerSoll_Label.Text = Program.myCalculations.BoilerTemp_Soll.ToString() + " °C";
+            BoilerForm.BoilerHysterese_Label.Text = Program.myCalculations.Boiler_Hysterese.ToString() + " °C";
         }
 
         private void Sommer_Winter_Click(object sender, EventArgs e)
@@ -110,6 +113,8 @@ namespace Heizungsregelung.Views
             //set size and show selected form
             TagNachtForm.Size = Function_Panel.Size;
             TagNachtForm.Visible = true;
+
+            TagNachtForm.Tag_Nacht_Temp_Label.Text = Program.myCalculations.Tag_Nacht_Abweichung.ToString() + " °C";
         }
 
 
