@@ -15,12 +15,14 @@ namespace Heizungsregelung
 
         //needed for outside variables
         private static int m_außen_Mittel, m_quelle_Soll, m_hk_Soll = 60, m_boiler_Soll = 65, m_raum_Soll = 20;
-        private static int m_außentemp_Ist, m_quelle_Ist, m_hk_Ist, m_boiler_Ist, m_boiler_hysterese = 10, m_tag_nacht = 4, m_wasserverbrauch;
+        private static int m_rl_hk;
+        private static int m_außentemp_Ist, m_quelle_Ist, m_hk_Ist, m_boiler_Ist = 15, m_boiler_hysterese = 10, m_tag_nacht = 4;
         //only used internally for calculations, mischer repräsentiert den gesamtzyklus dees HK Mischers in millisekunden
-        private static double heizkurve = 1.2, fußpunkt = 25, abweichung_mischer;
+        private static double heizkurve = 1.2, fußpunkt = 25, abweichung_mischer, m_wasserverbrauch = 1.0, mischer_offen = 0.0;
         private static int hk_anforderung, boiler_anforderung;
-        //
         private static bool m_anforderung_quelle, m_pumpe_boiler, m_pumpe_hk, m_mischer_auf_hk, m_mischer_zu_hk;
+
+
 
         #region variables to activate simulated pumps and valves 
         //for outside-the-class use to symbolise if the pumps should be running or not
@@ -66,9 +68,8 @@ namespace Heizungsregelung
 
         #endregion variables to activate simulated pumps and valves 
 
-        private Thread averageThread;
-        private Thread SollCalcThread;
-        private Thread ReduceTemperaturesThread;
+
+        private Thread averageThread, SollCalcThread, simulateBoilerTempsThread, simulateHKTempsThread, simulateMischerAction;
 
         //---------------------------------------------public variables-----------------------------------------
 
@@ -144,31 +145,23 @@ namespace Heizungsregelung
         }
 
         /// <summary>
-        /// gets and sets the IST heizkreis temperature
+        /// gets and sets die BERECHNETE vorlauf hk temperatur
         /// </summary>
         public int VorlaufHeizkreis_Ist
         {
             get => m_hk_Ist;
-            //gets set through datastream of sensors
-            set
-            {
-                if (value >= 0 && value < 100)
-                    m_hk_Ist = value;
-            }
         }
 
 
         /// <summary>
-        /// gets and sets the IST heizkreis temperature
+        /// gets and sets the IST ruecklauf heizkreis temperature
         /// </summary>
-        public int NachlaufHeizkreis_Ist
+        public int RueklaufHK_Ist
         {
-            get => m_hk_Ist;
-            //gets set through datastream of sensors
             set
             {
-                if (value >= 0 && value < 100)
-                    m_hk_Ist = value;
+                if (value >= 15 && value < m_hk_Ist - 5)
+                    m_rl_hk = value;
             }
         }
 
@@ -184,6 +177,14 @@ namespace Heizungsregelung
                     m_tag_nacht = value;
             }
         }
+
+        /// <summary>
+        /// get the procentage how much the mischer for the hk is open
+        /// </summary>
+        public int Mischer_offen
+        {
+            get => (int)(mischer_offen * 100);
+        }
         #endregion Heizkreis
 
 
@@ -197,7 +198,7 @@ namespace Heizungsregelung
             //set available because user can change this value
             set
             {
-                if (value >= 0 && value < 100)
+                if (value >= 15 && value < 100)
                     m_boiler_Soll = value;
             }
         }
@@ -211,7 +212,7 @@ namespace Heizungsregelung
             //gets set through data stream of sensors
             set
             {
-                if (value >= 0 && value < 100)
+                if (value >= 15 && value < 100)
                     m_boiler_Ist = value;
             }
         }
@@ -230,7 +231,7 @@ namespace Heizungsregelung
             }
         }
 
-        public int Wasserverbrauch
+        public double Wasserverbrauch
         {
             get => m_wasserverbrauch;
             //gets set through data stream of sensors
@@ -254,24 +255,31 @@ namespace Heizungsregelung
             //must start first so that the threads that use this class can start properly
             myoutput = new Output();
 
-            //start the helper thread used to calculate the temperatures
-
+            //start the helper threads used to calculate the temperatures
             averageThread = new Thread(new ThreadStart(AverageOutsideTemp));
             averageThread.IsBackground = true;
             averageThread.Priority = ThreadPriority.Lowest;
             averageThread.Start();
-
 
             SollCalcThread = new Thread(new ThreadStart(CalculateTemperatures));
             SollCalcThread.IsBackground = true;
             SollCalcThread.Priority = ThreadPriority.Lowest;
             SollCalcThread.Start();
 
-            ReduceTemperaturesThread = new Thread(ReduceTemps);
-            ReduceTemperaturesThread.IsBackground = true;
-            ReduceTemperaturesThread.Priority = ThreadPriority.Normal;
-            ReduceTemperaturesThread.Start();
+            simulateBoilerTempsThread = new Thread(new ThreadStart(SimulateBoiler));
+            simulateBoilerTempsThread.IsBackground = true;
+            simulateBoilerTempsThread.Priority = ThreadPriority.Normal;
+            simulateBoilerTempsThread.Start();
 
+            simulateHKTempsThread = new Thread(new ThreadStart(SimulateHK));
+            simulateHKTempsThread.IsBackground = true;
+            simulateHKTempsThread.Priority = ThreadPriority.Normal;
+            simulateHKTempsThread.Start();
+
+            simulateMischerAction = new Thread(new ThreadStart(SimulateMischer));
+            simulateMischerAction.IsBackground = true;
+            simulateMischerAction.Priority = ThreadPriority.Normal;
+            simulateMischerAction.Start();
         }
 
         /// <summary>
@@ -317,7 +325,6 @@ namespace Heizungsregelung
 
             while (true)
             {
-
                 #region First Try
                 /*
                 #region Berechnung Quelle
@@ -661,15 +668,13 @@ namespace Heizungsregelung
         }
 
 
-
         /// <summary>
-        /// used to simulate the normal decay of the temperatures
+        /// used to simulate the temperatures of the boiler
         /// </summary>
-        private static void ReduceTemps() 
+        private static void SimulateBoiler() 
         {
-
-            long t = 0;
-            double k_laden;
+            double k_laden, k_entladen, x = 15;
+            int samplerate = 100;
 
             while (true)
             {
@@ -677,10 +682,31 @@ namespace Heizungsregelung
                 {
                     //berechne die steigung der geraden zum laden des boilers
                     //da das laden von 
-                    k_laden = ((double)(m_boiler_Soll) / (double)60000);
+                    k_laden = (m_boiler_Soll / (double)18000);
+                    k_entladen = ( -(m_boiler_Soll / (double)3000000) * m_wasserverbrauch);
 
+                    if(m_pumpe_boiler)
+                    {
+                        x = (k_laden * samplerate) + x;
+                        if((int)x <= m_boiler_Soll)
+                            m_boiler_Ist = (int)x;
+
+                        Thread.Sleep(samplerate);
+                    }
+                    else
+                    {
+                        x = (k_entladen * samplerate) + x;
+                        if((int)x >= (m_boiler_Soll - m_boiler_hysterese))
+                            m_boiler_Ist = (int)x;
+
+                        Thread.Sleep(samplerate);
+                    }
+
+                    #region first try
+                    /*
                     if (m_boiler_Ist >= 15 && !m_pumpe_boiler)
                     {
+                        laden = false;
                         t -= 100;
 
                         m_boiler_Ist = (int)(-k_laden * t) + m_boiler_Soll;
@@ -689,18 +715,80 @@ namespace Heizungsregelung
                     //wenn die pumpe eingeschaltete ist soll der boiler geladen werden
                     else if ((m_boiler_Ist < m_boiler_Soll) && m_pumpe_boiler)
                     {
-
-                        if (m_boiler_Ist <= m_boiler_Soll)
-                            t += 100;
+                        laden = true;
 
                         m_boiler_Ist = (int)(k_laden * t);
+
+                        init = false;
                         Thread.Sleep(100);
                     }
+
+                    if (laden)
+                    {
+                        if (m_boiler_Ist < (m_boiler_Soll - m_boiler_hysterese) && init)
+                            t = 0;
+                    }
+                    */
+                    #endregion first try
                 }
                 else
                 {
                     Thread.Sleep(2000);
                 }
+            }
+        }
+
+        /// <summary>
+        /// used to simulate the temperatures of the keizkreis
+        /// </summary>
+        private static void SimulateHK()
+        {
+            int samplerate = 100;
+            bool init = true;
+            double k_entladen = 0, x = 0;
+
+            while (true)
+            {
+                if (m_pumpe_hk)
+                {
+                    init = true;
+                    m_hk_Ist = (int)(m_quelle_Ist * mischer_offen + m_rl_hk * (1 - mischer_offen));
+                    Thread.Sleep(samplerate);
+                }
+                else
+                {
+                    if (init)
+                    {
+                        init = false;
+                        x = m_hk_Ist;
+                        //berechne die steigung der geraden zum laden des boilers
+                        //da das laden von 
+                        k_entladen = -(m_hk_Ist / (double)600000);
+                    }
+
+                    x = (k_entladen * samplerate) + x;
+                    if ((int)x >= 15)
+                        m_hk_Ist = (int)x;
+
+                    Thread.Sleep(samplerate);
+                }
+            }
+        }
+
+        /// <summary>
+        /// used to simulate the actions of the mischer
+        /// </summary>
+        private static void SimulateMischer()
+        {
+            int seconds;
+            while (true)
+            {
+                if(m_hk_Soll - m_hk_Ist)
+                    seconds = m_hk_Soll - m_vl_hk;
+
+                mischer_offen = (double)(seconds / 100);
+                Thread.Sleep(10000);
+
             }
         }
     }

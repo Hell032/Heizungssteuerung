@@ -186,16 +186,16 @@ namespace Heizungsregelung.Views
                         {
                             //writes the simulated values to the variables used to perform the calculations
                             Program.myCalculations.VorlaufQuelle_Ist = int.Parse(pieces[0]);
-                            Program.myCalculations.Wasserverbrauch = int.Parse(pieces[1]);
-                            Program.myCalculations.NachlaufHeizkreis_Ist = int.Parse(pieces[2]);
+                            Program.myCalculations.Wasserverbrauch = double.Parse(pieces[1]);
+                            Program.myCalculations.RueklaufHK_Ist = int.Parse(pieces[2]);
                             Program.myCalculations.AußenTemp_Ist = int.Parse(pieces[3]);
                         }
                         else
                         {
                             //writes the real values to the variables used to perform the calculations
                             Program.myCalculations.VorlaufQuelle_Ist = int.Parse(pieces[4]);
-                            Program.myCalculations.Wasserverbrauch = int.Parse(pieces[5]);
-                            Program.myCalculations.NachlaufHeizkreis_Ist = int.Parse(pieces[6]);
+                            Program.myCalculations.Wasserverbrauch = double.Parse(pieces[5]);
+                            Program.myCalculations.RueklaufHK_Ist = int.Parse(pieces[6]);
                             Program.myCalculations.AußenTemp_Ist = int.Parse(pieces[7]);
                         }
 
