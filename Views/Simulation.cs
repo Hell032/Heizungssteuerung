@@ -42,7 +42,7 @@ namespace Heizungsregelung.Views
 
                     //write soll werte to simulation form labels
                     this.Soll_Quelle_Label.Text = Program.myCalculations.VorlaufQuelle_Soll + " °C";
-                    this.Soll_HK_Label.Text = Program.myCalculations.VorlaufHeizkreis_Ist + " °C";
+                    this.Soll_HK_Label.Text = Program.myCalculations.VorlaufHeizkreis_Soll + " °C";
                     this.Soll_Boiler_Label.Text = Program.myCalculations.BoilerTemp_Soll + " °C";
                     this.Raumtemp_Label.Text = Program.myCalculations.RaumTemp_Soll + " °C";
                     #endregion labels

@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO.Ports;
 using System.Linq;
 using System.Threading;
 
@@ -160,7 +162,7 @@ namespace Heizungsregelung
         {
             set
             {
-                if (value >= 15 && value < m_hk_Ist - 5)
+                if (value >= 15) //&& value < m_hk_Ist - 5
                     m_rl_hk = value;
             }
         }
@@ -321,7 +323,7 @@ namespace Heizungsregelung
         private static void CalculateTemperatures()
         {
             //used to buffer the thread to load forms and avoid null exceptions
-            Thread.Sleep(5000);
+            Thread.Sleep(2000);
 
             while (true)
             {
@@ -468,7 +470,7 @@ namespace Heizungsregelung
 
                 //wenn der mittelwert (letzten 30 Sekunden) höher als 18°C ist, 
                 //wird die hk pumpe aktiviert und eine anforderung an die quelle gestellt
-                if (m_außen_Mittel < 18)
+                if (m_hk_Ist < m_hk_Soll) //(m_außen_Mittel < 18 ||)
                 {
                     //turn pump on
                     m_pumpe_hk = true;
@@ -476,7 +478,7 @@ namespace Heizungsregelung
                     hk_anforderung = m_hk_Soll + 5;
                 }
                 //wenn nicht wird die hk pumpe nicht aktiviert --> somit ist heizung aus
-                else
+                else if(m_hk_Ist > m_hk_Soll)
                 {
                     //turn pump off
                     m_pumpe_hk = false;
@@ -743,16 +745,17 @@ namespace Heizungsregelung
         /// </summary>
         private static void SimulateHK()
         {
-            int samplerate = 100;
+            int samplerate = 100, rl_old;
             bool init = true;
             double k_entladen = 0, x = 0;
 
             while (true)
             {
+                
                 if (m_pumpe_hk)
                 {
                     init = true;
-                    m_hk_Ist = (int)(m_quelle_Ist * mischer_offen + m_rl_hk * (1 - mischer_offen));
+                    m_hk_Ist = (int)((double)m_quelle_Ist * mischer_offen + (double)m_rl_hk * (1 - mischer_offen));
                     Thread.Sleep(samplerate);
                 }
                 else
@@ -766,11 +769,14 @@ namespace Heizungsregelung
                         k_entladen = -(m_hk_Ist / (double)600000);
                     }
 
-                    x = (k_entladen * samplerate) + x;
+                    //x = (k_entladen * samplerate) + x;
+                    x--;
                     if ((int)x >= 15)
                         m_hk_Ist = (int)x;
+                    if (x < 15.0)
+                        x = 15.0;
 
-                    Thread.Sleep(samplerate);
+                    Thread.Sleep(samplerate*10);
                 }
             }
         }
@@ -780,14 +786,32 @@ namespace Heizungsregelung
         /// </summary>
         private static void SimulateMischer()
         {
-            int seconds;
+            Stopwatch stopwatch = new Stopwatch();
+            int seconds, x;
+
             while (true)
             {
-                if(m_hk_Soll - m_hk_Ist)
-                    seconds = m_hk_Soll - m_vl_hk;
+                if (m_hk_Soll == m_hk_Ist)
+                    seconds = 0;
+                else
+                {
+                    seconds = m_hk_Soll - m_hk_Ist;
+                }
 
-                mischer_offen = (double)(seconds / 100);
-                Thread.Sleep(10000);
+                if (seconds > 10)
+                    seconds = 10;
+                else if (seconds < 0)
+                    seconds = 0;
+
+                mischer_offen = (seconds / (double)100);
+
+                stopwatch.Start();
+
+
+                stopwatch.Stop();
+                //x = (stopwatch.ElapsedMilliseconds * 1000) - 10;
+
+                Thread.Sleep(10);
 
             }
         }
