@@ -36,7 +36,7 @@ namespace Heizungsregelung.Views
                     #region labels 
                     //Write ist werte To Simulation form labels
                     this.Außentemp_Label.Text = Program.myCalculations.AußenTemp_Ist + " °C";
-                    this.Ist_Quelle_Label.Text = Program.myCalculations.VorlaufHeizkreis_Ist + " °C";
+                    this.Ist_Quelle_Label.Text = Program.myCalculations.VorlaufQuelle_Ist + " °C";
                     this.Ist_HK_Label.Text = Program.myCalculations.VorlaufHeizkreis_Ist + " °C";
                     this.Ist_Boiler_Label.Text = Program.myCalculations.BoilerTemp_Ist + " °C";
 

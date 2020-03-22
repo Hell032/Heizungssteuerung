@@ -36,7 +36,7 @@ namespace Heizungsregelung.Views
 
             tempthread = new Thread(new ThreadStart(GetTemps_Thread));
             tempthread.IsBackground = true;
-            tempthread.Priority = ThreadPriority.Highest;
+            tempthread.Priority = ThreadPriority.AboveNormal;
 
             //-----------------------------------------------------------TODO----------------------------------------
             //put serialstuff in a seperate class where all inputs come together
@@ -219,30 +219,6 @@ namespace Heizungsregelung.Views
                     //}); 
                     Debug.WriteLine("SerialPort not open");
                 }
-                //for debuging
-                #region debuging
-                /*
-                for (int i = 0; i < 35; i++)
-                {
-                    Debug.WriteLine(i);
-
-                    this.BeginInvoke((Action)delegate
-                    {
-                        AusentempLabel.Text = i.ToString();
-                        VLQuelleLabel.Text = i.ToString();
-                        VLHKLabel.Text = i.ToString();
-                        BoilertempLabel.Text = i.ToString();
-                    });
-
-                    Thread.Sleep(750);
-                }
-
-                /*
-                AusentempLabel.BeginInvoke(delegate (
-                    this.Text = m_außenTemp
-                    ));
-                */
-                #endregion
             }
         }
 

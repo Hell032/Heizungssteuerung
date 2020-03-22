@@ -16,10 +16,10 @@ namespace Heizungsregelung
         //---------------------------------------------private----------------------------------------
 
         //needed for outside variables
-        private static int m_außen_Mittel, m_quelle_Soll, m_hk_Soll = 60, m_boiler_Soll = 65, m_raum_Soll = 20;
-        private static int m_rl_hk;
-        private static int m_außentemp_Ist, m_quelle_Ist, m_hk_Ist, m_boiler_Ist = 15, m_boiler_hysterese = 10, m_tag_nacht = 4;
-        //only used internally for calculations, mischer repräsentiert den gesamtzyklus dees HK Mischers in millisekunden
+        private static int m_außen_Mittel, m_quelle_Soll, m_vl_hk_Soll = 60, m_boiler_Soll = 65, m_raum_Soll = 20;
+        private static int m_rl_hk = m_vl_hk_Ist - 5;
+        private static int m_außentemp_Ist, m_quelle_Ist, m_vl_hk_Ist, m_boiler_Ist = 15, m_boiler_hysterese = 10, m_tag_nacht = 4;
+        //only used internally for calculations, mischer repräsentiert den gesamtzyklus des HK Mischers in millisekunden
         private static double heizkurve = 1.2, fußpunkt = 25, abweichung_mischer, m_wasserverbrauch = 1.0, mischer_offen = 0.0;
         private static int hk_anforderung, boiler_anforderung;
         private static bool m_anforderung_quelle, m_pumpe_boiler, m_pumpe_hk, m_mischer_auf_hk, m_mischer_zu_hk;
@@ -143,7 +143,7 @@ namespace Heizungsregelung
         /// </summary>
         public int VorlaufHeizkreis_Soll
         {
-            get => m_hk_Soll;
+            get => m_vl_hk_Soll;
         }
 
         /// <summary>
@@ -151,7 +151,7 @@ namespace Heizungsregelung
         /// </summary>
         public int VorlaufHeizkreis_Ist
         {
-            get => m_hk_Ist;
+            get => m_vl_hk_Ist;
         }
 
 
@@ -162,8 +162,10 @@ namespace Heizungsregelung
         {
             set
             {
-                if (value >= 15) //&& value < m_hk_Ist - 5
-                    m_rl_hk = value;
+                if (value >= 5 && value <= 40) //&& value < m_vl_hk_Ist - 5
+                    m_rl_hk = m_vl_hk_Ist  - value;
+                if (m_rl_hk < 15)
+                    m_rl_hk = 15;
             }
         }
 
@@ -289,6 +291,7 @@ namespace Heizungsregelung
         /// </summary>
         private static void AverageOutsideTemp()
         {
+            Thread.Sleep(5000);
             #region calculate average outside temperature
             //sets initial temperature to ist value
             m_außen_Mittel = m_außentemp_Ist;
@@ -356,9 +359,9 @@ namespace Heizungsregelung
                 #region Berechnungen Heizkreis 
 
                 //Heizkurvenberechnung, je kälter aussen bzw höher eingestellte RT, desto mehr Vorlauftemperatur (Max 70°!)
-                m_hk_Soll = (int)((m_raum_Soll - m_außentemp_Ist) * heizkurve + fußpunkt);
-                if (m_hk_Soll >= 70)
-                    m_hk_Soll = 70;
+                m_vl_hk_Soll = (int)((m_raum_Soll - m_außentemp_Ist) * heizkurve + fußpunkt);
+                if (m_vl_hk_Soll >= 70)
+                    m_vl_hk_Soll = 70;
 
                 //wenn der mittelwert (letzten 30 Sekunden) höher als 18°C ist, 
                 //wird die hk pumpe aktiviert und eine anforderung an die quelle gestellt
@@ -368,7 +371,7 @@ namespace Heizungsregelung
                     m_pumpe_hk = true;
                     myoutput.Pumpe_HK(true);
                     //set hk_anforderung
-                    hk_anforderung = m_hk_Soll + 5;
+                    hk_anforderung = m_vl_hk_Soll + 5;
                 }
                 //wenn nicht wird die hk pumpe nicht aktiviert --> somit ist heizung aus
                 else
@@ -379,7 +382,7 @@ namespace Heizungsregelung
                 }
 
                 //abweichung zwischen soll und ist
-                abweichung_mischer = (m_hk_Soll - m_hk_Ist);
+                abweichung_mischer = (m_vl_hk_Soll - m_vl_hk_Ist);
 
                 //Abweichung positiv - Mischer fährt auf 
                 //(Achtung: Mischer darf niemals gleichzeitg die befehle Auf+Zu erhalten)
@@ -443,10 +446,6 @@ namespace Heizungsregelung
 
 
 
-
-
-
-
                 //check what temperatures should be and then set the pumps/valves accordingly 
 
                 //first check the selected functions
@@ -460,38 +459,40 @@ namespace Heizungsregelung
                 #region Berechnungen Heizkreis 
 
                 //Heizkurvenberechnung, je kälter aussen bzw höher eingestellte RT, desto mehr Vorlauftemperatur (Max 70°!)
-                m_hk_Soll = (int)((m_raum_Soll - m_außentemp_Ist) * heizkurve + fußpunkt);
+                m_vl_hk_Soll = (int)((m_raum_Soll - m_außentemp_Ist) * heizkurve + fußpunkt);
                 
                 //check for limits 
-                if (m_hk_Soll >= 70)
-                    m_hk_Soll = 70;
-                if (m_hk_Soll < 0)
-                    m_hk_Soll = 0;
+                if (m_vl_hk_Soll >= 70)
+                    m_vl_hk_Soll = 70;
+                if (m_vl_hk_Soll < 0)
+                    m_vl_hk_Soll = 0;
 
                 //wenn der mittelwert (letzten 30 Sekunden) höher als 18°C ist, 
                 //wird die hk pumpe aktiviert und eine anforderung an die quelle gestellt
-                if (m_hk_Ist < m_hk_Soll) //(m_außen_Mittel < 18 ||)
+                if (m_vl_hk_Ist < m_vl_hk_Soll && m_außen_Mittel < 18) //(m_außen_Mittel < 18 ||)
                 {
                     //turn pump on
                     m_pumpe_hk = true;
                     //set hk_anforderung
-                    hk_anforderung = m_hk_Soll + 5;
+                    hk_anforderung = m_vl_hk_Soll + 5;
                 }
                 //wenn nicht wird die hk pumpe nicht aktiviert --> somit ist heizung aus
-                else if(m_hk_Ist > m_hk_Soll)
+                else if(m_vl_hk_Ist > m_vl_hk_Soll)
                 {
                     //turn pump off
                     m_pumpe_hk = false;
                     hk_anforderung = 0;
                 }
 
-                if (m_hk_Soll == 0)
+                if (m_vl_hk_Soll == 0)
+                {
                     m_pumpe_hk = false;
-
+                }
 
                 #region Berechnung Mischer HK
+                /*
                 //abweichung zwischen soll und ist
-                abweichung_mischer = (m_hk_Soll - m_hk_Ist);
+                abweichung_mischer = (m_vl_hk_Soll - m_vl_hk_Ist);
 
                 //Abweichung positiv - Mischer fährt auf 
                 //(Achtung: Mischer darf niemals gleichzeitg die befehle Auf+Zu erhalten)
@@ -514,6 +515,7 @@ namespace Heizungsregelung
                     m_mischer_auf_hk = false;
                     m_mischer_zu_hk = false;
                 }
+                */
                 #endregion Berechnung Mischer HK
 
                 #endregion Berechnungen Heizkreis 
@@ -554,10 +556,8 @@ namespace Heizungsregelung
                     m_boiler_Soll = 0;
                     boiler_anforderung = 0;
                     hk_anforderung = 0;
-                    m_hk_Soll = 0;
-                    //set mischer von hk auf zu das kein wasser zirkulieren kann 
-                    m_mischer_auf_hk = false;
-                    m_mischer_zu_hk = true;
+                    m_vl_hk_Soll = 0;
+                    //set mischer von hk auf zu das kein wasser zirkulieren kann
                     m_pumpe_hk = false;
                     m_pumpe_boiler = false;
 
@@ -566,11 +566,9 @@ namespace Heizungsregelung
                 if (Program.FunctionsForm.SommerWinterForm.SommerON && m_außen_Mittel > 5)
                 {
                     //heizung ist aus, boiler unverändert bzw. auf normalem sollwert
-                    m_hk_Soll = 0;
+                    m_vl_hk_Soll = 0;
                     hk_anforderung = 0;
                     //set mischer zu auf true zu das kein wasser zirkulieren kann und pumpe auschalten
-                    m_mischer_auf_hk = false;
-                    m_mischer_zu_hk = true;
                     m_pumpe_hk = false;
                 }
 
@@ -579,9 +577,8 @@ namespace Heizungsregelung
                     //raum soll temp um vom user eingestellte temp verringern
                     m_raum_Soll = m_raum_Soll - m_tag_nacht;
 
-                    if (m_außen_Mittel > 15)
+                    if (m_außen_Mittel > 18)
                         m_pumpe_hk = false;
-
                 }
 
                 #endregion handle selected functions
@@ -599,7 +596,7 @@ namespace Heizungsregelung
                 {
                     m_quelle_Soll = 20;
                     m_boiler_Soll = 20;
-                    m_hk_Soll = 20;
+                    m_vl_hk_Soll = 20;
                 }                     //wenn hk und boiler kleiner als 20 und außentemp unter 5 ist
                 else
                     m_quelle_Soll = 0;
@@ -619,6 +616,7 @@ namespace Heizungsregelung
 
                 #region fixed Anti-Freeze / heating system protection
                 //standard antifreeze to protect the whole heatingsystem when lower outside temps are detected
+
 
                 #endregion Fixed Anti-Freeze / heating system protection
 
@@ -684,7 +682,7 @@ namespace Heizungsregelung
                 {
                     //berechne die steigung der geraden zum laden des boilers
                     //da das laden von 
-                    k_laden = (m_boiler_Soll / (double)18000);
+                    k_laden = (m_boiler_Soll / (double)30000);
                     k_entladen = ( -(m_boiler_Soll / (double)3000000) * m_wasserverbrauch);
 
                     if(m_pumpe_boiler)
@@ -740,12 +738,13 @@ namespace Heizungsregelung
             }
         }
 
+
         /// <summary>
         /// used to simulate the temperatures of the keizkreis
         /// </summary>
         private static void SimulateHK()
         {
-            int samplerate = 100, rl_old;
+            int samplerate = 100;
             bool init = true;
             double k_entladen = 0, x = 0;
 
@@ -755,7 +754,9 @@ namespace Heizungsregelung
                 if (m_pumpe_hk)
                 {
                     init = true;
-                    m_hk_Ist = (int)((double)m_quelle_Ist * mischer_offen + (double)m_rl_hk * (1 - mischer_offen));
+                    
+                    m_vl_hk_Ist = (int)((double)m_quelle_Ist * mischer_offen + (double)m_rl_hk * (1 - mischer_offen));
+
                     Thread.Sleep(samplerate);
                 }
                 else
@@ -763,16 +764,16 @@ namespace Heizungsregelung
                     if (init)
                     {
                         init = false;
-                        x = m_hk_Ist;
+                        x = m_vl_hk_Ist;
                         //berechne die steigung der geraden zum laden des boilers
                         //da das laden von 
-                        k_entladen = -(m_hk_Ist / (double)600000);
+                        k_entladen = -(m_vl_hk_Ist / (double)600000);
                     }
 
                     //x = (k_entladen * samplerate) + x;
                     x--;
                     if ((int)x >= 15)
-                        m_hk_Ist = (int)x;
+                        m_vl_hk_Ist = (int)x;
                     if (x < 15.0)
                         x = 15.0;
 
@@ -787,15 +788,29 @@ namespace Heizungsregelung
         private static void SimulateMischer()
         {
             Stopwatch stopwatch = new Stopwatch();
-            int seconds, x;
+            int seconds;
 
             while (true)
             {
-                if (m_hk_Soll == m_hk_Ist)
+
+                if(m_pumpe_hk)
+                {
+                    m_mischer_auf_hk = true;
+                    m_mischer_zu_hk = false;
+                }
+                else 
+                {
+                    m_mischer_auf_hk = false;
+                    m_mischer_zu_hk = true;
+                }
+
+
+
+                if (m_vl_hk_Soll == m_vl_hk_Ist)
                     seconds = 0;
                 else
                 {
-                    seconds = m_hk_Soll - m_hk_Ist;
+                    seconds = m_vl_hk_Soll - m_vl_hk_Ist;
                 }
 
                 if (seconds > 10)
@@ -805,13 +820,7 @@ namespace Heizungsregelung
 
                 mischer_offen = (seconds / (double)100);
 
-                stopwatch.Start();
-
-
-                stopwatch.Stop();
-                //x = (stopwatch.ElapsedMilliseconds * 1000) - 10;
-
-                Thread.Sleep(10);
+                Thread.Sleep(10000);
 
             }
         }
