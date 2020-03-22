@@ -39,6 +39,8 @@ namespace Heizungsregelung.Views
                     this.Ist_Quelle_Label.Text = Program.myCalculations.VorlaufQuelle_Ist + " °C";
                     this.Ist_HK_Label.Text = Program.myCalculations.VorlaufHeizkreis_Ist + " °C";
                     this.Ist_Boiler_Label.Text = Program.myCalculations.BoilerTemp_Ist + " °C";
+                    this.Wasserverbrauch_label.Text = Program.myCalculations.Wasserverbrauch + " %";
+                    this.RuecklaufHK_Ist_label.Text = Program.myCalculations.RueklaufHK_Ist + " °C";
 
                     //write soll werte to simulation form labels
                     this.Soll_Quelle_Label.Text = Program.myCalculations.VorlaufQuelle_Soll + " °C";
@@ -81,6 +83,8 @@ namespace Heizungsregelung.Views
                         this.HK_Mischer_Zu_Label.BackColor = Color.Green;
                     else
                         this.HK_Mischer_Zu_Label.BackColor = Color.Red;
+
+                    Mischer_offen_Prozent_label.Text = Program.myCalculations.Mischer_offen.ToString() + " %";
 
                     #endregion Mischer HK
 
