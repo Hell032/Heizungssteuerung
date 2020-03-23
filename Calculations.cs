@@ -17,10 +17,10 @@ namespace Heizungsregelung
 
         //needed for outside variables
         private static int m_außen_Mittel, m_quelle_Soll, m_vl_hk_Soll, m_boiler_Soll = 65, m_raum_Soll = 20;
-        private static int m_rl_hk = m_vl_hk_Ist - 5;
+        private static int m_rl_hk = 15;
         private static int m_außentemp_Ist, m_quelle_Ist, m_vl_hk_Ist = 15, m_boiler_Ist = 15, m_boiler_hysterese = 10, m_tag_nacht = 4;
         //only used internally for calculations, mischer repräsentiert den gesamtzyklus des HK Mischers in millisekunden
-        private static double heizkurve = 1.2, fußpunkt = 25, abweichung_mischer, m_wasserverbrauch = 1.0, mischer_offen = 0.05;
+        private static double heizkurve = 1.2, fußpunkt = 25, abweichung_mischer, m_wasserverbrauch = 1.0, mischer_offen = 0.0;
         private static int hk_anforderung, boiler_anforderung;
 
 
@@ -165,16 +165,19 @@ namespace Heizungsregelung
             get => m_rl_hk;
             set
             {
-                if (value >= 0 )
-                {
-                    m_rl_hk = m_vl_hk_Ist - value; // 
-                    //wenn die rücklauftemp größer ist als die vorlauftemp - 5 --> rl temp = vl_temp - 5
-                    if (m_rl_hk >= m_vl_hk_Ist - 5)
-                        m_rl_hk = m_vl_hk_Ist - 5;
-                    //wenn die rl temp < 15 ist --> rl_temp = 15
-                    if (m_rl_hk < 15)
-                        m_rl_hk = 15;
-                }
+                if (m_vl_hk_Ist - value >= 15 && (m_vl_hk_Ist - value < m_vl_hk_Ist - 5))
+                    m_rl_hk = m_vl_hk_Ist - value;
+
+                //if (value >= 0 && (m_vl_hk_Ist - value <= m_vl_hk_Ist - 5) && (m_vl_hk_Ist - value >= 15))
+                //{
+                //    m_rl_hk = m_vl_hk_Ist - value; 
+                //    //wenn die rücklauftemp größer ist als die vorlauftemp - 5 --> rl temp = vl_temp - 5
+                //    //if (m_rl_hk >= m_vl_hk_Ist - 5)
+                //    //    m_rl_hk = m_vl_hk_Ist - 5;
+                //    //wenn die rl temp < 15 ist --> rl_temp = 15
+                //    //if (m_rl_hk < 15)
+                //    //    m_rl_hk = 15;
+                //}
                    
             }
         }
@@ -808,150 +811,173 @@ namespace Heizungsregelung
         /// </summary>
         private static void SimulateHK()
         {
-            Stopwatch stopwatch = new Stopwatch();
-            stopwatch.Start();
+
+            Thread.Sleep(5000);
+
+            Stopwatch mischerZeit = new Stopwatch();
+            Stopwatch reduceTempZeit = new Stopwatch();
+
             int samplerate = 300, y = 15;
             bool init = true;
             double k_entladen = 0, x = 0;
 
-            Thread.Sleep(5000);
+            mischerZeit.Start();
+            reduceTempZeit.Start();
 
             while (true)
             {
+
                 if (Program.SetupForm.SimulationMode)
                 {
-                    //Heizkurvenberechnung, je kälter aussen bzw höher eingestellte RT, desto mehr Vorlauftemperatur (Max 70°!)
-                    m_vl_hk_Soll = (int)((m_raum_Soll - m_außentemp_Ist) * heizkurve + fußpunkt);
 
-                    //check for limits 
-                    if (m_vl_hk_Soll >= 70)
-                        m_vl_hk_Soll = 70;
-                    if (m_vl_hk_Soll < 0)
-                        m_vl_hk_Soll = 0;
+                    m_vl_hk_Ist = (int)((double)m_quelle_Ist * mischer_offen + (double)m_rl_hk * (1 - mischer_offen));
 
-                    //wenn der mittelwert (letzten 30 Sekunden) höher als 18°C ist, 
-                    //wird die hk pumpe aktiviert und eine anforderung an die quelle gestellt
-                    if (m_vl_hk_Ist < m_vl_hk_Soll && m_außen_Mittel < 18) //(m_außen_Mittel < 18 ||)
-                    {
-                        //turn pump on
-                        m_pumpe_hk = true;
-                        //set hk_anforderung
-                        hk_anforderung = m_vl_hk_Soll + 5;
-                    }
-                    //wenn nicht wird die hk pumpe nicht aktiviert --> somit ist heizung aus
-                    else if (m_vl_hk_Ist > m_vl_hk_Soll)
-                    {
-                        //turn pump off
-                        m_pumpe_hk = false;
-                        hk_anforderung = 0;
-                    }
+                    if (m_vl_hk_Ist < 15)
+                        m_vl_hk_Ist = 15;
 
-                    //if (m_vl_hk_Soll == 0)
+
+                    #region reduce the system temperature constantly 
+
+                    //if (reduceTempZeit.ElapsedMilliseconds >= 2500 && (m_mischer_zu_hk || m_pumpe_hk || !m_pumpe_hk))
                     //{
-                    //    m_pumpe_hk = false;
+                    //    reduceTempZeit.Restart();
+                    //        x++;
+                    //}
+                    //if (m_mischer_auf_hk) 
+                    //{
+                    //    x = 0;
                     //}
 
-                    #region Berechnung Mischer HK
 
-                    if (stopwatch.ElapsedMilliseconds >= 500)
-                    {
-                        //wenn 10 sekunden vorbei sind soll resetiert werden
-                        stopwatch.Reset();
-
-                        //abweichung zwischen soll und ist
-                        abweichung_mischer = (m_vl_hk_Soll - m_vl_hk_Ist);
-
-                        if (abweichung_mischer > 10)
-                            abweichung_mischer = 10;
-                        else if (abweichung_mischer < -10)
-                            abweichung_mischer = -10;
-
-                        //Abweichung positiv - Mischer fährt auf 
-                        //(Achtung: Mischer darf niemals gleichzeitg die befehle Auf+Zu erhalten)
-                        if (abweichung_mischer > 2)
-                        {
-                            m_mischer_auf_hk = true;
-                            m_mischer_zu_hk = false;
-                            mischer_offen += (double)abweichung_mischer / 100;
-                        }
-                        //Abweichung negativ - Mischer fährt zu für die dauer von t1*1s 
-                        //(also je weiter die abweichung, desto länger steht der Befehl an,
-                        //nach 8sec wird wieder verglichen - geringere abweichung - kürzerer befehl) ------ ? matze fragen
-                        else if (abweichung_mischer < -2)
-                        {
-                            m_mischer_auf_hk = false;
-                            m_mischer_zu_hk = true;
-                            mischer_offen += (double)abweichung_mischer / 100;
-                        }
-                        //bei kleiner abweichung wird der mischer nicht angesteuert
-                        else if (abweichung_mischer > -2 || abweichung_mischer < 2)
-                        {
-                            m_mischer_auf_hk = false;
-                            m_mischer_zu_hk = false;
-                        }
-
-                        //make sure that the mischer_offen is between 0.0 and 1.0
-                        if (mischer_offen > 1.0)
-                        {
-                            mischer_offen = 1.0;
-                            m_vl_hk_Ist = m_quelle_Ist;
-                        }
-
-                        else if (mischer_offen < 0.00)
-                        {
-                            mischer_offen = 0.0;
-                            m_vl_hk_Ist = m_rl_hk + 5;
-                        }
-                    }
-                    else
-                    {
-                        stopwatch.Start();
-                    }
-
-
-                    if(m_mischer_auf_hk)
-                    {
-                        init = true;
-
-                        y = (int)((double)m_quelle_Ist * mischer_offen + (double)m_rl_hk * (1 - mischer_offen));
-                        if (m_vl_hk_Ist < 15)
-                            m_vl_hk_Ist = 15;
-
-                        if (y > m_vl_hk_Ist)
-                        {
-                            m_vl_hk_Ist++;
-                        }
-
-                        Thread.Sleep(samplerate * 10);
-                    }
-                    else
-                    {
-                        if (init)
-                        {
-                            init = false;
-
-                            x = m_vl_hk_Ist;
-                            //berechne die steigung der geraden zum laden des boilers
-                            //da das laden von 
-                            k_entladen = -(m_vl_hk_Ist / (double)60000);
-                        }
-
-                        //x = (k_entladen * samplerate) + x;
-                        x--;
-                        if ((int)x >= 15)
-                            m_vl_hk_Ist = (int)x;
-                        if (x < 15.0)
-                            x = 15.0;
-
-                        Thread.Sleep(samplerate * 10);
-                    }
+                    //k_entladen = (-(m_vl_hk_Ist / (double)3000000));
+                    //
+                    //x = (k_entladen * samplerate) + x;
+                    //if ((int)x >= 15)
+                    //    m_boiler_Ist = (int)x;
+                    //
+                    #endregion reduce the system temperature constantly
                 }
-                else
+
+
+                #region Calculation of temperatures and mischer 
+                //Heizkurvenberechnung, je kälter aussen bzw höher eingestellte RT, desto mehr Vorlauftemperatur (Max 70°!)
+                m_vl_hk_Soll = (int)((m_raum_Soll - m_außentemp_Ist) * heizkurve + fußpunkt);
+
+                //check for limits 
+                if (m_vl_hk_Soll >= 70)
+                    m_vl_hk_Soll = 70;
+                if (m_vl_hk_Soll < 0)
+                    m_vl_hk_Soll = 0;
+
+
+
+                //wenn der mittelwert (letzten 30 Sekunden) höher als 18°C ist, 
+                //wird die hk pumpe aktiviert und eine anforderung an die quelle gestellt
+                if (m_vl_hk_Ist < m_vl_hk_Soll && m_außen_Mittel < 18) //(m_außen_Mittel < 18 ||)
                 {
-                    Thread.Sleep(5000);
+                    //turn pump on
+                    m_pumpe_hk = true;
+                    //set hk_anforderung
+                    hk_anforderung = m_vl_hk_Soll + 5;
+                }
+                //wenn nicht wird die hk pumpe nicht aktiviert --> somit ist heizung aus
+                else if (m_vl_hk_Ist > m_vl_hk_Soll)
+                {
+                    //turn pump off
+                    m_pumpe_hk = false;
+                    hk_anforderung = 0;
                 }
 
-                    #endregion Berechnung HK
+
+
+                //der mischer soll jede sekunde korrigiert werden
+                if (mischerZeit.ElapsedMilliseconds >= 1000)
+                {
+                    //wenn 10 sekunden vorbei sind soll resetiert werden
+                    mischerZeit.Restart();
+
+                    //abweichung zwischen soll und ist
+                    abweichung_mischer = (m_vl_hk_Soll - m_vl_hk_Ist);
+
+                    if (abweichung_mischer > 10)
+                        abweichung_mischer = 10;
+                    else if (abweichung_mischer < -10)
+                        abweichung_mischer = -10;
+
+                    //Abweichung positiv - Mischer fährt auf 
+                    //(Achtung: Mischer darf niemals gleichzeitg die befehle Auf+Zu erhalten)
+                    if (abweichung_mischer > 2)
+                    {
+                        m_mischer_auf_hk = true;
+                        m_mischer_zu_hk = false;
+                        mischer_offen += (double)abweichung_mischer / 100;
+                    }
+                    //Abweichung negativ - Mischer fährt zu für die dauer von t1*1s 
+                    //(also je weiter die abweichung, desto länger steht der Befehl an,
+                    //nach 8sec wird wieder verglichen - geringere abweichung - kürzerer befehl) ------ ? matze fragen
+                    else if (abweichung_mischer < -2)
+                    {
+                        m_mischer_auf_hk = false;
+                        m_mischer_zu_hk = true;
+                        mischer_offen += (double)abweichung_mischer / 100;
+                    }
+                    //bei kleiner abweichung wird der mischer nicht angesteuert
+                    else if (abweichung_mischer > -2 || abweichung_mischer < 2)
+                    {
+                        m_mischer_auf_hk = false;
+                        m_mischer_zu_hk = false;
+                    }
+
+                    //make sure that the mischer_offen is between 0.0 and 1.0
+                    if (mischer_offen > 1.0)
+                    {
+                        mischer_offen = 1.0;
+                        m_vl_hk_Ist = m_quelle_Ist;
+                    }
+
+                    else if (mischer_offen < 0.00)
+                    {
+                        mischer_offen = 0.0;
+                        m_vl_hk_Ist = m_rl_hk + 5;
+                    }
+                }
+
+                #endregion Calculation of temperatures and mischer 
+
+                //if(m_mischer_auf_hk)
+                {
+                    //    init = true;
+                    //
+                    //
+                    //    if (y > m_vl_hk_Ist)
+                    //    {
+                    //        m_vl_hk_Ist++;
+                    //    }
+                    //
+                    //    Thread.Sleep(samplerate * 10);
+                    //}
+                    //else
+                    //{
+                    //    if (init)
+                    //    {
+                    //        init = false;
+                    //
+                    //        x = m_vl_hk_Ist;
+                    //        //berechne die steigung der geraden zum laden des boilers
+                    //        //da das laden von 
+                    //        k_entladen = -(m_vl_hk_Ist / (double)60000);
+                    //    }
+                    //
+                    //    //x = (k_entladen * samplerate) + x;
+                    //    x--;
+                    //    if ((int)x >= 15)
+                    //        m_vl_hk_Ist = (int)x;
+                    //    if (x < 15.0)
+                    //        x = 15.0;
+                    //
+                    //    Thread.Sleep(samplerate * 10);
+                    }
+
             }
         }
 
