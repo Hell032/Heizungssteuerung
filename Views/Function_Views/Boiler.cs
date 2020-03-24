@@ -53,7 +53,7 @@ namespace Heizungsregelung.Views.Function_Views
             this.BoilerSoll_Label.Text = Program.myCalculations.BoilerTemp_Soll + " °C";
             Debug.WriteLine("BoilerSoll_UP_Button_Click");
         }
-
+        //
 
         //Boiler Hysterese Click Events
         private void Boiler_Hyterese_DOWN_Click(object sender, EventArgs e)
@@ -69,5 +69,7 @@ namespace Heizungsregelung.Views.Function_Views
             this.BoilerHysterese_Label.Text = Program.myCalculations.Boiler_Hysterese + " °C";
             Debug.WriteLine("Hyterese_Boiler_UP_Click");
         }
+        //
     }
+
 }

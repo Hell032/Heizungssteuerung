@@ -28,9 +28,11 @@ namespace Heizungsregelung
 
         public Output()
         {
+            //if a unix platform ie rpi and physical gpio pins are detected then set WiringPiAvailable to true
             if (CheckForWiringPiSetuPhys()) WiringPiAvailable = true;
             else WiringPiAvailable = false;
 
+            //declare the gpio pins as outputs and set them to high 
             if (WiringPiAvailable)
             {
                 GPIO.pinMode(quelle, (int)GPIO.GPIOpinmode.Output);
@@ -45,12 +47,20 @@ namespace Heizungsregelung
                 GPIO.digitalWrite( mischer_auf, (int)GPIO.GPIOpinvalue.High);
                 GPIO.digitalWrite(mischer_zu, (int)GPIO.GPIOpinvalue.High);
 
+
+                //start the startup thread to check all the pins functionality
                 Thread outputstart = new Thread(new ThreadStart(StartUP));
                 outputstart.IsBackground = true;
                 outputstart.Start();
             }
         }
 
+        #region set pins 
+
+        /// <summary>
+        /// set the pin for Anforderung_Quelle HIGH or LOW via the status variable
+        /// </summary>
+        /// <param name="status"></param>
         public void Anforderung_Quelle(bool status)
         {
             if (WiringPiAvailable) 
@@ -61,6 +71,11 @@ namespace Heizungsregelung
                     GPIO.digitalWrite(quelle, (int)GPIO.GPIOpinvalue.High);
             }
         }
+
+        /// <summary>
+        /// set the pin for Pumpe_Boiler HIGH or LOW via the status variable
+        /// </summary>
+        /// <param name="status"></param>
         public void Pumpe_Boiler(bool status)
         {
             if (WiringPiAvailable)
@@ -71,6 +86,11 @@ namespace Heizungsregelung
                     GPIO.digitalWrite(pump_boiler, (int)GPIO.GPIOpinvalue.High);
             }
         }
+
+        /// <summary>
+        /// set the pin for Pumpe_HK HIGH or LOW via the status variable 
+        /// </summary>
+        /// <param name="status"></param>
         public void Pumpe_HK(bool status)
         {
             if (WiringPiAvailable)
@@ -81,6 +101,11 @@ namespace Heizungsregelung
                     GPIO.digitalWrite(pump_hk, (int)GPIO.GPIOpinvalue.High);
             }
         }
+
+        /// <summary>
+        /// set the pin for Mischer_AUF HIGH or LOW via the status variable
+        /// </summary>
+        /// <param name="status"></param>
         public void Mischer_AUF(bool status)
         {
             if (WiringPiAvailable)
@@ -91,6 +116,11 @@ namespace Heizungsregelung
                     GPIO.digitalWrite(mischer_zu, (int)GPIO.GPIOpinvalue.High);
             }
         }
+
+        /// <summary>
+        /// set the pin for Mischer_ZU HIGH or LOW via the status variable
+        /// </summary>
+        /// <param name="status"></param>
         public void Mischer_ZU(bool status)
         {
             if (WiringPiAvailable)
@@ -102,16 +132,19 @@ namespace Heizungsregelung
             }
         }
 
+        #endregion set pins
 
 
-        //------------------------------------------------- HELPER ---- METHODE -----------------------------------------------------------
+        //------------------------------------------------- HELPER METHODES -----------------------------------------------------------
+        //checks if a unix platform and gpio pins are available
         private bool CheckForWiringPiSetuPhys()
         {
             if (Environment.OSVersion.Platform.ToString() == "Unix")
             {
                 // The WiringPiSetup method is static and returns either true or false
                 // Any value less than 0 represents a failure
-                if (Init.WiringPiSetupPhys() >= 0) return true;
+                if (Init.WiringPiSetupPhys() >= 0)
+                    return true;
                 else
                 {
                     //ensures that it initializes the GPIO interface and reports ready to work. We will use Physical Pin Numbers
@@ -127,40 +160,34 @@ namespace Heizungsregelung
 
         }
 
+
+        /// <summary>
+        /// used at startup to test all the gpio pins functionality
+        /// </summary>
         private void StartUP()
         {
-            Thread.Sleep(1000);
-            GPIO.digitalWrite(quelle, (int)GPIO.GPIOpinvalue.High);
-            Thread.Sleep(750);
-            GPIO.digitalWrite(pump_boiler, (int)GPIO.GPIOpinvalue.High);
-            Thread.Sleep(750);
-            GPIO.digitalWrite(pump_hk, (int)GPIO.GPIOpinvalue.High);
-            Thread.Sleep(750);
-            GPIO.digitalWrite(mischer_auf, (int)GPIO.GPIOpinvalue.High);
-            Thread.Sleep(750);
-            GPIO.digitalWrite(mischer_zu, (int)GPIO.GPIOpinvalue.High);
-            Thread.Sleep(5000);
+            Thread.Sleep(500);
             GPIO.digitalWrite(quelle, (int)GPIO.GPIOpinvalue.Low);
-            Thread.Sleep(750);
+            Thread.Sleep(250);
             GPIO.digitalWrite(pump_boiler, (int)GPIO.GPIOpinvalue.Low);
-            Thread.Sleep(750);
+            Thread.Sleep(250);
             GPIO.digitalWrite(pump_hk, (int)GPIO.GPIOpinvalue.Low);
-            Thread.Sleep(750);
+            Thread.Sleep(250);
             GPIO.digitalWrite( mischer_auf, (int)GPIO.GPIOpinvalue.Low);
-            Thread.Sleep(750);
+            Thread.Sleep(250);
             GPIO.digitalWrite(mischer_zu, (int)GPIO.GPIOpinvalue.Low);
-            Thread.Sleep(5000);
+            Thread.Sleep(500);
             GPIO.digitalWrite(quelle, (int)GPIO.GPIOpinvalue.High);
-            Thread.Sleep(750);
             GPIO.digitalWrite(pump_boiler, (int)GPIO.GPIOpinvalue.High);
-            Thread.Sleep(750);
             GPIO.digitalWrite(pump_hk, (int)GPIO.GPIOpinvalue.High);
-            Thread.Sleep(750);
             GPIO.digitalWrite( mischer_auf, (int)GPIO.GPIOpinvalue.High);
-            Thread.Sleep(750);
-            GPIO.digitalWrite(mischer_zu, (int)GPIO.GPIOpinvalue.High);
+            GPIO.digitalWrite(mischer_zu, (int)GPIO.GPIOpinvalue.High);           
         }
 
+
+        /// <summary>
+        /// dispose all the gpio pins when the application is closed
+        /// </summary>
         public void DisposeOpenConnections()
         {
             if (WiringPiAvailable)
