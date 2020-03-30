@@ -1,5 +1,8 @@
 # diplwinform_v1_1
+Dear User,
+this repository is part of my diploma thesis and is freely available to download. 
 
-This repository is part of my diploma thesis and is freely available to download. 
+I'm not taking any legal response on how this code is used.
 
-I'm taking no legal response on how this code will be used in the future.
+Best regards and I wish you the best 
+Hell032
